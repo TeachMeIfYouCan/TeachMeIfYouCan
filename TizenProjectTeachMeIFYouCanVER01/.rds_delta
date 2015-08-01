@@ -3,5 +3,5 @@
 #modify
 res/wgt/author-signature.xml
 res/wgt/signature1.xml
-res/wgt/js/student_screen.js
-res/wgt/student_screen.html
+res/wgt/page_class_list.html
+res/wgt/page_friend_list.html

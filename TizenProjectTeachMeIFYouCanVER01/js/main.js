@@ -1,3 +1,5 @@
+var previous_screen_orientation = "portrait-primary";
+
 ( function () {
 	window.addEventListener( 'tizenhwkey', function( ev ) {
 		if( ev.keyName == "back" ) {
@@ -9,6 +11,9 @@
 				} catch (ignore) {
 				}
 			} else {
+				
+				screen.lockOrientation(previous_screen_orientation);
+				
 				window.history.back();
 			}
 		}

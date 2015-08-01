@@ -8,7 +8,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>HF4d4oOHn5sFjDzHhJKsEYtziB/+3FHyahm5S6mRJWY=</DigestValue>
+<DigestValue>HOR5k9TnfFzA6lbsGRqORmB/3mojN1WrV7/Y0bMlpXM=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -28,7 +28,7 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>uMa8RVRhJY/9jXhDaweBjpV5bx3NKMDdW5TqL27xB/A=</DigestValue>
+<DigestValue>0UHSDX/NtBe5QKQeyGfYbrxoRixONoG3ofcPPtCjYjM=</DigestValue>
 </Reference>
 <Reference URI="js%2Fstudent_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2152,7 +2152,7 @@
 </Reference>
 <Reference URI="page_class_list.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>J6u/OG0DRPWAEAKgAkNe69iWBRLy5eLG8YKGUv9x7Ks=</DigestValue>
+<DigestValue>/XPXGov5DhQROwTEGPcwwatjRWHEg14jp3iqnPe+Yo4=</DigestValue>
 </Reference>
 <Reference URI="page_friend_list.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2191,11 +2191,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-lDk1PZnKkMERUZD7ixxtLEUs+2UvIH427usGe+4Vusoph0rBcfZcLnzqIupiwj6jwaZ+8xF8IAUQ
-v3V9X7C6xActpxuEO6xArBcIRLJ7VHXT7F/o1vw+RrMfvNUhnkD+DQVKFIV8Hrjs8pT3uKZE2EHG
-CJdzIWplx/xTwfXkocgZs8HOXWTWAN4aiOJMs+qvPLFoFnxFs5FwwzOpEyhlBN2K5SCY0hCiAijC
-dyyX+LEiSTl8M0cwIsoWJA+5cCeLTPpT/iRWc/DRR61QchiSfMLaUgIq2okHA8Wr/Vm4AAK1HBKQ
-DbXo3x8av5qSrTEhmW+1Gn6wdcVRD2hqjESKog==
+c/455IERtRAcsY9JY0ZWfE4gVRqv8j0nkf9ksMJPKZ7CbFUJ4p7Ma61Jfa2P+Z3NPjl4Imp/87Yo
+0QavbgIzGJK2/uu4rGDzH0/10ZyBem/VK0g4ZVENaYKTKnLW7La1S2grARA8ObeRwSjJAChcSQvn
+Gq9WWSvAK+9Z2JXLYfZ14ELGSYPDqMtuFXT7H+YNIMK4sJ3oVC2qJaPmloQi5dHlgMzO26G6IUF2
+g0VPaF4TdErgu5TLQi0yTHRmjhgMBkldHYIfSX8QHxxckoM+GTjZXCzWMrYg0s7+DedaytckJJEV
+1uPOSloE0Qym7Gyjs9rNCzJu/MkczaWDjUTQ/Q==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

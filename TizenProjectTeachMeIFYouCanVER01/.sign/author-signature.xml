@@ -24,7 +24,7 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>uMa8RVRhJY/9jXhDaweBjpV5bx3NKMDdW5TqL27xB/A=</DigestValue>
+<DigestValue>0UHSDX/NtBe5QKQeyGfYbrxoRixONoG3ofcPPtCjYjM=</DigestValue>
 </Reference>
 <Reference URI="js%2Fstudent_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2148,7 +2148,7 @@
 </Reference>
 <Reference URI="page_class_list.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>J6u/OG0DRPWAEAKgAkNe69iWBRLy5eLG8YKGUv9x7Ks=</DigestValue>
+<DigestValue>/XPXGov5DhQROwTEGPcwwatjRWHEg14jp3iqnPe+Yo4=</DigestValue>
 </Reference>
 <Reference URI="page_friend_list.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2187,11 +2187,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-nY9rcDVQESTAo4iFFUD2Gt2viwbVAiPqhGwgEH9zG2bjigcuXyIDiVKGWt4SQpS6cwRsRbm6Fhq7
-tDnGIVdFmp9B0iR08NIcbU0UNRQPVi9jmXWmJq9rcpmlgeJJte/LexnBP5aosxHg3UgkM7EsWpIz
-TeShfcxYSDOo7vD/yRa0G/CGuC6LFBHuSw2++m9VPU58G/Hrsice6x0u6YTLXcvNtEV5N6UNbrU2
-6pxFQGHmN304gn+PP4ytUWHMIXZbrob5soZGd5AQQm9GWJzNWlgYZO4jj/26XHvRMF/52tGQcjdE
-AOfXnTF7knjbRB3IbvZEp27H/M2B8+w2WuDV9g==
+k7ZC+BKj7m89ThSoPrim91CSqWnVkNlQvj55eDZCFQbpvWfO8D8/tx8STj5pihmTghSz5xCzQl/f
+9ZYvzMXpMmvyqKYyfsumE7oAfB4D/TU9+nnVLzJzdbnOQPC83uSSrXmJHsZpBWZD54q/pueo+2ls
+YOhGUeVUAKmiRUIOJE66tIUOLOa0MU3SCovc0G9m4c3A/Ab6T84eFr0/ctqKxzrPnnWgl0xKVyCs
+oWzYRTl6RYLnoC3yL89ZmuzQaa6ww+aHOw9ydo0wE9Im6F8DCEK+x3vYbURlUxQZPbmYveYmlm6D
+1vZE8SOR0s8XISpK59dglbxshjaJDIwnLXXbeg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
