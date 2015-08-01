@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/TizenWebNavigationAppExample" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="Y2QbwJHU6E.TizenWebNavigationAppExample" package="Y2QbwJHU6E" required_version="2.3"/>
+    <content src="page_friend_list.html"/>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <feature name="http://tizen.org/feature/sensor.magnetometer"/>
+    <icon src="icon.png"/>
+    <name>TizenWebNavigationAppExample</name>
+    <tizen:privilege name="http://tizen.org/privilege/fullscreen"/>
+    <tizen:profile name="mobile"/>
+    <tizen:setting screen-orientation="portrait" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+</widget>

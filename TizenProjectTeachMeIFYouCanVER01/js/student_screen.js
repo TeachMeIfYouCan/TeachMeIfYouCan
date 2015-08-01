@@ -1,0 +1,3 @@
+screen.lockOrientation("landscape-primary");
+
+
