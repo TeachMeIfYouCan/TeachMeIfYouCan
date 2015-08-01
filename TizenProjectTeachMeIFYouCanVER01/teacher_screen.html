@@ -3,21 +3,49 @@
 
 <head>
 
-	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+	<meta name="viewport" content="width=device-height, user-scalable=no"/>
 	<script src="./lib/jquery.js"></script>
 	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
 	<link rel="stylesheet"  href="./lib/tau/mobile/theme/changeable/tau.css">
 
-	<script src="./js/main.js"></script>
-
 	<title>Tizen Web IDE - Template - Tizen - Tizen Web UI Framework - Navigation</title>
 	<link rel="stylesheet" type="text/css" href="./css/student_screen_style.css"/>
-
+	
 </head>
 
 <body>
 
-
+	<div data-role="page">
+		 
+		<div id="header_title" data-role="header" data-position="fixed" style="text-align:center;">
+			<div id="class_title" style="padding-top:10px;">Integrated Circuit</div>
+			<div data-role="button" data-icon="naviframe-done" class="naviframe-button" style="display:none"></div>
+			<div data-role="button" data-icon="naviframe-edit" class="naviframe-button" style="background-color: red;"></div>
+		</div>
+		
+		<div data-role="content">
+			
+			<div id="canvas_area" style="float:left;">
+				<canvas id="canvas" style="border: 1px solid black; margin-left: 5px; margin-top: 10px;"></canvas>
+			</div>
+			
+			<div id="chat" style="border:1px solid black; float:left; margin-left: 5px; margin-top: 10px;">
+				<ul>
+				</ul>
+				
+				<form>
+					<p>
+						<input type="text"/>
+						<input type="submit" value="Send"/>
+					</p>
+				</form>
+			</div>
+			
+		</div>
+		
+        <script src="./js/student_screen.js"></script>
+             
+    </div><!-- /page -->
 </body>
 
 </html>

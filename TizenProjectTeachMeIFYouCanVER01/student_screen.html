@@ -17,15 +17,32 @@
 
 	<div data-role="page">
 		 
-		<div data-role="header" data-position="fixed" data-id="foo">Header</div>
+		<div id="header_title" data-role="header" data-position="fixed" style="text-align:center;">
+			<div id="class_title" style="padding-top:10px;">Integrated Circuit</div>
+			<div data-role="button" data-icon="naviframe-done" class="naviframe-button" style="display:none"></div>
+			<div data-role="button" data-icon="naviframe-edit" class="naviframe-button" style="background-color: red;"></div>
+		</div>
 		
-        <div data-role="content">
-           
-           	<h1 id="test_1">Test 1</h1>
-        	<h1>Test 2</h1>
-            
-        </div><!-- /content -->
-        
+		<div data-role="content">
+			
+			<div id="canvas_area" style="float:left;">
+				<canvas id="canvas" style="border: 1px solid black; margin-left: 5px; margin-top: 10px;"></canvas>
+			</div>
+			
+			<div id="chat" style="border:1px solid black; float:left; margin-left: 5px; margin-top: 10px;">
+				<ul>
+				</ul>
+				
+				<form>
+					<p>
+						<input type="text"/>
+						<input type="submit" value="Send"/>
+					</p>
+				</form>
+			</div>
+			
+		</div>
+		
         <script src="./js/student_screen.js"></script>
              
     </div><!-- /page -->
