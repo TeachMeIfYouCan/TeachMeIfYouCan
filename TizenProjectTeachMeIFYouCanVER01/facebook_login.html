@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+	<script src="./lib/jquery.js"></script>
+	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+	<link rel="stylesheet"  href="./lib/tau/mobile/theme/default/tau.css">
+
+	
+	
+	<link rel="stylesheet" type="text/css" href="./css/style.css"/>	
+</head>
+<body>
+
+	<div data-role="page" id="loginPage">
+		<div data-role="header" data-position="fixed">
+            <h1>Facebook Login </h1>
+        </div><!-- /header -->
+        <div data-role="content">
+         	<button onClick="FBLogin();"> Login </button>  
+         	
+         	<ul id="loginFile">
+         	</ul>
+         
+        </div><!-- /content -->
+        
+        <script src="./js/facebook_oauth.js"></script>
+    </div><!-- /page -->
+
+</body>
+</html>

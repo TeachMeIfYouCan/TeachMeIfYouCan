@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/TizenProjectTeachMeIFYouCanVER01" version="1.0.0" viewmodes="maximized">
+    <access origin="*" subdomains="true"></access>
     <tizen:application id="Y2QbwJHU6E.TizenProjectTeachMeIFYouCanVER01" package="Y2QbwJHU6E" required_version="2.3"/>
-    <content src="page_friend_list.html"/>
+    <content src="facebook_login.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <feature name="http://tizen.org/feature/sensor.magnetometer"/>
     <feature name="http://tizen.org/feature/shell.appwidget"/>
     <icon src="icon.png"/>
     <name>TizenProjectTeachMeIFYouCanVER01</name>
     <tizen:privilege name="http://tizen.org/privilege/fullscreen"/>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
     <tizen:profile name="mobile"/>
     <tizen:setting screen-orientation="portrait" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
 </widget>

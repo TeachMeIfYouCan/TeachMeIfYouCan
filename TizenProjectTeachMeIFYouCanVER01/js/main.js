@@ -1,24 +1,6 @@
 var previous_screen_orientation = "portrait-primary";
 
-( function () {
-	window.addEventListener( 'tizenhwkey', function( ev ) {
-		if( ev.keyName == "back" ) {
-			var page = document.getElementsByClassName( 'ui-page-active' )[0],
-				pageid = page ? page.id : "";
-			if( pageid === "main" ) {
-				try {
-					tizen.application.getCurrentApplication().exit();
-				} catch (ignore) {
-				}
-			} else {
-				
-				screen.lockOrientation(previous_screen_orientation);
-				
-				window.history.back();
-			}
-		}
-	} );
-} () );
+
 
 var list_expand_toggle = 0;
 
@@ -47,9 +29,5 @@ function change_student_screen(){
 	
 	tau.changePage("teacher_screen.html");
 }
-
-
-
-
 
 
