@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>hM0ZT8P3rDvgB9ZEUvUDwEH6Jcuc43fwZyrX8GWRqoY=</DigestValue>
+<DigestValue>u45FZrJo4hub6YBC7e2dD5/flRYGiAtF/K8z4FqZnzQ=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -28,11 +28,11 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>9A9kA2n/nrryQ9BUDl+9zS0wARrLu2z34DitdeG+Vs8=</DigestValue>
+<DigestValue>itkL9y5TfXN0v6ayHTn6QNcONXe64NpFPbBuQ50LNLY=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>pTospEgrSe6UYQrR5AvRUHt9n1wQY36z/Huc8N7zdys=</DigestValue>
+<DigestValue>IzNo1Ht5ga5GBIdqd3ZLgKQBJdISzsKTjQs8WuI4WpU=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2160,15 +2160,15 @@
 </Reference>
 <Reference URI="page_class_list.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>/XPXGov5DhQROwTEGPcwwatjRWHEg14jp3iqnPe+Yo4=</DigestValue>
+<DigestValue>OVc0wLS7f8uLM+7V9N/CAIeS1GF3RbjnEi35fkoDtNI=</DigestValue>
 </Reference>
 <Reference URI="page_friend_list.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>jmCGFJNIHpi3FG04Uk53GCiJzYK9Bbs7ByfoMuaCuv4=</DigestValue>
+<DigestValue>UbFLUcPPJLa0J0X/L1jMpfZ7JSwqvQdf/Fk525vkzek=</DigestValue>
 </Reference>
 <Reference URI="page_option_list.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>oImyGnzI9h756prBKHm9qPIsJQ9Hmhiv9Nh4Az0KKX0=</DigestValue>
+<DigestValue>ao0xrk8O5g7xZFEoB9cDSQ/RohSSYx3Sv3nrOqp3T6M=</DigestValue>
 </Reference>
 <Reference URI="student_screen.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2199,11 +2199,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-SU9wo15bQxpbTsr0OVNhuyaPe1Y6T7Ch1uQNa00p+EBKn+8SkK+GiajBZyeq6wR2/eL4Rka03W1I
-aH/jS8Ml5rmflhOBFI52IJ4+DMjf6rDEB6519Y4LEYCTXaQemIk2dsueZTIe+qqmzT9NxYHbBtco
-UXO2KhKUTns57OAIRnsYJJ6sVgqFXuEfkzt8dP4AXrMXIb8VL9tjkHSSizBlfCLgZNf9+JlspZk0
-UIdZi1/NyDSUN2FIdC10JCHHsXUi41Ifhy5HEnRxh2fyACxXhJiaARXelW3fuuOeTQWvywAmYd5m
-X3mmOiTxAvzs5J/f3DYCf6NV45gAA9U5Ljdt+A==
+CkxxeWlhy2WZM/g+epjPtO26QOYgV/ft97IKulD7IGotbx876zcn0vhILuXTcicriCWMNP1XHP1E
+uhpmTgBE+eIRBTqgGBSoP5uWTbAyLKHUlYQOpslBUDDsXd1iL3eMrqVjuy9nn2CSyw7FRSlwh4aw
+4soGV1Vgep37g/wTBqy9lAQF7OHRvpmRdLSMxHEug7xb1QYkXrU7W7t85UQo8TiOn6mW2cXWC1Tp
+rkBX31A/D716SwgWYZQPJostJQcmtvocH9daUuDUFCSoIXVUz2qGxdB3QXwDuWwQLtMB/UtdNjBm
+7xQzJRoXXlPYqCghRc9OBcyizmSHfeChiLnNGA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

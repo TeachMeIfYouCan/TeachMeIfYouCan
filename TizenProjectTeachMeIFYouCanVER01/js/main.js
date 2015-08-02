@@ -1,8 +1,4 @@
-var previous_screen_orientation = "portrait-primary";
 
-
-
-var list_expand_toggle = 0;
 
 function expand_class_list(item){
 	
@@ -27,7 +23,7 @@ function expand_class_list(item){
 
 function change_student_screen(){
 	
-	tau.changePage("teacher_screen.html");
+	tau.changePage("student_screen.html");
 }
 
 

@@ -1,3 +1,7 @@
+var previous_screen_orientation = "portrait-primary";
+
+var list_expand_toggle = 0;
+
 ( function () {
 	window.addEventListener( 'tizenhwkey', function( ev ) {
 		if( ev.keyName === "back" ) {
