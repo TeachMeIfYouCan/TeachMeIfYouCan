@@ -4,7 +4,6 @@
 res/wgt/author-signature.xml
 res/wgt/signature1.xml
 res/wgt/facebook_login.html
+res/wgt/js/chat.js
 res/wgt/js/facebook_oauth.js
-res/wgt/page_class_list.html
-res/wgt/page_friend_list.html
-res/wgt/page_option_list.html
+res/wgt/js/room.js

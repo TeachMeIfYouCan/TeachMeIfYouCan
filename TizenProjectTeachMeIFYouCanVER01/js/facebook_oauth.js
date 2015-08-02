@@ -27,12 +27,19 @@ var client_id = "535218969958834";
 var redirect_uri = "https://www.facebook.com/connect/login_success.html";
 var scope = "public_profile,email,user_friends,user_photos,user_hometown,user_location,read_custom_friendlists,user_photos";
 var final_uri = oauthurl + 'client_id=' + client_id + '&redirect_uri=' + redirect_uri + "&scope=" + scope;
-
+var nickName = "luwis", roomName, pic_url;
 //$(document).ready(function() {
 	function FBLogin(){
 		console.log("inside login");
-		window.authWin = window.open(final_uri, "blank", "", true);
-		montiorURL();
+		//window.authWin = window.open(final_uri, "blank", "", true);
+		//montiorURL();
+		
+		
+		// DEBUG
+		tau.changePage("page_friend_list.html");
+
+	
+	
 	}
 	
 	function montiorURL() {
@@ -104,11 +111,9 @@ var final_uri = oauthurl + 'client_id=' + client_id + '&redirect_uri=' + redirec
 	        url : 'https://graph.facebook.com/me?fields=first_name,last_name&access_token=' +localStorage['accesstoken'] ,
 	        success : function(data1) {
 		          
-	            var firstname=data1.first_name;
-	            var lastname=data1.last_name;     
-	    
-	            var pic_url=data1.picture.data.url;
-	
+	            nickName =data1.first_name + data1.last_name;      
+	            pic_url=data1.picture.data.url;
+
 	            $('#getProfile ul').append('<li><span>MyPofile</span> <br>'            					
 	    	            					+ '<img src = ' + pic_url + '>');				
 	        },
