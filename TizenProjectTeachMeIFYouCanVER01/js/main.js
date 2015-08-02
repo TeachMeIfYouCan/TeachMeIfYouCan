@@ -45,7 +45,7 @@ function expand_class_list(item){
 
 function change_student_screen(){
 	
-	tau.changePage("student_screen.html");
+	tau.changePage("teacher_screen.html");
 }
 
 

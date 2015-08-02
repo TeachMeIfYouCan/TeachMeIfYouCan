@@ -2,10 +2,9 @@
 <html>
 
 <head>
-
-	<meta name="viewport" content="width=device-height, user-scalable=no"/>
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
 	<script src="./lib/jquery.js"></script>
-	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js" data-build-remove="true"></script>
 	<link rel="stylesheet"  href="./lib/tau/mobile/theme/changeable/tau.css">
 
 	<title>Tizen Web IDE - Template - Tizen - Tizen Web UI Framework - Navigation</title>
@@ -18,14 +17,26 @@
 	<div data-role="page">
 		 
 		<div id="header_title" data-role="header" data-position="fixed" style="text-align:center;">
+			 
 			<div id="class_title" style="padding-top:10px;">Integrated Circuit</div>
 			<div data-role="button" data-icon="naviframe-done" class="naviframe-button" style="display:none"></div>
-			<div data-role="button" data-icon="naviframe-edit" class="naviframe-button" style="background-color: red;"></div>
+			<div id="edit_button" data-role="button" data-icon="naviframe-edit" class="naviframe-button" style="background-color: red;" id="editButton" onclick="edit_menu();"></div>
+			 
 		</div>
 		
 		<div data-role="content">
 			
-			<div id="canvas_area" style="float:left;">
+			<div data-role="drawer" data-position="right" id="editDrawer">
+            	<ul data-role="listview">
+            		<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Edit Canvas Setting</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Voice Q&A Handle</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Participants List</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Invite</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Exit</a></li>
+            	</ul>
+        	</div>
+				  
+			<div id="canvas_area" style="float:left; z-index:1;">
 				<canvas id="canvas" style="border: 1px solid black; margin-left: 5px; margin-top: 10px;"></canvas>
 			</div>
 			
@@ -40,10 +51,10 @@
 					</p>
 				</form>
 			</div>
-			
+		
 		</div>
 		
-        <script src="./js/student_screen.js"></script>
+        <script src="./js/teacher_screen.js"></script>
              
     </div><!-- /page -->
 </body>

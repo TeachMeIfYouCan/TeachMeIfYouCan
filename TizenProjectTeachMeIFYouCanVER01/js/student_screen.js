@@ -16,20 +16,6 @@ canvas.addEventListener("touchstart", touchStartHandler, false);
 canvas.addEventListener("touchmove", touchMoveHandler, false);
 canvas.addEventListener("touchend", touchEndHandler, false);
 
-/*
-function touchMoveHandler(e){
-	
-	touches = e.touches.item(0);
-	
-	context.fillStyle = "#FF0000";
-	
-	console.log("current coordinate : " + touches.pageX + " " + touches.pageY);
-	
-	context.fillRect(touches.pageX, touches.pageY, 5, 5);
-}
-*/
-
-
 var touches;
 
 var drawPath = new Array();
@@ -111,8 +97,32 @@ chat_box.style.height = document.width * 0.8 + "px";
 
 
 
+var editDrawerElement = document.getElementById("editDrawer");
+var edit_menu_open = false;
+
+function edit_menu(){
+	
+	var editDrawer = tau.widget.Drawer(editDrawerElement);
+	
+	if(edit_menu_open == false){
+		
+		editDrawer.open();
+		edit_menu_open = true;
+	}
+	else if(edit_menu_open == true){
+		
+		editDrawer.close();
+		edit_menu_open = false;
+	}
+}
 
 
+var background_image = new Image();
+background_image.src = "test_js.jpg";	// This src path is based on the HTML file that loads this js file.
+
+background_image.onload = function(){
+	context.drawImage(background_image, 0, 0, canvas.width, canvas.height);
+}
 
 
 

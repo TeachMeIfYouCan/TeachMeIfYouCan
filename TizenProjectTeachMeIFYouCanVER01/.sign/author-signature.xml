@@ -2,17 +2,13 @@
 <SignedInfo>
 <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></CanonicalizationMethod>
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
-<Reference URI="TizenWebNavigationAppExample.wgt">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>k9IrzfGMUiseBtYKmfJ4Z9K1D1+wlTZjY6gcb0gtH1o=</DigestValue>
-</Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>kpae899x1vL6CPevFq9E9eQLV/KQaxynz7nHByvOzqM=</DigestValue>
+<DigestValue>9nxgxWWK+FJlzzXPnB+SLt5yvLqs3dkktwA3x2kJ05Y=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstudent_screen_style.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>GqlOHQszg7l7h6tj7Oe1MUI/0hju9egXqSNkQcbFMS8=</DigestValue>
+<DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -22,17 +18,17 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=</DigestValue>
 </Reference>
-<Reference URI="js%2Ficon.png">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=</DigestValue>
-</Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>0UHSDX/NtBe5QKQeyGfYbrxoRixONoG3ofcPPtCjYjM=</DigestValue>
+<DigestValue>FG/1rvPzTffs04qOI76C5iSRTWJYfw5JEEkS62fkE4Q=</DigestValue>
 </Reference>
 <Reference URI="js%2Fstudent_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>EtS9blL1uf5//Ob6cxClba4WiTTu9xg/VmHn3TceuzE=</DigestValue>
+<DigestValue>lQTtkkvJZggQgCfQ//FViFUILUQL3BZ9fDJpYU8CTNE=</DigestValue>
+</Reference>
+<Reference URI="js%2Fteacher_screen.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>hMbd//mSF5nOr9JHw3ULK/K9moIG/t5DpiJi0Dxc9Yc=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2164,11 +2160,11 @@
 </Reference>
 <Reference URI="student_screen.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>3xjwBakEc9Ag0gq9X4xfZOso7S1cZ80QeDc4TP74Mhw=</DigestValue>
+<DigestValue>98NRQpCjvArU30JTrUITfPOVBBZCfP0OxEWupsGqZ8M=</DigestValue>
 </Reference>
 <Reference URI="teacher_screen.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>5mzRmJ2Rb4BGk0rfHvqV8iVpM19qmUPK/G8yWCadbpE=</DigestValue>
+<DigestValue>GOb/AtMON5ED07iPNZpsmVcJysfJdbYDqMkKVmoCZZc=</DigestValue>
 </Reference>
 <Reference URI="test_img.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2177,6 +2173,10 @@
 <Reference URI="test_img_1.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>C7nkyY2hKkkI6XcPHckxUyLCJUF3pVT0QKO54LcrNF0=</DigestValue>
+</Reference>
+<Reference URI="test_js.jpg">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>3eULhlmmXq4KSr+i3TSCTq2Wjd4LbZiPCyjG03SMy2s=</DigestValue>
 </Reference>
 <Reference URI="version.txt">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2191,11 +2191,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-TtRS+hH7caRvxwqMU4uiChQR4sPOJAJwCYunp713QuanR+6NVwDSjn0ds22OfygsPV8O2IL/hInL
-xRXRrlD8IJj9hEoJDuhGd3azA9v5Cz7Ou3y1uoQxKj6r1VZ1Gr7ogLZH5bzfnRsz5tXK0OJ4M3e4
-PsIBw6EZuUFUlWqxp7Yy48UywnUSkZZ5GO+sSqU3ihs+2ODs6JBPKsLlEtRFM6MI16wE0OBQKUP7
-Crk6kOGw1pJXdJKE1g9qZY6d84L3DLAi7s/rPyGnN365W4tgxT7S8L9RyZFx+69efYz3BAUaO63Z
-WepROUdh5Oy/vgVkmNlEiE0eFosu1t8PrhylwA==
+XpcfYW9N/q7TQo++QkjS1iIFl0eAI1EfwGW0znEm8ZFRMHJDDqgNwd/XAWmnhTN0xnSW70cEqk9h
+aCRtren2ilU7Mskqi99j1X4/aLFqpo3HyudIkMdP8Kb4iuUkOXdqsnfEmwi0RDDHWBADC2rXDABs
+32PoK3+j4u3147NG5XK6q142lZU4SQ3unQhmFUJ6DIW9sofHYj/LCJ349egiOIZ5sdlUJIuxgPtU
+QqtywXNaYx2FQif5Qz+UDZ6qvnPl8DU9fRPhmCjbwFLJOE3G4d+vaBfV+xRuIu1jqAMl1IYPf6na
+JIVxZ8PFlVXU0k4ldTfN5TAcfYjpZKQkrd3O1Q==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
