@@ -20,7 +20,7 @@ function expand_class_list(item){
 
 
 function change_student_screen(){
-	screen.lockOrientation("landscape-primary");
+	
 	tau.changePage("teacher_screen.html");
 }
 

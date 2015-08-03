@@ -17,6 +17,8 @@ var list_expand_toggle = 0;
             screen.lockOrientation(previous_screen_orientation);
             
             window.history.back();
+            
+            
          }
       }
    } );
@@ -27,7 +29,7 @@ var client_id = "535218969958834";
 var redirect_uri = "https://www.facebook.com/connect/login_success.html";
 var scope = "public_profile,email,user_friends,user_photos,user_hometown,user_location,read_custom_friendlists,user_photos";
 var final_uri = oauthurl + 'client_id=' + client_id + '&redirect_uri=' + redirect_uri + "&scope=" + scope;
-var nickName = "luwis", roomName, pic_url;
+var nickName = "liw", roomName, pic_url;
 //$(document).ready(function() {
    function FBLogin(){
       console.log("inside login");
