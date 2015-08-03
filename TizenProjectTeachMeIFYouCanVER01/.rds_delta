@@ -3,7 +3,11 @@
 #modify
 res/wgt/author-signature.xml
 res/wgt/signature1.xml
+<<<<<<< HEAD
+res/wgt/js/teacher_screen.js
+=======
 res/wgt/facebook_login.html
 res/wgt/js/chat.js
 res/wgt/js/facebook_oauth.js
 res/wgt/js/room.js
+>>>>>>> refs/remotes/origin_luwis/master

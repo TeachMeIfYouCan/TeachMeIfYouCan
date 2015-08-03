@@ -93,9 +93,23 @@ function touchEndHandler(){
 var chat_box = document.getElementById("chat");
 
 chat_box.style.width = document.height * 0.45 + "px";
-chat_box.style.height = document.width * 0.6 + "px";
+chat_box.style.height = document.width * 0.67 + "px";
 
 
+var audio_control = document.getElementById("audio_control");
+audio_control.style.width = document.height * 0.45 + "px";
+audio_control.style.height = document.width * 0.112 + "px";
+
+var play_button = document.getElementById("play");
+var pause_button = document.getElementById("pause");
+var stop_button = document.getElementById("stop");
+
+play_button.style.width = document.height * 0.45 * (0.28) + "px";
+pause_button.style.width = document.height * 0.45 * (0.28) + "px";
+stop_button.style.width = document.height * 0.45 * (0.28) + "px";
+
+play_button.style.marginLeft = document.height * 0.45 * (0.04) + "px";
+stop_button.style.marginRight = document.height * 0.45 * (0.04) + "px";
 
 var editDrawerElement = document.getElementById("editDrawer");
 var edit_menu_open = false;
