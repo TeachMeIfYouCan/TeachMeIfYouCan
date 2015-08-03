@@ -35,7 +35,7 @@ var nickName = "luwis", roomName, pic_url;
 		//montiorURL();
 		
 		
-		// DEBUG
+		/// DEBUG
 		tau.changePage("page_friend_list.html");
 
 	
