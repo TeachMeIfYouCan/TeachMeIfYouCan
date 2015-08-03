@@ -1,4 +1,4 @@
-screen.lockOrientation("landscape-primary");
+//screen.lockOrientation("landscape-primary");
 
 var canvas_area = document.getElementById("canvas_area");
 

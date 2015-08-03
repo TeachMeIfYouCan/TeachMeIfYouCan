@@ -14,7 +14,7 @@
 
 <body>
 
-	<div data-role="page">
+	<div data-role="page" id="teacher_screen">
 		 
 		<div id="header_title" data-role="header" data-position="fixed" style="text-align:center;">
 			 
@@ -43,9 +43,9 @@
 			
 			<div id="chat" style="border:1px solid black; float:left; margin-left: 5px; margin-top: 10px;">
 				<ul>
+				<!-- 	<li> <input type="text" id="myProfile"/> </li>	 -->
 				</ul>
-				
-				
+						
 					<p>
 						<input type="text" id="inputMsg"/>
 						<button id="sendMsgBtn">Send</button>
@@ -62,7 +62,7 @@
 		</div>
 		
         <script src="./js/teacher_screen.js"></script>
-        <script src="./js/socket.io-1.3.4.js"></script> 
+        <script src="./js/socket.io-1.3.4.js"></script>
         <script src="./js/room.js"></script>
         <script src="./js/chat.js"></script>
         

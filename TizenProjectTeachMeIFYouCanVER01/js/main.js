@@ -21,7 +21,30 @@ function expand_class_list(item){
 
 function change_student_screen(){
 	
-	tau.changePage("teacher_screen.html");
+	screen.lockOrientation("landscape-primary");
+	$.mobile.changePage("teacher_screen");
+}
+
+function change_page_class_list(){
+	
+	screen.lockOrientation("portrait-primary");
+	//history.back();
+	$.mobile.changePage("page_class_list");
 }
 
 
+$('#page_friend_button').off("click").on("click", (function() {
+	console.log("main 버튼 누름" );
+	$.mobile.changePage("main");
+}));
+
+$('#page_class_button').off("click").on("click", (function() {
+	console.log("page_class 버튼 누름" );
+	$.mobile.changePage("page_class_list");
+
+}));
+
+$('#page_option_button').off("click").on("click", (function() {
+	console.log("page_option 버튼 누름" );
+	$.mobile.changePage("page_option_list");
+}));

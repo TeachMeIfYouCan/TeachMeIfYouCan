@@ -12,13 +12,21 @@ var list_expand_toggle = 0;
                tizen.application.getCurrentApplication().exit();
             } catch (ignore) {
             }
-         } else {
-            
-            screen.lockOrientation(previous_screen_orientation);
-            
-            window.history.back();
-            
-            
+         } 
+         else if( pageid === "teacher_screen" ) {
+        	console.log("room에서 back 버튼 누름" );
+        	socket.emit('leave', {nickName: nickName, roomName: roomName, pic_url: pic_url});	
+        
+        	//screen.lockOrientation(previous_screen_orientation);
+        	//$.mobile.changePage("page_class_list");
+        	//chage
+        	change_page_class_list();
+         }     
+         else {     
+        	 //history.back();
+            //screen.lockOrientation(previous_screen_orientation);          
+            //$.mobile.changePage("page_class_list");    
+        	 change_page_class_list();
          }
       }
    } );
@@ -29,99 +37,102 @@ var client_id = "535218969958834";
 var redirect_uri = "https://www.facebook.com/connect/login_success.html";
 var scope = "public_profile,email,user_friends,user_photos,user_hometown,user_location,read_custom_friendlists,user_photos";
 var final_uri = oauthurl + 'client_id=' + client_id + '&redirect_uri=' + redirect_uri + "&scope=" + scope;
-var nickName = "liw", roomName, pic_url;
-//$(document).ready(function() {
-   function FBLogin(){
-      console.log("inside login");
-      //window.authWin = window.open(final_uri, "blank", "", true);
-      //montiorURL();
-      
-      
-      /// DEBUG
-      tau.changePage("page_friend_list.html");
+var name = "kim", id = "123", nickName = "chu123", roomName, pic_url = "http://graph.facebook.com/805566542823060/picture";
+//var name = "kim", id = "123", nickName = "kim123", roomName, pic_url = "http://graph.facebook.com/567949783318787/picture";
 
+function FBLogin(){
+	console.log("inside login");
+	//window.authWin = window.open(final_uri, "blank", "", true);
+	//montiorURL();
+  
+  
+	/// DEBUG
+	//$.mobile.changePage("page_friend_list");
+	$.mobile.changePage("main");
+	socket_init();
+}
    
-   
-   }
-   
-   function montiorURL() {
-      console.log("montiorURL");
-      var check = 0;
+function montiorURL() {
+	console.log("montiorURL");
+    var check = 0;
       
-       window.int = self.setInterval(function () {
-           window.authCount = window.authCount + 1;
+    window.int = self.setInterval(function () {
+    	window.authCount = window.authCount + 1;
    
-           if (window.authWin && window.authWin.location && check == 0) { 
-               var currentURL = window.authWin.location.href;
-               var inCallback = currentURL.indexOf("?code");
-               if (inCallback >= 0) {
-                   var codeData = currentURL.substr(currentURL.indexOf("="));
-                   var code=codeData.substring(1);
-                   getAccesstoken(code);
-                   check = 1;
-               }
-           }
-           /*
-           if (window.authCount > 30) {
-               alert('30 seconds time out');
-               window.authCount  =0;
-               window.clearInterval(int)
-               window.authWin.close();
-           }
-           */
-      }, 100);
+	    if (window.authWin && window.authWin.location && check == 0) { 
+	    	var currentURL = window.authWin.location.href;
+	        var inCallback = currentURL.indexOf("?code");
+	        if (inCallback >= 0) {
+	           var codeData = currentURL.substr(currentURL.indexOf("="));
+	           var code=codeData.substring(1);
+	           getAccesstoken(code);
+	           check = 1;
+	        }
+	    }
+	   /*
+	   if (window.authCount > 30) {
+	       alert('30 seconds time out');
+	       window.authCount  =0;
+	       window.clearInterval(int)
+	       window.authWin.close();
+	   }
+	   */
+       }, 100);
    }
    
    function  getAccesstoken(code){
        $.ajax({
            type : "GET",
-           url :'https://graph.facebook.com/oauth/access_token?client_id=535218969958834&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=1533043b6b2efd0abfe54b55a0cc9b6a&code='+code,
-           success : function(data) {
-               try {
-                  console.log("getAccesstoken acess success");
-                   accesstoken=data;
-                   access_token=parseToken(accesstoken);
-                   localStorage['accesstoken']=access_token;
-                   tau.changePage("page_friend_list.html");               
-                   window.clearInterval(int);
-                   window.authWin.close();
-                  
-               }
-               catch (e) {
-                   console.log(e);
-               }
-           },
-           error : function() {
-              tau.changePage("facebook_login.html");
-               console.log("acess token error");
+   url :'https://graph.facebook.com/oauth/access_token?client_id=535218969958834&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=1533043b6b2efd0abfe54b55a0cc9b6a&code='+code,
+   success : function(data) {
+       try {
+          console.log("getAccesstoken acess success");
+   accesstoken=data;
+   access_token=parseToken(accesstoken);
+   localStorage['accesstoken']=access_token;
+   $.mobile.changePage("page_friend_list");               
+           window.clearInterval(int);
+           window.authWin.close();
+          
+       }
+       catch (e) {
+           console.log(e);
+       }
+   },
+   error : function() {
+      $.mobile.changePage("facebook_login");
+   console.log("acess token error");
            }
        });    
    }
    
    function parseToken(accesstoken){
        var c = accesstoken.indexOf('access_token') ; 
-       var L = accesstoken.indexOf('&expires') ;
-       var y = accesstoken.substring(0, c) + accesstoken.substring(L, accesstoken.length);
-       var remaining = accesstoken.replace(y,'');
+   var L = accesstoken.indexOf('&expires') ;
+   var y = accesstoken.substring(0, c) + accesstoken.substring(L, accesstoken.length);
+   var remaining = accesstoken.replace(y,'');
        return (remaining.substring(13));
    }
    
    function getProfile() {
       $.ajax({
            type : "GET",
-           dataType : 'json',
-           url : 'https://graph.facebook.com/me?fields=first_name,last_name&access_token=' +localStorage['accesstoken'] ,
-           success : function(data1) {
-                
-               nickName =data1.first_name + data1.last_name;      
-               pic_url=data1.picture.data.url;
+   dataType : 'json',
+   url : 'https://graph.facebook.com/me?&access_token=' +localStorage['accesstoken'] ,
+   success : function(data1) {
+        
+       //name =data1.first_name + data1.last_name;   
+       name = data1.name;
+       id = data1.id;
+       nickName = name + id;
+       pic_url=data1.picture.data.url;
 
-               $('#getProfile ul').append('<li><span>MyPofile</span> <br>'                           
-                                     + '<img src = ' + pic_url + '>');            
-           },
-           error : function() {
-              tau.changePage("facebook_login.html");
-               console.log("Unable to get my profile");
+       $('#getProfile ul').append('<li><span>MyPofile</span> <br>'                           
+ + '<img src = ' + pic_url + '>');            
+   },
+   error : function() {
+      $.mobile.changePage("facebook_login");
+   console.log("Unable to get my profile");
            }
        });
    }
@@ -129,28 +140,28 @@ var nickName = "liw", roomName, pic_url;
    function getFriends(){
        $.ajax({
            type : "GET",
-           dataType : 'json',
-           url : 'https://graph.facebook.com/me/friends?&access_token=' +localStorage['accesstoken'],
-           success : function(data1) {
-               var jsonlength=data1.data.length;
-            
-               $('#getFriends ul').append('<li><span>MyFriendList</span><br>');
-               
-               for(i=0;i < jsonlength;i++)
-               {
-                   names=data1.data[i].name;
-                   id=data1.data[i].id;
-                   img_url="http://graph.facebook.com/"+id+"/picture";
-                   console.log("i = " + i + " names = " + names + " id = " + id);
+   dataType : 'json',
+   url : 'https://graph.facebook.com/me/friends?&access_token=' +localStorage['accesstoken'],
+   success : function(data1) {
+       var jsonlength=data1.data.length;
+    
+       $('#getFriends ul').append('<li><span>MyFriendList</span><br>');
+   
+   for(i=0;i < jsonlength;i++)
+   {
+       names=data1.data[i].name;
+       id=data1.data[i].id;
+       img_url="http://graph.facebook.com/"+id+"/picture";
+   console.log("i = " + i + " names = " + names + " id = " + id);
    
                    $('#getFriends ul').append('<img src = ' + img_url + '>'
-                      + " names = " + names + " id = " + id);            
+  + " names = " + names + " id = " + id);            
                }
    
                $('#getFriends ul').append('</li>');   
-            },
-            error : function() {
-               console.log("Unable to get your friends on Facebook");
+},
+error : function() {
+   console.log("Unable to get your friends on Facebook");
             }
        });
    }
@@ -159,11 +170,10 @@ var nickName = "liw", roomName, pic_url;
    {
        $.ajax({
            type : "GET",
-           url :'https://www.facebook.com/logout.php?next=https://www.facebook.com/connect/login_success.html&access_token='+localStorage['accesstoken'],
-           success : function(data) {
-              tau.changePage("facebook_login.html");      
-           },
-          error: function(){console.log("error");}
+   url :'https://www.facebook.com/logout.php?next=https://www.facebook.com/connect/login_success.html&access_token='+localStorage['accesstoken'],
+   success : function(data) {
+      $.mobile.changePage("facebook_login");      
+   },
+  error: function(){console.log("error");}
        });
    }
-//});
