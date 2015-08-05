@@ -1,3 +1,33 @@
+var previous_screen_orientation = "portrait-primary";
+
+var list_expand_toggle = 0;
+
+( function () {
+   window.addEventListener( 'tizenhwkey', function( ev ) {
+      if( ev.keyName === "back" ) {
+         var page = document.getElementsByClassName( 'ui-page-active' )[0],
+            pageid = page ? page.id : "";
+         if( pageid === "main" ) {
+            try {
+               tizen.application.getCurrentApplication().exit();
+            } catch (ignore) {
+            }
+         } 
+         else if( pageid === "teacher_screen" ) {
+        	console.log("room에서 back 버튼 누름" );
+        	socket.emit('leave', {nickName: nickName, roomName: roomName, pic_url: pic_url});	
+        
+        	screen.lockOrientation("portrait-primary");
+        	change_page_class_list();
+         }     
+         else {     
+        	 tizen.application.getCurrentApplication().exit();   
+         }
+      }
+   });
+}());
+
+
 function expand_class_list(item){
 	
 	var class_list = item;
@@ -28,23 +58,6 @@ function change_student_screen(){
 function change_page_class_list(){
 	
 	screen.lockOrientation("portrait-primary");
-	//history.back();
 	$.mobile.changePage("page_class_list");
 }
 
-
-$('#page_friend_button').off("click").on("click", (function() {
-	console.log("main 버튼 누름" );
-	$.mobile.changePage("main");
-}));
-
-$('#page_class_button').off("click").on("click", (function() {
-	console.log("page_class 버튼 누름" );
-	$.mobile.changePage("page_class_list");
-
-}));
-
-$('#page_option_button').off("click").on("click", (function() {
-	console.log("page_option 버튼 누름" );
-	$.mobile.changePage("page_option_list");
-}));

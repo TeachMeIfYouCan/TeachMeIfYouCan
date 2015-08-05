@@ -8,7 +8,7 @@
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+ylqGkFKB50fJ8CScYD4CIFoQxstz7Ly76eU40dWojw=</DigestValue>
+<DigestValue>3+fFZuoNAsIPQ7Yw+P9ZcAd58g1fhzFT1CcbPvTmHUs=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstudent_screen_style.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -18,29 +18,29 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>mm/qfPVk5qlb95kHs5PHHhY2npluQUQ9UCUyZBCJeYY=</DigestValue>
 </Reference>
-<Reference URI="facebook_login.html">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Fsr1aKUaQu33T2tAf6o7pI26XuAwpfTZxEigyI9XIug=</DigestValue>
-</Reference>
 <Reference URI="icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=</DigestValue>
 </Reference>
+<Reference URI="index.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>1nzWte4mg1ckZc1LM1UFUYvwWXn9mecKWrwIQVpnRnM=</DigestValue>
+</Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>6SjOwCx160u9Z+Kxjmj1oePWqEde3XpgzRmj51SpG6M=</DigestValue>
+<DigestValue>/mSGzHyKjPSzrZvO/IxC6yoJa7U6JNSS0VRmKemLid0=</DigestValue>
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>6Mr0yjdXrHGOFyqChoVSQnGORtw2SN/aIFq+iYGSOT4=</DigestValue>
+<DigestValue>GozbPS5Azy8eNV2a2dLXlMxjyQVGAtpVFoe220d2UmI=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Xeec6021q2MoA5S7tWa6CE0MzN2wJczva2i+1lmVDM8=</DigestValue>
+<DigestValue>VUdunzmmh5vT2hSbBVZGGm4SRJksY7yCXRwsAwCSh8U=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+1rr8rmI8hX35Iouo7TJ8Je9IHdj8dsRKM/0+12sEJ4=</DigestValue>
+<DigestValue>6/YR+ORq303nriMJ7KHcpfsSecGEfq4Od3NNr1rj7kM=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2170,26 +2170,6 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>OGRsfqg2+sXu07QNoHP1fm+dEMGQpLIJzWNKoOb7af4=</DigestValue>
 </Reference>
-<Reference URI="page_class_list.html">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>091jq5YGQ+k3pEkE/bObUWevKEloXPGqchaqsiUvd2A=</DigestValue>
-</Reference>
-<Reference URI="page_friend_list.html">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>hDHI0ZcsqN3r9dFCeORixMhKVTOFXK4O5d83LfbV03U=</DigestValue>
-</Reference>
-<Reference URI="page_option_list.html">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>T4svKTruSaHdFnnnLbXTJ2yDG4BWxriw5bvOvO/XOS0=</DigestValue>
-</Reference>
-<Reference URI="student_screen.html">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>98NRQpCjvArU30JTrUITfPOVBBZCfP0OxEWupsGqZ8M=</DigestValue>
-</Reference>
-<Reference URI="teacher_screen.html">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ccrTaqN0JpRK5k01SohYaHmUFuBpO1zeUAGC2D0TtFQ=</DigestValue>
-</Reference>
 <Reference URI="test_img.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>+EYbnXR9UZpMfN6bnh/PgdfxjxenKo9xhAKf0FO4RKE=</DigestValue>
@@ -2215,11 +2195,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-EMkOcTMRavIJtvghrKD8WmxQjeaviOaTiylek8RBN878Ux7DJ5umZOmwZuULobpNVP1+29XVQ11l
-w2r8GL8e5c5raWOKQA3Fk6sNHPVMG2WzkOPtBv1p1oxB77VheroEMd25HKASVI3MYZZZSwxJxrjE
-v1ZcfBJLk0MA5zcyBITuhc7ZG+DA7hy81b6khB+4i+bx8RAKQrxP7P1iR1y941S5OEKbkh7GUqTe
-XW4+NkQKmci7+Xi6Ly867Ux+Yr+/uBrunBn1uOrW9JCbT2N5VxRIG8NKnOOiP+eIugCeQtKP4ROL
-8yaw9+uRhBmp4S4EmvrnsruPjBiw66zQotXEIQ==
+soluM7uVu6cCe3GG0GXdWgZvcKjVi0BmasznzeVXXV/VCat/uNwraU+Q1JYsDY+yRUEckmdbG8pI
+RkM1SV8k4nmeiydTkcbstb1yi8pQYDxfyVuqLdnn6QL1kwZCwKi3gJnrd+0fnk02l/yyBsfVeH+d
+D72P+5o2xjA95NF7isUGY6ig1dt+FjZskgGFfZBNqohhvOtB1gmE4vYdCQb1t7fWC9YSU8vjKqmA
+7xFj6yqSHLHoYr31/Qm+J0eJrhCxnkI3Zft6XiBgu44rHpbCuDgQPH+00cERSGGePN2PG5aE06iM
+JvZl8EanLib1wkcLuAJpsqgLP0n2uqRN6wsKbA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
