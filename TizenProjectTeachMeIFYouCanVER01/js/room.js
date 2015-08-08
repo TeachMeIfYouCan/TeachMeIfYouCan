@@ -45,23 +45,25 @@ function room_socket_init() {
 	
 	//만들어진 방 참가 버튼
 	$('#joinRoom').off("click").on("click", function() {	
-		/*
+		
 		console.log("joinRoom 버튼 누름" );	
 		roomName = 5;
 		socket.emit('joinRoom', {nickName: nickName, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
 		
 		//기존 방에 있는 사람 리스트 받아옴
 		socket.on('roomJoinUsers', function(data) {	
-			console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
+			//console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
 			
 			for(var i = 0; i < data.attendants.length; i++)	{
-				$('#chat ul').append('<li><img src = ' + data.userPic[i] + '>'+ data.attendants[i]);
+				$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.attendants[i]);				
 				console.log("data.attendants[i] = " +  data.attendants[i]);		
 			}
+			$('#chat ul').append('님이 방에 있습니다.</li>');				
+			
 			screen.lockOrientation("landscape-primary");
 			change_student_screen();
 		});	
-		*/
+		
 		screen.lockOrientation("landscape-primary");
 		change_student_screen();
 	});
