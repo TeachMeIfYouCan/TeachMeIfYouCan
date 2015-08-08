@@ -84,10 +84,10 @@ function room_socket_init() {
 	
 	//나가기 버튼 
 	$('#roomExit').off("click").on("click", function() {	
-		/*
+		
 		console.log("roomExit 버튼 누름" );
 		socket.emit('leave', {nickName: nickName, roomName: roomName, pic_url: pic_url});	
-		*/
+		
 		screen.lockOrientation("portrait-primary");
 		//window.history.back();
 		change_page_class_list();
@@ -100,8 +100,7 @@ function room_socket_init() {
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"' + data.nickName +'이' + data.roomName + '번방에서 퇴장<li>');						
 		navigator.vibrate(500);
 		
-		//html 에서 참가자 제거 코드 넣기
-	
+		//html 에서 참가자 제거 코드 넣기	
 	});
 	
 	//친구 선택 후 초대버튼

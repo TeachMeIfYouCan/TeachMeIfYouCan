@@ -9,10 +9,25 @@ function chat_init() {
 		navigator.vibrate(500);
 	});
 	
+	//캔버스 데이타 받기
+	socket.on('canvasData', function(data) {
+		console.log("canvasData 받음");			
+		
+		if(data.canvasCommand == "start") {
+			startCanvs(data);
+		} else if(data.canvasCommand == "move") {
+			moveCanvs(data);
+		} else if(data.canvasCommand == "end") {
+			endCanvs(data)
+		}
+	});
+	
+	/*
 	//메세지 보내기
 	$('#sendMsgBtn').off("click").on("click", (function() {
 		
 	}));
+	*/
 }
 
 function submitMessage() {
@@ -20,4 +35,9 @@ function submitMessage() {
 	$('#chat ul').append('<li class="ui-li-bubble-sent ui-li ui-li-static">'+ nickName+ ': '+ $('#inputMsg').val() + '</li>');	
 	socket.emit('message', { nickName : nickName, roomName: roomName, message: $('#inputMsg').val() });		
 	$('#inputMsg').val('');	
+}
+
+function sendCanvasData(command, oldX, oldY, newX, newY, touches) {
+	console.log("command 보냄 = " + command);	
+	socket.emit('canvasData', { nickName : nickName, roomName: roomName, canvasCommand: command, oldX: oldX, oldY: oldY, newX: newX, newY: newY});			
 }

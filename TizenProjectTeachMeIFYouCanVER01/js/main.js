@@ -19,8 +19,8 @@ var select_list = new Array();
         	console.log("room에서 back 버튼 누름" );
         	socket.emit('leave', {nickName: nickName, roomName: roomName, pic_url: pic_url});	
         
-        	 screen.lockOrientation("portrait-primary");
-        	 change_page_class_list();
+        	screen.lockOrientation("portrait-primary");
+        	change_page_class_list();
          }  
          else if( pageid === "select_friends" ) {
         	 

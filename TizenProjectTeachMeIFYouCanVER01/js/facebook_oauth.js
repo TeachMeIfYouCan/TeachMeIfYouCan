@@ -11,11 +11,17 @@ function FBLogin(){
 	console.log("inside login");
 	//window.authWin = window.open(final_uri, "blank", "", true);
 	//montiorURL();
-  
-	/// DEBUG
-	$.mobile.changePage("main");
-	room_socket_init();
-	chat_init();
+	if(localStorage.getItem('accesstoken') !== null) {	
+		/// DEBUG
+		console.log("localStorage['accesstoken'] = " + localStorage['accesstoken']);
+		$.mobile.changePage("main");
+		room_socket_init();
+		chat_init();
+	}
+	else {
+		window.authWin = window.open(final_uri, "blank", "", true);
+		montiorURL();		
+	}
 }
    
 function montiorURL() {
@@ -47,13 +53,14 @@ function  getAccesstoken(code){
         		   console.log("getAccesstoken acess success");
         		   accesstoken=data;
 				   access_token=parseToken(accesstoken);
-				   localStorage['accesstoken']=access_token;
+				   //localStorage['accesstoken']=access_token;
+				   localStorage.setItem('accesstoken', access_token);
+
 				   
-				   /*
 				   $.mobile.changePage("main");               
 				   room_socket_init();
 				   chat_init();
-				   */
+				   
 				   
 				   window.clearInterval(int);
 				   window.authWin.close();			          
@@ -133,6 +140,7 @@ function FBLogout() {
 		type : "GET",
 		url :'https://www.facebook.com/logout.php?next=https://www.facebook.com/connect/login_success.html&access_token='+localStorage['accesstoken'],
 		success : function(data) {
+			localStorage.clear();
 			$.mobile.changePage("loginPage");      
 		},
 		error: function(){

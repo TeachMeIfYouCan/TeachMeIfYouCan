@@ -97,6 +97,8 @@ var touches;
 
 var drawPath = new Array();
 
+var drawPath_all = new Array();
+
 var isMoved = false;
 
 function drawPathSetting(idx) 
@@ -117,6 +119,8 @@ function touchStartHandler(e){
 	
 	touches = e.changedTouches;
 	drawPath.push(touches[0]);
+	drawPath_all.push(touches[0]);
+	sendCanvasData("start", touches[0].pageX, touches[0].pageY, "", "", touches);
 }
 
 var strokeWidth = "5";
@@ -141,7 +145,10 @@ function touchMoveHandler(e){
 		context.closePath();
 		context.stroke();
 		
+		sendCanvasData("move", drawPath[index].pageX, drawPath[index].pageY, touches[i].pageX,  touches[i].pageY, drawPath_all);
+		
 		drawPath.splice(index, 1, touches[i]);
+		
 	}
 	
 	e.preventDefault();
@@ -161,8 +168,11 @@ function touchEndHandler(){
 		context.closePath();
 		
 		context.fill();
+		
+		sendCanvasData("end", "", "", touches[0].pageX, touches[0].pageY, drawPath_all);
+		
 	}
-	
+
 	isMoved = "false";
 	drawPath.length = 0;
 }
@@ -189,6 +199,64 @@ function edit_menu(){
 function edit_canvas(){
 	
 	
+}
+
+
+function startCanvs(data) {	
+	var touchData = [];
+	touchData[0] = data.oldX;
+	touchData[1] = data.oldY;
+		
+	drawPath.push(touchData);
+	drawPath_all.push(touchData);
+}
+
+
+function moveCanvs(data) {
+	
+	isMoved = true;
+	var touchData = [];
+	touchData[0] = data.newX;
+	touchData[1] = data.newY;
+	
+	context.lineWidth = strokeWidth;
+	context.strokeStyle = strokeColor;
+	context.lineJoin = "round";
+	
+	for(var i = 0; i < 1; i++){
+		
+		//var index = drawPathSetting(touches[i].identifier);
+		
+		context.beginPath();
+		context.moveTo(data.oldX, data.oldY - 60);
+		context.lineTo(data.newX, data.newY - 60);
+		context.closePath();
+		context.stroke();
+				
+		drawPath.splice(index, 1);
+		
+	}
+}
+
+
+function endCanvs(data) {
+	
+	if(!isMoved){
+		
+		var startPoint = (Math.PI/180) * 0;
+		var endPoint = (Math.PI/180) * 360;
+		
+		context.fillStyle = strokeColor;
+		
+		context.beginPath();
+		context.arc(data.newX, data.newY - 60, strokeWidth/2, startPoint, endPoint, true);
+		context.closePath();
+		
+		context.fill();
+	}
+
+	isMoved = "false";
+	drawPath.length = 0;
 }
 
 
