@@ -2,6 +2,10 @@
 <SignedInfo>
 <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></CanonicalizationMethod>
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
+<Reference URI=".gitignore">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>bZmEct8afobdpD7JAjcK0InMJ0W0vQa+4xXRIcdG6SM=</DigestValue>
+</Reference>
 <Reference URI="Teach%20me%20if%20you%20can%20-%20Front%20Image.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>MIem22xSZEiXA00KM+NjYF5LWPDOf4nBcUZ6Ht4+c3k=</DigestValue>
@@ -20,11 +24,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<<<<<<< HEAD
-<DigestValue>OBGTtc46zT6/uoTemnPKvgqbFeTqY1OHDj5CgsyJg0c=</DigestValue>
-=======
-<DigestValue>lcLjQtVi6Uz1+V3nQ05nCSVAdpH3N3n1szj3wKSHyLI=</DigestValue>
->>>>>>> refs/remotes/origin_chu/master
+<DigestValue>v18TK+OquAPPx1NzRifjehtePAFaAOhZr1CnItzEEjs=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -48,7 +48,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>XEgBV98Bv2Nvg4WgSrKB4CuWfrjNYxYif1n5CQfbu7E=</DigestValue>
+<DigestValue>aNSyFhPgkPs4VVkwaJ7vyPE/nMSZFpB/Kr9eBkCp/8U=</DigestValue>
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -56,23 +56,15 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>rGVSXrumbrHAzbAGo5IUqlHeZVbNglWCqqn6qHd0FY4=</DigestValue>
+<DigestValue>bfR7btaT+8xxGfEtZltzCT/HwcQKWnJ1Y+ZTcIVxUmk=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<<<<<<< HEAD
 <DigestValue>h9gh82k5eN1DvcfkqeVxUsFpUrSEsmFnXr2JVjSnB+8=</DigestValue>
-=======
-<DigestValue>/VDqEav+pkoEYQsIZBcEn9UCTSPjHA7OXy/lE4E7wZ0=</DigestValue>
->>>>>>> refs/remotes/origin_chu/master
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<<<<<<< HEAD
-<DigestValue>EPLn00IAf6N6bSC5KlwJVu1DlUctd62Jt6KslN23nm4=</DigestValue>
-=======
-<DigestValue>nQ9qVcmzi1ayYXhxg38s1QuvlJ/MzvzX2q1xrdphDFA=</DigestValue>
->>>>>>> refs/remotes/origin_chu/master
+<DigestValue>B/en7gcvSBFRSh/AuDh7UoGV1QaqPB7Q1/2cdowUvKY=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -84,7 +76,7 @@
 </Reference>
 <Reference URI="js%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>m0p6Q5o6po+KeF5Tja0BBZ0VIMhjKBeWgqB2eSB+qCE=</DigestValue>
+<DigestValue>omEjIf6PAnDOfpc++Gn6N3jERUa6t0KFzQwNJD+z4NE=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2227,19 +2219,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-<<<<<<< HEAD
-esHkKNqyAj3xRxNlphnxJx+s7sWkZKNexSyoxApgQf8HNpWM5LMSgpp7km1AwqdmDX2w8u2KWxd/
-bMHqIEuakLyVLaEE43I9t90XyUkPRK7Yenfc0Ldbe3dGnv/6pHslYzJRy3fkZS/17gshd0Y+VYqe
-wYpPgYR4YAfrhPn5HaQ6u6sn3Y2yXcLD7dtpJWE9KyGpjGJR4yvrqkPfhXrQHII4CRCLMPNHkHvY
-MUXwGZZsRdAj/yRzXVxO99HUgbqoTPFHrCgFNmvKF9QFoUmKBhUGeoKEmmCy1ZPMKFS6eDlARPGp
-L4Jx6+7m2Vn9eqTJk/2yIeBX2qvudL3egvxqBQ==
-=======
-kGYcFizIbcIZnb8WY7ZBV3Oaf472dPAQrZYYUE1yZXrdBTkV/UklGG/0+Nvi+ENz1I56B2jHBA8o
-KXm5id4o7Q+C0kkf9Od5S24WtzT72smfKMxfhvqtNkO2npmYf/KpsCeVguT10rqVtSZHqvXshBQa
-cg6WL1Ev1MiduP0eL3qzafVGJPRJf7QmZl54013D1LEOBmJ4Ne+DSKJqB02iqLl3B0WssnouuqWr
-OLekcawXFXlawTSAzJxfherUEhwBeX67rlwFzqrrvI5PIheiL2LzMJPscF5C3DH5nO+nJhWACL9u
-VnrCxqtm1mJcTpz9hrCZzkRcCYvNWoakcxkhtg==
->>>>>>> refs/remotes/origin_chu/master
+UmmayUlsovXKp3hmdy4Flov99qJewfa7DZNxNmHNqURAI+Nz4dioIM2pGX2+RuStbh0V8zdEWtDU
+luAhGERYa/7294FEeedwK1TDCA5UFRfRoKePxYt6Z8q1Du4fEp5vLWzj/OijsZcsJnhV7O4BFnds
+P7vLDJV1zNV+c3Kzdpj+U0mLbcwRuTUVyAb4h2K1pJ4dnMMQQxHGJEVdApnS/ZhZvWwT39RswNFe
+clpXGZZbI+IXfDMBTL2lwMAK9RxyYY7IoDNQnYqbN7b5duFsNX3xXvX7ajHLlc/quFBZKM5Dgnny
+nueIMLD7X0dZFWtAqBPMNlrGSTgeDQ00K/VDBQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

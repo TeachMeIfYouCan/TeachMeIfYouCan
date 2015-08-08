@@ -7,21 +7,21 @@ var client_secret="1533043b6b2efd0abfe54b55a0cc9b6a";
 //var name = "chu", id = "123", nickName = "chu123", roomName, pic_url = "http://graph.facebook.com/805566542823060/picture";
 var name = "kim", id = "123", nickName = "kim123", roomName, pic_url = "http://graph.facebook.com/567949783318787/picture";
 
-function FBLogin(){
-	console.log("inside login");
-	//window.authWin = window.open(final_uri, "blank", "", true);
-	//montiorURL();
+function FBLogin_check() {
 	if(localStorage.getItem('accesstoken') !== null) {	
 		/// DEBUG
+		console.log("로그인 되어 있음");
 		console.log("localStorage['accesstoken'] = " + localStorage['accesstoken']);
 		$.mobile.changePage("main");
 		room_socket_init();
 		chat_init();
 	}
-	else {
-		window.authWin = window.open(final_uri, "blank", "", true);
-		montiorURL();		
-	}
+}
+
+function FBLogin(){
+	console.log("inside login");
+	window.authWin = window.open(final_uri, "blank", "", true);
+	montiorURL();
 }
    
 function montiorURL() {
@@ -55,13 +55,11 @@ function  getAccesstoken(code){
 				   access_token=parseToken(accesstoken);
 				   //localStorage['accesstoken']=access_token;
 				   localStorage.setItem('accesstoken', access_token);
-
-				   
+			   
 				   $.mobile.changePage("main");               
 				   room_socket_init();
 				   chat_init();
-				   
-				   
+				   				   
 				   window.clearInterval(int);
 				   window.authWin.close();			          
         	   }

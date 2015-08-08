@@ -22,8 +22,10 @@ var join_button;
 var create_button;
 
 function canvas_init(){
-
+	
 	console.log("Init Function Called");
+	
+	FBLogin_check();
 	
 	canvas_area = document.getElementById("canvas_area");
 	
@@ -91,6 +93,8 @@ function canvas_init(){
 		
 		context.clearRect(0, 0, canvas.width, canvas.height);
 	}
+	
+	
 }
 
 var touches;
