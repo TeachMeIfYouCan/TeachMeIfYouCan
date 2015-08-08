@@ -20,7 +20,11 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<<<<<<< HEAD
 <DigestValue>OBGTtc46zT6/uoTemnPKvgqbFeTqY1OHDj5CgsyJg0c=</DigestValue>
+=======
+<DigestValue>lcLjQtVi6Uz1+V3nQ05nCSVAdpH3N3n1szj3wKSHyLI=</DigestValue>
+>>>>>>> refs/remotes/origin_chu/master
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -44,7 +48,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Ffx85NlgI94cfW6PTni8gpkRpAIWCOe1GvpFA+M1twQ=</DigestValue>
+<DigestValue>XEgBV98Bv2Nvg4WgSrKB4CuWfrjNYxYif1n5CQfbu7E=</DigestValue>
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -56,11 +60,19 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<<<<<<< HEAD
 <DigestValue>h9gh82k5eN1DvcfkqeVxUsFpUrSEsmFnXr2JVjSnB+8=</DigestValue>
+=======
+<DigestValue>/VDqEav+pkoEYQsIZBcEn9UCTSPjHA7OXy/lE4E7wZ0=</DigestValue>
+>>>>>>> refs/remotes/origin_chu/master
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<<<<<<< HEAD
 <DigestValue>EPLn00IAf6N6bSC5KlwJVu1DlUctd62Jt6KslN23nm4=</DigestValue>
+=======
+<DigestValue>nQ9qVcmzi1ayYXhxg38s1QuvlJ/MzvzX2q1xrdphDFA=</DigestValue>
+>>>>>>> refs/remotes/origin_chu/master
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2215,11 +2227,19 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
+<<<<<<< HEAD
 esHkKNqyAj3xRxNlphnxJx+s7sWkZKNexSyoxApgQf8HNpWM5LMSgpp7km1AwqdmDX2w8u2KWxd/
 bMHqIEuakLyVLaEE43I9t90XyUkPRK7Yenfc0Ldbe3dGnv/6pHslYzJRy3fkZS/17gshd0Y+VYqe
 wYpPgYR4YAfrhPn5HaQ6u6sn3Y2yXcLD7dtpJWE9KyGpjGJR4yvrqkPfhXrQHII4CRCLMPNHkHvY
 MUXwGZZsRdAj/yRzXVxO99HUgbqoTPFHrCgFNmvKF9QFoUmKBhUGeoKEmmCy1ZPMKFS6eDlARPGp
 L4Jx6+7m2Vn9eqTJk/2yIeBX2qvudL3egvxqBQ==
+=======
+kGYcFizIbcIZnb8WY7ZBV3Oaf472dPAQrZYYUE1yZXrdBTkV/UklGG/0+Nvi+ENz1I56B2jHBA8o
+KXm5id4o7Q+C0kkf9Od5S24WtzT72smfKMxfhvqtNkO2npmYf/KpsCeVguT10rqVtSZHqvXshBQa
+cg6WL1Ev1MiduP0eL3qzafVGJPRJf7QmZl54013D1LEOBmJ4Ne+DSKJqB02iqLl3B0WssnouuqWr
+OLekcawXFXlawTSAzJxfherUEhwBeX67rlwFzqrrvI5PIheiL2LzMJPscF5C3DH5nO+nJhWACL9u
+VnrCxqtm1mJcTpz9hrCZzkRcCYvNWoakcxkhtg==
+>>>>>>> refs/remotes/origin_chu/master
 </SignatureValue>
 <KeyInfo>
 <X509Data>

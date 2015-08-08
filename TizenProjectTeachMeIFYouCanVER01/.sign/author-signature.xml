@@ -40,7 +40,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Ffx85NlgI94cfW6PTni8gpkRpAIWCOe1GvpFA+M1twQ=</DigestValue>
+<DigestValue>XEgBV98Bv2Nvg4WgSrKB4CuWfrjNYxYif1n5CQfbu7E=</DigestValue>
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -52,11 +52,19 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<<<<<<< HEAD
 <DigestValue>h9gh82k5eN1DvcfkqeVxUsFpUrSEsmFnXr2JVjSnB+8=</DigestValue>
+=======
+<DigestValue>/VDqEav+pkoEYQsIZBcEn9UCTSPjHA7OXy/lE4E7wZ0=</DigestValue>
+>>>>>>> refs/remotes/origin_chu/master
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<<<<<<< HEAD
 <DigestValue>EPLn00IAf6N6bSC5KlwJVu1DlUctd62Jt6KslN23nm4=</DigestValue>
+=======
+<DigestValue>nQ9qVcmzi1ayYXhxg38s1QuvlJ/MzvzX2q1xrdphDFA=</DigestValue>
+>>>>>>> refs/remotes/origin_chu/master
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2211,11 +2219,19 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
+<<<<<<< HEAD
 W4S9GXso595LSs8gAUzD6t2JkEjTPwKfRfg5bQiRv0gZb+b6hEStrlHRgvUtLB2k6P9Qh8yvEY1v
 ME6jzz4ghpVN5JXFqK8Ic5WU22zL5C4Fm2povBsmnFdKQceVZ1koapUrP19EHtEKEFUqVizc98g+
 ufXMtwB61hoLz2Uer3bELxXFGqQzTemlTQ9P4PimS8AiPN/wBFHNxlRrb4eweKxqDBkbxc3FwjJ/
 Z1W/SwyhAneUs/L64mQ3P3C1SUZRMzAL6ahAjryIiaoqfQt2rDz9D/QFpq7kQfl8qyi8kkdBtWwA
 cQ1SFm7uGXh/v+aA18+oRc0eOBfu83AeBYaiBw==
+=======
+3Zznk3aO/ezetauz5XIqDRUC731UI4wpO/mQ6UTmb+mVskcm9bRM+QyREmesXUdvzK9K7Mp4y9TC
+8DWw4/ApnhMcnZJb4NqWJ9q6/R0jFV9vpyVaLVW43vTvNOD9alRQQt0JLNIR9W56Z2HiTslsKKYA
+fYNftnJ9NTprLS30NsOpkXcbMfTWvDBAciyJ+DuEAEIoHjDw8CZRa/ktLfrAfNcieGKpX7iAQp5A
+6nSenwvFlxnwW1tP3xhSZp7YlWfzsNB7ReXpvzDKBssFv3Oktqqcu+YMXuBsNjN2He67zK9Tw8jL
+CB2lfdazfVYPobNAcm5ysvKWQ8rF04nYMsu0Iw==
+>>>>>>> refs/remotes/origin_chu/master
 </SignatureValue>
 <KeyInfo>
 <X509Data>

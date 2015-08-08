@@ -1,3 +1,20 @@
+var new_class = '<li id="active_class_list1" onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px;">' +   	
+					'<div style="padding:0px; margin:0px;">' + 
+				'<h4 style="padding:5px; padding-top:15px; margin:0px;">' +
+					'Title: Integrated Circuit' +
+				'</h4>' +
+				'<h5 style="padding:5px; margin:0px; font-size:70%;">' +
+					'Participant:' +
+				'</h5>' +
+				'<ul id="participant_list">' +
+					'<li style="font-size:70%;">' + 'Participant 1' + '</li>' +
+				'</ul>' +
+				
+				'<div data-role="button" data-inline="false" style="margin-top:25px;" id="joinRoom">Enter</div>' +
+				
+				'</div>' +
+				'</li>';
+
 function room_socket_init() {
 	
 	socket = io('http://211.189.127.154:53597');	
