@@ -56,7 +56,7 @@
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Eto/XBdXZBQ/a0GbGCDQLgRs+DQd0f2zANeXOBKC0OI=</DigestValue>
+<DigestValue>M0rOkSuggz4v/fg1sFEkGmQqxziMEFbVyRPt+RZLkF8=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2211,11 +2211,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-htCrC/HNJNpmbnl7e3ZACEqhJGFxdGimQJ1Lf6CKIAUn8Q08BTeXfVhmeRAU4kQKe6ozkpfyJF6G
-w3EmBcvncQb7Xqtp0wB5bBSSLSnVzU/jDP7/cF7S1AouBzHI46qlUgk+d+MWUD6SkuXLgmznzL/1
-w6STbG0jcJYxgELra3JNansQOEsATFc6GZyIRHy47up9ePZnS3e5GwVAtXh7Hibu9AKbx2WYPzPl
-PUr7KVUL9vcV8uG6uDKtjXd/Zigr8uyDLjWQW0UAbjj8AwKfk1HKVKRCKkhqQq9VzcVSuXaL5pPJ
-uDRU5U2aTDlGO8tnPKGqLUNi7siFUyrNCeF7hg==
+Vn3ZPvZNuj3mA7G+Mzuzke87EZQnKdaFckD3uxRajmiQzv9vwrDu/SV/UDgwmhWqzwLi2ouwKS7r
+mPvBk61g47+Fljfa/PlCFghVypgldLe7Nw5ZGTFZDu7WsErhL2Z/Zp0uL8sFTq4Ab6gxQx6mjZ9w
+I9IYIyjjXKcP3q7lippAqx1cXP5QtdjU0acnpvExZ04oX78bKYD6dnx4FxGfPmAkJcVwhuM8lKMK
+lp9Ae5uBVGBvNyrx9qf4bxe8YIXaOGFUgQNcVkh25x1DLsPmFVYJxa787Oie4I5fb8gxRmlXpwK0
+iVTDvZ4kvsekmcd98cemzZ6W+A6x1tCAd7OJug==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

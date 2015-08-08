@@ -54,12 +54,17 @@ function room_socket_init() {
 		socket.on('roomJoinUsers', function(data) {	
 			//console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
 			
-			for(var i = 0; i < data.attendants.length; i++)	{
-				$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.attendants[i]);				
-				console.log("data.attendants[i] = " +  data.attendants[i]);		
+			if(data.attendants.length > 0) {
+				var attendants_list = "";
+				for(var i = 0; i < data.attendants.length; i++)	{
+					attendants_list += data.attendants[i];
+					if(i != data.attendants.length - 1)
+						attendants_list += ", ";	
+				}
+				$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + attendants_list + '님이 방에 있습니다.</li>');				
+				
+				console.log("attendants_list = " +  attendants_list);							
 			}
-			$('#chat ul').append('님이 방에 있습니다.</li>');				
-			
 			screen.lockOrientation("landscape-primary");
 			change_student_screen();
 		});	
@@ -71,10 +76,11 @@ function room_socket_init() {
 	//있던 방에 참여한 참가자 정보 받아옴
 	socket.on('joined', function(data) {	
 		console.log("<join> nickName = " + data.nickName + " roomName : " + data.roomName + " pic_url = " + data.pic_url);
-	
-		$('#chat ul').append('<li> <img src = ' + pic_url + '>'+ data.nickName +'이 </span>'+ data.roomName + '번방에 입장' );
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +'이' + data.roomName + '번방에 입장 </li>');				
+		
 		navigator.vibrate(500);
 	});
+	
 	
 	//나가기 버튼 
 	$('#roomExit').off("click").on("click", function() {	
@@ -90,9 +96,8 @@ function room_socket_init() {
 	
 	//채팅방에서 나간 참가자 정보
 	socket.on( 'leaved', function(data) {
-		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);
-		$('#chat ul').append('<li><span>'+ data.nickName +': </span>'+ data.roomName + ' 에서 퇴장하셨습니다' );
-		
+		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"' + data.nickName +'이' + data.roomName + '번방에서 퇴장<li>');						
 		navigator.vibrate(500);
 		
 		//html 에서 참가자 제거 코드 넣기

@@ -20,7 +20,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>M3Vp++F6SKET85q/Flo0yu3ymM10TLLFiMH7et7lLy4=</DigestValue>
+<DigestValue>gfKkdbaQ+Rr7qqtpRe1Cuz4uPIh1Zo6XVDTsQnvFLZA=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -60,7 +60,7 @@
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Eto/XBdXZBQ/a0GbGCDQLgRs+DQd0f2zANeXOBKC0OI=</DigestValue>
+<DigestValue>M0rOkSuggz4v/fg1sFEkGmQqxziMEFbVyRPt+RZLkF8=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2215,11 +2215,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-kQsEJCTGGxK7W32rp1LLPEjszxSVesDwa4U5CnrYEu0103ETWHRW4fBG+ERHvbbFRhcEg+lK3C07
-oOdCQhZH5ufBKujbxCcWA4uimkFFFjgQbknMhBi52qcFT/vhg0Z9H6nwfXuhZ2I6DgSsX93K1UrH
-owfPseEXV35WOuLtYUwoZM0/rvAaRl+dwIveIYjwIcoWWwQuyfysHXH8TChBSuIpAacsU67nSSln
-O8l511Upq9U+VcUFEB+nHgBIlWU7bd2gMSvY+M0vtgCR24OTJBCbB6/X20N6B6vTmTsos3EUicMG
-tH+5yTiF6cxBtuNSn0mP4lYuD5bS62OFvshQ7A==
+CZDInM/dzg+BeCNrOc/0UPaKiUvnJMiTiXZkUTLFneGhiNR9A46kQHngUslnmehzjzADJVLThYE/
+8Z9mjE1GWMyqcL9ybSc3ZXcDcySTRpRTIiCaj2sp205lBHEOmsNaIRp8bdBEy3O5LAEnUs1GNxFD
+RXI/NbbCpL4Al31S2UUVRyduaRsv9/V/Dn+JMW/bslk0UQK58scMqHGuKfmtNZD+gnxXWOAKhrcy
+7eURJUqYTdm7J3Ae1YnROZqI6ard1yFeOpU5gBwfLkeSbqo5Gc7+9S2DfNTpmvcuPbeglWq/yH23
+WRzkZVQnsSewXyddkT8cYr21iVz9eMXCbsJvmw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
