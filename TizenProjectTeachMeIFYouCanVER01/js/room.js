@@ -25,7 +25,7 @@ function room_socket_init() {
 	}));
 	
 	//본인이 방 생성 버튼
-	$('#createRoom').off("click").on("click", (function() {
+	$('#start_class').off("click").on("click", (function() {
 		/*
 		console.log("방 create 버튼 누름" );
 		
