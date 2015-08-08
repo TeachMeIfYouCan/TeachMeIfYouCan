@@ -5,15 +5,26 @@
 	<script src="./lib/jquery.js"></script>
 	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
 	<link rel="stylesheet" href="./lib/tau/mobile/theme/default/tau.css">
-	<link rel="stylesheet" type="text/css" href="./css/style.css" />	           
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	
+	
+	<script type="text/javascript" src="./js/teacher_screen.js"></script>
+    <!-- <script src="./js/student_screen.js"></script>  -->
+	
+		           
 </head>
-<body>
+<body onload="canvas_init();">
 
 	<div data-role="page" id="loginPage">
 		<div data-role="header" data-position="fixed">
 			<h1>Facebook Login</h1>
 		</div><!-- /header -->
 		<div data-role="content">
+		
+			<img src="./Teach me if you can - Log In Image.png" style="width:100%;">
+			
+			<img src="./Teach me if you can - Log In Image 1.png" style="width:70%; display:block; margin: 0 auto;">
+			
 			<button onClick="FBLogin();">Login</button>
 			<ul id="loginFile">
 			</ul>
@@ -152,20 +163,295 @@
  					</a>
                 </li>
                 
+                <li class="friend_list_element">
+                	<a href="#">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 6
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+                <li class="friend_list_element">
+                	<a href="#">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 7
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+                <li class="friend_list_element">
+                	<a href="#">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 8
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+                <li class="friend_list_element">
+                	<a href="#">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 9
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
             </ul>
         </div><!-- /content -->   
-        <div data-role="footer" style="height:70px; background-color:aqua;">
+        <div data-role="footer" style="height:70px; background-color:#0000FF; opacity:0.5;">
         	
         	<div data-role="tabbar" data-auto-change="false">
                 <ul>
-                	<li><a data-role="button" href="#">Find</a></li>
-                	<li><a data-role="button" href="#" id ="createRoom">Create</a></li>
+                	<li><a data-role="button" href="#" id = "find_friends">Find</a></li>
+                	<li><a data-role="button" href="#" id = "createRoom">Create</a></li>
                 </ul>
             </div> 	
         </div>
     </div><!-- main/page -->
 
 	<!--  main==================================================================================================== -->
+	
+	<div id="select_friends" data-role="page">
+		<div data-role="header" data-position="fixed" data-id="foo">
+        	<h1 style="font-size:80%;">Tizen Project - Friend List UI</h1>
+            <div data-role="tabbar" data-auto-change="false">
+                <ul>
+               		<li><a href="#main" class="ui-btn-active" onclick="clear_selected();">Friends</a></li>
+                	<li><a href="#page_class_list" onclick="clear_selected();">Classes</a></li>
+                	<li><a href="#page_option_list" onclick="clear_selected();">Options</a></li>
+                </ul>
+            </div>
+        </div><!-- /header -->
+
+        <div data-role="content">
+            <ul data-role="listview">
+          
+                <li data-role="list-divider" id="top">Choose Your Classmates</li>
+                
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./test_img_1.jpg" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 1
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>            
+                </li>
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 2
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 3
+	 					<span class="ui-li-text-sub" class="friend_checkbox">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 4
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 5
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 6
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 7
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 8
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./icon.png" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 9
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>
+                </li>
+                
+            </ul>
+        </div><!-- /content -->
+    	<div data-role="footer" style="height:70px; background-color:#000066; opacity:0.5;">
+			<div data-role="tabbar" data-auto-change="false">
+                <ul>
+                	<li><a data-role="button" href="#" id="start_class">Start</a></li>
+                	<li><a data-role="button" href="#main" id="back" onclick="clear_selected();">Back</a></li>
+                </ul>
+            </div> 	
+        </div>   
+    </div><!-- main/page -->
+
+	<!--  Select Friends==================================================================================================== -->
 		
 	<div id="page_class_list" data-role="page">
         <div data-role="header" data-position="fixed" data-id="foo">
@@ -298,7 +584,7 @@
     <!--  page_option_list==================================================================================================== -->
 	
     <div data-role="page" id="teacher_screen">
-		 
+ 
 		<div id="header_title" data-role="header" data-position="fixed" style="text-align:center;">			 
 			<div id="class_title" style="padding-top:10px;">Integrated Circuit</div>
 			<div data-role="button" data-icon="naviframe-done" class="naviframe-button" style="display:none"></div>
@@ -322,23 +608,41 @@
 				<canvas id="canvas" style="border: 1px solid black; margin-left: 5px; margin-top: 10px;"></canvas>
 			</div>
 			
-			<div id="chat" style="border:1px solid black; float:left; margin-left: 5px; margin-top: 10px;">
-				<ul>
-				<!-- 	<li> <input type="text" id="myProfile"/> </li>	 -->
-				</ul>					
-					<p>
-						<input type="text" id="inputMsg"/>
-						<button id="sendMsgBtn">Send</button>
-					</p>				
+			<div data-role="content" id="chat" style="border:1px solid black; float:left; margin-left: 2px; margin-top: 10px;">
+				<div>
+					<ul data-role="listview" data-style="bubble">
+						<li class="ui-li-bubble-receive">testtesttesttesttesttesttesttesttesttesttest</li>
+						<li class="ui-li-bubble-sent">testtesttesttesttesttesttesttesttesttesttest</li>
+						<li class="ui-li-bubble-receive">test</li>
+						<li class="ui-li-bubble-receive">test</li>
+						<li class="ui-li-bubble-receive">test</li>
+						<li class="ui-li-bubble-receive">test</li>
+						<li class="ui-li-bubble-receive">test</li>
+						<li class="ui-li-bubble-receive">test</li>
+					</ul>
+				</div>							
 			</div>
-			
-			<div id="audio_control" style="float:left; margin-left: 5px; margin-top: 10px;">
+			 
+			<div id="send_message" style="border:1px solid black; float:left; margin-left: 2px; margin-top: 10px;">
+				<form onsubmit="alert('test'); return false;">
+					<!-- <input type="text" id="inputMsg"/> -->
+					<input type="text"/>
+				</form>
+			</div>	
+			<!-- 
+			<div id="send_message" style="border:1px solid black; float:left; margin-left: 5px; margin-top: 10px;">
+				<button id="sendMsgBtn">Send</button>
+			</div>
+			--> 
+			 
+			<div id="audio_control" style="float:left; margin-left: 2px; margin-top: 10px;">
 				<div id="play" style="border:1px solid black; display:inline-block; margin:0;">1</div>
 				<div id="pause" style="border:1px solid black; display:inline-block; margin:0;">2</div>
 				<div id="stop" style="border:1px solid black; display:inline-block; margin:0;">3</div>
 			</div>
-		
+			
 		</div>
+		
     </div><!-- teacher_screen/page -->
           
     <!--  teacher_screen==================================================================================================== -->
@@ -348,8 +652,6 @@
     <script src="./js/socket.io-1.3.4.js"></script> 
     <script src="./js/room.js"></script>
     <script src="./js/chat.js"></script>
-    <script src="./js/teacher_screen.js"></script>
-    <script src="./js/student_screen.js"></script>
      
 </body>
 </html>

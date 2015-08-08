@@ -1,20 +1,97 @@
 //screen.lockOrientation("landscape-primary");
 
-var canvas_area = document.getElementById("canvas_area");
+var canvas_area;
+var canvas;
+var context;
+var isCanvas_clear;
 
-var canvas = document.getElementById("canvas");
+var chat_box;
+var send_message;
 
-var context = canvas.getContext("2d");
+var audio_control;
+var play_button;
+var pause_button;
+var stop_button;
 
-canvas.width = document.height * 0.5;
-canvas.height = document.width * 0.8;
+var editDrawerElement;
+var edit_menu_open;
 
-canvas_area.style.width = canvas.width + 20 + "px";
-canvas_area.style.height = canvas.height + "px";
+var background_image;
 
-canvas.addEventListener("touchstart", touchStartHandler, false);
-canvas.addEventListener("touchmove", touchMoveHandler, false);
-canvas.addEventListener("touchend", touchEndHandler, false);
+var join_button;
+var create_button;
+
+function canvas_init(){
+
+	console.log("Init Function Called");
+	
+	canvas_area = document.getElementById("canvas_area");
+	
+	canvas = document.getElementById("canvas");
+	
+	context = canvas.getContext("2d");
+	
+	canvas.width = document.height * 0.5;
+	canvas.height = document.width * 0.8;
+	
+	canvas_area.style.width = canvas.width + 10 + "px";
+	canvas_area.style.height = canvas.height + "px";
+	
+	canvas.addEventListener("touchstart", touchStartHandler, false);
+	canvas.addEventListener("touchmove", touchMoveHandler, false);
+	canvas.addEventListener("touchend", touchEndHandler, false);
+	
+	isCanvas_clear = true;
+	
+	chat_box = document.getElementById("chat");
+	chat_box.style.width = document.height * 0.5 + "px";
+	chat_box.style.height = document.width * 0.67 * 0.65 + "px";
+
+	send_message = document.getElementById("send_message");
+	send_message.style.width = document.height * 0.5 + "px";
+	send_message.style.height = document.width * 0.67 * 0.3 + "px";
+	
+	audio_control = document.getElementById("audio_control");
+	audio_control.style.width = document.height * 0.5 + "px";
+	audio_control.style.height = document.width * 0.112 + "px";
+
+	play_button = document.getElementById("play");
+	pause_button = document.getElementById("pause");
+	stop_button = document.getElementById("stop");
+
+	play_button.style.width = document.height * 0.5 * (0.28) + "px";
+	pause_button.style.width = document.height * 0.5 * (0.28) + "px";
+	stop_button.style.width = document.height * 0.5 * (0.28) + "px";
+
+	play_button.style.marginLeft = document.height * 0.5 * (0.045) + "px";
+	stop_button.style.marginRight = document.height * 0.5 * (0.045) + "px";
+
+	editDrawerElement = document.getElementById("editDrawer");
+	edit_menu_open = false;
+	
+	background_image = new Image();
+	background_image.src = "test_js.jpg";	// This src path is based on the HTML file that loads this js file.
+
+	background_image.onload = function(){
+		context.drawImage(background_image, 0, 0, canvas.width, canvas.height);
+	}
+	
+	join_button = document.getElementById("joinRoom");
+	join_button.onclick = function(){
+		
+		console.log("Clearing the canvas");
+		
+		context.clearRect(0, 0, canvas.width, canvas.height);
+	}
+	
+	create_button = document.getElementById("createRoom");
+	create_button.onclick = function(){
+		
+		console.log("Clearing the canvas");
+		
+		context.clearRect(0, 0, canvas.width, canvas.height);
+	}
+}
 
 var touches;
 
@@ -90,31 +167,9 @@ function touchEndHandler(){
 	drawPath.length = 0;
 }
 
-var chat_box = document.getElementById("chat");
-
-chat_box.style.width = document.height * 0.45 + "px";
-chat_box.style.height = document.width * 0.67 + "px";
-
-
-var audio_control = document.getElementById("audio_control");
-audio_control.style.width = document.height * 0.45 + "px";
-audio_control.style.height = document.width * 0.112 + "px";
-
-var play_button = document.getElementById("play");
-var pause_button = document.getElementById("pause");
-var stop_button = document.getElementById("stop");
-
-play_button.style.width = document.height * 0.45 * (0.28) + "px";
-pause_button.style.width = document.height * 0.45 * (0.28) + "px";
-stop_button.style.width = document.height * 0.45 * (0.28) + "px";
-
-play_button.style.marginLeft = document.height * 0.45 * (0.04) + "px";
-stop_button.style.marginRight = document.height * 0.45 * (0.04) + "px";
-
-var editDrawerElement = document.getElementById("editDrawer");
-var edit_menu_open = false;
-
 function edit_menu(){
+	
+	console.log("edit_menu");
 	
 	var editDrawer = tau.widget.Drawer(editDrawerElement);
 	
@@ -128,14 +183,6 @@ function edit_menu(){
 		editDrawer.close();
 		edit_menu_open = false;
 	}
-}
-
-
-var background_image = new Image();
-background_image.src = "test_js.jpg";	// This src path is based on the HTML file that loads this js file.
-
-background_image.onload = function(){
-	context.drawImage(background_image, 0, 0, canvas.width, canvas.height);
 }
 
 

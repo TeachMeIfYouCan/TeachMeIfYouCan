@@ -1,4 +1,7 @@
 function chat_init() {
+	
+	console.log("chat_init() has been called");
+	
 	//메세지 받기
 	socket.on('message', function(data) {
 		console.log("<chat msg> nickName = " + data.nickName + " roomName = " + data.roomName + " msg = " + data.message);		

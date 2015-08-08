@@ -18,8 +18,15 @@ function room_socket_init() {
 		socket.emit('roomList');
 	}));
 	
+	//친구 찾기 및 선택
+	$('#find_friends').off("click").on("click", (function() {
+		
+		change_select_friend();
+	}));
+	
 	//본인이 방 생성 버튼
 	$('#createRoom').off("click").on("click", (function() {
+		/*
 		console.log("방 create 버튼 누름" );
 		
 		socket.emit('requestRoomNum', id); //방 키값 받음
@@ -30,11 +37,15 @@ function room_socket_init() {
 			
 			screen.lockOrientation("landscape-primary");
 			change_student_screen();
-		});	
+		});
+		*/
+		screen.lockOrientation("landscape-primary");
+		change_student_screen();
 	}));
 	
 	//만들어진 방 참가 버튼
 	$('#joinRoom').off("click").on("click", function() {	
+		/*
 		console.log("joinRoom 버튼 누름" );	
 		roomName = 5;
 		socket.emit('joinRoom', {nickName: nickName, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
@@ -50,6 +61,9 @@ function room_socket_init() {
 			screen.lockOrientation("landscape-primary");
 			change_student_screen();
 		});	
+		*/
+		screen.lockOrientation("landscape-primary");
+		change_student_screen();
 	});
 	
 	//있던 방에 참여한 참가자 정보 받아옴
@@ -62,9 +76,10 @@ function room_socket_init() {
 	
 	//나가기 버튼 
 	$('#roomExit').off("click").on("click", function() {	
+		/*
 		console.log("roomExit 버튼 누름" );
 		socket.emit('leave', {nickName: nickName, roomName: roomName, pic_url: pic_url});	
-		
+		*/
 		screen.lockOrientation("portrait-primary");
 		//window.history.back();
 		change_page_class_list();
