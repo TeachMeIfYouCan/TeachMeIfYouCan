@@ -24,7 +24,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>zbLJFaBZRhezO+penPYtfm9E8vAPMDhKAOuzhhZeqL8=</DigestValue>
+<DigestValue>FDf/V0qiD6HEImEHpnylZXX9izMwj1NQiCRQk1SrT78=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -56,15 +56,15 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>h4cFXUQHeFb9L83OqhP/k/TXgJKRtFuJvEsfQHHJk0k=</DigestValue>
+<DigestValue>M9dCth2JMBQfY1tQfraJmcloUti+nzbvVxXh3LWGbpA=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>o5lh0iDOkx7nvmWWlqH56K2ccpbv00Oke1TEuTb3GS4=</DigestValue>
+<DigestValue>WzesTeDoQKThARy3Al2A+41vMZuxio/RHl6zmNx04+w=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>X9YXHLrhEXLPQWNp27/NBei8MObW0Br8wBpg+72+Ru0=</DigestValue>
+<DigestValue>1xui1D+KRQmBFKGrj4kG2S4k4Y7a9VT6KF1DJSXDM2g=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2219,11 +2219,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-HaASyWZ+TOHQXwoX4CyTQflL/Ot4zZYh9kZRb6i/CQxhwfVjqdIQ8Wnh4zgNQY0S5FTl1bh34Y5a
-c3LLNRlCupyB1JKh7Jx9RHrCaUOLqOlp6nRp+ahW7fMqnGwuTNjJ4+IvMcKEN6FrX9GEFVG9WC4k
-GSoXE1GjhdCiKNZDcQGMTl1SPO1+XzlSP5ioErAIYR0gSnWKHjNdmBJatfZ7ixyAw2qMDkyhYI2A
-MkYfQL1T8aIrh8g5cfTfq0mlf4g7aVBGZwfjkbHYUCPTrPWZ/zTcETd4cGwTAG7bAbmHVAAHSQLP
-yGg2MogDvrGUDsI/kXzI/IlzHhCIh/h1J93ONg==
+UGhUkFfPuJ755FFfM2Z0m30PZ7W+PLtLDBt1JW2PQTSdIQlmzUUyKi999Rx141PVPY5fkOFDZwcQ
+QGZHKO6W5gOOisV4s5p8OyacDPL1GhXVbrw17UfJ4VHtVgCh1tUJvUk1gmlAsSv6jr+I/SpFbQVj
+YHrzcnF+ggIhviXSGfsk4qk2tgaHSoT+Eft8iwFfy1Wq78z/PsvdlXWd13MiKgnQSOTKZFvufdae
+EGyPVOYKvlLpvdRY0M3YGH+hmVDXveBbXbkicH4uSDXsisLazz3ITHPGawJBzV446lDHq5Nut+YR
+kZzsd9A1ngOAgOjeHSJmxNqZoTx27zO2nAxGWQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

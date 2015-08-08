@@ -150,6 +150,9 @@ function touchMoveHandler(e){
 		context.stroke();
 		
 		sendCanvasData("move", drawPath[index].pageX, drawPath[index].pageY, touches[i].pageX,  touches[i].pageY, drawPath_all);
+		var data = context.getImageData(x, y, img.width, img.height).data;
+		 
+		socket.emit("imageDate", {imageDate : data});
 		
 		drawPath.splice(index, 1, touches[i]);
 		

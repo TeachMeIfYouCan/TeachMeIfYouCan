@@ -12,6 +12,7 @@ $(document).ready(function() {
 		loading.show();
 	}).ajaxStop(function() {
 		loading.hide();
+		$.mobile.changePage("main");
 	});
 
 	

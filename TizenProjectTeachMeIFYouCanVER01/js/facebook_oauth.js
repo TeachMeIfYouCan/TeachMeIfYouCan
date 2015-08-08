@@ -21,7 +21,7 @@ function FBLogin_check() {
 		room_socket_init();
 		chat_init();
 			
-		$.mobile.changePage("main");
+		
 	}
 }
 

@@ -172,7 +172,7 @@ function init_friend_list(me){
 	var ME = '<li data-role="list-divider">Me</li>' +        
                 '<li class="friend_list_element">' +
 		 			'<a href="#">' +
-	 					'<img src=' + "http://graph.facebook.com/" + me.id + "/picture" + ' class="ui-li-bigicon" />' +
+	 					//'<img src=' + "http://graph.facebook.com/" + me.id + "/picture" + ' class="ui-li-bigicon" />' +
 	 					'&nbsp;' + me.name +
 	 					/*<span class="ui-li-text-sub">
 	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
@@ -199,7 +199,7 @@ function refresh_friend_list(friend_list){
 		
 		friend = friend + 'id=' + friend_list[i].id + '>' + 
 					'<a href="#">';
-		friend = friend + '<img src=http://graph.facebook.com/' + friend_list[i].id + '/picture' + ' class="ui-li-bigicon" />';
+		//friend = friend + '<img src=http://graph.facebook.com/' + friend_list[i].id + '/picture' + ' class="ui-li-bigicon" />';
 		friend = friend + '&nbsp;' + friend_list[i].name;
 		/*friend = friend + <span class="ui-li-text-sub">
 									<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
