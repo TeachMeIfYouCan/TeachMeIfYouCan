@@ -4,6 +4,20 @@ var list_expand_toggle = 0;
 
 var select_list = new Array();
 
+$(document).ready(function() {
+	
+	//로딩 이미지
+	var loading = $('<img src="icon.png" alt="loading" style="border:0; position:absolute; left:50%; top:50%;" />').appendTo(document.body).hide();	
+	$("*").ajaxStart(function(){
+		loading.show();
+	}).ajaxStop(function() {
+		loading.hide();
+	});
+
+	
+	
+});
+
 ( function () {
    window.addEventListener( 'tizenhwkey', function( ev ) {
       if( ev.keyName === "back" ) {

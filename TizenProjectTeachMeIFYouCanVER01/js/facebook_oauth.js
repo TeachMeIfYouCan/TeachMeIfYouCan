@@ -7,14 +7,21 @@ var client_secret="1533043b6b2efd0abfe54b55a0cc9b6a";
 //var name = "chu", id = "123", nickName = "chu123", roomName, pic_url = "http://graph.facebook.com/805566542823060/picture";
 var name = "kim", id = "123", nickName = "kim123", roomName, pic_url = "http://graph.facebook.com/567949783318787/picture";
 
+var loading_flag;
+
 function FBLogin_check() {
 	if(localStorage.getItem('accesstoken') !== null) {	
 		/// DEBUG
 		console.log("로그인 되어 있음");
 		console.log("localStorage['accesstoken'] = " + localStorage['accesstoken']);
-		$.mobile.changePage("main");
+		
+		getProfile();		
+		getFriends();
+
 		room_socket_init();
 		chat_init();
+			
+		$.mobile.changePage("main");
 	}
 }
 
@@ -53,13 +60,16 @@ function  getAccesstoken(code){
         		   console.log("getAccesstoken acess success");
         		   accesstoken=data;
 				   access_token=parseToken(accesstoken);
-				   //localStorage['accesstoken']=access_token;
 				   localStorage.setItem('accesstoken', access_token);
 			   
-				   $.mobile.changePage("main");               
+				   getProfile();
+				   getFriends();
+				   
 				   room_socket_init();
 				   chat_init();
-				   				   
+				   
+				   $.mobile.changePage("main");               
+					  
 				   window.clearInterval(int);
 				   window.authWin.close();			          
         	   }
@@ -87,15 +97,13 @@ function getProfile() {
 	$.ajax({
            type : "GET",
            dataType : 'json',
-           url : 'https://graph.facebook.com/me?&access_token=' + localStorage['accesstoken'] ,
+           url : 'https://graph.facebook.com/me?flied=id,name,picture&access_token=' + localStorage['accesstoken'] ,
            success : function(data) {       
 		       name = data.name;
 		       id = data.id;
 		       nickName = name + id;
-		       pic_url=data.picture.data.url;
-		
-		       //내 프로필 
-		       //$('#getProfile ul').append('<li><span>MyPofile</span> <br> <img src = ' + pic_url + '>');            
+		      
+		       init_friend_list(data);
 		   },
 		   error : function() {
 			   $.mobile.changePage("loginPage");
@@ -112,23 +120,11 @@ function getFriends(){
 		success : function(data) {
 				var jsonlength=data.data.length;
     
-				//친구 프로필 가져오기
-				/*
-				$('#getFriends ul').append('<li><span>MyFriendList</span><br>');
-   
-				for(i=0;i < jsonlength;i++) {
-					names=data.data[i].name;
-			        img_url="http://graph.facebook.com/"+id+"/picture";
-			        console.log("i = " + i + " names = " + names + " id = " + id);
-			   
-			        $('#getFriends ul').append('<img src = ' + img_url + '> names = ' + names + ' id = ' + id);            
-			    }
-			   
-			    $('#getFriends ul').append('</li>'); 
-			    */  
-			},
-			error : function() {
+				refresh_friend_list(data.data);	
+		}
+		,error : function() {
 				console.log("Unable to get your friends on Facebook");
+			
 			}
 	});
 }

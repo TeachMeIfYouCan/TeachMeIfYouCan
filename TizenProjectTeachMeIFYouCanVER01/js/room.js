@@ -1,3 +1,4 @@
+/*
 var new_class = '<li id="active_class_list1" onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px;">' +   	
 					'<div style="padding:0px; margin:0px;">' + 
 				'<h4 style="padding:5px; padding-top:15px; margin:0px;">' +
@@ -14,6 +15,7 @@ var new_class = '<li id="active_class_list1" onclick="expand_class_list(this);" 
 				
 				'</div>' +
 				'</li>';
+*/
 
 function room_socket_init() {
 	
@@ -56,6 +58,7 @@ function room_socket_init() {
 			change_student_screen();
 		});
 		*/
+		
 		screen.lockOrientation("landscape-primary");
 		change_student_screen();
 	}));
@@ -160,6 +163,105 @@ function room_socket_init() {
 //	screen.lockOrientation(previous_screen_orientation);			
 //	window.history.back();
 //});
+
+
+function init_friend_list(me){
+	
+	$('#my_friend_list').empty();
+	
+	var ME = '<li data-role="list-divider">Me</li>' +        
+                '<li class="friend_list_element">' +
+		 			'<a href="#">' +
+	 					'<img src=' + "http://graph.facebook.com/" + me.id + "/picture" + ' class="ui-li-bigicon" />' +
+	 					'&nbsp;' + me.name +
+	 					/*<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>*/
+ 					'</a>' +
+                '</li>' + '<li data-role="list-divider">Friends</li>';
+	
+	$('#my_friend_list').append(ME);
+}
+
+function refresh_friend_list(friend_list){
+	
+	var friend = '<li class="friend_list_element"';
+	
+	for(var i = 0; i < friend_list.length; i++){
+		
+		friend = friend + 'id=' + friend_list[i].id + '>' + 
+					'<a href="#">';
+		friend = friend + '<img src=http://graph.facebook.com/' + friend_list[i].id + '/picture' + ' class="ui-li-bigicon" />';
+		friend = friend + '&nbsp;' + friend_list[i].name;
+		/*friend = friend + <span class="ui-li-text-sub">
+									<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+									Electronics and Communication
+								</h5>
+								<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+									Hanyang Univeristy
+								</h5>
+								<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+									Free
+								</h5>
+							</span>; */
+		friend = friend + '</a> </li>';
+		
+		$('#my_friend_list').append(friend);
+		
+		friend = '<li class="friend_list_element"';
+					
+	}
+}
+
+function init_class_list(){
+	
+	$('#active_class_list ul').empty();
+}
+
+function add_class(title, participant_list, room_number){
+	
+	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px;">' +   	
+						'<div style="padding:0px; margin:0px;">' + 
+					'<h4 style="padding:5px; padding-top:15px; margin:0px;">' +
+						'Title: ';
+	
+	new_class = new_class + title + 	
+				'</h4>' +
+				'<h5 style="padding:5px; margin:0px; font-size:70%;">' +
+					'Participant:' +
+				'</h5>' +
+				'<ul id="participant_list">';
+	
+	for(var i = 0; i < participant_list.length; i++){
+		
+		new_class = new_class + 
+					'<li style="font-size:70%;">' + participant_list[i] + '</li>';
+	}
+	
+	new_class = new_class + 
+				'</ul>' +
+				
+				'<div data-role="button" data-inline="false" style="margin-top:25px;" id="joinRoom">Enter</div>' +
+				
+				'</div>' +
+				'</li>';	
+
+	$('#active_class_list ul').append(new_class);
+}
+
+function remove_class(room_number){
+	
+	$('#active_class_list ul ' + '#room' + room_number).remove();
+}
+
 
 
 

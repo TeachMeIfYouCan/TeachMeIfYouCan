@@ -7,12 +7,9 @@
 	<link rel="stylesheet" href="./lib/tau/mobile/theme/default/tau.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	
-	
+	<script src="./js/main.js"></script>
 	<script type="text/javascript" src="./js/teacher_screen.js"></script>
-    <!-- <script src="./js/student_screen.js"></script>  -->
-	 <!--<script src="./js/login.js"></script>-->
-   
-		           
+	       
 </head>
 <body onload="canvas_init();">
 
@@ -47,7 +44,7 @@
         </div><!-- /header -->
 
         <div data-role="content">
-            <ul data-role="listview">
+            <ul data-role="listview" id="my_friend_list">
             
             	<li data-role="list-divider">Me</li>
             
@@ -466,7 +463,7 @@
             </div>
         </div><!-- /header -->
 
-        <div data-role="content">
+        <div data-role="content" id="active_class_list">
             <ul data-role="listview" id="active_class_list">
             
                 <li id="active_class_list1" onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px;">  	
@@ -586,8 +583,7 @@
           
     <!--  teacher_screen==================================================================================================== -->
 
-    <script src="./js/main.js"></script>
-    <script src="./js/facebook_oauth.js"></script>
+     <script src="./js/facebook_oauth.js"></script>
     <script src="./js/socket.io-1.3.4.js"></script> 
     <script src="./js/room.js"></script>
     <script src="./js/chat.js"></script>

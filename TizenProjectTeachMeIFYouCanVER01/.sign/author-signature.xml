@@ -44,7 +44,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>aNSyFhPgkPs4VVkwaJ7vyPE/nMSZFpB/Kr9eBkCp/8U=</DigestValue>
+<DigestValue>vNqzt05tuXQ1kesgVrAXp0ICsX7OswkvaqCv9Wnve2E=</DigestValue>
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -52,15 +52,15 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>bfR7btaT+8xxGfEtZltzCT/HwcQKWnJ1Y+ZTcIVxUmk=</DigestValue>
+<DigestValue>h4cFXUQHeFb9L83OqhP/k/TXgJKRtFuJvEsfQHHJk0k=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>h9gh82k5eN1DvcfkqeVxUsFpUrSEsmFnXr2JVjSnB+8=</DigestValue>
+<DigestValue>o5lh0iDOkx7nvmWWlqH56K2ccpbv00Oke1TEuTb3GS4=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>B/en7gcvSBFRSh/AuDh7UoGV1QaqPB7Q1/2cdowUvKY=</DigestValue>
+<DigestValue>X9YXHLrhEXLPQWNp27/NBei8MObW0Br8wBpg+72+Ru0=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2215,11 +2215,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-h7XH7FjNec1JFy/MbQm2Ev62kXURsuWkGFieSrvKY4JXSdeWOsfV8osBBhsoy5cN3dgaaMpeEQDC
-RVHD9IaXsRqckUpM2dUpmw8Nh1ZGQYlKknhQTBj1KXrrR4CSIAhRfOMha9jRIBBcH/ZBqs52jDEd
-RzW+5fiihyso20BPldS8y6EerCvL46DKFYZ3m/jX8lxrvr/BjHp9mEPhORYMCpTzXMbdg206GHPR
-ZlxM9ynxYFyVyux86W8QI8XJ+nzIuj6CxA2PrtMGXwGVWgBE0fV18Jc6OIjS8PnpHTmHVm3C1SIp
-Xq3hWeheTaZTMLtQZvGuegzlwSOlSE4CHiiS0Q==
+EEcmN2ctEM4SVuViZ5f1PiTb539qtNVDzY0jfuEr08ddK0QaUFFEgfUW0J+3ysNj1QslLjwiEyBS
+3AcxmjhwFJzV9qe9tWpINvWFpzGOf9gZMRnpm+xvc6nQ086NF3ECHCuzA6fEPq6K5MCnB0rZJHx8
+SnXXJuJR8i7h3nlvebu5ollwSniOAtBIcxDZsZEUUuSgOEqnBd3F80rn/T2cfWbLfpd5EWSgddYX
+vibc7hBv8J4sF3Hd3ITKaz3hgdZfCEmGxbhNLImDvj828NLDhYriLY4wzck5H308/SbZ8FBgVEWq
+9XvAyXMAbx9D/Q5Ykae55zwQNkLfZ2k7uNzjNA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
