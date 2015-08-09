@@ -1,24 +1,3 @@
-/*
-var new_class = '<li id="active_class_list1" onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px;">' +   	
-					'<div style="padding:0px; margin:0px;">' + 
-				'<h4 style="padding:5px; padding-top:15px; margin:0px;">' +
-					'Title: Integrated Circuit' +
-				'</h4>' +
-				'<h5 style="padding:5px; margin:0px; font-size:70%;">' +
-					'Participant:' +
-				'</h5>' +
-				'<ul id="participant_list">' +
-					'<li style="font-size:70%;">' + 'Participant 1' + '</li>' +
-				'</ul>' +
-				
-				'<div data-role="button" data-inline="false" style="margin-top:25px;" id="joinRoom">Enter</div>' +
-				
-				'</div>' +
-				'</li>';
-*/
-
-var num = 99;
-
 function room_socket_init() {
 	
 	console.log("Start initializing the socket");
@@ -28,10 +7,16 @@ function room_socket_init() {
 	//전체 room의 대한 정보를 가져옴
 	socket.emit('roomList');
 	socket.on('roomList', function(data) {
-	console.log("<roomList>");
-		for(var i = 0; i < data.length; i++)
-			console.log(data[i]);
 		
+		console.log("<roomList>");
+	
+		empty_class_list();
+	
+		for(var i = 0; i < data.length; i++){
+			console.log(data[i]);
+			
+			add_class_from_server(data[i].roomName, data[i].attendants, data[i].roomName);
+		}		
 		//html 방 정보 뿌려지 추가 해야함
 	});
 		
@@ -49,22 +34,22 @@ function room_socket_init() {
 	
 	//본인이 방 생성 버튼
 	$('#start_class').off("click").on("click", (function() {
-		/*
+		
 		console.log("방 create 버튼 누름" );
 		
-		socket.emit('requestRoomNum', id); //방 키값 받음
+		socket.emit('requestRoomNum'); //방 키값 받음
 		socket.on('requestRoomNum', function(data) {
 			console.log("requestRoomNum = " + data);	
 			roomName = data;		
-			socket.emit( 'createRoom', {nickName: nickName, roomName: roomName, pic_url: pic_url});  /////////////////여기에 초대자들 정보도 같이 보내야함!!!!나중에 추가
+			socket.emit( 'createRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});  /////////////////여기에 초대자들 정보도 같이 보내야함!!!!나중에 추가
 			
+			add_class(roomName, select_list, roomName);
+		
 			screen.lockOrientation("landscape-primary");
 			change_student_screen();
 		});
-		*/
-		num++;
-		add_class("test", select_list, num);
 		
+	
 		screen.lockOrientation("landscape-primary");
 		change_student_screen();
 	}));
@@ -112,7 +97,7 @@ function room_socket_init() {
 	$('#roomExit').off("click").on("click", function() {	
 		
 		console.log("roomExit 버튼 누름" );
-		socket.emit('leave', {nickName: nickName, roomName: roomName, pic_url: pic_url});	
+		socket.emit('leave', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});	
 		
 		screen.lockOrientation("portrait-primary");
 		//window.history.back();
@@ -274,8 +259,8 @@ function empty_class_list(){
 function enter_class(room_num){
 	
 	console.log("joinRoom 버튼 누름" );	
-	roomName = 5;
-	socket.emit('joinRoom', {nickName: nickName, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
+	roomName = room_num;
+	socket.emit('joinRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
 	
 	//기존 방에 있는 사람 리스트 받아옴
 	socket.on('roomJoinUsers', function(data) {	
@@ -323,15 +308,45 @@ function add_class(title, participant_list, room_number){
 	new_class = new_class + 
 				'</ul>' +
 				'<br>' +
-				'<button onclick="enter_class(5);">Enter</button>' +
+				'<button onclick="enter_class(' + room_number + ');">Enter</button>' +
 				'</div>' +
 				'</li>';	
+									
+	$('#all_active_class').append(new_class);
+}
 
+function add_class_from_server(title, participant_list, room_number){
+	
+	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px; border-bottom: solid #99CCFF; border-bottom-width:1px;" class="ui-li ui-li-static ui-li-has-right-btn ui-li-last" tabindex="0">' +   	
+						'<div style="padding:0px; margin:0px;">' + 
+							'<h4 style="padding:5px; padding-top:15px; margin:0px;" class="ui-li-heading">' +
+								'Title: ';
+	
+	new_class = new_class + title + 	
+				'</h4>' +
+				'<h5 style="padding:5px; margin:0px; font-size:70%;" class="ui-li-heading">' +
+					'Participant:' +
+				'</h5>' +
+				'<ul id="participant_list">';
+	
+	for(var i = 0; i < participant_list.length; i++){
+		
+		new_class = new_class + 
+					'<li style="font-size:70%;">' + participant_list[i] + '</li>';
+	}
+	
+	new_class = new_class + 
+				'</ul>' +
+				'<br>' +
+				'<button onclick="enter_class(' + room_number + ');">Enter</button>' +
+				'</div>' +
+				'</li>';	
+									
 	$('#all_active_class').append(new_class);
 }
 
 function remove_class(room_number){
-	
+	//chu  여기는 방 인원이 0일때 불리수 있도록
 	$('#active_class_list ul ' + '#room' + room_number).remove();
 }
 

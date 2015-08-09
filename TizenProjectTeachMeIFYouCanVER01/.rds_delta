@@ -3,4 +3,8 @@
 #modify
 res/wgt/author-signature.xml
 res/wgt/signature1.xml
-res/wgt/js/facebook_oauth.js
+res/wgt/index.html
+res/wgt/js/chat.js
+res/wgt/js/main.js
+res/wgt/js/room.js
+res/wgt/js/teacher_screen.js

@@ -50,7 +50,7 @@ $(document).ready(function() {
          } 
          else if( pageid === "teacher_screen" ) {
         	console.log("room에서 back 버튼 누름" );
-        	socket.emit('leave', {nickName: nickName, roomName: roomName, pic_url: pic_url});	
+        	socket.emit('leave', {nickName: nickName,id: id, roomName: roomName, pic_url: pic_url});	
         
         	screen.lockOrientation("portrait-primary");
         	change_page_class_list();
@@ -119,6 +119,13 @@ function change_select_friend(){
 function add_the_selected(friend){
 	
 	console.log(friend.style.backgroundColor);
+	
+	var data = {
+			text : nickName,
+			id : id
+	};
+	
+	select_list.push(data);
 	
 	if(friend.style.backgroundColor != "rgb(255, 204, 204)"){
 	
