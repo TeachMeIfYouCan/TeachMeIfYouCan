@@ -15,12 +15,56 @@ function FBLogin_check() {
 		console.log("로그인 되어 있음");
 		console.log("localStorage['accesstoken'] = " + localStorage['accesstoken']);
 		
+		//localGetProfile();
+		//localGetFriends();
 		getProfile();		
 		getFriends();
 
 		room_socket_init();
 		chat_init();
 	}
+}
+
+function localGetProfile() {
+	console.log("localGetProfile");
+	
+	
+    var myProfile = JSON.parse(localStorage.getItem('myProfile'));
+  
+    var data = {
+    		name : myProfile[0], 
+    		id : myProfile[1],
+    		pic_url : myProfile[2]
+    }
+    
+    console.log("data.name = " + data.name + " data.id = " + data.id);
+	
+    init_friend_list(data);
+   	           
+}
+function localGetFriends() {
+	console.log("localGetFriends");
+
+	var friend_length = JSON.parse(localStorage.getItem('friend_length'));
+	  
+	var data = new Array();
+	for(var i = 0; i < friend_length; i++) {	
+		data[i] = JSON.parse(localStorage.getItem(i));	
+	}
+	
+	var friendData = new Array();
+	
+	for(var i = 0; i < friend_length; i++) {	
+		friendData[i] = {
+				name : data[i][0],
+				id : data[i][1],
+				pic_url : data[i][2]
+		}	
+	}
+ 
+	console.log("friendData = " + friendData);
+	
+	refresh_friend_list(friendData);
 }
 
 function FBLogin(){
@@ -102,11 +146,19 @@ function getProfile() {
 		       name = data.name;
 		       id = data.id;
 		       nickName = name + id;
-		       
+		       pic_url = "http://graph.facebook.com/" + id + "/picture";
+	      	   
 		       MY_PROFILE_LOADED = data;
+		       	         	
+		       var myProfile = new Array();
+		       myProfile[0] = name;
+		       myProfile[1] = id;
+		       myProfile[2] = pic_url;		       
+		      		   		    			    
+		       localStorage.setItem('myProfile', JSON.stringify(myProfile));
 		       
-		       //init_friend_list(data);
-		       
+		       console.log("내 정보 로컬에 저장");
+		   
 		       console.log("Loading my profile has finished");
 		   },
 		   error : function() {
@@ -129,6 +181,18 @@ function getFriends(){
 				
 				MY_FRIENDS_LOADED = data.data;
 				
+				localStorage.setItem('friend_length', jsonlength);
+								
+				for(var i = 0; i < jsonlength; i++) {
+					var friendData = new Array();
+					friendData[0] = data.data[i].name;
+					friendData[1] = data.data[i].id;
+					friendData[2] = "http://graph.facebook.com/" + data.data[i].id + "/picture";
+			      	
+					localStorage.setItem(i,JSON.stringify(friendData));				    	
+				}
+				console.log("친구 정보 저장");
+				 
 				//refresh_friend_list(data.data);
 				
 				console.log("Loading friend profiles has finished");
