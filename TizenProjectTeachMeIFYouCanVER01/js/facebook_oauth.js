@@ -4,8 +4,7 @@ var redirect_uri = "https://www.facebook.com/connect/login_success.html";
 var scope = "public_profile,email,user_friends,user_photos,user_hometown,user_location,read_custom_friendlists,user_photos";
 var final_uri = oauthurl + 'client_id=' + client_id + '&redirect_uri=' + redirect_uri + "&scope=" + scope;
 var client_secret="1533043b6b2efd0abfe54b55a0cc9b6a";
-//var name = "chu", id = "123", nickName = "chu123", roomName, pic_url = "http://graph.facebook.com/805566542823060/picture";
-//var name = "kim", id = "123", nickName = "kim123", roomName, pic_url = "http://graph.facebook.com/567949783318787/picture";
+
 var name, id, nickName, roomName, pic_url;
 
 var loading_flag;
@@ -146,7 +145,6 @@ function getProfile() {
            success : function(data) {       
 		       name = data.name;
 		       id = data.id;
-		       //nickName = name + id;
 		       nickName = name;
 		       pic_url = "http://graph.facebook.com/" + id + "/picture";
 	      	   

@@ -9,7 +9,7 @@ function chat_init() {
 		navigator.vibrate(500);
 	});
 	
-	//캔버스 데이타 받기
+	//캔버스 데이터 받기
 	socket.on('canvasData', function(data) {
 		console.log("canvasData 받음");			
 		
@@ -21,6 +21,14 @@ function chat_init() {
 			endCanvs(data)
 		}
 	});
+	
+	//backgroud 올렸을때 canvs 받기
+	socket.on('backgroundImage', function(data) {
+		var background_image = data.canvasData.replace(/^data:image\/\w+;base64,/, "");
+        var image_data = new Buffer(background_image, 'base64');
+        
+        context.drawImage(background_image, 0, 0, canvas.width, canvas.height);	
+	});
 }
 
 function submitMessage() {
@@ -29,8 +37,13 @@ function submitMessage() {
 	$('#inputMsg').val('');	
 }
 
-function sendCanvasData(command, oldX, oldY, newX, newY, touches) {
-	console.log("command 보냄 = " + command);	
-	socket.emit('canvasData', { nickName : nickName, roomName: roomName, canvasCommand: command, oldX: oldX, oldY: oldY, newX: newX, newY: newY});			
+function sendCanvasData(command, oldX, oldY, newX, newY, strokeWidth, strokeColor, lineJoin) {
+	console.log("canvas command 보냄 = " + command);	
+	socket.emit('canvasData', { nickName : nickName, roomName: roomName, id: id, canvasCommand: command, oldX: oldX, oldY: oldY, newX: newX, newY: newY, 
+								strokeWidth: strokeWidth, strokeColor: strokeColor, lineJoin: lineJoin});			
 }
 
+function sendBackgroundImage() {
+	console.log("backgroundImage 보냄");		
+	socket.emit('backgroundImage', { nickName : nickName, roomName: roomName, id: id, canvasData: canvas.toDataURL()});			
+}

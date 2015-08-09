@@ -1,3 +1,6 @@
+var master_name;
+var master_id;
+
 function room_socket_init() {
 	
 	console.log("Start initializing the socket");
@@ -35,31 +38,34 @@ function room_socket_init() {
 	//본인이 방 생성 버튼
 	$('#start_class').off("click").on("click", (function() {
 		
-		console.log("방 create 버튼 누름" );
-		
-		socket.emit('requestRoomNum'); //방 키값 받음
-		socket.on('requestRoomNum', function(data) {
-			console.log("requestRoomNum = " + data);	
-			roomName = data;		
-			socket.emit( 'createRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});  /////////////////여기에 초대자들 정보도 같이 보내야함!!!!나중에 추가
-			
-			add_class(roomName, select_list, roomName);
-		
-			screen.lockOrientation("landscape-primary");
-			change_student_screen();
-		});
-		
+		console.log("방 create 버튼 누름" );	
+		socket.emit('requestRoomNum'); //생성할 방 키 요청
+	}));
 	
+	//생성할 방 키값 받음
+	socket.on('requestRoomNum', function(data) {
+		console.log("requestRoomNum = " + data);	
+		roomName = data;		
+		socket.emit( 'createRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});  /////////////////여기에 초대자들 정보도 같이 보내야함!!!!나중에 추가
+		
+		add_class(roomName, select_list, roomName);
+	
+		master_name = nickName;
+		master_id = id;
+		
 		screen.lockOrientation("landscape-primary");
 		change_student_screen();
-	}));
+	});
 		
 	//있던 방에 참여한 참가자 정보 받아옴
 	socket.on('joined', function(data) {	
 		console.log("<join> nickName = " + data.nickName + " roomName : " + data.roomName + " pic_url = " + data.pic_url);
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +'이' + data.roomName + '번방에 입장 </li>');				
-		
 		navigator.vibrate(500);
+		
+		//참가자가 들어오면 마스터가 전체로 그려진 그림을 전송함
+		if(master_name == data.master_name)
+			sendBackgroundImage();
 	});
 	
 	
@@ -70,7 +76,6 @@ function room_socket_init() {
 		socket.emit('leave', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});	
 		
 		screen.lockOrientation("portrait-primary");
-		//window.history.back();
 		change_page_class_list();
 		//나가기 버튼을 누른다면 방에 적어졌던 데이터는 모두 지우는 코드 필요함!!!!!!!!!!!
 	});
@@ -78,7 +83,7 @@ function room_socket_init() {
 	//채팅방에서 나간 참가자 정보
 	socket.on( 'leaved', function(data) {
 		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static" ' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
 		navigator.vibrate(500);
 		
 		//html 에서 참가자 제거 코드 넣기	
@@ -215,6 +220,7 @@ function empty_class_list(){
 	$('#active_class_list ul').empty();
 }
 
+//만들어진 방에 참가
 function enter_class(room_num){
 	
 	console.log("만들어진 방 참가" );	
@@ -224,6 +230,7 @@ function enter_class(room_num){
 	//기존 방에 있는 사람 리스트 받아옴
 	socket.on('roomJoinUsers', function(data) {	
 		//console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
+		master_name = data.master_name;
 		
 		if(data.attendants.length > 0) {
 			var attendants_list = "";
@@ -317,7 +324,10 @@ function changePrivilege(master_name, master_id) {
 	
 	socket.on('changePrivilege', function(data) {	
 		console.log("<changePrivilege> nickName = " + data.nickName + " roomName : " + data.roomName + " master_name = " + master_name + " master_id = " + master_id);
-	
+		
+		master_name = data.master_name;
+		master_id = data.master_id;
+		
 		//여기 이제 master_id로 권한 바꾸는 함수 넣어야함
 		navigator.vibrate(500);
 	});
