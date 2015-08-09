@@ -53,37 +53,7 @@ function room_socket_init() {
 		screen.lockOrientation("landscape-primary");
 		change_student_screen();
 	}));
-	
-	//만들어진 방 참가 버튼
-	$('#joinRoom').off("click").on("click", function() {	
 		
-		console.log("joinRoom 버튼 누름" );	
-		roomName = 5;
-		socket.emit('joinRoom', {nickName: nickName, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
-		
-		//기존 방에 있는 사람 리스트 받아옴
-		socket.on('roomJoinUsers', function(data) {	
-			//console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
-			
-			if(data.attendants.length > 0) {
-				var attendants_list = "";
-				for(var i = 0; i < data.attendants.length; i++)	{
-					attendants_list += data.attendants[i];
-					if(i != data.attendants.length - 1)
-						attendants_list += ", ";	
-				}
-				$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + attendants_list + '님이 방에 있습니다.</li>');				
-				
-				console.log("attendants_list = " +  attendants_list);							
-			}
-			screen.lockOrientation("landscape-primary");
-			change_student_screen();
-		});	
-		
-		screen.lockOrientation("landscape-primary");
-		change_student_screen();
-	});
-	
 	//있던 방에 참여한 참가자 정보 받아옴
 	socket.on('joined', function(data) {	
 		console.log("<join> nickName = " + data.nickName + " roomName : " + data.roomName + " pic_url = " + data.pic_url);
@@ -144,17 +114,6 @@ function room_socket_init() {
 
 //팝업창을 띄운다음에 ok 한다면  만들어진 방에 대한 함수인 joinRoom 메세지 보내게 하게 !!
 	
-
-
-
-
-
-//socket.on('disconnect', function(data) {
-//	console.log("server is disconnect" );	
-//	screen.lockOrientation(previous_screen_orientation);			
-//	window.history.back();
-//});
-
 
 function init_friend_list(me){
 	
@@ -258,7 +217,7 @@ function empty_class_list(){
 
 function enter_class(room_num){
 	
-	console.log("joinRoom 버튼 누름" );	
+	console.log("만들어진 방 참가" );	
 	roomName = room_num;
 	socket.emit('joinRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
 	
@@ -351,7 +310,18 @@ function remove_class(room_number){
 }
 
 
-
+//마이크 권한 변경
+function changePrivilege(master_name, master_id) {
+	
+	socket.emit('changePrivilege', { nickName: nickName, id: id, roomName: roomName, master_name: master_name, master_id: master_id})
+	
+	socket.on('changePrivilege', function(data) {	
+		console.log("<changePrivilege> nickName = " + data.nickName + " roomName : " + data.roomName + " master_name = " + master_name + " master_id = " + master_id);
+	
+		//여기 이제 master_id로 권한 바꾸는 함수 넣어야함
+		navigator.vibrate(500);
+	});
+}
 
 
 

@@ -21,18 +21,10 @@ function chat_init() {
 			endCanvs(data)
 		}
 	});
-	
-	/*
-	//메세지 보내기
-	$('#sendMsgBtn').off("click").on("click", (function() {
-		
-	}));
-	*/
 }
 
 function submitMessage() {
-//	console.log("sendMsgBtn 버튼 누름  보낸 메세지 = " + $('#inputMsg').val());		
-	$('#chat ul').append('<li class="ui-li-bubble-sent ui-li ui-li-static">'+ nickName+ ': '+ $('#inputMsg').val() + '</li>');	
+    $('#chat ul').append('<li class="ui-li-bubble-sent ui-li ui-li-static">'+ nickName+ ': '+ $('#inputMsg').val() + '</li>');	
 	socket.emit('message', { nickName : nickName, roomName: roomName, message: $('#inputMsg').val() });		
 	$('#inputMsg').val('');	
 }
@@ -41,3 +33,4 @@ function sendCanvasData(command, oldX, oldY, newX, newY, touches) {
 	console.log("command 보냄 = " + command);	
 	socket.emit('canvasData', { nickName : nickName, roomName: roomName, canvasCommand: command, oldX: oldX, oldY: oldY, newX: newX, newY: newY});			
 }
+

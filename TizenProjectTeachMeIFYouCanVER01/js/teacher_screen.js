@@ -264,6 +264,10 @@ function endCanvs(data) {
 	drawPath.length = 0;
 }
 
+function mikePrivilige() {
+	
+}
+
 
 
 
