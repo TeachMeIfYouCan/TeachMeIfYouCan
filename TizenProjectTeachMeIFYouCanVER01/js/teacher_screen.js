@@ -69,13 +69,13 @@ function canvas_init(){
 	stop_button.style.marginRight = document.height * 0.5 * (0.045) + "px";
 
 	editDrawerElement = document.getElementById("editDrawer");
-	edit_menu_open = false;
 	
 	background_image = new Image();
 	background_image.src = "test_js.jpg";	// This src path is based on the HTML file that loads this js file.
 
 	background_image.onload = function(){
 		context.drawImage(background_image, 0, 0, canvas.width, canvas.height);
+		sendBackgroundImage();	
 	}
 	
 	join_button = document.getElementById("joinRoom");
@@ -99,8 +99,6 @@ var touches;
 
 var drawPath = new Array();
 
-var drawPath_all = new Array();
-
 var isMoved = false;
 
 function drawPathSetting(idx) 
@@ -121,12 +119,12 @@ function touchStartHandler(e){
 	
 	touches = e.changedTouches;
 	drawPath.push(touches[0]);
-	drawPath_all.push(touches[0]);
-	sendCanvasData("start", touches[0].pageX, touches[0].pageY, "", "", touches);
+	sendCanvasData("start", touches[0].pageX, touches[0].pageY, "", "");
 }
 
 var strokeWidth = "5";
 var strokeColor = "#FF0000";
+var lineJoin = "round";
 
 function touchMoveHandler(e){
 	
@@ -135,7 +133,7 @@ function touchMoveHandler(e){
 	
 	context.lineWidth = strokeWidth;
 	context.strokeStyle = strokeColor;
-	context.lineJoin = "round";
+	context.lineJoin = lineJoin;
 	
 	for(var i = 0; i < touches.length; i++){
 		
@@ -147,11 +145,11 @@ function touchMoveHandler(e){
 		context.closePath();
 		context.stroke();
 		
-		sendCanvasData("move", drawPath[index].pageX, drawPath[index].pageY, touches[i].pageX,  touches[i].pageY, drawPath_all);
-		var data = context.getImageData(x, y, img.width, img.height).data;
-		 
-		socket.emit("imageDate", {imageDate : data});
-		
+		sendCanvasData("move", drawPath[index].pageX, drawPath[index].pageY,
+						touches[i].pageX,  touches[i].pageY, strokeWidth, strokeColor, lineJoin);
+
+		//socket.emit("imageData", {imageData : canvas.toDataURL("image/webp")});
+				
 		drawPath.splice(index, 1, touches[i]);
 		
 	}
@@ -174,8 +172,7 @@ function touchEndHandler(){
 		
 		context.fill();
 		
-		sendCanvasData("end", "", "", touches[0].pageX, touches[0].pageY, drawPath_all);
-		
+		sendCanvasData("end", "", "", touches[0].pageX, touches[0].pageY);
 	}
 
 	isMoved = "false";
@@ -213,7 +210,6 @@ function startCanvs(data) {
 	touchData[1] = data.oldY;
 		
 	drawPath.push(touchData);
-	drawPath_all.push(touchData);
 }
 
 
@@ -224,9 +220,9 @@ function moveCanvs(data) {
 	touchData[0] = data.newX;
 	touchData[1] = data.newY;
 	
-	context.lineWidth = strokeWidth;
-	context.strokeStyle = strokeColor;
-	context.lineJoin = "round";
+	context.lineWidth = data.strokeWidth;
+	context.strokeStyle = data.strokeColor;
+	context.lineJoin = data.lineJoin;
 	
 	for(var i = 0; i < 1; i++){
 		
