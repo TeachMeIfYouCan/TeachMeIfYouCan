@@ -20,7 +20,7 @@ $(document).ready(function() {
 			
 			init_friend_list(MY_PROFILE_LOADED);
 			refresh_friend_list(MY_FRIENDS_LOADED);
-			
+			refresh_friend_select_list(MY_FRIENDS_LOADED);
 			
 			$.mobile.changePage("main");
 			
@@ -82,7 +82,7 @@ function expand_class_list(item){
 	var button_height = class_list.children[0].children[3].offsetHeight;
 	
 	if(list_expand_toggle == 0){
-		class_list.style.height = list_num*16 + title_height + participant_height + button_height + 30 + "px";
+		class_list.style.height = list_num*16 + title_height + participant_height + button_height + 70 + "px";
 		list_expand_toggle = 1;
 	}
 	else if(list_expand_toggle == 1){

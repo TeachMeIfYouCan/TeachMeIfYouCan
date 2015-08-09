@@ -17,6 +17,8 @@ var new_class = '<li id="active_class_list1" onclick="expand_class_list(this);" 
 				'</li>';
 */
 
+var num = 99;
+
 function room_socket_init() {
 	
 	console.log("Start initializing the socket");
@@ -60,6 +62,8 @@ function room_socket_init() {
 			change_student_screen();
 		});
 		*/
+		num++;
+		add_class("test", select_list, num);
 		
 		screen.lockOrientation("landscape-primary");
 		change_student_screen();
@@ -227,43 +231,85 @@ function refresh_friend_list(friend_list){
 	}
 }
 
-function add_class(title, participant_list, room_number){
+function refresh_friend_select_list(friend_list){
 	
-	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px;">' +   	
-	 					//'<img src=' + "http://graph.facebook.com/" + me.id + "/picture" + ' class="ui-li-bigicon" />' +
-	 					'&nbsp;' + me.name +
-	 					/*<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>*/
- 					'</a>' +
-                '</li>' + '<li data-role="list-divider">Friends</li>';
+	$('#select_friend_list').empty();
+	$('#select_friend_list').append('<li data-role="list-divider" id="top">Choose Your Classmates</li>');
 	
-	$('#my_friend_list').append(ME);
+	console.log("Refresh the friend list");
+	
+	var friend = '<li class="select_friend_list_element ui-li-has-thumb ui-li-anchor ui-li">';
+	
+	for(var i = 0; i < friend_list.length; i++){
+		
+		friend = friend +  
+					'<a href="#" onclick="add_the_selected(this);" id=' + friend_list[i].id + ' class="select_item">';
+		friend = friend + '<img src=http://graph.facebook.com/' + friend_list[i].id + '/picture' + ' class="ui-li-bigicon ui-li-thumb" />';
+		friend = friend + '&nbsp;' + friend_list[i].name;
+		/*friend = friend + <span class="ui-li-text-sub">
+									<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+									Electronics and Communication
+								</h5>
+								<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+									Hanyang Univeristy
+								</h5>
+								<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+									Free
+								</h5>
+							</span>; */
+		friend = friend + '</a> </li>';
+		
+		$('#select_friend_list').append(friend);
+		
+		friend = '<li class="select_friend_list_element ui-li-has-thumb ui-li-anchor ui-li">';
+					
+	}
 }
 
-function init_class_list(){
+function empty_class_list(){
 	
 	$('#active_class_list ul').empty();
 }
 
+function enter_class(room_num){
+	
+	console.log("joinRoom 버튼 누름" );	
+	roomName = 5;
+	socket.emit('joinRoom', {nickName: nickName, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
+	
+	//기존 방에 있는 사람 리스트 받아옴
+	socket.on('roomJoinUsers', function(data) {	
+		//console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
+		
+		if(data.attendants.length > 0) {
+			var attendants_list = "";
+			for(var i = 0; i < data.attendants.length; i++)	{
+				attendants_list += data.attendants[i];
+				if(i != data.attendants.length - 1)
+					attendants_list += ", ";	
+			}
+			$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + attendants_list + '님이 방에 있습니다.</li>');				
+			
+			console.log("attendants_list = " +  attendants_list);							
+		}
+		screen.lockOrientation("landscape-primary");
+		change_student_screen();
+	});	
+	
+	screen.lockOrientation("landscape-primary");
+	change_student_screen();
+}
+
 function add_class(title, participant_list, room_number){
 	
-	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px;">' +   	
+	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px; border-bottom: solid #99CCFF; border-bottom-width:1px;" class="ui-li ui-li-static ui-li-has-right-btn ui-li-last" tabindex="0">' +   	
 						'<div style="padding:0px; margin:0px;">' + 
-							'<h4 style="padding:5px; padding-top:15px; margin:0px;">' +
+							'<h4 style="padding:5px; padding-top:15px; margin:0px;" class="ui-li-heading">' +
 								'Title: ';
 	
 	new_class = new_class + title + 	
 				'</h4>' +
-				'<h5 style="padding:5px; margin:0px; font-size:70%;">' +
+				'<h5 style="padding:5px; margin:0px; font-size:70%;" class="ui-li-heading">' +
 					'Participant:' +
 				'</h5>' +
 				'<ul id="participant_list">';
@@ -271,18 +317,17 @@ function add_class(title, participant_list, room_number){
 	for(var i = 0; i < participant_list.length; i++){
 		
 		new_class = new_class + 
-					'<li style="font-size:70%;">' + participant_list[i] + '</li>';
+					'<li style="font-size:70%;">' + participant_list[i].text + " / " + participant_list[i].id + '</li>';
 	}
 	
 	new_class = new_class + 
 				'</ul>' +
-				
-				'<div data-role="button" data-inline="false" style="margin-top:25px;" id="joinRoom">Enter</div>' +
-				
+				'<br>' +
+				'<button onclick="enter_class(5);">Enter</button>' +
 				'</div>' +
 				'</li>';	
 
-	$('#active_class_list ul').append(new_class);
+	$('#all_active_class').append(new_class);
 }
 
 function remove_class(room_number){
