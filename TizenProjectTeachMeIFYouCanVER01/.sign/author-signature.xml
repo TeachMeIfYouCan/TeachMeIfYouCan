@@ -40,7 +40,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>THLqEDlo2l3MOgRBfCuDMlwPckyy0DTp6z0NSu30bOA=</DigestValue>
+<DigestValue>85a6FY4Bok3kPhZT0uiIj/jKvWRWJqIJFTa0JgZz7do=</DigestValue>
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -48,19 +48,15 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>QuLgHvPBW6Ezu0Nb5HR+dsh9qhLv+HoAQGlU6XsGRiI=</DigestValue>
-</Reference>
-<Reference URI="js%2Floading.js">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>VFeHfl4OuGfyx178RxTCei6dfm3NvJDSE2mGlvHx4n0=</DigestValue>
+<DigestValue>OdJXW2YXlBOz/AnmkXB6e5VN657lnRxx3Yue4IGLuw0=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>RZ4BTuV2HXcWxsgOee3rLCDXfWoYXp7xtqi/8QN3ScM=</DigestValue>
+<DigestValue>N6o2rIFstZPCj43ozxVx8UpbouBSvsdfVut2LfyZKrg=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gvXsgOvTac7NcDtg78DZLmPOaJN9tzvb/QVGGXmWmhg=</DigestValue>
+<DigestValue>wXbyGPWVrWMMSZ9cufOl1a9p9nhnl5Oal3dvE2aHP9A=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2215,11 +2211,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-upYU+8190r6J5qezDVY2CsP5wB0/Nr9ccup1nTX9fBGEXqT8UqrQg2QZYHEx7vr2Rkk+3MOCk9zc
-rm5LMrei8QR+HasCnCSta8l/Zirn5s0l057cUo0aSOsNT5Eq1xkiQn91v7pVSXocomkg5vrwmRWg
-yWMYczDs6fxaQn6AVNmlY/m3oMF+D+VhYKy3bJhKAklOjEksnrtQVpw1C22UeoIPiteI+tpE2MHs
-+r0IMGbEn0YpmMnEngikM4pZWYNuAb1/sQxlJSOsoOIOAovA4dlzjMVoS1Z25XnGEqg3sGVeBBUP
-ckQpyIJqWCZC7PI3SrO5i6NgxbbVrtAz+9N8lA==
+mbvpAP1J/kQYwNDeLaC1DxtFP4lKrCrZqlYZgCxrHtE+ROyFsPjK2+jGdAhtnAUA8LGxdnORXgKX
+dldKzPSAzXc/8rCjEbek4jAAhfsSRkptDN2JSEhM83kNz5baDNUMHna2y9k8qHW5OAKlgSBw7eNv
+l+60tT/j/hd1OJ+MSsibx4Tq1o5iOMVO1rNreA6Rgzhg06G86AYgK1lOa5dMl16+LVbNWqSfZQKO
+XTgSHQKQOlAF1IkiFwO0CB6gXsizA/YKCsX0I8wbi+FPP03VBj29gFGQc3H1F28JHwnhI/0kbmIC
+jQhCm/kxe1s2QAkn/3QrVFTjGnQNNVXiXCCYrg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

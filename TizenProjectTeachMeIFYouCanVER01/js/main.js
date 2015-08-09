@@ -14,8 +14,26 @@ $(document).ready(function() {
 	
 	$(document).ajaxStop(function() {
 		loading.hide();
-		console.log("$(document).ajaxStop");
-		$.mobile.changePage("main");
+		
+		if(main_flag == true){
+			console.log("$(document).ajaxStop - main");
+			
+			init_friend_list(MY_PROFILE_LOADED);
+			refresh_friend_list(MY_FRIENDS_LOADED);
+			
+			
+			$.mobile.changePage("main");
+			
+			main_flag = false;
+			logout_flag = false;
+		}
+		else if(logout_flag == true){
+			console.log("$(document).ajaxStop - logout");
+			$.mobile.changePage("loginPage");
+			
+			main_flag = false;
+			logout_flag = false;
+		}
 	});
 });
 

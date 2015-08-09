@@ -91,7 +91,7 @@ function parseToken(accesstoken){
 	return (remaining.substring(13));
 }
 
-var MY_PROFILE;
+var MY_PROFILE_LOADED;
 
 function getProfile() {
 	$.ajax({
@@ -102,10 +102,10 @@ function getProfile() {
 		       name = data.name;
 		       id = data.id;
 		       nickName = name + id;
-		      
-		       init_friend_list(data);
 		       
-		       //MY_PROFILE_LOADED = data;
+		       MY_PROFILE_LOADED = data;
+		       
+		       //init_friend_list(data);
 		       
 		       console.log("Loading my profile has finished");
 		   },
@@ -115,8 +115,9 @@ function getProfile() {
 	       }
 	});
 }
-   
-var MY_FRIENDS;
+
+var MY_FRIENDS_LOADED;
+var main_flag = false;
 
 function getFriends(){
 	$.ajax({
@@ -126,11 +127,13 @@ function getFriends(){
 		success : function(data) {
 				var jsonlength=data.data.length;
 				
-				//MY_FRIENDS_LOADED = data;
+				MY_FRIENDS_LOADED = data.data;
 				
-				refresh_friend_list(data.data);
+				//refresh_friend_list(data.data);
 				
 				console.log("Loading friend profiles has finished");
+				
+				main_flag = true;
 				
 				//$.mobile.changePage("main");
 		}
@@ -141,13 +144,17 @@ function getFriends(){
 	});
 }
    
+var logout_flag = false;
+
 function FBLogout() {
 	$.ajax({
 		type : "GET",
 		url :'https://www.facebook.com/logout.php?next=https://www.facebook.com/connect/login_success.html&access_token='+localStorage['accesstoken'],
 		success : function(data) {
 			localStorage.clear();
-			$.mobile.changePage("loginPage");      
+			//$.mobile.changePage("loginPage");  
+			
+			logout_flag = true;
 		},
 		error: function(){
 			console.log("facebook logout error");
