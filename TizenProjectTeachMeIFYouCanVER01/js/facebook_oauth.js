@@ -20,8 +20,6 @@ function FBLogin_check() {
 
 		room_socket_init();
 		chat_init();
-			
-		
 	}
 }
 
@@ -67,11 +65,11 @@ function  getAccesstoken(code){
 				   
 				   room_socket_init();
 				   chat_init();
-				   
-				   $.mobile.changePage("main");               
-					  
+				      
 				   window.clearInterval(int);
 				   window.authWin.close();			          
+
+				   //$.mobile.changePage("main");   
         	   }
         	   catch (e) {
         		   console.log("getAccesstoken = " + e);
@@ -92,7 +90,9 @@ function parseToken(accesstoken){
    
 	return (remaining.substring(13));
 }
-   
+
+var MY_PROFILE;
+
 function getProfile() {
 	$.ajax({
            type : "GET",
@@ -104,6 +104,10 @@ function getProfile() {
 		       nickName = name + id;
 		      
 		       init_friend_list(data);
+		       
+		       //MY_PROFILE_LOADED = data;
+		       
+		       console.log("Loading my profile has finished");
 		   },
 		   error : function() {
 			   $.mobile.changePage("loginPage");
@@ -112,6 +116,8 @@ function getProfile() {
 	});
 }
    
+var MY_FRIENDS;
+
 function getFriends(){
 	$.ajax({
 		type : "GET",
@@ -119,8 +125,14 @@ function getFriends(){
 		url : 'https://graph.facebook.com/me/friends?&access_token=' + localStorage['accesstoken'],
 		success : function(data) {
 				var jsonlength=data.data.length;
-    
-				refresh_friend_list(data.data);	
+				
+				//MY_FRIENDS_LOADED = data;
+				
+				refresh_friend_list(data.data);
+				
+				console.log("Loading friend profiles has finished");
+				
+				//$.mobile.changePage("main");
 		}
 		,error : function() {
 				console.log("Unable to get your friends on Facebook");
@@ -142,3 +154,5 @@ function FBLogout() {
 		}
     });
 }
+
+

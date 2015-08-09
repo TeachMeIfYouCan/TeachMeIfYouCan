@@ -10,13 +10,13 @@ $(document).ready(function() {
 	var loading = $('<img src="icon.png" alt="loading" style="border:0; position:absolute; left:50%; top:50%;" />').appendTo(document.body).hide();	
 	$("*").ajaxStart(function(){
 		loading.show();
-	}).ajaxStop(function() {
+	});
+	
+	$(document).ajaxStop(function() {
 		loading.hide();
+		console.log("$(document).ajaxStop");
 		$.mobile.changePage("main");
 	});
-
-	
-	
 });
 
 ( function () {

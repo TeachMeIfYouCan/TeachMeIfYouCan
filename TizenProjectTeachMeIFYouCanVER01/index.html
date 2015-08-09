@@ -9,7 +9,12 @@
 	
 	<script src="./js/main.js"></script>
 	<script type="text/javascript" src="./js/teacher_screen.js"></script>
-	       
+	
+    <script src="./js/facebook_oauth.js"></script>
+    <script src="./js/socket.io-1.3.4.js"></script> 
+    <script src="./js/room.js"></script>
+    <script src="./js/chat.js"></script>     
+      
 </head>
 <body onload="canvas_init();">
 
@@ -23,7 +28,7 @@
 			
 			<img src="./Teach me if you can - Log In Image 1.png" style="width:70%; display:block; margin: 0 auto;">
 			
-			<button onClick="FBLogin();">Login</button>
+			<button id="LogInBtn" onClick="FBLogin();">Login</button>
 			<ul id="loginFile">
 			</ul>
 		</div><!-- /content -->
@@ -86,165 +91,15 @@
 	 						</h5>
 	 					</span>
  					</a>            
-                </li>
-                <li class="friend_list_element">
-                	<a href="#">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 2
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                <li class="friend_list_element">
-                	<a href="#">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 3
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                <li class="friend_list_element">
-                	<a href="#">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 4
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="friend_list_element">
-                	<a href="#">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 5
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="friend_list_element">
-                	<a href="#">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 6
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="friend_list_element">
-                	<a href="#">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 7
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="friend_list_element">
-                	<a href="#">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 8
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="friend_list_element">
-                	<a href="#">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 9
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
+                </li>  
             </ul>
-        </div><!-- /content -->   
+        </div><!-- /content -->  
+      
         <div data-role="footer" style="height:70px; background-color:#0000FF; opacity:0.5;">
         	
         	<div data-role="tabbar" data-auto-change="false">
                 <ul>
                 	<li><a data-role="button" href="#" id = "find_friends">Find friends for a new class</a></li>
-                	<!-- <li><a data-role="button" href="#" id = "createRoom">Create</a></li> -->
                 </ul>
             </div> 	
         </div>
@@ -286,155 +141,6 @@
 	 						</h5>
 	 					</span>
  					</a>            
-                </li>
-                <li class="select_friend_list_element">
-                	<a href="#" onclick="add_the_selected(this);" class="select_item">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 2
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                <li class="select_friend_list_element">
-                	<a href="#" onclick="add_the_selected(this);" class="select_item">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 3
-	 					<span class="ui-li-text-sub" class="friend_checkbox">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                <li class="select_friend_list_element">
-                	<a href="#" onclick="add_the_selected(this);" class="select_item">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 4
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="select_friend_list_element">
-                	<a href="#" onclick="add_the_selected(this);" class="select_item">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 5
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="select_friend_list_element">
-                	<a href="#" onclick="add_the_selected(this);" class="select_item">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 6
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="select_friend_list_element">
-                	<a href="#" onclick="add_the_selected(this);" class="select_item">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 7
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="select_friend_list_element">
-                	<a href="#" onclick="add_the_selected(this);" class="select_item">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 8
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
-                </li>
-                
-                <li class="select_friend_list_element">
-                	<a href="#" onclick="add_the_selected(this);" class="select_item">
-	 					<img src="./icon.png" class="ui-li-bigicon" />
-	 					&nbsp; 
-	 					Friend 9
-	 					<span class="ui-li-text-sub">
-	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Electronics and Communication
-	 						</h5>
-	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-	 							Hanyang Univeristy
-	 						</h5>
-	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-	 							Free
-	 						</h5>
-	 					</span>
- 					</a>
                 </li>
                 
             </ul>
@@ -582,11 +288,6 @@
     </div><!-- teacher_screen/page -->
           
     <!--  teacher_screen==================================================================================================== -->
-
-     <script src="./js/facebook_oauth.js"></script>
-    <script src="./js/socket.io-1.3.4.js"></script> 
-    <script src="./js/room.js"></script>
-    <script src="./js/chat.js"></script>
-     
+  
 </body>
 </html>

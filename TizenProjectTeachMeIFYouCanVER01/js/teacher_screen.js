@@ -23,7 +23,7 @@ var create_button;
 
 function canvas_init(){
 	
-	console.log("Init Function Called");
+	console.log("Canvas Init Function Called");
 	
 	FBLogin_check();
 	
@@ -93,8 +93,6 @@ function canvas_init(){
 		
 		context.clearRect(0, 0, canvas.width, canvas.height);
 	}
-	
-	
 }
 
 var touches;
