@@ -83,7 +83,7 @@ function room_socket_init() {
 	//채팅방에서 나간 참가자 정보
 	socket.on( 'leaved', function(data) {
 		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static" ' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
 		navigator.vibrate(500);
 		
 		//html 에서 참가자 제거 코드 넣기	
@@ -113,7 +113,6 @@ function room_socket_init() {
 		//	$('#chat ul').append('<li><img src = ' + data.userPic[i] + '>'+ data.attendants[i]);
 		
 		navigator.vibrate(500);
-		
 	});
 }
 
