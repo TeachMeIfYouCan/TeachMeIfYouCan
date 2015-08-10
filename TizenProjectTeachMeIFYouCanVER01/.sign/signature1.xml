@@ -20,7 +20,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>CPGy9pLkMigpH8Xp0riowtOG1OZzhkGPMKBUPaHDLdY=</DigestValue>
+<DigestValue>kNbHKiT3qP0c4hcND88Mu4I9TyWudAXDqmiQW2F4QR8=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -44,7 +44,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>DFRP2gk8YZ8xr25fkLWX0BnJngmsuM74EqTR3UXS7Lc=</DigestValue>
+<DigestValue>LlCPHjm//9CZJv1KKdbE6HTnJfuizd4VkCMFFP2bU/w=</DigestValue>
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -72,7 +72,7 @@
 </Reference>
 <Reference URI="js%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>hB1qT5PoedBqIpCegaBrAigjla7h9FGx0rgxqTqS7qg=</DigestValue>
+<DigestValue>ZtikH4566N/BU+y8vPMjpZh2HByGlzTAr3Rzh+t80Ro=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2215,11 +2215,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-xEGiBIdp1RsDS3Jpf0hnQSFSeNRTiKY+dtGekFw7ISLXEUhEQ+JOTI2EFQ9UOupQoR3jgAbE+Q/K
-kumlLeZ0tsRX0Oyy1L+LeQSzUXZ9BQQPVVpmJSkXW1bmhatcylWYlgXsOFxJiqsJfw0cTeCBZbnb
-S1+9Up0GLaifRQDwyylYa6uqpl2JIENVNB3MTCs3harWkydauWUYM9R3zJEs9kAKi89citIQEhRR
-/PprTkMYLrtFyOWgWv9D4WpwgtYXycaF+bzH45YpDjWYkVkSsN45K6QDJ0jbTxhLXPAtcoDy524k
-4yhgapld0hRiYPlW/qrS/GsisXCx6IR7J6UGYA==
+CS5/EO/6wwA4iYykC8DUe5/f9haZMo7mPWpHgfx7yIJJ48hsLcv2S1xmgY90SPFOeNkWADXEwcGd
+nE44FsUbCFHSATFmu4Xpuc30VhjVSQ8qVfJgPaaETJ+kHXnCLohZgSVfJmj63kJL7sk4Zo8/JYWW
+UHrY1IP7K4LkbFFDqNFrUvYqwxTBUxvjN48c3SS50fEM9MX8TQL32pBzRFhnWLVk4de3kSN3Ck7p
+NCaLkWeueD3K26ZM/LkBEIps58aMvH9BS1+5OR446AlfAEyUYdsDHjrHusZtFtooAyS6MANeWSq1
+3uRW/DKCcEyQ8WBbLZghjUYI9lvbJ9HaQzbRkw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -6,6 +6,7 @@ var context;
 var isCanvas_clear;
 
 var chat_box;
+var chat_bubble_list;
 var send_message;
 
 var audio_control;
@@ -50,6 +51,8 @@ function canvas_init(){
 	chat_box = document.getElementById("chat");
 	chat_box.style.width = document.height * 0.5 + "px";
 	chat_box.style.height = document.width * 0.67 * 0.65 + "px";
+	
+	chat_bubble_list = document.getElementById("chat_bubble_list");
 
 	send_message = document.getElementById("send_message");
 	send_message.style.width = document.height * 0.5 + "px";
@@ -101,6 +104,8 @@ function canvas_init(){
 function clear_canvas(){
 	
 	console.log("Clearing the canvas");
+	
+	$('#chat_bubble_list').empty();
 	
 	context.clearRect(0, 0, canvas.width, canvas.height);
 }
