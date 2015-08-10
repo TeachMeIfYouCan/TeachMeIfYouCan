@@ -283,6 +283,8 @@ function enter_class(room_num){
 	roomName = room_num;
 	socket.emit('joinRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
 	
+	clear_canvas();
+	
 	close_invite_popup();
 }
 
@@ -349,7 +351,7 @@ function add_class_from_server(title, participant_list, room_number){
 	new_class = new_class + 
 				'</ul>' +
 				'<br>' +
-				'<button onclick="enter_class(' + room_number + ');">Enter</button>' +
+				'<button id="enter_button" onclick="enter_class(' + room_number + ');">Enter</button>' +
 				'</div>' +
 				'</li>';	
 									

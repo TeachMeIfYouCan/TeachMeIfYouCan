@@ -81,7 +81,7 @@ function canvas_init(){
 		sendBackgroundImage();	
 	}
 	
-	join_button = document.getElementById("joinRoom");
+	join_button = document.getElementById("enter_button");
 	join_button.onclick = function(){
 		
 		console.log("Clearing the canvas");
@@ -89,13 +89,20 @@ function canvas_init(){
 		context.clearRect(0, 0, canvas.width, canvas.height);
 	}
 	
-	create_button = document.getElementById("createRoom");
+	create_button = document.getElementById("start_class");
 	create_button.onclick = function(){
 		
 		console.log("Clearing the canvas");
 		
 		context.clearRect(0, 0, canvas.width, canvas.height);
 	}
+}
+
+function clear_canvas(){
+	
+	console.log("Clearing the canvas");
+	
+	context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 var touches;
@@ -202,12 +209,6 @@ function edit_menu(){
 	}
 }
 
-
-function edit_canvas(){
-	
-	
-}
-
 function open_classmate_list(){
 	
 	console.log("Open Classmate List");
@@ -298,6 +299,9 @@ function endCanvs(data) {
 }
 
 
+
+
+
 function open_invite_popup(){
 	
 	var invite_popup_element = document.getElementById('invite_popup_1');
@@ -321,6 +325,40 @@ function close_invite_popup(){
 }
 
 
+
+
+
+function open_edit_canvas_main_popup(){
+	
+	var invite_popup_element = document.getElementById('invite_popup_1');
+	
+	invite_popup_element.style.display="";
+	
+	var invite_popup = tau.widget.Popup(invite_popup_element);
+	
+	invite_popup.open();
+}
+
+function close_edit_canvas_main_popup(){
+	
+	var invite_popup_element = document.getElementById('invite_popup_1');
+	
+	invite_popup_element.style.display="none";
+	
+	var invite_popup = tau.widget.Popup(invite_popup_element);
+	
+	invite_popup.close();
+}
+
+function edit_canvas(){
+	
+	var editDrawerElement = document.getElementById("editDrawer");
+	
+	var editDrawer = tau.widget.Drawer(editDrawerElement);
+	
+	editDrawer.close();
+	edit_menu_open = false;
+}
 
 
 
