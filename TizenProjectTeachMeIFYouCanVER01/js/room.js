@@ -167,6 +167,23 @@ function room_socket_init() {
 		console.log("roomExit 버튼 누름" );
 		socket.emit('leave', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});	
 		
+		
+		
+		var editDrawerElement = document.getElementById("editDrawer");
+		
+		var editDrawer = tau.widget.Drawer(editDrawerElement);
+		
+		editDrawer.close();
+		edit_menu_open = false;
+		
+		var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+		
+		var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+		
+		classmate_list_drawer.close();
+		
+		
+		
 		screen.lockOrientation("portrait-primary");
 		change_page_class_list();
 		//나가기 버튼을 누른다면 방에 적어졌던 데이터는 모두 지우는 코드 필요함!!!!!!!!!!!

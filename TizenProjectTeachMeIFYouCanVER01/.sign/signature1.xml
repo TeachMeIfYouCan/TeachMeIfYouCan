@@ -20,7 +20,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>kNbHKiT3qP0c4hcND88Mu4I9TyWudAXDqmiQW2F4QR8=</DigestValue>
+<DigestValue>S+0uuIxRoR21L9mdprjHsBw/MPpJrnrjHem0TxpOsYM=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -56,11 +56,11 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>k4V/VJe6SWVHR4CjoJa0sxoePGH5pvNe4Eu8FA0GOSw=</DigestValue>
+<DigestValue>M5jPvCKIck58tTUo6F3/C/pev84wr2BOdQNTyUi86IE=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>KGfR5k9r0hj/Ia/bzq3QcmfBmtN+zBYI50mzuVfQan0=</DigestValue>
+<DigestValue>1uGANkH/9xsG75ZSwxHCOXg+TUFs045+bojUgtbCUvc=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -72,7 +72,7 @@
 </Reference>
 <Reference URI="js%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ZtikH4566N/BU+y8vPMjpZh2HByGlzTAr3Rzh+t80Ro=</DigestValue>
+<DigestValue>5kwCYlip9Q1rrx+ycQwq9t+kEaRMt+4Lv702zcwNtMM=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2215,11 +2215,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-CS5/EO/6wwA4iYykC8DUe5/f9haZMo7mPWpHgfx7yIJJ48hsLcv2S1xmgY90SPFOeNkWADXEwcGd
-nE44FsUbCFHSATFmu4Xpuc30VhjVSQ8qVfJgPaaETJ+kHXnCLohZgSVfJmj63kJL7sk4Zo8/JYWW
-UHrY1IP7K4LkbFFDqNFrUvYqwxTBUxvjN48c3SS50fEM9MX8TQL32pBzRFhnWLVk4de3kSN3Ck7p
-NCaLkWeueD3K26ZM/LkBEIps58aMvH9BS1+5OR446AlfAEyUYdsDHjrHusZtFtooAyS6MANeWSq1
-3uRW/DKCcEyQ8WBbLZghjUYI9lvbJ9HaQzbRkw==
+1vZa90B9opx60GaAZNitNWWs4cuHArBeMsGALb8Gp9/03fa21gURNaZqZiidQB4lr+9jY6yNC6Xm
+Re16iepUlvp6t6fxks8SJZ2C2f9jSvs/6AcSbz1H5rcLFCj15JjWOm8R7Uk2qj6y/LhJs6K5UJeB
+Sds/YDVb0tHgg1EsFOKHNnfGZJyLUG3PScxfvIfosV4qz9wMrenq7vvHKvwewkVr0hmM9ljMHG0o
+zb7kK1fFZxHoJ1MfA670wkRw5OrVdFp3M0ff2VfdEhwxs/uqDgD7cTomkUOyzRwkaPPHsY3nqDJh
+sDzk1c4DktffCzB2SpQxOJSzRyDNHviTJJMBIQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

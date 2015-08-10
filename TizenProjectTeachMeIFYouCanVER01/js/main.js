@@ -51,7 +51,26 @@ $(document).ready(function() {
          else if( pageid === "teacher_screen" ) {
         	console.log("room에서 back 버튼 누름" );
         	socket.emit('leave', {nickName: nickName,id: id, roomName: roomName, pic_url: pic_url});	
-        
+        	
+        	
+        	
+        	
+        	var editDrawerElement = document.getElementById("editDrawer");
+        	
+        	var editDrawer = tau.widget.Drawer(editDrawerElement);
+        	
+        	editDrawer.close();
+        	edit_menu_open = false;
+        	
+        	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+        	
+        	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+        	
+        	classmate_list_drawer.close();
+        	
+        	
+        	
+        	
         	screen.lockOrientation("portrait-primary");
         	change_page_class_list();
          }  

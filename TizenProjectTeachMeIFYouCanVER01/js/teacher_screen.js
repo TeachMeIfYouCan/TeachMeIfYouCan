@@ -307,6 +307,8 @@ function endCanvs(data) {
 
 
 
+
+
 function open_invite_popup(){
 	
 	var invite_popup_element = document.getElementById('invite_popup_1');
@@ -328,6 +330,8 @@ function close_invite_popup(){
 	
 	invite_popup.close();
 }
+
+
 
 
 
