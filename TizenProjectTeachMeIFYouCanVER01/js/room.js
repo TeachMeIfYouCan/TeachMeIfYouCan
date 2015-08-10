@@ -51,15 +51,32 @@ function room_socket_init() {
 	
 		master_name = nickName;
 		master_id = id;
-	
+		
+		var me = {
+			text: nickName,
+			id: id
+		};
+		
+		select_list.push(me);
+		
 		//초대자 목록 전송
 		var inviteUserArray = select_list;
+		
+		console.log("Before sending the list to the server ");
+		for(var i = 0; i < select_list.length; i++){
+
+			console.log(inviteUserArray[i]);	
+		}
+		
 		socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray});	
 		
 		console.log("본인이 참여 nickName = " + nickName + " roomName : " + roomName + " pic_url = " + data.pic_url);
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + nickName +'이' + roomName + '번방에 입장 </li>');				
 		
 		screen.lockOrientation("landscape-primary");
+		
+		select_list.pop();
+		
 		change_student_screen();
 	});
 			

@@ -219,9 +219,28 @@
             	<!-- <a href="#">Edit Canvas Setting</a> -->
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="edit_canvas();"><input type="file" name="pic" accept="image/*" value="test"/></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Voice Q&A Handle</a></li>
-                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Participants List</a></li>
-                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Invite</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="open_classmate_list();"><a href="#">Classmates</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" id="roomExit"><a href="#">Exit</a></li>
+            	</ul>
+        	</div>
+        	
+        	<div data-role="drawer" data-position="right" id="classmates_list_drawer">
+            	<ul data-role="listview">
+                	<li class="ui-drawer-main-list" style="text-align:center;">
+                		<a href="#">
+                			Classmate:
+                			<ul>
+                				<li>test</li>
+                				<li>test</li>
+                				<li>test</li>
+                				<li>test</li>
+                				<li>test</li>
+                				<li>test</li>
+                			</ul>>
+                		</a>
+                	</li>
+                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Invite More ?</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="close_classmate_list();"><a href="#">Back</a></li>
             	</ul>
         	</div>
 				  

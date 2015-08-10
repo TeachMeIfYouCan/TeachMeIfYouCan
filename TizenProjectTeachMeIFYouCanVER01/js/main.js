@@ -125,18 +125,14 @@ function add_the_selected(friend){
 			id : id
 	};
 	
-	select_list.push(data);
-	
 	if(friend.style.backgroundColor != "rgb(255, 204, 204)"){
 	
 		console.log("Adding the item into the array");
 		
 		friend.style.backgroundColor = "#FFCCCC";
 		
-		data = {
-			text : friend.text,
-			id : friend.id
-		}
+		data.text = friend.text;
+		data.id = friend.id;
 		
 		select_list.push(data);
 	}
@@ -146,10 +142,8 @@ function add_the_selected(friend){
 
 		console.log("Removing the item into the array");
 		
-		data = {
-			text : friend.text,
-			id : friend.id
-		}
+		data.text = friend.text;
+		data.id = friend.id;
 		
 		remove_select_list(data);
 	}
@@ -159,14 +153,17 @@ function remove_select_list(friend){
 	
 	for(var i = 0; i < select_list.length; i++){
 		
-		if(select_list[i] == friend){
+		if((select_list[i].text == friend.text) && (select_list[i].id == friend.id)){
 			
 			select_list.splice(i, 1);
+			console.log("removed");
 		}
 	}
 }
 
 function clear_selected(){
+	
+	console.log('Clearing select_list');
 	
 	var all_checkbox = document.getElementsByClassName("select_item");
 

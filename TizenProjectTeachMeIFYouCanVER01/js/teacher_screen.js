@@ -208,6 +208,38 @@ function edit_canvas(){
 	
 }
 
+function open_classmate_list(){
+	
+	console.log("Open Classmate List");
+	
+	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+	
+	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+	
+	classmate_list_drawer.open();
+}
+
+function show_classmate_list(){
+	
+}
+
+function invite_more_friends(){
+	
+	
+}
+
+function close_classmate_list(){
+	
+	console.log("Close Classmate List");
+	
+	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+	
+	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+	
+	classmate_list_drawer.close();
+}
+
+
 
 function startCanvs(data) {	
 	var touchData = [];
