@@ -30,19 +30,18 @@ function room_socket_init() {
 	}));
 	
 	//친구 찾기 및 선택
-	$('#find_friends').off("click").on("click", (function() {
-		
+	$('#find_friends').off("click").on("click", (function() {	
 		change_select_friend();
 	}));
 	
-	//본인이 방 생성 버튼
+	//본인이 방 생성
 	$('#start_class').off("click").on("click", (function() {
 		
 		console.log("방 create 버튼 누름" );	
 		socket.emit('requestRoomNum'); //생성할 방 키 요청
 	}));
 	
-	//생성할 방 키값 받음
+	//생성할 방 키값 받음 그 후 방 생성
 	socket.on('requestRoomNum', function(data) {
 		console.log("requestRoomNum = " + data);	
 		roomName = data;		
@@ -52,14 +51,58 @@ function room_socket_init() {
 	
 		master_name = nickName;
 		master_id = id;
+	
+		//초대자 목록 전송
+		var inviteUserArray = select_list;
+		socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray});	
+		
+		console.log("본인이 참여 nickName = " + nickName + " roomName : " + roomName + " pic_url = " + data.pic_url);
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + nickName +'이' + roomName + '번방에 입장 </li>');				
 		
 		screen.lockOrientation("landscape-primary");
 		change_student_screen();
 	});
-		
+			
+	//초대자들 목록 받아와서 자신의 name과, id받아와서 맞으면 참여할껀지 팝업 띄어줌
+	socket.on('inviteUserList', function(data) {	
+		console.log("초대자들 목록 받아옴");	
+		console.log("data.inviteUserArray = " + data.inviteUserArray);		
+		console.log("nickName = " + nickName + " id = " + id)
+		for(var i = 0; i < data.inviteUserArray.length; i++) {						
+			
+			console.log("data.inviteUserArray[i].text = " + data.inviteUserArray[i].text + " data.inviteUserArray[i].id = " + data.inviteUserArray[i].id)
+			
+			if(id == data.inviteUserArray[i].id) {
+				
+				console.log("아이디가 맞아서 팝업창 띄움");
+				open_invite_popup();
+				
+				var invite_title = document.getElementById("invite_title").text;
+				
+				document.getElementById("invite_title").text = data.nickName + " " + invite_title;
+				
+				var title = document.getElementById("invite_class_title").text;
+				
+				document.getElementById("invite_class_title").text = title + " " + data.roomName;
+
+				navigator.vibrate(500);
+				
+				//초대 찬성
+				$('#invite_accept').off("click").on("click", (function() {	
+					enter_class(data.roomName);
+				}));
+				//초대 거부
+				$('#invite_deny').off("click").on("click", (function() {	
+					reject_class(data.roomName);
+				}));			
+			}
+		}		
+	});
+	
 	//있던 방에 참여한 참가자 정보 받아옴
 	socket.on('joined', function(data) {	
 		console.log("<join> nickName = " + data.nickName + " roomName : " + data.roomName + " pic_url = " + data.pic_url);
+				
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +'이' + data.roomName + '번방에 입장 </li>');				
 		navigator.vibrate(500);
 		
@@ -68,51 +111,48 @@ function room_socket_init() {
 			sendBackgroundImage();
 	});
 	
+	//기존 방에 있는 사람 리스트 받아옴
+	socket.on('roomJoinUsers', function(data) {	
+		//console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
+		master_name = data.master_name;
+		
+		if(data.attendants.length > 0) {
+			var attendants_list = "";
+			for(var i = 0; i < data.attendants.length; i++)	{
+				attendants_list += data.attendants[i];
+				if(i != data.attendants.length - 1)
+					attendants_list += ", ";	
+			}
+			$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + attendants_list + '님이 방에 있습니다.</li>');				
+			
+			console.log("attendants_list = " +  attendants_list);							
+		}
+		screen.lockOrientation("landscape-primary");
+		change_student_screen();
+	});	
 	
-	//나가기 버튼 
-	$('#roomExit').off("click").on("click", function() {	
-		
-		console.log("roomExit 버튼 누름" );
-		socket.emit('leave', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});	
-		
-		screen.lockOrientation("portrait-primary");
-		change_page_class_list();
-		//나가기 버튼을 누른다면 방에 적어졌던 데이터는 모두 지우는 코드 필요함!!!!!!!!!!!
+	//초대에 거부한 사용자 정보 받아옴
+	socket.on('rejectJoinRoom', function(data) {	
+		console.log("<rejectJoinRoom> nickName = " + data.nickName + " roomName : " + data.roomName);				
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에 초대 거부</li>');				
+		navigator.vibrate(500);		
 	});
 	
 	//채팅방에서 나간 참가자 정보
 	socket.on( 'leaved', function(data) {
 		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
-		navigator.vibrate(500);
-		
-		//html 에서 참가자 제거 코드 넣기	
+		navigator.vibrate(500);	
 	});
 	
-	//친구 선택 후 초대버튼
-	//ivite 버튼 아직 없음 만들어야함~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	$('#invite').off("click").on("click", (function() {
-	
-		console.log("invite 버튼 누름" );
+	//나가기 버튼 
+	$('#roomExit').off("click").on("click", function() {	
+		console.log("roomExit 버튼 누름" );
+		socket.emit('leave', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});	
 		
-		//data 가져오는 소스 만들어야함
-		
-		socket.emit('inviteUserList',  "         "  );
-		//필드  nickName 
-		
-		//자기 자신 html 에 초대했습니다 띄우기
-	
-	}));
-	
-	//초대자들 목록 받아옴
-	socket.on('inviteUserList', function(data) {	
-		console.log("초대자들 목록 받아옴" );	
-		
-		//필드  nickName값 받아서 html에 초대 하였습니다 출력하기  
-		//for(var i = 0; i < data.attendants.length; i++)	
-		//	$('#chat ul').append('<li><img src = ' + data.userPic[i] + '>'+ data.attendants[i]);
-		
-		navigator.vibrate(500);
+		screen.lockOrientation("portrait-primary");
+		change_page_class_list();
+		//나가기 버튼을 누른다면 방에 적어졌던 데이터는 모두 지우는 코드 필요함!!!!!!!!!!!
 	});
 }
 
@@ -219,36 +259,25 @@ function empty_class_list(){
 	$('#active_class_list ul').empty();
 }
 
-//만들어진 방에 참가
+//만들어진 방에 참가 || 초대팝업에 응답했을 경우
 function enter_class(room_num){
 	
 	console.log("만들어진 방 참가" );	
 	roomName = room_num;
 	socket.emit('joinRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
 	
-	//기존 방에 있는 사람 리스트 받아옴
-	socket.on('roomJoinUsers', function(data) {	
-		//console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
-		master_name = data.master_name;
-		
-		if(data.attendants.length > 0) {
-			var attendants_list = "";
-			for(var i = 0; i < data.attendants.length; i++)	{
-				attendants_list += data.attendants[i];
-				if(i != data.attendants.length - 1)
-					attendants_list += ", ";	
-			}
-			$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + attendants_list + '님이 방에 있습니다.</li>');				
-			
-			console.log("attendants_list = " +  attendants_list);							
-		}
-		screen.lockOrientation("landscape-primary");
-		change_student_screen();
-	});	
-	
-	screen.lockOrientation("landscape-primary");
-	change_student_screen();
+	close_invite_popup();
 }
+
+//초대팝업에 거절 했을 경우
+function reject_class(room_num){
+	
+	console.log("초대에 거부" );	
+	socket.emit('rejectJoinRoom', {nickName: nickName, id: id, roomName: room_num, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
+	
+	close_invite_popup();
+}
+
 
 function add_class(title, participant_list, room_number){
 	
@@ -314,7 +343,6 @@ function remove_class(room_number){
 	//chu  여기는 방 인원이 0일때 불리수 있도록
 	$('#active_class_list ul ' + '#room' + room_number).remove();
 }
-
 
 //마이크 권한 변경
 function changePrivilege(master_name, master_id) {

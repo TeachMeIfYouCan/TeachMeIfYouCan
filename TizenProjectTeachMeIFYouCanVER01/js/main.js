@@ -132,8 +132,13 @@ function add_the_selected(friend){
 		console.log("Adding the item into the array");
 		
 		friend.style.backgroundColor = "#FFCCCC";
-	
-		select_list.push(friend);
+		
+		data = {
+			text : friend.text,
+			id : friend.id
+		}
+		
+		select_list.push(data);
 	}
 	else{
 
@@ -141,7 +146,12 @@ function add_the_selected(friend){
 
 		console.log("Removing the item into the array");
 		
-		remove_select_list(friend);
+		data = {
+			text : friend.text,
+			id : friend.id
+		}
+		
+		remove_select_list(data);
 	}
 }
 

@@ -239,7 +239,7 @@ function moveCanvs(data) {
 		context.closePath();
 		context.stroke();
 				
-		drawPath.splice(index, 1);
+		drawPath.splice(i, 1);
 		
 	}
 }
