@@ -21,6 +21,8 @@ var background_image;
 var join_button;
 var create_button;
 
+var invite_popup_element;
+
 function canvas_init(){
 	
 	console.log("Canvas Init Function Called");
@@ -69,6 +71,7 @@ function canvas_init(){
 	stop_button.style.marginRight = document.height * 0.5 * (0.045) + "px";
 
 	editDrawerElement = document.getElementById("editDrawer");
+	edit_menu_open = false;
 	
 	background_image = new Image();
 	background_image.src = "test_js.jpg";	// This src path is based on the HTML file that loads this js file.
@@ -183,6 +186,8 @@ function edit_menu(){
 	
 	console.log("edit_menu");
 	
+	var editDrawerElement = document.getElementById("editDrawer");
+	
 	var editDrawer = tau.widget.Drawer(editDrawerElement);
 	
 	if(edit_menu_open == false){
@@ -259,6 +264,34 @@ function endCanvs(data) {
 	isMoved = "false";
 	drawPath.length = 0;
 }
+
+
+function open_invite_popup(){
+	
+	var invite_popup_element = document.getElementById('invite_popup_1');
+	
+	invite_popup_element.style.display="";
+	
+	var invite_popup = tau.widget.Popup(invite_popup_element);
+	
+	invite_popup.open();
+}
+
+function close_invite_popup(){
+	
+	var invite_popup_element = document.getElementById('invite_popup_1');
+	
+	invite_popup_element.style.display="none";
+	
+	var invite_popup = tau.widget.Popup(invite_popup_element);
+	
+	invite_popup.close();
+}
+
+
+
+
+
 
 
 
