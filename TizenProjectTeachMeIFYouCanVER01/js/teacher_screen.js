@@ -163,7 +163,7 @@ function touchMoveHandler(e){
 		sendCanvasData("move", drawPath[index].pageX, drawPath[index].pageY,
 						touches[i].pageX,  touches[i].pageY, strokeWidth, strokeColor, lineJoin);
 
-		//socket.emit("imageData", {imageData : canvas.toDataURL("image/webp")});
+		socket.emit("imageData", {imageData : canvas.toDataURL("image/webp")});
 				
 		drawPath.splice(index, 1, touches[i]);
 		

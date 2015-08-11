@@ -70,7 +70,7 @@ function localGetFriends() {
 
 function FBLogin(){
 	console.log("inside login");
-	window.authWin = window.open(final_uri, "blank", "", true);
+	window.authWin = window.open(final_uri, "blank", true);
 	montiorURL();
 }
    
