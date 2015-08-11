@@ -25,7 +25,7 @@ function native_init() {
 	var remoteAudioMessagePort = tizen.messageport.requestRemoteMessagePort(
 			nativeServiceAppId, "RECEIVE_AUDIO"); //로컬 포트로 "RECEIVE_AUDIO"이라는 메세지 이름으로 audio data 받음	
 
-	$("#audio_start").click(function() {
+	$("#play").click(function() {
 		console.log("audio_start pressed");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -35,7 +35,7 @@ function native_init() {
 		} ], null);
 	});	
 	
-	$("#audio_pause").click(function() {
+	$("#pause").click(function() {
 		console.log("audio_pause pressed");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -45,7 +45,7 @@ function native_init() {
 		} ], null);
 	});
 	
-	$("#audio_stop").click(function() {
+	$("#pause").click(function() {
 		console.log("audio_stop pressed");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -164,8 +164,3 @@ function download(filename) {
 	window.location = 'http://211.189.127.154:53597/download/video/' + filename;
 }
 
-function test() {
-	var browser = naviagtor.appName;
-	var version = navigator.appVersion;
-	console.log("browser = " + browser + " version = " + version);
-}

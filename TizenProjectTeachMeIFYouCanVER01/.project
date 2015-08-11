@@ -3,6 +3,7 @@
 	<name>TizenProjectTeachMeIFYouCanVER02</name>
 	<comment></comment>
 	<projects>
+		<project>zServiceApp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
