@@ -262,9 +262,9 @@
             	<ul data-role="listview">
             	<!-- <a href="#">Edit Canvas Setting</a> -->
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="edit_canvas();"><a href="#">Canvas Setting</a></li>
-                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Voice Q&A Handle</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="master_voice_change();"><a href="#">Voice Q&A Handle</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="open_classmate_list();"><a href="#">Classmates</a></li>
-                	<li class="ui-drawer-main-list" style="text-align:center;" id="roomExit"><a href="#">Exit</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" id="roomExit"><a href="#">Leave Class</a></li>
             	</ul>
         	</div>
         	
@@ -300,9 +300,9 @@
 			--> 
 			 
 			<div id="audio_control" style="float:left; margin-left: 2px; margin-top: 10px;">
-				<div id="play" style="border:1px solid black; display:inline-block; margin:0;">1</div>
-				<div id="pause" style="border:1px solid black; display:inline-block; margin:0;">2</div>
-				<div id="stop" style="border:1px solid black; display:inline-block; margin:0;">3</div>
+				<div id="play" style="border:1px solid black; display:inline-block; margin:0;" onclick="audio_start();">1</div>
+				<div id="pause" style="border:1px solid black; display:inline-block; margin:0;" onclick="audio_pause();">2</div>
+				<div id="stop" style="border:1px solid black; display:inline-block; margin:0;" onclick="audio_stop();">3</div>
 			</div>
 			
 		</div>
@@ -338,19 +338,28 @@
    		<div class="ui-popup-text" style="text-align:center;">
    			<ul style="padding:0px; margin:0px; display:inline;">
    				<li style="display:inline; list-style-stype:none; padding-right:10px; padding-bottom:20px; margin:0px;"><input id="background_image_change" type="file" name="pic" accept="image/*" onchange="change_background_image(this);"/></li>
-   				<li style="display:inline; list-style-stype:none; padding-left:10px; padding-bottom:20px; margin:0px;"><button id="pen_tool_edit" onclick="send_clear_canvas_only();">Blank Canvas</button></li>
+   				<li style="display:inline; list-style-stype:none; padding-left:10px; padding-bottom:20px; margin:0px;"><button id="pen_tool_edit" onclick="send_clear_canvas_only(); clear_canvas_only();">Blank Canvas</button></li>
    			</ul>
 		</div>
 	</div>
 	
 	<div id="canvas_edit_popup_pen_tool" data-role="popup" style="display:none;">
    		<div class="ui-popup-title"><h1>What kind of settings do you want for your pen tool?</h1></div>
-   		<div class="ui-popup-text">
+   		<div class="ui-popup-text" style="text-align:center;">
    			<label>Color: <input type="color" class="strokeColor" onchange="changeStrokeColor(this);"></label>
    			<label>Line Width: 
    				<input type="range" min="5" max="30" step="5" value="5" class="strokeWidth" onchange="changeStrokeWidth(this);">
    			</label>	
 		</div>
 	</div>
+	
+	<div id="show_active_classmates_list" data-role="popup" style="display:none;">
+   		<div class="ui-popup-title"><h1>Current Classmates</h1></div>
+   		<div class="ui-popup-text" style="text-align:center;">
+   			<ul id="active_classmates_list" style="padding:0px; margin:0px;">
+   			</ul>
+		</div>
+	</div>
+	
 </body>
 </html>

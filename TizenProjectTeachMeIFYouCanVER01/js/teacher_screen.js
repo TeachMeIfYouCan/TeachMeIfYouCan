@@ -231,9 +231,8 @@ function open_classmate_list(){
 	classmate_list_drawer.open();
 }
 
-function show_classmate_list(){
-	
-}
+
+
 
 function move_invite_more_friends(){
 	
@@ -552,6 +551,53 @@ function changeStrokeColor(color_change){ strokeColor = color_change.value; }
 function changeStrokeWidth(width_change){ strokeWidth = width_change.value; }
 
 
-function show_classmates(){}
+function show_classmates(){
+	
+	socket.emit('getRoomUserList', {roomName: roomName});
+	
+	
+	
+	var show_active_classmates_list_element = document.getElementById('show_active_classmates_list');
+	
+	show_active_classmates_list_element.style.display="";
+	
+	var show_active_classmates_list = tau.widget.Popup(show_active_classmates_list_element);
+	
+	show_active_classmates_list.open();
+	
+	
+	console.log("Start adding the list element");
+	for(var i = 0; i < active_classmates_list.length; i++){
+	
+		console.log("Adding " + active_classmates_list[i]);
+		$('#show_active_classmates_list ul').append('<li>' + active_classmates_list[i] + '</li>');
+	}
+	
+	for(var j = 0; j < active_classmates_list.length; j++){
+		
+		active_classmates_list.pop();
+	}
+}
 
 
+function master_voice_change(){
+	
+	console.log("master_voice_change function called");
+}
+
+
+
+function audio_start(){
+	socket.emit('test_start');
+	console.log('audio_start');
+}
+
+function audio_pause(){
+	socket.emit('test_pause');
+	console.log('audio_pause');
+}
+
+function audio_stop(){
+	socket.emit('test_stop');
+	console.log('audio_stop');
+}

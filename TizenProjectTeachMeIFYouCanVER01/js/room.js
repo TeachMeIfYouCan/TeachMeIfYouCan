@@ -1,6 +1,8 @@
 var master_name;
 var master_id;
 
+var active_classmates_list = new Array();
+
 function room_socket_init() {
 	
 	console.log("Start initializing the socket");
@@ -22,7 +24,19 @@ function room_socket_init() {
 		}		
 		//html 방 정보 뿌려지 추가 해야함
 	});
+	
+	//현재 room 참가자 정보를 받아옴
+	socket.on('getRoomUserList', function(data) {
 		
+		console.log("<getRoomUserList>");
+
+		for(var i = 0; i < data.attendants.length; i++){
+			console.log(data.attendants[i]);
+			
+			active_classmates_list.push(data.attendants[i]);
+		}		
+	});
+	
 	//전체 방 새로고침 버튼 
 	$('#roomListRefresh').off("click").on("click", (function() {
 		console.log("roomListRefresh 버튼 누름" );
@@ -156,6 +170,16 @@ function room_socket_init() {
 		console.log("<rejectJoinRoom> nickName = " + data.nickName + " roomName : " + data.roomName);				
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에 초대 거부</li>');				
 		navigator.vibrate(500);		
+	});
+	
+	socket.on('changePrivilege', function(data) {	
+		console.log("<changePrivilege> nickName = " + data.nickName + " roomName : " + data.roomName + " master_name = " + master_name + " master_id = " + master_id);
+		
+		master_name = data.master_name;
+		master_id = data.master_id;
+		
+		//여기 이제 master_id로 권한 바꾸는 함수 넣어야함
+		navigator.vibrate(500);
 	});
 	
 	//채팅방에서 나간 참가자 정보
@@ -411,18 +435,7 @@ function remove_class(room_number){
 
 //마이크 권한 변경
 function changePrivilege(master_name, master_id) {
-	
-	socket.emit('changePrivilege', { nickName: nickName, id: id, roomName: roomName, master_name: master_name, master_id: master_id})
-	
-	socket.on('changePrivilege', function(data) {	
-		console.log("<changePrivilege> nickName = " + data.nickName + " roomName : " + data.roomName + " master_name = " + master_name + " master_id = " + master_id);
-		
-		master_name = data.master_name;
-		master_id = data.master_id;
-		
-		//여기 이제 master_id로 권한 바꾸는 함수 넣어야함
-		navigator.vibrate(500);
-	});
+	socket.emit('changePrivilege', { nickName: nickName, id: id, roomName: roomName, master_name: master_name, master_id: master_id});
 }
 
 
