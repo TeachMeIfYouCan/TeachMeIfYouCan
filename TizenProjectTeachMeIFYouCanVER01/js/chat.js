@@ -1,4 +1,9 @@
-var nativeServiceAppId = "S8vjRcPYft.zserviceapp";
+//var nativeServiceAppId = "S8vjRcPYft.zserviceapp";
+var nativeServiceAppId = "Y2QbwJHU6E.zserviceapp";
+var remoteMessagePort;
+var remoteAudioMessagePort;
+
+var audio_flag = true;
 
 function native_init() {
 	console.log("native_init() has been called");
@@ -19,20 +24,25 @@ function native_init() {
 		
 
 	//To open an message port to invoke message port 		
-	var remoteMessagePort = tizen.messageport.requestRemoteMessagePort(
+	remoteMessagePort = tizen.messageport.requestRemoteMessagePort(
 			nativeServiceAppId, "COMMAND_VALUE"); //로컬 포트로 "COMMAND_VALUE"이라는 메세지 이름으로 command 받음	
 
-	var remoteAudioMessagePort = tizen.messageport.requestRemoteMessagePort(
+	remoteAudioMessagePort = tizen.messageport.requestRemoteMessagePort(
 			nativeServiceAppId, "RECEIVE_AUDIO"); //로컬 포트로 "RECEIVE_AUDIO"이라는 메세지 이름으로 audio data 받음	
 
 	$("#play").click(function() {
-		console.log("audio_start pressed");
 		
-		//To send a message 원격포트로 키와 값을 보냄
-		remoteMessagePort.sendMessage([ {
-			key : 'command',
-			value : "audio_start"
-		} ], null);
+		if(audio_flag == true){
+			console.log("audio_start pressed");
+			
+			//To send a message 원격포트로 키와 값을 보냄
+			remoteMessagePort.sendMessage([ {
+				key : 'command',
+				value : "audio_start"
+			} ], null);
+			
+			audio_flag = false;
+		}
 	});	
 	
 	$("#pause").click(function() {
@@ -43,9 +53,11 @@ function native_init() {
 			key : 'command',
 			value : "audio_pause"
 		} ], null);
+		
+		audio_flag = true;
 	});
 	
-	$("#pause").click(function() {
+	$("#stop").click(function() {
 		console.log("audio_stop pressed");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -53,6 +65,8 @@ function native_init() {
 			key : 'command',
 			value : "audio_stop"
 		} ], null);
+		
+		audio_flag = true;
 		
 		audio_stop_send();
 	});
@@ -147,7 +161,7 @@ function audio_stop_send() {
 	console.log("audio_stop message send");
 	
 	//파일 이름 생성
-	var date = new Data();	
+	var date = new Date();	
 	var filename = roomName + "room" + date.getFullYear() + (date.getMonth() + 1) + date.getDate() + date.getHours() + date.getMinutes() + date.getSeconds();
 	socket.emit('audio_stop', {nickName : nickName, roomName: roomName, id: id, filename: filename});
 }

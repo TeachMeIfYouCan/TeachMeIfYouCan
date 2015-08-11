@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fzserviceapp">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>G90BTs8nuyzn2B2mKwd8iXfKUGyItLa+TqWeLG4+ibU=</DigestValue>
+<DigestValue>/kn8G/KpIHm6kOICpIvMW5XAEC0780wT+0mN+S6Eg1g=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -52,7 +52,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Findex.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>sK0osyTQowfyT8q6xv8QvDckEXH38AbVmmUEWdR4btE=</DigestValue>
+<DigestValue>OKqQah40GXVXvSFaJ9YDsEcNTOcHQ9OyUoI05ppMnXU=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2F.gitignore">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -60,7 +60,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>GZctulArpc8hecwjiyGYsnv2qlDuNRVl8SDWoVOvAxY=</DigestValue>
+<DigestValue>/OZeRbOBu/qkRSWZfvqgfbHJmYiIiLHy11BE2A6Frkc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2235,11 +2235,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-Gz+rrnr9vLtnI2x3dsVLhefYzwItrOx/Wq3h8ye+3TQw8iN1s61kZGwc+YG2YvDDx2TD/Rnij6Xv
-s7h1QRlO/26GvUqW24qRFi+h0NsabNSmgA/C8J1WEtzgnzZ95xlMUN+qfLHtTSz3yXgVJbUHL68W
-LrN91WmI7va4fvzeA6CH3TA615R42FI/52OL4u+3gsmoSVSTNK1TiNv7udTQEsiXahJbBUD4S4bX
-jozkMcnH1ft3eHWsPbdVKgStKEhZ4vkosS5KJVKcuM2Cttw841SPr4pwRCkKhVa1hMmBfZaHnBx+
-q8+RnF91A29WnXTrMV3qS3U9qSRnaX6tw4gP9A==
+TNYuDGy3UxXaaQML7OZcBZeNeF3qQcmJlfTJC948wEugRaMiOsBYbi9ntIEY+YyzdsZoSuLOvl2O
+pacYbarRnYFYSezHoTTYb18XNat16hEP403Yn5kh+WqcODk4aCu1bh+FaME5Q92NE2nNo4udNSCs
+0quuKaKjXa12EV/db7OUjMUj/jkmCcg7f5Caj858XNbdMlDslLKGtM5IO5pljqWMYo/1dRMmGii8
+mA929ak1CMdnyN0+PbB3f0VDwaKZo/MK6CH1MSzwaHgTeIsiOElQkI8bi/6L6CRHOytM5uxRk+rC
+Y8KOsw7isTXLdZvfA/T7eDVw4tOToPih0V41Gg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
