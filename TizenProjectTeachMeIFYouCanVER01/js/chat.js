@@ -79,6 +79,8 @@ function chat_init() {
 			moveCanvs(data);
 		} else if(data.canvasCommand == "end") {
 			endCanvs(data)
+		} else if(data.canvasCommand == "clear") {
+			clear_canvas_only();
 		}
 	});
 	

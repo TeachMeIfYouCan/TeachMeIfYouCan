@@ -163,7 +163,7 @@ function touchMoveHandler(e){
 		sendCanvasData("move", drawPath[index].pageX, drawPath[index].pageY,
 						touches[i].pageX,  touches[i].pageY, strokeWidth, strokeColor, lineJoin);
 
-		socket.emit("imageData", {imageData : canvas.toDataURL("image/webp")});
+		//socket.emit("imageData", {imageData : canvas.toDataURL("image/webp")});
 				
 		drawPath.splice(index, 1, touches[i]);
 		
@@ -482,6 +482,11 @@ function canvas_edit_popup_pen_tool(){
 	var canvas_edit_popup_pen_tool = tau.widget.Popup(canvas_edit_popup_pen_tool_element);
 	
 	canvas_edit_popup_pen_tool.open();
+}
+
+function send_clear_canvas_only(){
+	
+	sendCanvasData("clear");
 }
 
 function clear_canvas_only(){
