@@ -84,10 +84,14 @@ function chat_init() {
 	
 	//backgroud 올렸을때 canvs 받기
 	socket.on('backgroundImage', function(data) {
-		var background_image = data.canvasData.replace(/^data:image\/\w+;base64,/, "");
-        var image_data = new Buffer(background_image, 'base64');
-        
-        context.drawImage(background_image, 0, 0, canvas.width, canvas.height);	
+		console.log("backgroundImage 받음 name = " + data.nickName + " my master_name = " + master_name);   
+		
+		var image = new Image();
+		image.src = data.canvasData;
+		//var image_data = atob(background_image);
+		image.onload = function(){
+			 context.drawImage(image, 0, 0, canvas.width, canvas.height);	
+		}  
 	});
 	
 	//audio 데이터 받음
@@ -108,7 +112,6 @@ function chat_init() {
 	    
 	    //파일 목록 보여주는 html 추가 해야함
  	});
-		
 }
 
 //채팅 메세지 전송

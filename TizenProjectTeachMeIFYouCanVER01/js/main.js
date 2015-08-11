@@ -51,11 +51,46 @@ $(document).ready(function() {
          else if( pageid === "teacher_screen" ) {
         	console.log("room에서 back 버튼 누름" );
         	socket.emit('leave', {nickName: nickName,id: id, roomName: roomName, pic_url: pic_url});	
-        
+        	
+        	
+        	
+        	
+        	var editDrawerElement = document.getElementById("editDrawer");
+        	
+        	var editDrawer = tau.widget.Drawer(editDrawerElement);
+        	
+        	editDrawer.close();
+        	edit_menu_open = false;
+        	
+        	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+        	
+        	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+        	
+        	classmate_list_drawer.close();
+        	
+        	
+        	
+        	
         	screen.lockOrientation("portrait-primary");
         	change_page_class_list();
          }  
          else if( pageid === "select_friends" ) {
+        	 
+        	 
+        	 var editDrawerElement = document.getElementById("editDrawer");
+         	
+        	 var editDrawer = tau.widget.Drawer(editDrawerElement);
+         	
+        	 editDrawer.close();
+        	 edit_menu_open = false;
+         	
+        	 var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+         	
+        	 var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+         	
+        	 classmate_list_drawer.close();
+        	 
+        	 
         	 
         	 screen.lockOrientation("portrait-primary");
         	 
@@ -63,6 +98,18 @@ $(document).ready(function() {
 
         	 $.mobile.changePage("main");
          }
+         
+         else if( pageid === "invite_friends" ) {
+        	 
+        	 screen.lockOrientation("landscape-primary");
+        	 
+        	 clear_selected(); 
+
+        	 $.mobile.changePage("teacher_screen");
+        	 
+        	 screen.lockOrientation("landscape-primary");
+         }
+         
          else {     
         	 tizen.application.getCurrentApplication().exit();   
          }
@@ -106,12 +153,19 @@ function change_page_class_list(){
 	
 	screen.lockOrientation("portrait-primary");
 	$.mobile.changePage("page_class_list");
+	screen.lockOrientation("portrait-primary");
 }
 
 function change_select_friend(){
 	
 	screen.lockOrientation("portrait-primary");
 	$.mobile.changePage("select_friends");
+}
+
+function change_invite_friend(){
+	
+	screen.lockOrientation("portrait-primary");
+	$.mobile.changePage("invite_friends");
 }
 
 

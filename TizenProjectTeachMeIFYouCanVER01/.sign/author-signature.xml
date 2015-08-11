@@ -44,11 +44,15 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>LlCPHjm//9CZJv1KKdbE6HTnJfuizd4VkCMFFP2bU/w=</DigestValue>
+<DigestValue>XbbHAZg6J4pb55PwZPqdJo9OJrU8brBqvbPPRJonZrg=</DigestValue>
+</Reference>
+<Reference URI="js%2F.gitignore">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>eb+Inn/wBkd4I2tvyuILasSypoi3RDTboTDtcRiTtys=</DigestValue>
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>BU67fKCUMBSKJQZjQujOi3pEQRkhCn6HIwW15t0X3DY=</DigestValue>
+<DigestValue>9kaAHpY8aXw5yMLQiK2g+i9dE0eBEUY7g9PN+1OPIYc=</DigestValue>
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -56,11 +60,11 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>k4V/VJe6SWVHR4CjoJa0sxoePGH5pvNe4Eu8FA0GOSw=</DigestValue>
+<DigestValue>spv6hl3k5YksOSZAJjn3uUSly/BN62Z5oPesI1z24QE=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>KGfR5k9r0hj/Ia/bzq3QcmfBmtN+zBYI50mzuVfQan0=</DigestValue>
+<DigestValue>bnOM/Z668LVWn4CUfwITUdfJkTL3aUSsbO+Ilm1NGP0=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -72,7 +76,7 @@
 </Reference>
 <Reference URI="js%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>N0Fvf8vJEtSviLWsZO7AXPiO5k/s1r3t9MtWuhvFRWU=</DigestValue>
+<DigestValue>UmLNMfaT+SXdjtDsz1OPP8OeKzf8+EfhS21ZoOe4Gn0=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2215,11 +2219,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-YiDnQCoO9qlbriUjuIEv/a7zi53sg/7NP86egqQD1bagi+KznkRiacIs5LSWzPAMNUO4fU3J9r2I
-aun1b1M78bBmNKydmyBl2Npe4SwhWxRDnjZAwNv7nDR8LLKb2pOItR5pIY19LG9hE1oV5J7Jyj4K
-44hhqXCZCGQQ1Pbpn7DJihOkLTGv8oLZNLelo+IZEMPe9zIB0X60S1aF/wystUwg40BRnuiA0rqK
-O8Ge+m8tJ3kiUMoMFcOqhZjZVJvLAjJ22wV/Hwulrnc7tlAJqWBgjilg817otpDfGQc1lJj8c/EY
-PuyztAg6c1So7dfsK9xG2twfqmaAdx/OBAvbVg==
+jb9EuSAoc1xpslw2kyzPbI6dN8i34t8lsT5SM2ZMF45TaUrxpkUb/eD1I4gRRbkM4zuIXjqysjAX
+3gimZ0fOgLGpibJNO/VxrN307ozLIS6vBaZisnFw2INN1b+2e7VWtsrOX9X4ri+imGLKahnaVOu5
+tFWWSK65+aP7xYE6caDUEQJsgMTlbOlr4b/tTXddY2VywuSFBFBF3tiysalRK3XA4ms9rYsMSAjt
+CauMVH699MdEG0Yp+SFIEvz1kFrUEB+k5wQeQ3XStdCFss5RNwA2mvj73EAMwHdu8oVUTm2xRLX6
+tBfHTSZI+shJ5W8hZCopctr84xnOCWfcIBikQg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

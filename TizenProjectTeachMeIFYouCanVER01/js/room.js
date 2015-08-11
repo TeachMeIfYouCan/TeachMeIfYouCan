@@ -123,9 +123,12 @@ function room_socket_init() {
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +'이' + data.roomName + '번방에 입장 </li>');				
 		navigator.vibrate(500);
 		
+		console.log("joined my client master_name = " + master_name + "data.master_name = " + data.master_name);
 		//참가자가 들어오면 마스터가 전체로 그려진 그림을 전송함
-		if(master_name == data.master_name)
+		if(master_name == data.master_name) {
+			console.log("내가 마스터라 들어온 사용자에게 그림 전송");
 			sendBackgroundImage();
+		}
 	});
 	
 	//기존 방에 있는 사람 리스트 받아옴
@@ -166,6 +169,23 @@ function room_socket_init() {
 	$('#roomExit').off("click").on("click", function() {	
 		console.log("roomExit 버튼 누름" );
 		socket.emit('leave', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});	
+		
+		
+		
+		var editDrawerElement = document.getElementById("editDrawer");
+		
+		var editDrawer = tau.widget.Drawer(editDrawerElement);
+		
+		editDrawer.close();
+		edit_menu_open = false;
+		
+		var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+		
+		var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+		
+		classmate_list_drawer.close();
+		
+		
 		
 		screen.lockOrientation("portrait-primary");
 		change_page_class_list();
@@ -243,6 +263,13 @@ function refresh_friend_select_list(friend_list){
 	
 	console.log("Refresh the friend list");
 	
+	//////////////////////////////////////////////////////////////////////////
+	$('#invite_friend_list').empty();
+	$('#invite_friend_list').append('<li data-role="list-divider" id="top">Choose Your Classmates</li>');
+	
+	console.log("Refresh the friend list for sending invites");
+	//////////////////////////////////////////////////////////////////////////
+	
 	var friend = '<li class="select_friend_list_element ui-li-has-thumb ui-li-anchor ui-li">';
 	
 	for(var i = 0; i < friend_list.length; i++){
@@ -266,6 +293,10 @@ function refresh_friend_select_list(friend_list){
 		
 		$('#select_friend_list').append(friend);
 		
+		////////////////////////////////////////////////////////////////////////
+		$('#invite_friend_list').append(friend);
+		////////////////////////////////////////////////////////////////////////
+		
 		friend = '<li class="select_friend_list_element ui-li-has-thumb ui-li-anchor ui-li">';
 					
 	}
@@ -286,6 +317,21 @@ function enter_class(room_num){
 	clear_canvas();
 	
 	close_invite_popup();
+	
+	
+	
+	var editDrawerElement = document.getElementById("editDrawer");
+ 	
+	var editDrawer = tau.widget.Drawer(editDrawerElement);
+	
+	editDrawer.close();
+	edit_menu_open = false;
+	
+	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+ 	
+	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+	
+	classmate_list_drawer.close();
 }
 
 //초대팝업에 거절 했을 경우
