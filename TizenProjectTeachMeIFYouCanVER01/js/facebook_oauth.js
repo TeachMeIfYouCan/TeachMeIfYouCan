@@ -21,6 +21,7 @@ function FBLogin_check() {
 		getFriends();
 
 		room_socket_init();
+		native_init();
 		chat_init();
 	}
 }
@@ -108,6 +109,7 @@ function  getAccesstoken(code){
 				   getFriends();
 				   
 				   room_socket_init();
+				   native_init();
 				   chat_init();
 				      
 				   window.clearInterval(int);
@@ -157,7 +159,7 @@ function getProfile() {
 		      		   		    			    
 		       localStorage.setItem('myProfile', JSON.stringify(myProfile));
 		       
-		       console.log("내 정보 로컬에 저장");
+		       //console.log("내 정보 로컬에 저장");
 		   
 		       console.log("Loading my profile has finished");
 		   },
@@ -191,7 +193,7 @@ function getFriends(){
 			      	
 					localStorage.setItem(i,JSON.stringify(friendData));				    	
 				}
-				console.log("친구 정보 저장");
+				//console.log("친구 정보 저장");
 				 
 				//refresh_friend_list(data.data);
 				

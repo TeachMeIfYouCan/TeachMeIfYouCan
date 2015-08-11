@@ -20,7 +20,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>S+0uuIxRoR21L9mdprjHsBw/MPpJrnrjHem0TxpOsYM=</DigestValue>
+<DigestValue>NloF4v5kSQqhdsamMbSPXm+7C4BgkTdZ4CZzxVQf6Qo=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -44,23 +44,23 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>LlCPHjm//9CZJv1KKdbE6HTnJfuizd4VkCMFFP2bU/w=</DigestValue>
+<DigestValue>7FK+uiGhTh4gEvyYUn3Eb00QVHi5Ij5FcCcMNC4KS20=</DigestValue>
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>MA1vef64Chn0VsXoGKjspS4hTJq1ESdQ14GW1mx8hFw=</DigestValue>
+<DigestValue>CGcrABXD82881InJ6qPL4NFE30e5KmWmEmvyLIZfejo=</DigestValue>
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>FJv6D2ilIzVjwQFqzVinTORQN2gWoDjSRstmJNq8hxg=</DigestValue>
+<DigestValue>zVHRbBTgZamEM+NaSufOtyK3BKRA53O4eIe8FZ2KPkM=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>M5jPvCKIck58tTUo6F3/C/pev84wr2BOdQNTyUi86IE=</DigestValue>
+<DigestValue>spv6hl3k5YksOSZAJjn3uUSly/BN62Z5oPesI1z24QE=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>1uGANkH/9xsG75ZSwxHCOXg+TUFs045+bojUgtbCUvc=</DigestValue>
+<DigestValue>B9TfH4j3QrsYCOzxBp758yxZYMWeHa5zCqLI6n6QkRM=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -72,7 +72,7 @@
 </Reference>
 <Reference URI="js%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>5kwCYlip9Q1rrx+ycQwq9t+kEaRMt+4Lv702zcwNtMM=</DigestValue>
+<DigestValue>qAIa9CtruFOoStEhfYgDe9A9CA5NaLS/G30BVGne3Wk=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2215,11 +2215,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-1vZa90B9opx60GaAZNitNWWs4cuHArBeMsGALb8Gp9/03fa21gURNaZqZiidQB4lr+9jY6yNC6Xm
-Re16iepUlvp6t6fxks8SJZ2C2f9jSvs/6AcSbz1H5rcLFCj15JjWOm8R7Uk2qj6y/LhJs6K5UJeB
-Sds/YDVb0tHgg1EsFOKHNnfGZJyLUG3PScxfvIfosV4qz9wMrenq7vvHKvwewkVr0hmM9ljMHG0o
-zb7kK1fFZxHoJ1MfA670wkRw5OrVdFp3M0ff2VfdEhwxs/uqDgD7cTomkUOyzRwkaPPHsY3nqDJh
-sDzk1c4DktffCzB2SpQxOJSzRyDNHviTJJMBIQ==
+LiyYtqd3NMqpDdx8Vtoy7riHJ1teuygG5Z+tcmrJEQLMDvCRzHEKJu3HZKTgMiDu+x1gHu3wNTNp
+yXWi3SO3l3EourTrQRmKKHW9ddDSLlytXz7AGQofK50xc83oWbEaPxMXnRQHfCthFqJO7uJDsFuP
+t9mp9VE6+L6idT7ZYK8DaGK41L64yxu3oDYvXDEcReLYdotgC8Mc9AshJU0hELCyj+CzyuX/mdyU
+OrxtTUtdQZ8PotU5romI1p4HHe8wcRCcfCYpU+PnoAU/EfX+SLyrM+nJahOmTt4Fc56h8834mCmp
+0TnmHJuOxkc1+BlPud/0eU7z6goGBJUvOD3WeQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

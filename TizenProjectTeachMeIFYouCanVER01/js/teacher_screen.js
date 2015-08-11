@@ -211,6 +211,12 @@ function edit_menu(){
 		
 		editDrawer.close();
 		edit_menu_open = false;
+		
+		var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+     	
+		var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+    	
+		classmate_list_drawer.close();
 	}
 }
 
@@ -229,9 +235,63 @@ function show_classmate_list(){
 	
 }
 
+function move_invite_more_friends(){
+	
+	//getFriends();
+	//invite_friend_list_refresh(MY_FRIENDS_LOADED);
+	
+	screen.lockOrientation("portrait-primary");	
+	change_invite_friend();
+	
+	console.log('setting width before');
+	
+	var width;
+	
+	if(document.width >= document.height){width = document.height * 0.5}
+	else if(document.width < document.height){width = document.width * 0.5}
+	
+	console.log(width);
+	
+	$('#invite_button').css('width', width);
+	$('#invite_button a').css('width', width * 0.95);
+	
+	$('#invite_cancel_button').css('width', width);
+	$('#invite_cancel_button a').css('width', width * 0.95);
+	
+	console.log('setting width after');
+}
+
+function cancel_invite(){
+	
+	screen.lockOrientation("landscape-primary");
+	 
+	clear_selected(); 
+
+	$.mobile.changePage("teacher_screen");
+	 
+	screen.lockOrientation("landscape-primary");
+}
+
+function adjust_width(li){
+	
+	li.style.width = document.width/2 + "px";
+}
+
 function invite_more_friends(){
 	
+	//초대자 목록 전송
+	var inviteUserArray = select_list;
 	
+	console.log("Before sending the list to the server ");
+	for(var i = 0; i < select_list.length; i++){
+
+		console.log(inviteUserArray[i]);	
+	}
+	
+	socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray});	
+	
+	screen.lockOrientation("landscape-primary");
+	change_student_screen();
 }
 
 function close_classmate_list(){
@@ -367,12 +427,126 @@ function edit_canvas(){
 	
 	editDrawer.close();
 	edit_menu_open = false;
+	
+	
+	var canvas_edit_popup_element = document.getElementById('canvas_edit_popup_main');
+	
+	canvas_edit_popup_element.style.display="";
+	
+	var canvas_edit_popup = tau.widget.Popup(canvas_edit_popup_element);
+	
+	canvas_edit_popup.open();
 }
 
+function canvas_edit_popup_background_image(){
+	
+	var canvas_edit_popup_element = document.getElementById('canvas_edit_popup_main');
+	
+	canvas_edit_popup_element.style.display="";
+	
+	var canvas_edit_popup = tau.widget.Popup(canvas_edit_popup_element);
+	
+	canvas_edit_popup.close();
+	
+	
+	
+	
+	
+	var canvas_edit_popup_background_image_element = document.getElementById('canvas_edit_popup_background_image');
+	
+	canvas_edit_popup_background_image_element.style.display="";
+	
+	var canvas_edit_popup_background_image = tau.widget.Popup(canvas_edit_popup_background_image_element);
+	
+	canvas_edit_popup_background_image.open();
+}
+
+function canvas_edit_popup_pen_tool(){
+	
+	var canvas_edit_popup_element = document.getElementById('canvas_edit_popup_main');
+	
+	canvas_edit_popup_element.style.display="";
+	
+	var canvas_edit_popup = tau.widget.Popup(canvas_edit_popup_element);
+	
+	canvas_edit_popup.close();
+	
+	
+	
+	
+	
+	var canvas_edit_popup_pen_tool_element = document.getElementById('canvas_edit_popup_pen_tool');
+	
+	canvas_edit_popup_pen_tool_element.style.display="";
+	
+	var canvas_edit_popup_pen_tool = tau.widget.Popup(canvas_edit_popup_pen_tool_element);
+	
+	canvas_edit_popup_pen_tool.open();
+}
+
+function clear_canvas_only(){
+	
+	console.log("Clearing only the canvas");
+
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	
+	
+	var canvas_edit_popup_background_image_element = document.getElementById('canvas_edit_popup_background_image');
+	
+	var canvas_edit_popup_background_image = tau.widget.Popup(canvas_edit_popup_background_image_element);
+	
+	canvas_edit_popup_background_image.close();
+	
+	canvas_edit_popup_background_image_element.style.display="none";
+}
+
+function change_background_image(image_input_tag){
+	
+	if(image_input_tag.files && image_input_tag.files[0]){
+		
+		console.log("Creating File Reader");
+		
+		var reader = new FileReader();
+		
+		reader.onload = function(e){
+			
+			console.log("File Reader Onload");
+			
+			$(background_image).attr('src', e.target.result);
+			
+			console.log(background_image);
+			
+			background_image.onload = function(){
+				
+				context.drawImage(background_image, 0, 0, canvas.width, canvas.height);
+				sendBackgroundImage();
+			}
+			
+			console.log("Canvas Background Changed");
+		}
+		
+		reader.readAsDataURL(image_input_tag.files[0]);
+	}
+}
+
+var strokeColorSel;
+var strokeWidthSel;
+
+/*
+strokeColorSel = document.querySelector(".strokeColor");
+strokeWidthSel = document.querySelector(".strokeWidth");
+	
+strokeColorSel.addEventListener("change", changeStrokeColor, false);
+strokeWidthSel.addEventListener("change", changeStrokeWidth, false);
+	
+*/
+
+function changeStrokeColor(color_change){ strokeColor = color_change.value; }
+	
+function changeStrokeWidth(width_change){ strokeWidth = width_change.value; }
 
 
-
-
-
+function show_classmates(){}
 
 

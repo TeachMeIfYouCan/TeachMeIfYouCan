@@ -1,3 +1,63 @@
+var nativeServiceAppId = "S8vjRcPYft.zserviceapp";
+
+function native_init() {
+	console.log("native_init() has been called");
+	
+	//Launch context transmitter service
+	tizen.application.launch(nativeServiceAppId, function(){ 
+		console.log('tizen.application.launch success');
+	}, function(err){
+		console.log('tizen.application.launch err = ' + err.message);
+	});
+
+	// Open message port //원격에서 로컬 포트로 "RECEIVE_HELLO_MESSAGE"라는 메세지이름을 data로 받음.
+	localMessagePort = tizen.messageport.requestLocalMessagePort("RECEIVE_HELLO_MESSAGE");
+	localMessagePort.addMessagePortListener(function(data, replyPort) {
+		console.log("native receive audio length = " + data[0].value.length);					
+		socket.emit('audioData', data[0]);
+	});
+		
+
+	//To open an message port to invoke message port 		
+	var remoteMessagePort = tizen.messageport.requestRemoteMessagePort(
+			nativeServiceAppId, "COMMAND_VALUE"); //로컬 포트로 "COMMAND_VALUE"이라는 메세지 이름으로 command 받음	
+
+	var remoteAudioMessagePort = tizen.messageport.requestRemoteMessagePort(
+			nativeServiceAppId, "RECEIVE_AUDIO"); //로컬 포트로 "RECEIVE_AUDIO"이라는 메세지 이름으로 audio data 받음	
+
+	$("#audio_start").click(function() {
+		console.log("audio_start pressed");
+		
+		//To send a message 원격포트로 키와 값을 보냄
+		remoteMessagePort.sendMessage([ {
+			key : 'command',
+			value : "audio_start"
+		} ], null);
+	});	
+	
+	$("#audio_pause").click(function() {
+		console.log("audio_pause pressed");
+		
+		//To send a message 원격포트로 키와 값을 보냄
+		remoteMessagePort.sendMessage([ {
+			key : 'command',
+			value : "audio_pause"
+		} ], null);
+	});
+	
+	$("#audio_stop").click(function() {
+		console.log("audio_stop pressed");
+		
+		//To send a message 원격포트로 키와 값을 보냄
+		remoteMessagePort.sendMessage([ {
+			key : 'command',
+			value : "audio_stop"
+		} ], null);
+		
+		audio_stop_send();
+	});
+}
+
 function chat_init() {
 	
 	console.log("chat_init() has been called");
@@ -29,6 +89,15 @@ function chat_init() {
         
         context.drawImage(background_image, 0, 0, canvas.width, canvas.height);	
 	});
+	
+	//audio 데이터 받음
+	socket.on('audioData', function(data) {
+	    console.log("recv server audio Data = " + data.value.length);
+		remoteAudioMessagePort.sendMessage([ {
+			key : data.key,
+			value : data.value
+		} ], null);		
+ 	});
 }
 
 function submitMessage() {
@@ -46,4 +115,9 @@ function sendCanvasData(command, oldX, oldY, newX, newY, strokeWidth, strokeColo
 function sendBackgroundImage() {
 	console.log("backgroundImage 보냄");		
 	socket.emit('backgroundImage', { nickName : nickName, roomName: roomName, id: id, canvasData: canvas.toDataURL()});			
+}
+
+function audio_stop_send() {
+	console.log("audio_stop message send");	
+	socket.emit('audio_stop');
 }

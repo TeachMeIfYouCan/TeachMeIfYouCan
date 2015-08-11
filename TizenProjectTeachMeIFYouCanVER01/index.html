@@ -155,6 +155,50 @@
     </div><!-- main/page -->
 
 	<!--  Select Friends==================================================================================================== -->
+	
+	<div id="invite_friends" data-role="page">
+	
+		<div data-role="header" data-position="fixed" data-id="foo">
+        	<h1 style="font-size:80%;">Tizen Project - Additional Invites UI</h1>
+        </div><!-- /header -->
+
+        <div data-role="content">
+            <ul data-role="listview" id="invite_friend_list">
+          
+                <li data-role="list-divider" id="top">Choose Your Classmates</li>
+                
+                <li class="select_friend_list_element">
+                	<a href="#" onclick="add_the_selected(this);" class="select_item">
+	 					<img src="./test_img_1.jpg" class="ui-li-bigicon" />
+	 					&nbsp; 
+	 					Friend 1
+	 					<span class="ui-li-text-sub">
+	 						<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Electronics and Communication
+	 						</h5>
+	 						<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+	 							Hanyang Univeristy
+	 						</h5>
+	 						<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+	 							Free
+	 						</h5>
+	 					</span>
+ 					</a>            
+                </li>
+            </ul>
+        </div><!-- /content -->
+    	<div data-role="footer" style="height:70px; background-color:#000066; opacity:0.5;">
+			<div data-role="tabbar" data-auto-change="false">
+                <ul>
+                	<li id="invite_button"><a id="invite_button_a" data-role="button" href="#" onclick="invite_more_friends();">Invite</a></li>
+                	<li id="invite_cancel_button"><a id="invite_cancel_button_a" data-role="button" href="#" onclick="cancel_invite();">Cancel</a></li>
+                </ul>
+            </div> 	
+        </div> 
+        
+    </div><!-- main/page -->
+
+	<!-- Invite Friends==================================================================================================== -->
 		
 	<div id="page_class_list" data-role="page">
         <div data-role="header" data-position="fixed" data-id="foo">
@@ -217,7 +261,7 @@
 			<div data-role="drawer" data-position="right" id="editDrawer">
             	<ul data-role="listview">
             	<!-- <a href="#">Edit Canvas Setting</a> -->
-                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="edit_canvas();"><input type="file" name="pic" accept="image/*" value="test"/></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="edit_canvas();"><a href="#">Canvas Setting</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Voice Q&A Handle</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="open_classmate_list();"><a href="#">Classmates</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" id="roomExit"><a href="#">Exit</a></li>
@@ -226,20 +270,8 @@
         	
         	<div data-role="drawer" data-position="right" id="classmates_list_drawer">
             	<ul data-role="listview">
-                	<li class="ui-drawer-main-list" style="text-align:center;">
-                		<a href="#">
-                			Classmate:
-                			<ul>
-                				<li>test</li>
-                				<li>test</li>
-                				<li>test</li>
-                				<li>test</li>
-                				<li>test</li>
-                				<li>test</li>
-                			</ul>>
-                		</a>
-                	</li>
-                	<li class="ui-drawer-main-list" style="text-align:center;"><a href="#">Invite More ?</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="show_classmates();"><a href="#">Show Classmates</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="move_invite_more_friends();"><a href="#">Invite More ?</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="close_classmate_list();"><a href="#">Back</a></li>
             	</ul>
         	</div>
@@ -293,24 +325,32 @@
 	
 	<div id="canvas_edit_popup_main" data-role="popup" style="display:none;">
    		<div class="ui-popup-title"><h1>Do you want to edit your canvas?</h1></div>
-   		<div class="ui-popup-text">
-   			
+   		<div class="ui-popup-text" style="text-align:center;">
+   			<ul style="padding:0px; margin:0px; display:inline;">
+   				<li style="display:inline; list-style-stype:none; padding-right:10px; padding-bottom:20px; margin:0px;"><button id="canvas_background_edit" onclick="canvas_edit_popup_background_image();">Canvas Background</button></li>
+   				<li style="display:inline; list-style-stype:none; padding-left:10px; padding-bottom:20px; margin:0px;"><button id="pen_tool_edit" onclick="canvas_edit_popup_pen_tool();">Pen Tool</button></li>
+   			</ul>
 		</div>
 	</div>
 	
 	<div id="canvas_edit_popup_background_image" data-role="popup" style="display:none;">
    		<div class="ui-popup-title"><h1>What kind of settings do you want for your canvas background?</h1></div>
-   		<div class="ui-popup-text">
-   			
+   		<div class="ui-popup-text" style="text-align:center;">
+   			<ul style="padding:0px; margin:0px; display:inline;">
+   				<li style="display:inline; list-style-stype:none; padding-right:10px; padding-bottom:20px; margin:0px;"><input id="background_image_change" type="file" name="pic" accept="image/*" onchange="change_background_image(this);"/></li>
+   				<li style="display:inline; list-style-stype:none; padding-left:10px; padding-bottom:20px; margin:0px;"><button id="pen_tool_edit" onclick="clear_canvas_only();">Blank Canvas</button></li>
+   			</ul>
 		</div>
 	</div>
 	
 	<div id="canvas_edit_popup_pen_tool" data-role="popup" style="display:none;">
    		<div class="ui-popup-title"><h1>What kind of settings do you want for your pen tool?</h1></div>
    		<div class="ui-popup-text">
-   			
+   			<label>Color: <input type="color" class="strokeColor" onchange="changeStrokeColor(this);"></label>
+   			<label>Line Width: 
+   				<input type="range" min="5" max="30" step="5" value="5" class="strokeWidth" onchange="changeStrokeWidth(this);">
+   			</label>	
 		</div>
 	</div>
-		   	
 </body>
 </html>

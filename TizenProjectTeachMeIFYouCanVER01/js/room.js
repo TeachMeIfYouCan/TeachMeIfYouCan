@@ -260,6 +260,13 @@ function refresh_friend_select_list(friend_list){
 	
 	console.log("Refresh the friend list");
 	
+	//////////////////////////////////////////////////////////////////////////
+	$('#invite_friend_list').empty();
+	$('#invite_friend_list').append('<li data-role="list-divider" id="top">Choose Your Classmates</li>');
+	
+	console.log("Refresh the friend list for sending invites");
+	//////////////////////////////////////////////////////////////////////////
+	
 	var friend = '<li class="select_friend_list_element ui-li-has-thumb ui-li-anchor ui-li">';
 	
 	for(var i = 0; i < friend_list.length; i++){
@@ -283,6 +290,10 @@ function refresh_friend_select_list(friend_list){
 		
 		$('#select_friend_list').append(friend);
 		
+		////////////////////////////////////////////////////////////////////////
+		$('#invite_friend_list').append(friend);
+		////////////////////////////////////////////////////////////////////////
+		
 		friend = '<li class="select_friend_list_element ui-li-has-thumb ui-li-anchor ui-li">';
 					
 	}
@@ -303,6 +314,21 @@ function enter_class(room_num){
 	clear_canvas();
 	
 	close_invite_popup();
+	
+	
+	
+	var editDrawerElement = document.getElementById("editDrawer");
+ 	
+	var editDrawer = tau.widget.Drawer(editDrawerElement);
+	
+	editDrawer.close();
+	edit_menu_open = false;
+	
+	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+ 	
+	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+	
+	classmate_list_drawer.close();
 }
 
 //초대팝업에 거절 했을 경우
