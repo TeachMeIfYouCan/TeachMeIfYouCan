@@ -24,7 +24,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>NaTjAIUMWCqduvN29o2UZZkeBjDLkJyWH7Ckh49WXPk=</DigestValue>
+<DigestValue>sA0KakRCtZCKRIL8j67gTKDINPWEistgpgAGyQ7Veus=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -48,7 +48,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>YjSMazhytfK2xDSXRF+KNB3PmmKJ6LD0tNMu1Dyf4Mg=</DigestValue>
+<DigestValue>Eia2HrjjLtNXvwJqIDToniHvMubrAyuAIk2n9HXKxEQ=</DigestValue>
 </Reference>
 <Reference URI="js%2F.gitignore">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -64,11 +64,11 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>spv6hl3k5YksOSZAJjn3uUSly/BN62Z5oPesI1z24QE=</DigestValue>
+<DigestValue>HXWDYkXtaW/+XvgZi1A5a7Djw8eQ3+F4RZBwFm7UQvg=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>h+U4/TG0LbUhKjH6BlnOC+IyOaR/s8xkfz1N0WuvV9M=</DigestValue>
+<DigestValue>p5TuHLIhVfXJ44uOyZvMQO2Q4ixFEBFeUImTTeiCc5M=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -80,7 +80,7 @@
 </Reference>
 <Reference URI="js%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>v/zt6KpK9oLPj9O+Z8HaKS0RSGPw50cmRGKUHbOx1XQ=</DigestValue>
+<DigestValue>IDGtO3Kh4PtXcLeMqcPfvrgPjFeejL0mdgnCN/JPID4=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2223,11 +2223,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-avTQHM2n9mzS2FWGlwTT3rjCY/ndKvYB8fhFAR/FmuinayqZqYQjyQGclt6L9MyHZQdcPFrP8R0P
-XHzlUcMT+ZiBhBBJ7ByY+NU/7ohqWGvnDEd0l/N6M04TlqbYQ6cZRF3pnYMbK1ADepKY0/scAvGM
-y5UiNMf0QAPVUTfBOyv5r9EmRjs656xVXPbm+ps3OtzlMprpArRPdqentHtn84jIZ68YCxIzqZrK
-qfbuczvkQLOpTTliTYHp1D5IRjqYCxpskg0cGdY5k0ZjwJqH0RfcLnSz78vLDx4LB4szcDTKbDGV
-89iZNNn7aua0EH6SOjEKP1b+Ym0e97i9isj4Ig==
+mdFdDc9EmrnSKcuLQ5eUfA9X57sWEys3llv4DwNcn1TLW5Z6iwh5nQIqtyJ8jzRopFewIaqj2rva
+xp2GWyaEg2FSrw0XII0cQ+bYTHMu+AQc+7KEQe4FGAgYviOn0qBu6VVe8iICylTIX9pI+V1k9wkH
+ReEM5QDLiuJFSyUzfpSJAkRSr4unYPmggTNUWd50E+dgLxr5YKkd8PfVvCZlsQm7B0TqHSzokcsT
+Wc4EsXmlcC1BfRpGMt/F9bx5nAZ9KxSZr17m3plckC9ELMyGtFLepbuVkZuparwMQ1hVRtUCziju
+hr7Dw2SQMRf/YLgtYkUhnAzQBNaHfDaosKk5YQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

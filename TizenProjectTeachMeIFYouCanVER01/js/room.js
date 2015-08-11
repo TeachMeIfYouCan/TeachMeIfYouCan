@@ -2,6 +2,7 @@ var master_name;
 var master_id;
 
 var active_classmates_list = new Array();
+var active_classmates_pic_list = new Array();
 
 function room_socket_init() {
 	
@@ -34,7 +35,10 @@ function room_socket_init() {
 			console.log(data.attendants[i]);
 			
 			active_classmates_list.push(data.attendants[i]);
-		}		
+			active_classmates_pic_list.push(data.userPic[i]);
+		}
+		
+		show_classmates_open();
 	});
 	
 	//전체 방 새로고침 버튼 
@@ -196,19 +200,7 @@ function room_socket_init() {
 		
 		
 		
-		var editDrawerElement = document.getElementById("editDrawer");
-		
-		var editDrawer = tau.widget.Drawer(editDrawerElement);
-		
-		editDrawer.close();
-		edit_menu_open = false;
-		
-		var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
-		
-		var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
-		
-		classmate_list_drawer.close();
-		
+		close_all_drawers();
 		
 		
 		screen.lockOrientation("portrait-primary");

@@ -156,6 +156,24 @@
 
 	<!--  Select Friends==================================================================================================== -->
 	
+	<div id="select_classmates" data-role="page">
+        <div data-role="content">
+            <ul data-role="listview" id="select_classmates_list">
+          
+            </ul>
+        </div><!-- /content -->
+    	<div data-role="footer" style="height:70px; background-color:#000066; opacity:0.5;">
+			<div data-role="tabbar" data-auto-change="false">
+                <ul>
+                	<li id="change_master"><a data-role="button" href="#" onclick="">Voice</a></li>
+                	<li id="cancel_change_master"><a data-role="button" href="#" onclick="back_to_class();">Cancel</a></li>
+                </ul>
+            </div> 	
+        </div>   
+    </div><!-- main/page -->
+
+	<!--  Select Friends + Audio Control==================================================================================================== -->
+	
 	<div id="invite_friends" data-role="page">
 	
 		<div data-role="header" data-position="fixed" data-id="foo">
@@ -258,13 +276,23 @@
 		
 		<div data-role="content">
 			
+			<!-- 
 			<div data-role="drawer" data-position="right" id="editDrawer">
             	<ul data-role="listview">
-            	<!-- <a href="#">Edit Canvas Setting</a> -->
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="edit_canvas();"><a href="#">Canvas Setting</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="master_voice_change();"><a href="#">Voice Q&A Handle</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="open_classmate_list();"><a href="#">Classmates</a></li>
-                	<li class="ui-drawer-main-list" style="text-align:center;" id="roomExit"><a href="#">Leave Class</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" id="leave" onclick="check_leave();"><a href="#">Leave Class</a></li>
+            	</ul>
+        	</div>
+        	-->
+        	
+        	<div data-role="drawer" data-position="right" id="editDrawer">
+            	<ul data-role="listview">
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="edit_canvas();"><a href="#">Canvas Setting</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="show_classmates();"><a href="#">Show Classmates</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" onclick="move_invite_more_friends();"><a href="#">Invite More ?</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" id="leave" onclick="check_leave();"><a href="#">Leave Class</a></li>
             	</ul>
         	</div>
         	
@@ -334,7 +362,7 @@
 	</div>
 	
 	<div id="canvas_edit_popup_background_image" data-role="popup" style="display:none;">
-   		<div class="ui-popup-title"><h1>What kind of settings do you want for your canvas background?</h1></div>
+   		<div class="ui-popup-title"><h1>What do you want to change for your canvas background?</h1></div>
    		<div class="ui-popup-text" style="text-align:center;">
    			<ul style="padding:0px; margin:0px; display:inline;">
    				<li style="display:inline; list-style-stype:none; padding-right:10px; padding-bottom:20px; margin:0px;"><input id="background_image_change" type="file" name="pic" accept="image/*" onchange="change_background_image(this);"/></li>
@@ -344,7 +372,7 @@
 	</div>
 	
 	<div id="canvas_edit_popup_pen_tool" data-role="popup" style="display:none;">
-   		<div class="ui-popup-title"><h1>What kind of settings do you want for your pen tool?</h1></div>
+   		<div class="ui-popup-title"><h1>What do you want to change for your pen tool?</h1></div>
    		<div class="ui-popup-text" style="text-align:center;">
    			<label>Color: <input type="color" class="strokeColor" onchange="changeStrokeColor(this);"></label>
    			<label>Line Width: 
@@ -361,5 +389,14 @@
 		</div>
 	</div>
 	
+	<div id="check_exit" data-role="popup" style="display:none;">
+   		<div class="ui-popup-title"><h1>Do you really want to leave the class?</h1></div>
+   		<div class="ui-popup-text" style="text-align:center;">
+   			<button id="roomExit">Leave the Class</button>
+		</div>
+	</div>
+	
+	 <!--  Pop Ups ==================================================================================================== -->
+  	
 </body>
 </html>

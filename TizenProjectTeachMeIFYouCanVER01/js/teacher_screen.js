@@ -365,6 +365,20 @@ function endCanvs(data) {
 
 
 
+function check_leave(){
+	
+	var check_leave_element = document.getElementById('check_exit');
+	
+	check_leave_element.style.display="";
+	
+	var check_leave = tau.widget.Popup(check_leave_element);
+	
+	check_leave.open();
+	
+	close_all_drawers();
+}
+
+
 
 
 
@@ -554,8 +568,12 @@ function changeStrokeWidth(width_change){ strokeWidth = width_change.value; }
 function show_classmates(){
 	
 	socket.emit('getRoomUserList', {roomName: roomName});
+}
+
+/*
+function show_classmates_open(){
 	
-	
+	$('#show_active_classmates_list ul').empty();
 	
 	var show_active_classmates_list_element = document.getElementById('show_active_classmates_list');
 	
@@ -570,13 +588,78 @@ function show_classmates(){
 	for(var i = 0; i < active_classmates_list.length; i++){
 	
 		console.log("Adding " + active_classmates_list[i]);
-		$('#show_active_classmates_list ul').append('<li>' + active_classmates_list[i] + '</li>');
+		$('#show_active_classmates_list ul').append('<li style="font-size:70%;">' + active_classmates_list[i] + '</li>');
 	}
 	
-	for(var j = 0; j < active_classmates_list.length; j++){
+	for(var i = 0; i < active_classmates_list.length; i++){
 		
 		active_classmates_list.pop();
 	}
+}
+*/
+	
+function show_classmates_open(){
+	
+	screen.lockOrientation("portrait-primary");	
+	
+	$('#select_classmates_list').empty();
+	$('#select_classmates_list').append('<li data-role="list-divider" id="top">Current Classmates</li>');
+	
+	console.log("Refresh the friend list");
+	
+	var friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';
+	
+	for(var i = 0; i < active_classmates_list.length; i++){
+		
+		friend = friend +  
+					'<a href="#" onclick="" class="select_item">';
+		friend = friend + '<img src=' + active_classmates_pic_list[i] + ' class="ui-li-bigicon ui-li-thumb" />';
+		friend = friend + '&nbsp;' + active_classmates_list[i];
+		/*friend = friend + <span class="ui-li-text-sub">
+									<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+									Electronics and Communication
+								</h5>
+								<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
+									Hanyang Univeristy
+								</h5>
+								<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+									Free
+								</h5>
+							</span>; */
+		friend = friend + '</a> </li>';
+		
+		$('#select_classmates_list').append(friend);
+		
+		friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';			
+	}
+	
+	for(var i = 0; i < active_classmates_list.length; i++){
+		
+		active_classmates_list.pop();
+		active_classmates_pic_list.pop();
+	}
+	
+	var width;
+	
+	if(document.width >= document.height){width = document.height * 0.5}
+	else if(document.width < document.height){width = document.width * 0.5}
+	
+	console.log(width);
+	
+	change_classmate_list();
+	
+	$('#change_master').css('width', width);
+	$('#change_master a').css('width', width * 0.95);
+	
+	$('#cancel_change_master').css('width', width);
+	$('#cancel_change_master a').css('width', width * 0.95);
+}
+
+function back_to_class(){
+	
+	screen.lockOrientation("landscape-primary");
+	change_student_screen();
+	screen.lockOrientation("landscape-primary");
 }
 
 
@@ -584,6 +667,25 @@ function master_voice_change(){
 	
 	console.log("master_voice_change function called");
 }
+
+
+
+function close_all_drawers(){
+	
+	var editDrawerElement = document.getElementById("editDrawer");
+	
+	var editDrawer = tau.widget.Drawer(editDrawerElement);
+	 
+	editDrawer.close();
+	edit_menu_open = false;
+	
+	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
+	
+	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
+	
+	classmate_list_drawer.close();
+}
+
 
 
 

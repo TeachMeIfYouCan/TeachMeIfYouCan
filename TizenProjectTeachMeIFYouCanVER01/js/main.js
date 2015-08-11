@@ -110,7 +110,10 @@ $(document).ready(function() {
         	 screen.lockOrientation("landscape-primary");
          }
          
-         else {     
+         else {
+        	 
+        	 close_all_drawers();
+        	 
         	 tizen.application.getCurrentApplication().exit();   
          }
       }
@@ -166,6 +169,12 @@ function change_invite_friend(){
 	
 	screen.lockOrientation("portrait-primary");
 	$.mobile.changePage("invite_friends");
+}
+
+function change_classmate_list(){
+	
+	screen.lockOrientation("portrait-primary");
+	$.mobile.changePage("select_classmates");
 }
 
 
