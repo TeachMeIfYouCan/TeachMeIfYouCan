@@ -68,7 +68,7 @@ $(document).ready(function() {
         	
         	classmate_list_drawer.close();
         	
-        	
+        	socket.emit('roomList');
         	
         	
         	screen.lockOrientation("portrait-primary");

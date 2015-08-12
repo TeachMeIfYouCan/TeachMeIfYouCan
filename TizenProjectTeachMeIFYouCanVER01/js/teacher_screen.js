@@ -14,6 +14,10 @@ var play_button;
 var pause_button;
 var stop_button;
 
+var play_button_image;
+var pause_button_image;
+var stop_button_image;
+
 var editDrawerElement;
 var edit_menu_open;
 
@@ -23,6 +27,11 @@ var join_button;
 var create_button;
 
 var invite_popup_element;
+
+var voice_change_auth;
+
+var final_voice_change;
+var confirm_flag;
 
 function canvas_init(){
 	
@@ -65,11 +74,30 @@ function canvas_init(){
 	play_button = document.getElementById("play");
 	pause_button = document.getElementById("pause");
 	stop_button = document.getElementById("stop");
-
+	
+	play_button_image = new Image();
+	play_button_image.src = "./Play Button - Inactive.png";
+	pause_button_image = new Image();
+	pause_button_image.src = "./Pause Button - Inactive.png";
+	stop_button_image = new Image;
+	stop_button_image.src = "./Stop Button - Inactive.png";
+	
 	play_button.style.width = document.height * 0.5 * (0.28) + "px";
 	pause_button.style.width = document.height * 0.5 * (0.28) + "px";
 	stop_button.style.width = document.height * 0.5 * (0.28) + "px";
 
+	$(play_button).append(play_button_image);
+	play_button_image.style.height = "100%";
+	play_button.style.textAlign = "center";
+	
+	$(pause_button).append(pause_button_image);
+	pause_button_image.style.height = "100%";
+	pause_button.style.textAlign = "center";
+	
+	$(stop_button).append(stop_button_image);
+	stop_button_image.style.height = "100%";
+	stop_button.style.textAlign = "center";
+	
 	play_button.style.marginLeft = document.height * 0.5 * (0.045) + "px";
 	stop_button.style.marginRight = document.height * 0.5 * (0.045) + "px";
 
@@ -551,15 +579,6 @@ function change_background_image(image_input_tag){
 var strokeColorSel;
 var strokeWidthSel;
 
-/*
-strokeColorSel = document.querySelector(".strokeColor");
-strokeWidthSel = document.querySelector(".strokeWidth");
-	
-strokeColorSel.addEventListener("change", changeStrokeColor, false);
-strokeWidthSel.addEventListener("change", changeStrokeWidth, false);
-	
-*/
-
 function changeStrokeColor(color_change){ strokeColor = color_change.value; }
 	
 function changeStrokeWidth(width_change){ strokeWidth = width_change.value; }
@@ -597,46 +616,59 @@ function show_classmates_open(){
 	}
 }
 */
-	
+
+var temp_list_for_select = new Array();
+
 function show_classmates_open(){
 	
 	screen.lockOrientation("portrait-primary");	
 	
 	$('#select_classmates_list').empty();
-	$('#select_classmates_list').append('<li data-role="list-divider" id="top">Current Classmates</li>');
+	$('#select_classmates_list').append('<li data-role="list-divider" id="show_classmates_top">Current Classmates</li>');
 	
 	console.log("Refresh the friend list");
 	
 	var friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';
 	
+	var role;
+	
+	var voice_auth;
+	
 	for(var i = 0; i < active_classmates_list.length; i++){
 		
+		if(active_classmates_list[i] == master_name){ role = "Master"; }
+		else{ role = "Classmate"; }
+		
+		if(active_classmates_list[i] == final_voice_change){ voice_auth = "Voice"; }
+		else if(active_classmates_list[i] == master_name){ voice_auth = "Voice"; }
+		else{ voice_auth = ""; }
+		
+		console.log(active_classmates_list[i]);
+		
+		temp_list_for_select.push(active_classmates_list[i]);
+		
 		friend = friend +  
-					'<a href="#" onclick="" class="select_item">';
+					'<a href="#" onclick="select_voice_change(' + i + ');" class="select_item"' + ' id=' + active_classmates_list[i].toString() + '>';
 		friend = friend + '<img src=' + active_classmates_pic_list[i] + ' class="ui-li-bigicon ui-li-thumb" />';
 		friend = friend + '&nbsp;' + active_classmates_list[i];
-		/*friend = friend + <span class="ui-li-text-sub">
-									<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-									Electronics and Communication
-								</h5>
-								<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">
-									Hanyang Univeristy
-								</h5>
-								<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-									Free
-								</h5>
-							</span>; */
+		friend = friend + '<span class="ui-li-text-sub">' +
+							'<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">' +
+								role +
+							'</h5>' +
+							'<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:bold; color:red;">' +
+								voice_auth +
+							'</h5>'
+							/*
+							<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+								Free
+							</h5>
+							*/
+						'</span>'; 
 		friend = friend + '</a> </li>';
 		
 		$('#select_classmates_list').append(friend);
 		
 		friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';			
-	}
-	
-	for(var i = 0; i < active_classmates_list.length; i++){
-		
-		active_classmates_list.pop();
-		active_classmates_pic_list.pop();
 	}
 	
 	var width;
@@ -655,11 +687,98 @@ function show_classmates_open(){
 	$('#cancel_change_master a').css('width', width * 0.95);
 }
 
+function current_classmate_list(){
+	
+	screen.lockOrientation("portrait-primary");	
+	
+	$('#select_classmates_list').empty();
+	$('#select_classmates_list').append('<li data-role="list-divider" id="show_classmates_top" class="ui-li ui-bar-s ui-li-divider"><span class="ui-divider-text">Current Classmates</span><span class="ui-divider-normal-line"></span></li>');
+	
+	console.log("Refresh the friend list after voice change");
+	
+	var friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';
+	
+	var role;
+	
+	var voice_auth;
+	
+	for(var i = 0; i < active_classmates_list.length; i++){
+		
+		if(active_classmates_list[i] == master_name){ role = "Master"; }
+		else{ role = "Classmate"; }
+		
+		if(active_classmates_list[i] == final_voice_change){ voice_auth = "Voice"; }
+		else if(active_classmates_list[i] == master_name){ voice_auth = "Voice"; }
+		else{ voice_auth = ""; }
+		
+		console.log(active_classmates_list[i]);
+		
+		temp_list_for_select.push(active_classmates_list[i]);
+		
+		friend = friend +  
+					'<a href="#" onclick="select_voice_change(' + i + ');" class="select_item"' + ' id=' + active_classmates_list[i].toString() + '>';
+		friend = friend + '<img src=' + active_classmates_pic_list[i] + ' class="ui-li-bigicon ui-li-thumb" />';
+		friend = friend + '&nbsp;' + active_classmates_list[i];
+		friend = friend + '<span class="ui-li-text-sub">' +
+							'<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">' +
+								role +
+							'</h5>' +
+							'<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:bold; color:red;">' +
+								voice_auth +
+							'</h5>'
+							/*
+							<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+								Free
+							</h5>
+							*/
+						'</span>'; 
+		friend = friend + '</a> </li>';
+		
+		$('#select_classmates_list').append(friend);
+		
+		friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';			
+	}
+	
+	var width;
+	
+	if(document.width >= document.height){width = document.height * 0.5}
+	else if(document.width < document.height){width = document.width * 0.5}
+	
+	console.log(width);
+	
+	//change_classmate_list();
+	
+	$('#change_master').css('width', width);
+	$('#change_master a').css('width', width * 0.95);
+	
+	$('#cancel_change_master').css('width', width);
+	$('#cancel_change_master a').css('width', width * 0.95);
+}
+
 function back_to_class(){
+	
+	$('#select_classmates_list').empty();
 	
 	screen.lockOrientation("landscape-primary");
 	change_student_screen();
 	screen.lockOrientation("landscape-primary");
+	
+	
+	voice_change_auth = false;
+	
+	for(var i = 0; i < temp_list_for_select.length; i++){
+		
+		temp_list_for_select.pop();
+	}
+	
+	for(var i = 0; i < active_classmates_list.length; i++){
+		
+		active_classmates_list.pop();
+		active_classmates_pic_list.pop();
+	}
+	
+	active_classmates_list.pop();
+	active_classmates_pic_list.pop();
 }
 
 
@@ -687,19 +806,112 @@ function close_all_drawers(){
 }
 
 
-
-
-function audio_start(){
-	socket.emit('test_start');
-	console.log('audio_start');
+function close_pop_up_by_id(pop_up_id){
+	
+	console.log("Close Pop Up : " + pop_up_id);
+	
+	var pop_up_element = document.getElementById(pop_up_id);
+	
+	var pop_up = tau.widget.Popup(pop_up_element);
+	
+	pop_up.close();
+	
+	pop_up_element.style.display="none";
 }
 
-function audio_pause(){
-	socket.emit('test_pause');
-	console.log('audio_pause');
+function open_pop_up_by_id(pop_up_id){
+	
+	console.log("Close Pop Up : " + pop_up_id);
+	
+	var pop_up_element = document.getElementById(pop_up_id);
+	
+	var pop_up = tau.widget.Popup(pop_up_element);
+	
+	pop_up.open();
+	
+	pop_up_element.style.display="";
 }
 
-function audio_stop(){
-	socket.emit('test_stop');
-	console.log('audio_stop');
+
+
+function yes_no_voice_change_pop_up(){
+	
+	var voice_change_pop_up_element = document.getElementById('voice_change_pop_up');
+	
+	var voice_change_pop_up = tau.widget.Popup(voice_change_pop_up_element);
+	
+	voice_change_pop_up.open();
+	
+	voice_change_pop_up_element.style.display="";
+	
+	
+	voice_change_auth = false;
 }
+
+function give_voice_auth(){
+
+	voice_change_auth = true; 
+	
+	open_pop_up_by_id("voice_change_introduction");
+}
+
+var temp_voice_change;
+
+function select_voice_change(index){
+	
+	console.log("Change to : " + temp_list_for_select[index]);
+	
+	if(voice_change_auth == true){
+		
+		confirm_voice_change_pop_up();
+		
+		temp_voice_change = temp_list_for_select[index];
+	}
+}
+
+function confirm_voice_change_pop_up(){
+	
+	var confirm_voice_change_pop_up_element = document.getElementById('confirm_voice_change_pop_up');
+	
+	var confirm_voice_change_pop_up = tau.widget.Popup(confirm_voice_change_pop_up_element);
+	
+	confirm_voice_change_pop_up.open();
+	
+	confirm_voice_change_pop_up_element.style.display="";
+}
+
+function yes_voice_change(){
+	
+	confirm_flag = true;
+	
+	final_voice_change = temp_voice_change;
+	
+	console.log("Final Result : " + final_voice_change);
+	
+	
+	var confirm_voice_change_pop_up_element = document.getElementById('confirm_voice_change_pop_up');
+	
+	var confirm_voice_change_pop_up = tau.widget.Popup(confirm_voice_change_pop_up_element);
+	
+	confirm_voice_change_pop_up.close();
+	
+	confirm_voice_change_pop_up_element.style.display="none";
+	
+	current_classmate_list();
+	
+	socket.emit('echo_voice_change', {voice_change : final_voice_change, roomName: roomName});
+	
+	for(var i = 0; i < temp_list_for_select.length; i++){
+		
+		temp_list_for_select.pop();
+	}
+}
+
+
+
+
+
+
+
+
+

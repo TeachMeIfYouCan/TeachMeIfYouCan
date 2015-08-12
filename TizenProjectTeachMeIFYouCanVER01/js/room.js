@@ -30,15 +30,39 @@ function room_socket_init() {
 	socket.on('getRoomUserList', function(data) {
 		
 		console.log("<getRoomUserList>");
-
+		
+		for(var i = 0; i < active_classmates_list.length; i++){
+			
+			active_classmates_list.pop();
+		}
+		active_classmates_list.pop();
+		
+		for(var i = 0; i < temp_list_for_select.length; i++){
+			
+			temp_list_for_select.pop();
+		}
+		temp_list_for_select.pop();
+		
 		for(var i = 0; i < data.attendants.length; i++){
 			console.log(data.attendants[i]);
 			
-			active_classmates_list.push(data.attendants[i]);
+			active_classmates_list.push(data.attendants[i].nickName);
 			active_classmates_pic_list.push(data.userPic[i]);
+			
+			if((data.attendants[i].mike == true) && (data.attendants[i].nickName != master_name)){
+				
+				final_voice_change = data.attendants[i].nickName;
+			}
 		}
 		
 		show_classmates_open();
+	});
+	
+	socket.on('echo_voice_change', function(data){
+		
+		final_voice_change = data.voice_change;
+		
+		current_classmate_list();
 	});
 	
 	//전체 방 새로고침 버튼 
@@ -157,7 +181,7 @@ function room_socket_init() {
 		if(data.attendants.length > 0) {
 			var attendants_list = "";
 			for(var i = 0; i < data.attendants.length; i++)	{
-				attendants_list += data.attendants[i];
+				attendants_list += data.attendants[i].nickName;
 				if(i != data.attendants.length - 1)
 					attendants_list += ", ";	
 			}
@@ -191,6 +215,9 @@ function room_socket_init() {
 		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
 		navigator.vibrate(500);	
+		
+		//final_voice_change = "";
+		//socket.emit('echo_voice_change', {voice_change : final_voice_change, roomName: roomName});
 	});
 	
 	//나가기 버튼 
@@ -201,6 +228,10 @@ function room_socket_init() {
 		
 		
 		close_all_drawers();
+		socket.emit('roomList');
+		
+		final_voice_change = "";
+		socket.emit('echo_voice_change', {voice_change : final_voice_change, roomName: roomName});
 		
 		
 		screen.lockOrientation("portrait-primary");
@@ -407,7 +438,7 @@ function add_class_from_server(title, participant_list, room_number){
 	for(var i = 0; i < participant_list.length; i++){
 		
 		new_class = new_class + 
-					'<li style="font-size:70%;">' + participant_list[i] + '</li>';
+					'<li style="font-size:70%;">' + participant_list[i].nickName + '</li>';
 	}
 	
 	new_class = new_class + 

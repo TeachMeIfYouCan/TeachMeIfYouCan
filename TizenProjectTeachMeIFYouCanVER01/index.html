@@ -165,7 +165,7 @@
     	<div data-role="footer" style="height:70px; background-color:#000066; opacity:0.5;">
 			<div data-role="tabbar" data-auto-change="false">
                 <ul>
-                	<li id="change_master"><a data-role="button" href="#" onclick="">Voice</a></li>
+                	<li id="change_master"><a data-role="button" href="#" onclick="yes_no_voice_change_pop_up();">Voice</a></li>
                 	<li id="cancel_change_master"><a data-role="button" href="#" onclick="back_to_class();">Cancel</a></li>
                 </ul>
             </div> 	
@@ -327,10 +327,10 @@
 			</div>
 			--> 
 			 
-			<div id="audio_control" style="float:left; margin-left: 2px; margin-top: 10px;">
-				<div id="play" style="border:1px solid black; display:inline-block; margin:0;">1</div>
-				<div id="pause" style="border:1px solid black; display:inline-block; margin:0;">2</div>
-				<div id="stop" style="border:1px solid black; display:inline-block; margin:0;">3</div>
+			<div id="audio_control" style="float:left; margin-left: 2px; margin-top: 5px;">
+				<div id="play" style="display:inline-block; margin:0;"></div>
+				<div id="pause" style="display:inline-block; margin:0;"></div>
+				<div id="stop" style="display:inline-block; margin:0;"></div>
 			</div>
 			
 		</div>
@@ -393,6 +393,35 @@
    		<div class="ui-popup-title"><h1>Do you really want to leave the class?</h1></div>
    		<div class="ui-popup-text" style="text-align:center;">
    			<button id="roomExit">Leave the Class</button>
+		</div>
+	</div>
+	
+	<div id="voice_change_pop_up" data-role="popup" style="display:none;">
+   		<div class="ui-popup-title"><h1>Voice Change</h1></div>
+   		<div class="ui-popup-text" style="text-align:center; font-size:80%;">
+   			Do you want to let someone else take up the microphone in this class?
+   			<br>
+   			<button id="yes_voice_change" style="margin-right:3px; font-size:110%;" onclick="give_voice_auth();">Yes</button>
+   			<button id="no_voice_change" style="margin-left:3px; font-size:110%;" onclick="close_pop_up_by_id('voice_change_pop_up');">No</button>
+		</div>
+	</div>
+	
+	<div id="voice_change_introduction" data-role="popup" style="display:none;">
+   		<div class="ui-popup-title"><h1>How to adjust the microphone setting?</h1></div>
+   		<div class="ui-popup-text" style="text-align:center; font-size:80%;">
+   			In order to pass the microphone to the person you want, select that person from the list.
+   			<br>
+   			<button id="yes_voice_change" style="margin-right:3px; font-size:110%;" onclick="close_pop_up_by_id('voice_change_introduction');">OK</button>
+		</div>
+	</div>
+	
+	<div id="confirm_voice_change_pop_up" data-role="popup" style="display:none;">
+   		<div class="ui-popup-title"><h1>Voice Change Confirm</h1></div>
+   		<div class="ui-popup-text" style="text-align:center; font-size:80%;">
+   			Are you sure?
+   			<br>
+   			<button id="yes_voice_change" style="margin-right:10px;" onclick="yes_voice_change();">Confirm</button>
+   			<button id="no_voice_change" style="margin-left:10px;" onclick="close_pop_up_by_id('confirm_voice_change_pop_up');">Deny</button>
 		</div>
 	</div>
 	
