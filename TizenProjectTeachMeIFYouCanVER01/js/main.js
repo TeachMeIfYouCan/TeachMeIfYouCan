@@ -110,6 +110,11 @@ $(document).ready(function() {
         	 screen.lockOrientation("landscape-primary");
          }
          
+         else if(pageid === "loginPage"){
+        	 
+        	 tizen.application.getCurrentApplication().exit();
+         }
+         
          else {
         	 
         	 close_all_drawers();
@@ -148,6 +153,85 @@ function change_student_screen(){
 	
 	screen.lockOrientation("landscape-primary");
 	$.mobile.changePage("teacher_screen");
+	
+	if(am_i_master()){
+		
+		console.log("Joining the room as the master");
+		
+		play_button_image = new Image();
+		play_button_image.src = "./Play Button - Inactive.png";
+		pause_button_image = new Image();
+		pause_button_image.src = "./Pause Button - Inactive.png";
+		stop_button_image = new Image;
+		stop_button_image.src = "./Stop Button - Inactive.png";
+		
+		$(play_button).empty();
+		$(play_button).append(play_button_image);
+		play_button_image.style.height = "100%";
+		play_button.style.textAlign = "center";
+		
+		$(pause_button).empty();
+		$(pause_button).append(pause_button_image);
+		pause_button_image.style.height = "100%";
+		pause_button.style.textAlign = "center";
+		
+		$(stop_button).empty();
+		$(stop_button).append(stop_button_image);
+		stop_button_image.style.height = "100%";
+		stop_button.style.textAlign = "center";
+	}
+	else if(do_i_have_permit()){
+		
+		console.log("The authorization for microhpone use has been granted");
+		
+		play_button_image = new Image();
+		play_button_image.src = "./Mic_Yes.png";
+		pause_button_image = new Image();
+		pause_button_image.src = "./No_Touch_Paint.png";
+		stop_button_image = new Image;
+		stop_button_image.src = "";
+		
+		$(play_button).empty();
+		$(play_button).append(play_button_image);
+		play_button_image.style.height = "100%";
+		play_button.style.textAlign = "center";
+		
+		$(pause_button).empty();
+		$(pause_button).append(pause_button_image);
+		pause_button_image.style.height = "100%";
+		pause_button.style.textAlign = "center";
+		
+		$(stop_button).empty();
+		$(stop_button).empty();
+		stop_button_image.style.height = "100%";
+		stop_button.style.textAlign = "center";
+	}
+	else{
+		
+		console.log("Joining the room as the classmate");
+		
+		play_button_image = new Image();
+		play_button_image.src = "./Mic_No.png";
+		pause_button_image = new Image();
+		pause_button_image.src = "./No_Touch_Paint.png";
+		stop_button_image = new Image;
+		stop_button_image.src = "";
+		
+		$(play_button).empty();
+		$(play_button).append(play_button_image);
+		play_button_image.style.height = "100%";
+		play_button.style.textAlign = "center";
+		
+		$(pause_button).empty();
+		$(pause_button).append(pause_button_image);
+		pause_button_image.style.height = "100%";
+		pause_button.style.textAlign = "center";
+		
+		$(stop_button).empty();
+		$(stop_button).empty();
+		stop_button_image.style.height = "100%";
+		stop_button.style.textAlign = "center";
+	}
 }
 
 function change_page_class_list(){

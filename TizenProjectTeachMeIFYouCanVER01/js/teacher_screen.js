@@ -75,6 +75,10 @@ function canvas_init(){
 	pause_button = document.getElementById("pause");
 	stop_button = document.getElementById("stop");
 	
+	play_button.style.width = document.height * 0.5 * (0.28) + "px";
+	pause_button.style.width = document.height * 0.5 * (0.28) + "px";
+	stop_button.style.width = document.height * 0.5 * (0.28) + "px";
+
 	play_button_image = new Image();
 	play_button_image.src = "./Play Button - Inactive.png";
 	pause_button_image = new Image();
@@ -82,10 +86,6 @@ function canvas_init(){
 	stop_button_image = new Image;
 	stop_button_image.src = "./Stop Button - Inactive.png";
 	
-	play_button.style.width = document.height * 0.5 * (0.28) + "px";
-	pause_button.style.width = document.height * 0.5 * (0.28) + "px";
-	stop_button.style.width = document.height * 0.5 * (0.28) + "px";
-
 	$(play_button).append(play_button_image);
 	play_button_image.style.height = "100%";
 	play_button.style.textAlign = "center";
@@ -146,23 +146,30 @@ var isMoved = false;
 
 function drawPathSetting(idx) 
 {
-   for (var i = 0; i < drawPath.length; i++) 
-   {
-      var _idx = drawPath[i].identifier;
-      if (_idx === idx) 
-      {
-         return i;
-      }
-   }
+	
+	for (var i = 0; i < drawPath.length; i++) 
+	{
+		var _idx = drawPath[i].identifier;
+		if (_idx === idx) 
+		{
+			return i;
+		}
+	}
 
-   return -1;
+	return -1;
 } 
 
 function touchStartHandler(e){
 	
-	touches = e.changedTouches;
-	drawPath.push(touches[0]);
-	sendCanvasData("start", touches[0].pageX, touches[0].pageY, "", "");
+	if(am_i_master()){
+		
+		console.log("Touch paint is activated (Master)"); 
+		
+		touches = e.changedTouches;
+		drawPath.push(touches[0]);
+		sendCanvasData("start", touches[0].pageX, touches[0].pageY, "", "");
+	}
+	else{ console.log("Touch paint is not activated (Not Master)"); }
 }
 
 var strokeWidth = "5";
@@ -171,55 +178,67 @@ var lineJoin = "round";
 
 function touchMoveHandler(e){
 	
-	isMoved = true;
-	touches = e.changedTouches;
+	if(am_i_master()){
+		
+		console.log("Touch paint is activated (Master)"); 
+		
+		isMoved = true;
+		touches = e.changedTouches;
+		
+		context.lineWidth = strokeWidth;
+		context.strokeStyle = strokeColor;
+		context.lineJoin = lineJoin;
+		
+		for(var i = 0; i < touches.length; i++){
+			
+			var index = drawPathSetting(touches[i].identifier);
+			
+			context.beginPath();
+			context.moveTo(drawPath[index].pageX, drawPath[index].pageY - 60);
+			context.lineTo(touches[i].pageX, touches[i].pageY - 60);
+			context.closePath();
+			context.stroke();
+			
+			sendCanvasData("move", drawPath[index].pageX, drawPath[index].pageY,
+							touches[i].pageX,  touches[i].pageY, strokeWidth, strokeColor, lineJoin);
 	
-	context.lineWidth = strokeWidth;
-	context.strokeStyle = strokeColor;
-	context.lineJoin = lineJoin;
-	
-	for(var i = 0; i < touches.length; i++){
+			//socket.emit("imageData", {imageData : canvas.toDataURL("image/webp")});
+					
+			drawPath.splice(index, 1, touches[i]);
+			
+		}
 		
-		var index = drawPathSetting(touches[i].identifier);
-		
-		context.beginPath();
-		context.moveTo(drawPath[index].pageX, drawPath[index].pageY - 60);
-		context.lineTo(touches[i].pageX, touches[i].pageY - 60);
-		context.closePath();
-		context.stroke();
-		
-		sendCanvasData("move", drawPath[index].pageX, drawPath[index].pageY,
-						touches[i].pageX,  touches[i].pageY, strokeWidth, strokeColor, lineJoin);
-
-		//socket.emit("imageData", {imageData : canvas.toDataURL("image/webp")});
-				
-		drawPath.splice(index, 1, touches[i]);
-		
+		e.preventDefault();
 	}
-	
-	e.preventDefault();
+	else{ console.log("Touch paint is not activated (Not Master)"); }
 }
 
 function touchEndHandler(){
 	
-	if(!isMoved){
+	if(am_i_master()){
 		
-		var startPoint = (Math.PI/180) * 0;
-		var endPoint = (Math.PI/180) * 360;
+		console.log("Touch paint is activated (Master)"); 
 		
-		context.fillStyle = strokeColor;
-		
-		context.beginPath();
-		context.arc(touches[0].pageX, touches[0].pageY - 60, strokeWidth/2, startPoint, endPoint, true);
-		context.closePath();
-		
-		context.fill();
-		
-		sendCanvasData("end", "", "", touches[0].pageX, touches[0].pageY);
+		if(!isMoved){
+			
+			var startPoint = (Math.PI/180) * 0;
+			var endPoint = (Math.PI/180) * 360;
+			
+			context.fillStyle = strokeColor;
+			
+			context.beginPath();
+			context.arc(touches[0].pageX, touches[0].pageY - 60, strokeWidth/2, startPoint, endPoint, true);
+			context.closePath();
+			
+			context.fill();
+			
+			sendCanvasData("end", "", "", touches[0].pageX, touches[0].pageY);
+		}
+	
+		isMoved = "false";
+		drawPath.length = 0;
 	}
-
-	isMoved = "false";
-	drawPath.length = 0;
+	else{ console.log("Touch paint is not activated (Not Master)"); }
 }
 
 function edit_menu(){

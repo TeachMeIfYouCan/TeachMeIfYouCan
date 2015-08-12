@@ -81,6 +81,27 @@ function room_socket_init() {
 		
 		console.log("방 create 버튼 누름" );	
 		socket.emit('requestRoomNum'); //생성할 방 키 요청
+		
+		
+		// Audio control image for the master
+		play_button_image = new Image();
+		play_button_image.src = "./Play Button - Inactive.png";
+		pause_button_image = new Image();
+		pause_button_image.src = "./Pause Button - Inactive.png";
+		stop_button_image = new Image;
+		stop_button_image.src = "./Stop Button - Inactive.png";
+		
+		$(play_button).append(play_button_image);
+		play_button_image.style.height = "100%";
+		play_button.style.textAlign = "center";
+		
+		$(pause_button).append(pause_button_image);
+		pause_button_image.style.height = "100%";
+		pause_button.style.textAlign = "center";
+		
+		$(stop_button).append(stop_button_image);
+		stop_button_image.style.height = "100%";
+		stop_button.style.textAlign = "center";
 	}));
 	
 	//생성할 방 키값 받음 그 후 방 생성
@@ -208,6 +229,86 @@ function room_socket_init() {
 		
 		//여기 이제 master_id로 권한 바꾸는 함수 넣어야함
 		navigator.vibrate(500);
+		
+		
+		if(am_i_master()){
+			
+			console.log("Joining the room as the master");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Play Button - Inactive.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./Pause Button - Inactive.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "./Stop Button - Inactive.png";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			
+			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+		}
+		else if(do_i_have_permit()){
+			
+			console.log("The authorization for microhpone use has been granted");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Mic_Yes.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./No_Touch_Paint.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			
+			$(stop_button).empty();
+			$(stop_button).empty();
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+		}
+		else{
+			
+			console.log("Joining the room as the classmate");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Mic_No.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./No_Touch_Paint.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			
+			$(stop_button).empty();
+			$(stop_button).empty();
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+		}
 	});
 	
 	//채팅방에서 나간 참가자 정보
@@ -216,6 +317,7 @@ function room_socket_init() {
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
 		navigator.vibrate(500);	
 		
+		screen.lockOrientation("landscape-primary");
 		//final_voice_change = "";
 		//socket.emit('echo_voice_change', {voice_change : final_voice_change, roomName: roomName});
 	});
@@ -238,10 +340,38 @@ function room_socket_init() {
 		change_page_class_list();
 		//나가기 버튼을 누른다면 방에 적어졌던 데이터는 모두 지우는 코드 필요함!!!!!!!!!!!
 	});
+	
+	socket.on('disconnect', function() {
+		console.log("서버가 다운");
+		
+		screen.lockOrientation("portrait-primary");
+		$.mobile.changePage("main");
+		screen.lockOrientation("portrait-primary");
+		
+		$("all_active_class").empty();
+	});
+	
+	socket.on('connect', function(){
+		
+		socket.emit('roomList');
+	});
 }
 
 //팝업창을 띄운다음에 ok 한다면  만들어진 방에 대한 함수인 joinRoom 메세지 보내게 하게 !!
 	
+
+function am_i_master(){			// Am I the master ?
+	
+	if(nickName == master_name){ return true; }
+	else{ return false; }
+}
+
+function do_i_have_permit(){	// Do I have the permisison for microhpone?
+	
+	if(nickName == final_voice_change){ return true; }
+	else{ return false; }
+}
+
 
 function init_friend_list(me){
 	

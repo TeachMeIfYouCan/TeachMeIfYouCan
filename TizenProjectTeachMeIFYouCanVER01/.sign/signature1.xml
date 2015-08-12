@@ -6,6 +6,18 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>bZmEct8afobdpD7JAjcK0InMJ0W0vQa+4xXRIcdG6SM=</DigestValue>
 </Reference>
+<Reference URI="Mic_No.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>Dr7NeopX5qaBJQNYBpIymaBDI6GyhyEBXoPAXbOrrFs=</DigestValue>
+</Reference>
+<Reference URI="Mic_Yes.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>2DeDqLH4d+KtA8Vf/53Urp/VtOi1gSMGEOAWzkSC7kY=</DigestValue>
+</Reference>
+<Reference URI="No_Touch_Paint.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>+TUbOoB8RVUbIJhh4Ut+fcnNV7uXXlOR3AAJ/2lFWpo=</DigestValue>
+</Reference>
 <Reference URI="Pause%20Button%20-%20Active.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>jx3VdUrBB0RlD/GzDqmhGMYGx3MFJI0NJdhNFfMg3lU=</DigestValue>
@@ -52,7 +64,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>wVBQA57rsbOg/94lVIZC9M6t14Nmvwkm4Qi0ZzhhOI8=</DigestValue>
+<DigestValue>4rqMEToF7exhdaARX1iLPkOdbnuUZJdxiXGLNu3IJdg=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -92,11 +104,11 @@
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>lLXGIafq9zbAnFLXQlrI07Ck6uOygTNigM3Ucps2tTQ=</DigestValue>
+<DigestValue>JLuBdwGXoXpKgv6N2ZRBLzJLiBZwtkjay2NZ2Fl6G4s=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>DyukABK45EWjziDR43i7Dddt2356sBfbR0g5OdTt/qM=</DigestValue>
+<DigestValue>ceMjWizxJxytfkeFb4kqTVr9uIViLh9cCTKedJRfJ7g=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -108,7 +120,7 @@
 </Reference>
 <Reference URI="js%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>TP4E4nu0uKyjFKjoQld/0MBYkzahz+tTzc58o3XNdgg=</DigestValue>
+<DigestValue>+XbqzzA4U9N8NRYiShUCPaTPSK01oEFDZ2vYmBcZtiM=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2251,11 +2263,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-3KTmIZMO4YEnQsbRA49vlkINVbfcNgchD5Rr3DjCjsK9JvZy86+OdCXaDukiJ1CEQrgu6pmeS9KM
-fKxHogcVi8oburK8Ta/IXlWN5sG60VMyuHtknhvaGQ6tWJoYx2mX1KzC9r0oHcz+SERs/tUS05PZ
-GCPR5rq6XsW5iHLnyq3eDJlKYB6xSfvepHnllUD5OepsEkThc8btVnTyNYFDjsXswAlLuSeC2WtJ
-812Wnthu/i9rLO8vE1V/R7e+cKZTakUwiIWV2UoMolD5vW/wb3nQ/45xcYdC7EJMwmm/pcM98Nhr
-8MknFAEYBF/hDxC3ELu5wJjsKmHd7wPdGsRGYA==
+gdeC1jOdbYibYXTR9po9HCFBL4dOU1l/8w0ACDJxiuC5InUBpNs+9NXZsdcwO8X90Y+GplseDeRE
+O3W7arWg1yJK6kFMVURvBFvqDHF3KkmAKXB0mKHIji2aP6rfOYkuFwgT+6fNT0BtK15Sl5OloXiI
+HWGt9xiWOm3VjmyCEsdXpC3nLeo6kMh6rweStAPXcLw6qbIuvW9DuaPedmJEOP3gXUsWxk/HotLY
+36GkEtCs+/sUsSXDTRlpYxsKYI5CFBOl7QhLYq7+4VzN2CbZrPQBsk78simlnrLeeaP3IPkYw7Z9
+fCQjJAjb2NwQm694ihxjw+6HSiWhqS/RfZQz2g==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
