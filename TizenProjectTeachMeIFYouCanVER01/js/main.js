@@ -53,6 +53,17 @@ $(document).ready(function() {
         	socket.emit('leave', {nickName: nickName,id: id, roomName: roomName, pic_url: pic_url});	
         	
         	
+        	console.log("audio_stop pressed for leaving the room");
+    		
+    		//To send a message 원격포트로 키와 값을 보냄
+    		remoteMessagePort.sendMessage([ {
+    			key : 'command',
+    			value : "audio_stop"
+    		} ], null);
+    		
+    		audio_flag = true;
+    		
+    		audio_stop_send();
         	
         	
         	var editDrawerElement = document.getElementById("editDrawer");

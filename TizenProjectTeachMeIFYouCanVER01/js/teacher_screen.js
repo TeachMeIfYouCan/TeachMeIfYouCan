@@ -708,7 +708,7 @@ function show_classmates_open(){
 
 function current_classmate_list(){
 	
-	screen.lockOrientation("portrait-primary");	
+	//screen.lockOrientation("portrait-primary");	
 	
 	$('#select_classmates_list').empty();
 	$('#select_classmates_list').append('<li data-role="list-divider" id="show_classmates_top" class="ui-li ui-bar-s ui-li-divider"><span class="ui-divider-text">Current Classmates</span><span class="ui-divider-normal-line"></span></li>');

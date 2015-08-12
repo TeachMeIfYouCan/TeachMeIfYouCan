@@ -61,8 +61,100 @@ function room_socket_init() {
 	socket.on('echo_voice_change', function(data){
 		
 		final_voice_change = data.voice_change;
-		
+			
 		current_classmate_list();
+				
+		if(am_i_master()){
+			
+			console.log("Joining the room as the master");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Play Button - Inactive.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./Pause Button - Inactive.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "./Stop Button - Inactive.png";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			
+			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+		}
+		else if(do_i_have_permit()){
+			
+			console.log("The authorization for microhpone use has been granted");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Mic_Yes.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./No_Touch_Paint.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			
+			$(stop_button).empty();
+			$(stop_button).empty();
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+			
+			
+			if(audio_flag == true){
+				console.log("audio permit given ---> Native audio is working");
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_start"
+				} ], null);
+				
+				audio_flag = false;
+			}
+		}
+		else{
+			
+			console.log("Joining the room as the classmate");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Mic_No.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./No_Touch_Paint.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			
+			$(stop_button).empty();
+			$(stop_button).empty();
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+		}
 	});
 	
 	//전체 방 새로고침 버튼 
@@ -256,6 +348,19 @@ function room_socket_init() {
 			$(stop_button).append(stop_button_image);
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
+			
+			
+			if(audio_flag == true){
+				console.log("Audio authorized ---- Appointed as the master");
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_start"
+				} ], null);
+				
+				audio_flag = false;
+			}
 		}
 		else if(do_i_have_permit()){
 			
@@ -309,6 +414,8 @@ function room_socket_init() {
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
 		}
+		
+		screen.lockOrientation("landscape-primary");
 	});
 	
 	//채팅방에서 나간 참가자 정보
@@ -339,6 +446,19 @@ function room_socket_init() {
 		screen.lockOrientation("portrait-primary");
 		change_page_class_list();
 		//나가기 버튼을 누른다면 방에 적어졌던 데이터는 모두 지우는 코드 필요함!!!!!!!!!!!
+		
+		
+		console.log("audio_stop pressed for leaving the room");
+		
+		//To send a message 원격포트로 키와 값을 보냄
+		remoteMessagePort.sendMessage([ {
+			key : 'command',
+			value : "audio_stop"
+		} ], null);
+		
+		audio_flag = true;
+		
+		audio_stop_send();
 	});
 	
 	socket.on('disconnect', function() {
@@ -349,11 +469,37 @@ function room_socket_init() {
 		screen.lockOrientation("portrait-primary");
 		
 		$("all_active_class").empty();
+		
+		
+		console.log("audio stopped for server disconnection");
+		
+		//To send a message 원격포트로 키와 값을 보냄
+		remoteMessagePort.sendMessage([ {
+			key : 'command',
+			value : "audio_stop"
+		} ], null);
+		
+		audio_flag = true;
+		
+		audio_stop_send();
 	});
 	
 	socket.on('connect', function(){
 		
 		socket.emit('roomList');
+		
+		
+		console.log("audio stopped for server connection / reconnection");
+		
+		//To send a message 원격포트로 키와 값을 보냄
+		remoteMessagePort.sendMessage([ {
+			key : 'command',
+			value : "audio_stop"
+		} ], null);
+		
+		audio_flag = true;
+		
+		audio_stop_send();
 	});
 }
 

@@ -70,6 +70,19 @@ function native_init() {
 		
 		audio_stop_send();
 	});
+	
+	
+	console.log("audio stopped for initializing audio device");
+	
+	//To send a message 원격포트로 키와 값을 보냄
+	remoteMessagePort.sendMessage([ {
+		key : 'command',
+		value : "audio_stop"
+	} ], null);
+	
+	audio_flag = true;
+	
+	audio_stop_send();
 }
 
 function chat_init() {
