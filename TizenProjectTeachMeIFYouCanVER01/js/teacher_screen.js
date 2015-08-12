@@ -692,18 +692,35 @@ function show_classmates_open(){
 	
 	var width;
 	
-	if(document.width >= document.height){width = document.height * 0.5}
-	else if(document.width < document.height){width = document.width * 0.5}
+	if(am_i_master()){
+		
+		if(document.width >= document.height){width = document.height * 0.5;}
+		else if(document.width < document.height){width = document.width * 0.5;}	
+	}
+	else{
+		
+		if(document.width >= document.height){width = document.height;}
+		else if(document.width < document.height){width = document.width;}	
+	}
 	
 	console.log(width);
 	
 	change_classmate_list();
 	
-	$('#change_master').css('width', width);
-	$('#change_master a').css('width', width * 0.95);
-	
-	$('#cancel_change_master').css('width', width);
-	$('#cancel_change_master a').css('width', width * 0.95);
+	if(am_i_master()){
+		$('#change_master').css('width', width);
+		$('#change_master a').css('width', width * 0.95);
+		
+		$('#cancel_change_master').css('width', width);
+		$('#cancel_change_master a').css('width', width * 0.95);
+	}
+	else{
+		$('#change_master').css('width', 0);
+		$('#change_master a').css('width', 0 * 0.95);
+		
+		$('#cancel_change_master').css('width', width * 2);
+		$('#cancel_change_master a').css('width', width * 2 * 0.95);
+	}
 }
 
 function current_classmate_list(){
@@ -760,18 +777,35 @@ function current_classmate_list(){
 	
 	var width;
 	
-	if(document.width >= document.height){width = document.height * 0.5}
-	else if(document.width < document.height){width = document.width * 0.5}
+	if(am_i_master()){
+		
+		if(document.width >= document.height){width = document.height * 0.5;}
+		else if(document.width < document.height){width = document.width * 0.5;}	
+	}
+	else{
+		
+		if(document.width >= document.height){width = document.height;}
+		else if(document.width < document.height){width = document.width;}	
+	}
 	
 	console.log(width);
 	
 	//change_classmate_list();
 	
-	$('#change_master').css('width', width);
-	$('#change_master a').css('width', width * 0.95);
-	
-	$('#cancel_change_master').css('width', width);
-	$('#cancel_change_master a').css('width', width * 0.95);
+	if(am_i_master()){
+		$('#change_master').css('width', width);
+		$('#change_master a').css('width', width * 0.95);
+		
+		$('#cancel_change_master').css('width', width);
+		$('#cancel_change_master a').css('width', width * 0.95);
+	}
+	else{
+		$('#change_master').css('width', 0);
+		$('#change_master a').css('width', 0 * 0.95);
+		
+		$('#cancel_change_master').css('width', width * 2);
+		$('#cancel_change_master a').css('width', width * 2 * 0.95);
+	}
 }
 
 function back_to_class(){

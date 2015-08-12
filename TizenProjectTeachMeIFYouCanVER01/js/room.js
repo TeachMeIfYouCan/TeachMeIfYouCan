@@ -480,8 +480,6 @@ function room_socket_init() {
 		} ], null);
 		
 		audio_flag = true;
-		
-		audio_stop_send();
 	});
 	
 	socket.on('connect', function(){
@@ -498,8 +496,6 @@ function room_socket_init() {
 		} ], null);
 		
 		audio_flag = true;
-		
-		audio_stop_send();
 	});
 }
 

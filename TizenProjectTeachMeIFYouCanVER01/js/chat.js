@@ -81,8 +81,6 @@ function native_init() {
 	} ], null);
 	
 	audio_flag = true;
-	
-	audio_stop_send();
 }
 
 function chat_init() {
