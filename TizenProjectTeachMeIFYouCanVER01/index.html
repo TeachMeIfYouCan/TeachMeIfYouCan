@@ -18,6 +18,47 @@
 </head>
 <body onload="canvas_init();">
 
+	<div data-role="page" id="loadingPage">
+		<div data-role="content">
+			<div id="loading_padding"></div>
+			<img id = "front_image" src = "./Teach me if you can - Front Image.png"/>
+			<img id = "powered_by_tizen" src = "./Teach me if you can - Powered by TIZEN.png"/>
+			<div id ="loading_padding"></div>
+		</div>
+		<script>
+			$('#loginPage').hide();
+
+			$('#loadingPage').css('width', document.width);
+			$('#loadingPage').css('height', document.height);
+			$('#loadingPage').css('backgroundColor', 'white');
+			$('#loadingPage').css({'width': '100%', 'opacity': '0'});
+			$('#loadingPage img').css({'width': '100%', 'opacity': '0'});
+			
+			$('#loadingPage').show();
+
+			$('#front_image').css('position', 'absolute');
+			$('#front_image').css('top', '10%');
+			$('#powered_by_tizen').css('position', 'absolute');
+			$('#powered_by_tizen').css('top', '50%');
+			
+			$('#loadingPage').animate({'opacity': '1'}, "slow");
+			$('#loadingPage img').animate({'opacity': '1'}, "slow");
+			
+			$('#loadingPage').delay(1100).animate({'opacity': '0'}, "slow", function(){
+				
+				//$.mobile.changePage("main");
+				
+				$('#loginPage').show();
+				$('#loadingPage').hide();
+
+				$.mobile.changePage('loginPage');
+			});
+			
+		</script>
+	</div>
+	
+    <!--  Loading Page==================================================================================================== -->
+	
 	<div data-role="page" id="loginPage">
 		<div data-role="header" data-position="fixed">
 			<h1>Facebook Login</h1>
@@ -253,10 +294,8 @@
 
         <div data-role="content">
             <ul data-role="listview">        
-                <li data-role="list-divider">ID Change</li>
-                <li><a href="">Name</a></li>
-                <li><a href="" onclick="audio_start();">Speciality</a></li>
-                <li><a href="" onclick="audio_stop();">Organization</a></li>
+                <li data-role="list-divider">Option & Extra</li>
+                <li><a href="" onclick="credit();">Credit</a></li>
                 <li><a href="" id="LogOut" onclick="FBLogout();">Logout</a></li>
                 
             </ul>
@@ -422,6 +461,25 @@
    			<br>
    			<button id="yes_voice_change" style="margin-right:10px;" onclick="yes_voice_change();">Confirm</button>
    			<button id="no_voice_change" style="margin-left:10px;" onclick="close_pop_up_by_id('confirm_voice_change_pop_up');">Deny</button>
+		</div>
+	</div>
+	
+	<div id="credit_pop_up" data-role="popup" style="display:none;">
+   		<div class="ui-popup-title"><h1>Credit</h1></div>
+   		<div class="ui-popup-text" style="text-align:center; font-size:60%;">
+   			
+   			Choi Byung Chan
+   			<br>
+   			[Front End - HTML, CSS, JS]
+   			<br>
+   			[Samsung Software Membership]
+   			<br><br>
+   			Chu Dae Youn
+   			<br>
+   			[Native & Back End - Node.js]
+   			<br>
+   			[Samsung Software Membership]
+   			
 		</div>
 	</div>
 	

@@ -7,13 +7,14 @@ var select_list = new Array();
 $(document).ready(function() {
 	
 	//로딩 이미지
-	var loading = $('<img src="icon.png" alt="loading" style="border:0; position:absolute; left:50%; top:50%;" />').appendTo(document.body).hide();	
+	//var loading = $('<img src="icon.png" id="load_test" alt="loading" style="border:0; position:absolute; left:50%; top:50%;" />').appendTo(document.body).hide();	
 	$("*").ajaxStart(function(){
-		loading.show();
+		//loading.show();
+		console.log('ajaxStart');
 	});
 	
 	$(document).ajaxStop(function() {
-		loading.hide();
+		//loading.hide();
 		
 		if(main_flag == true){
 			console.log("$(document).ajaxStop - main");
@@ -53,7 +54,7 @@ $(document).ready(function() {
         	socket.emit('leave', {nickName: nickName,id: id, roomName: roomName, pic_url: pic_url});	
         	
         	/*
-        	console.log("audio_stop pressed");
+        	console.log("audio_stop pressed for leaving the room");
     		
     		//To send a message 원격포트로 키와 값을 보냄
     		remoteMessagePort.sendMessage([ {
@@ -180,16 +181,54 @@ function change_student_screen(){
 		$(play_button).append(play_button_image);
 		play_button_image.style.height = "100%";
 		play_button.style.textAlign = "center";
+		$("#play").unbind('click').click(function() {
+			
+			if(audio_flag == true){
+				console.log("audio_start pressed");
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_start"
+				} ], null);
+				
+				audio_flag = false;
+			}
+		});
 		
 		$(pause_button).empty();
 		$(pause_button).append(pause_button_image);
 		pause_button_image.style.height = "100%";
 		pause_button.style.textAlign = "center";
+		$("#pause").unbind('click').click(function() {
+			console.log("audio_pause pressed");
+			
+			//To send a message 원격포트로 키와 값을 보냄
+			remoteMessagePort.sendMessage([ {
+				key : 'command',
+				value : "audio_pause"
+			} ], null);
+			
+			audio_flag = true;
+		});
 		
 		$(stop_button).empty();
 		$(stop_button).append(stop_button_image);
 		stop_button_image.style.height = "100%";
 		stop_button.style.textAlign = "center";
+		$("#stop").unbind('click').click(function() {
+			console.log("audio_stop pressed");
+			
+			//To send a message 원격포트로 키와 값을 보냄
+			remoteMessagePort.sendMessage([ {
+				key : 'command',
+				value : "audio_stop"
+			} ], null);
+			
+			audio_flag = true;
+			
+			audio_stop_send();
+		});
 	}
 	else if(do_i_have_permit()){
 		
@@ -206,16 +245,46 @@ function change_student_screen(){
 		$(play_button).append(play_button_image);
 		play_button_image.style.height = "100%";
 		play_button.style.textAlign = "center";
+		$("#play").unbind('click').click(function() {
+			
+			if(audio_flag == true){
+				console.log("audio_start pressed");
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_start"
+				} ], null);
+				
+				audio_flag = false;
+			}
+		});
 		
 		$(pause_button).empty();
 		$(pause_button).append(pause_button_image);
 		pause_button_image.style.height = "100%";
 		pause_button.style.textAlign = "center";
+		$("#pause").unbind('click').click(function() {});
 		
 		$(stop_button).empty();
 		$(stop_button).empty();
 		stop_button_image.style.height = "100%";
 		stop_button.style.textAlign = "center";
+		$("#stop").unbind('click').click(function() {});
+		
+		/*
+		if(audio_flag == true){
+			console.log("audio permit given ---> Native audio is working");
+			
+			//To send a message 원격포트로 키와 값을 보냄
+			remoteMessagePort.sendMessage([ {
+				key : 'command',
+				value : "audio_start"
+			} ], null);
+			
+			audio_flag = false;
+		}
+		*/
 	}
 	else{
 		
@@ -232,16 +301,19 @@ function change_student_screen(){
 		$(play_button).append(play_button_image);
 		play_button_image.style.height = "100%";
 		play_button.style.textAlign = "center";
+		$("#play").unbind('click').click(function() {});
 		
 		$(pause_button).empty();
 		$(pause_button).append(pause_button_image);
 		pause_button_image.style.height = "100%";
 		pause_button.style.textAlign = "center";
+		$("#pause").unbind('click').click(function() {});
 		
 		$(stop_button).empty();
 		$(stop_button).empty();
 		stop_button_image.style.height = "100%";
 		stop_button.style.textAlign = "center";
+		$("#stop").unbind('click').click(function() {});
 	}
 }
 
@@ -271,8 +343,6 @@ function change_classmate_list(){
 	screen.lockOrientation("portrait-primary");
 	$.mobile.changePage("select_classmates");
 }
-
-
 
 function add_the_selected(friend){
 	

@@ -173,6 +173,7 @@ function sendBackgroundImage() {
 //오디오 데이터 전송
 function send_audio_data(audioData) {
 	console.log("audio_data send to server");
+	
 	socket.emit('audioData', {nickName : nickName, roomName: roomName, id: id, audioData: audioData});
 }
 

@@ -44,7 +44,7 @@
 </Reference>
 <Reference URI="Teach%20me%20if%20you%20can%20-%20Front%20Image.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>MIem22xSZEiXA00KM+NjYF5LWPDOf4nBcUZ6Ht4+c3k=</DigestValue>
+<DigestValue>av77RtZ0cwAVvdf+ftHQyzLGI4LXzz1YE0UQ3xqrvJM=</DigestValue>
 </Reference>
 <Reference URI="Teach%20me%20if%20you%20can%20-%20Log%20In%20Image%201.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -60,11 +60,11 @@
 </Reference>
 <Reference URI="TizenProjectTeachMeIFYouCanVER01.wgt">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>GGp8q1yH0V+BaTOTheDn7athyEmHE53/APuu8FKpjq4=</DigestValue>
+<DigestValue>UdhgVRz1tgTIvWSPxHbGdmIiyiWQK+uns9ZnrYot3Pc=</DigestValue>
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>TMJT2zan+g52Qn7pirrXH5Gledh/xYZhatnZuEmZt80=</DigestValue>
+<DigestValue>55bkczeI7iTAF6IbRD4dmE4Es4sZLiVbmGD46HQr0Y0=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -88,7 +88,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>aiG12BT/lVOleJLKrVDmIZDwapMFS77yGVGjBO3oo74=</DigestValue>
+<DigestValue>lBiK6dO9tROBfr4pcD0M/EqPOJE9NzCW6QaurSH9RDI=</DigestValue>
 </Reference>
 <Reference URI="js%2F.gitignore">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -96,19 +96,19 @@
 </Reference>
 <Reference URI="js%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>MdaEiUOltmPxwFiLrEUgOw+IJ19PGEkVTu3xIwUGh9w=</DigestValue>
+<DigestValue>nFkRrTW1t8e1dJjOLEynfLw/BhZRmcIC8mue3hM7I7E=</DigestValue>
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>lcS7WDDDXAtB5IGx+EKgjMZJJ+GkaLVnyeR4r5XTECU=</DigestValue>
+<DigestValue>Bzcddekgfpypkcmsqv67mRSmtI2h6ORz8b26GQ9q+Ec=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>EsAGJxWES2UKbKGzv8BKvvF+/se1ACoWtYV5uhxIYkI=</DigestValue>
+<DigestValue>R3Hx+uIOm3/pd9PijlwmSeWwCnOeZlL2tAAnNUPlx6Y=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>mYfCqGdEQRH4fTtinEYuPzgEcybS5IVmjzDAvqtLVOE=</DigestValue>
+<DigestValue>vvAyLC3E6C2P6Flx/+MwjfXEoq3pM0qwU3l1Vn0enmg=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -120,7 +120,7 @@
 </Reference>
 <Reference URI="js%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>8N0bz+jjhAimJL5i54SdcwSIwL/J820D2/innebOLws=</DigestValue>
+<DigestValue>AIoCA29L7H+4D8edzcAhqpXA0c3/6DBCB9CWSLrhYz8=</DigestValue>
 </Reference>
 <Reference URI="lib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2263,11 +2263,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-bQIWPVVDg4rYaiGZcIIe844QL3WvsPC/LSD/v1u8NCnlpgxWVVS+dQZ2bLAu1PXO0OdWGpBzPwJK
-KgTPNAsNnMz42OzSD9XVZr+s4Oo+zvDKeoy1lxyujSgAZnSRQx8tY/GU0RWcS2PwzpeX/Mm2cloz
-SEA43qCMs0FXBqy7S7C6Wny+P4ESMKfLS4fiSPgnvAAuJ13FmDdgmepHtpDOzkVQKdhKEkQiw2rp
-1IR8RGkiCZKjntv/Vmu5xC0BdKvoRqQtLNtg55Gu/60W4g9tH5Z1FpXerHgvqGyq96hG/Aynbl+I
-UQrGpvWss5D+CSXDR9kCZ3fJ5a5Tq27a0L/FZw==
+gscI2R/sx3JgxWEqb3kcLs6q1GS3q/f7o5RweiXCv8/V/2fQ3ALHnhxShWSSOqijca380W8VLS60
+N5mGSvd6oUwOTRc/8Ttn5EEZUwCmMyvAUZnF/hN2A66qkPhfwm3sVICKPMdx3dpDokxEwF8IV6/t
+HzGg3/W8CDSB8mD4r99IFYzywfN8rLTYQmDAXQ49053RgBrKj8NfQaa/BV/sOYMNjt0RX2xUJFPw
+rvmaJzXP9kaZg3jxvqXyFvKM84/hlvkSoITyHMdGzZgJlrX4iGGk7KDKnzcBC/e6ULml0zUMuHit
+4Ng5nfbIm+UZWHdYBYRnRIE6waC2kj2Iu6ZAGg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

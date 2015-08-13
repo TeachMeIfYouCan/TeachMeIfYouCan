@@ -710,16 +710,24 @@ function show_classmates_open(){
 	if(am_i_master()){
 		$('#change_master').css('width', width);
 		$('#change_master a').css('width', width * 0.95);
+		$('#change_master').show();
+		$('#change_master a').show();
 		
 		$('#cancel_change_master').css('width', width);
 		$('#cancel_change_master a').css('width', width * 0.95);
+		$('#cancel_change_master').show();
+		$('#cancel_change_master a').show();
 	}
 	else{
 		$('#change_master').css('width', 0);
 		$('#change_master a').css('width', 0 * 0.95);
+		$('#change_master').hide();
+		$('#change_master a').hide();
 		
-		$('#cancel_change_master').css('width', width * 2);
-		$('#cancel_change_master a').css('width', width * 2 * 0.95);
+		$('#cancel_change_master').css('width', width);
+		$('#cancel_change_master a').css('width', width * 0.97);
+		$('#cancel_change_master').show();
+		$('#cancel_change_master a').show();
 	}
 }
 
@@ -803,8 +811,8 @@ function current_classmate_list(){
 		$('#change_master').css('width', 0);
 		$('#change_master a').css('width', 0 * 0.95);
 		
-		$('#cancel_change_master').css('width', width * 2);
-		$('#cancel_change_master a').css('width', width * 2 * 0.95);
+		$('#cancel_change_master').css('width', width);
+		$('#cancel_change_master a').css('width', width * 0.95);
 	}
 }
 
@@ -960,7 +968,16 @@ function yes_voice_change(){
 	}
 }
 
-
+function credit(){
+	
+	var credit_pop_up_element = document.getElementById('credit_pop_up');
+	
+	var credit_pop_up = tau.widget.Popup(credit_pop_up_element);
+	
+	credit_pop_up.open();
+	
+	credit_pop_up_element.style.display="";
+}
 
 
 
