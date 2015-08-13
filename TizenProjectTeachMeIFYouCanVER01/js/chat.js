@@ -71,7 +71,7 @@ function native_init() {
 		audio_stop_send();
 	});
 	
-	
+	/*
 	console.log("audio stopped for initializing audio device");
 	
 	//To send a message 원격포트로 키와 값을 보냄
@@ -81,6 +81,7 @@ function native_init() {
 	} ], null);
 	
 	audio_flag = true;
+	*/
 }
 
 function chat_init() {
@@ -164,6 +165,7 @@ function sendBackgroundImage() {
 //오디오 데이터 전송
 function send_audio_data(audioData) {
 	console.log("audio_data send to server");
+	
 	socket.emit('audioData', {nickName : nickName, roomName: roomName, id: id, audioData: audioData});
 }
 

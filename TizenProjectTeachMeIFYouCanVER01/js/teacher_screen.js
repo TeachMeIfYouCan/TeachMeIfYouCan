@@ -803,8 +803,8 @@ function current_classmate_list(){
 		$('#change_master').css('width', 0);
 		$('#change_master a').css('width', 0 * 0.95);
 		
-		$('#cancel_change_master').css('width', width * 2);
-		$('#cancel_change_master a').css('width', width * 2 * 0.95);
+		$('#cancel_change_master').css('width', width);
+		$('#cancel_change_master a').css('width', width * 0.95);
 	}
 }
 

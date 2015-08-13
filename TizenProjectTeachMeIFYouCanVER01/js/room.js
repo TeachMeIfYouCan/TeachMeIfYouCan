@@ -79,16 +79,54 @@ function room_socket_init() {
 			$(play_button).append(play_button_image);
 			play_button_image.style.height = "100%";
 			play_button.style.textAlign = "center";
+			$("#play").unbind('click').click(function() {
+				
+				if(audio_flag == true){
+					console.log("audio_start pressed");
+					
+					//To send a message 원격포트로 키와 값을 보냄
+					remoteMessagePort.sendMessage([ {
+						key : 'command',
+						value : "audio_start"
+					} ], null);
+					
+					audio_flag = false;
+				}
+			});
 			
 			$(pause_button).empty();
 			$(pause_button).append(pause_button_image);
 			pause_button_image.style.height = "100%";
 			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {
+				console.log("audio_pause pressed");
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_pause"
+				} ], null);
+				
+				audio_flag = true;
+			});
 			
 			$(stop_button).empty();
 			$(stop_button).append(stop_button_image);
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
+			$("#stop").unbind('click').click(function() {
+				console.log("audio_stop pressed");
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_stop"
+				} ], null);
+				
+				audio_flag = true;
+				
+				audio_stop_send();
+			});
 		}
 		else if(do_i_have_permit()){
 			
@@ -105,18 +143,34 @@ function room_socket_init() {
 			$(play_button).append(play_button_image);
 			play_button_image.style.height = "100%";
 			play_button.style.textAlign = "center";
+			$("#play").unbind('click').click(function() {
+				
+				if(audio_flag == true){
+					console.log("audio_start pressed");
+					
+					//To send a message 원격포트로 키와 값을 보냄
+					remoteMessagePort.sendMessage([ {
+						key : 'command',
+						value : "audio_start"
+					} ], null);
+					
+					audio_flag = false;
+				}
+			});
 			
 			$(pause_button).empty();
 			$(pause_button).append(pause_button_image);
 			pause_button_image.style.height = "100%";
 			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {});
 			
 			$(stop_button).empty();
 			$(stop_button).empty();
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
+			$("#stop").unbind('click').click(function() {});
 			
-			
+			/*
 			if(audio_flag == true){
 				console.log("audio permit given ---> Native audio is working");
 				
@@ -128,6 +182,7 @@ function room_socket_init() {
 				
 				audio_flag = false;
 			}
+			*/
 		}
 		else{
 			
@@ -144,16 +199,19 @@ function room_socket_init() {
 			$(play_button).append(play_button_image);
 			play_button_image.style.height = "100%";
 			play_button.style.textAlign = "center";
+			$("#play").unbind('click').click(function() {});
 			
 			$(pause_button).empty();
 			$(pause_button).append(pause_button_image);
 			pause_button_image.style.height = "100%";
 			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {});
 			
 			$(stop_button).empty();
 			$(stop_button).empty();
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
+			$("#stop").unbind('click').click(function() {});
 		}
 	});
 	
@@ -338,29 +396,54 @@ function room_socket_init() {
 			$(play_button).append(play_button_image);
 			play_button_image.style.height = "100%";
 			play_button.style.textAlign = "center";
+			$("#play").unbind('click').click(function() {
+				
+				if(audio_flag == true){
+					console.log("audio_start pressed");
+					
+					//To send a message 원격포트로 키와 값을 보냄
+					remoteMessagePort.sendMessage([ {
+						key : 'command',
+						value : "audio_start"
+					} ], null);
+					
+					audio_flag = false;
+				}
+			});
 			
 			$(pause_button).empty();
 			$(pause_button).append(pause_button_image);
 			pause_button_image.style.height = "100%";
 			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {
+				console.log("audio_pause pressed");
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_pause"
+				} ], null);
+				
+				audio_flag = true;
+			});
 			
 			$(stop_button).empty();
 			$(stop_button).append(stop_button_image);
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
-			
-			
-			if(audio_flag == true){
-				console.log("Audio authorized ---- Appointed as the master");
+			$("#stop").unbind('click').click(function() {
+				console.log("audio_stop pressed");
 				
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
 					key : 'command',
-					value : "audio_start"
+					value : "audio_stop"
 				} ], null);
 				
-				audio_flag = false;
-			}
+				audio_flag = true;
+				
+				audio_stop_send();
+			});
 		}
 		else if(do_i_have_permit()){
 			
@@ -377,16 +460,46 @@ function room_socket_init() {
 			$(play_button).append(play_button_image);
 			play_button_image.style.height = "100%";
 			play_button.style.textAlign = "center";
+			$("#play").unbind('click').click(function() {
+				
+				if(audio_flag == true){
+					console.log("audio_start pressed");
+					
+					//To send a message 원격포트로 키와 값을 보냄
+					remoteMessagePort.sendMessage([ {
+						key : 'command',
+						value : "audio_start"
+					} ], null);
+					
+					audio_flag = false;
+				}
+			});
 			
 			$(pause_button).empty();
 			$(pause_button).append(pause_button_image);
 			pause_button_image.style.height = "100%";
 			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {});
 			
 			$(stop_button).empty();
 			$(stop_button).empty();
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
+			$("#stop").unbind('click').click(function() {});
+			
+			/*
+			if(audio_flag == true){
+				console.log("audio permit given ---> Native audio is working");
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_start"
+				} ], null);
+				
+				audio_flag = false;
+			}
+			*/
 		}
 		else{
 			
@@ -403,16 +516,19 @@ function room_socket_init() {
 			$(play_button).append(play_button_image);
 			play_button_image.style.height = "100%";
 			play_button.style.textAlign = "center";
+			$("#play").unbind('click').click(function() {});
 			
 			$(pause_button).empty();
 			$(pause_button).append(pause_button_image);
 			pause_button_image.style.height = "100%";
 			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {});
 			
 			$(stop_button).empty();
 			$(stop_button).empty();
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
+			$("#stop").unbind('click').click(function() {});
 		}
 		
 		screen.lockOrientation("landscape-primary");
@@ -459,6 +575,7 @@ function room_socket_init() {
 		audio_flag = true;
 		
 		audio_stop_send();
+		
 	});
 	
 	socket.on('disconnect', function() {
@@ -470,7 +587,7 @@ function room_socket_init() {
 		
 		$("all_active_class").empty();
 		
-		
+		/*
 		console.log("audio stopped for server disconnection");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -480,13 +597,14 @@ function room_socket_init() {
 		} ], null);
 		
 		audio_flag = true;
+		*/
 	});
 	
 	socket.on('connect', function(){
 		
 		socket.emit('roomList');
 		
-		
+		/*
 		console.log("audio stopped for server connection / reconnection");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -496,6 +614,7 @@ function room_socket_init() {
 		} ], null);
 		
 		audio_flag = true;
+		*/
 	});
 }
 
