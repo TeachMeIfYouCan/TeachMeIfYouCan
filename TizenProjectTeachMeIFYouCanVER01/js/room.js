@@ -116,7 +116,7 @@ function room_socket_init() {
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
 			
-			
+			/*
 			if(audio_flag == true){
 				console.log("audio permit given ---> Native audio is working");
 				
@@ -128,6 +128,7 @@ function room_socket_init() {
 				
 				audio_flag = false;
 			}
+			*/
 		}
 		else{
 			
@@ -349,7 +350,7 @@ function room_socket_init() {
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
 			
-			
+			/*
 			if(audio_flag == true){
 				console.log("Audio authorized ---- Appointed as the master");
 				
@@ -361,6 +362,7 @@ function room_socket_init() {
 				
 				audio_flag = false;
 			}
+			*/
 		}
 		else if(do_i_have_permit()){
 			
@@ -449,7 +451,7 @@ function room_socket_init() {
 		
 		
 		console.log("audio_stop pressed for leaving the room");
-		
+		/*
 		//To send a message 원격포트로 키와 값을 보냄
 		remoteMessagePort.sendMessage([ {
 			key : 'command',
@@ -459,6 +461,7 @@ function room_socket_init() {
 		audio_flag = true;
 		
 		audio_stop_send();
+		*/
 	});
 	
 	socket.on('disconnect', function() {
@@ -470,7 +473,7 @@ function room_socket_init() {
 		
 		$("all_active_class").empty();
 		
-		
+		/*
 		console.log("audio stopped for server disconnection");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -480,13 +483,14 @@ function room_socket_init() {
 		} ], null);
 		
 		audio_flag = true;
+		*/
 	});
 	
 	socket.on('connect', function(){
 		
 		socket.emit('roomList');
 		
-		
+		/*
 		console.log("audio stopped for server connection / reconnection");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -496,6 +500,7 @@ function room_socket_init() {
 		} ], null);
 		
 		audio_flag = true;
+		*/
 	});
 }
 

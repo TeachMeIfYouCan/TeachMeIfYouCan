@@ -32,6 +32,8 @@ function native_init() {
 
 	$("#play").click(function() {
 		
+		alert("Play");
+		
 		if(audio_flag == true){
 			console.log("audio_start pressed");
 			
@@ -46,6 +48,9 @@ function native_init() {
 	});	
 	
 	$("#pause").click(function() {
+		
+		alert("Pause");
+		
 		console.log("audio_pause pressed");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -58,6 +63,9 @@ function native_init() {
 	});
 	
 	$("#stop").click(function() {
+		
+		alert("Stop");
+		
 		console.log("audio_stop pressed");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -71,7 +79,7 @@ function native_init() {
 		audio_stop_send();
 	});
 	
-	
+	/*
 	console.log("audio stopped for initializing audio device");
 	
 	//To send a message 원격포트로 키와 값을 보냄
@@ -81,6 +89,7 @@ function native_init() {
 	} ], null);
 	
 	audio_flag = true;
+	*/
 }
 
 function chat_init() {
