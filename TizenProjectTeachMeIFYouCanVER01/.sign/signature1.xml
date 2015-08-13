@@ -58,13 +58,9 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>w5PzaZnCfEH5n5K8AoOb4cevnd3GgT0I9vEUqYM/kto=</DigestValue>
 </Reference>
-<Reference URI="TizenProjectTeachMeIFYouCanVER01.wgt">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>UdhgVRz1tgTIvWSPxHbGdmIiyiWQK+uns9ZnrYot3Pc=</DigestValue>
-</Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>55bkczeI7iTAF6IbRD4dmE4Es4sZLiVbmGD46HQr0Y0=</DigestValue>
+<DigestValue>ad7yt0nfp/UVYS2GYUwzd8rpVtQlW7EQvR72fakItmc=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2263,11 +2259,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-gscI2R/sx3JgxWEqb3kcLs6q1GS3q/f7o5RweiXCv8/V/2fQ3ALHnhxShWSSOqijca380W8VLS60
-N5mGSvd6oUwOTRc/8Ttn5EEZUwCmMyvAUZnF/hN2A66qkPhfwm3sVICKPMdx3dpDokxEwF8IV6/t
-HzGg3/W8CDSB8mD4r99IFYzywfN8rLTYQmDAXQ49053RgBrKj8NfQaa/BV/sOYMNjt0RX2xUJFPw
-rvmaJzXP9kaZg3jxvqXyFvKM84/hlvkSoITyHMdGzZgJlrX4iGGk7KDKnzcBC/e6ULml0zUMuHit
-4Ng5nfbIm+UZWHdYBYRnRIE6waC2kj2Iu6ZAGg==
+4RLMpEE7V2otncPoay9Xh5eHN/T2kWzI72L2YBUSLZTk2kKsCggqiZXl0T0aJSWZOPJ8oXkO8y2f
+Hx47WvOye997CeMDfqGAjw1D+OvLQJxgwyO+BshY12Gh6W5BCmBA2SftGkx0yxXefroIqCqjuzyz
+jT/UBAZ0iPoiba2SwDHYpkNGF3aMjR+cCD4ZRaQPA2FpfmgvG/w95dcam0oZX+OgD1t2ImZ6eNlt
+0VPhSjeEiu3u3p68ok/7ytNkWfX0i4Bn90TrWgZKMY46R3AHcR1dsmRY5zXryKaAL4XjfF33arWL
+IMPddPQUtMQQdZs/LKfa1Rug+VH9zo/JSbka+w==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
