@@ -334,7 +334,9 @@ function invite_more_friends(){
 		console.log(inviteUserArray[i]);	
 	}
 	
-	socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray});	
+	var classTitle = $('#teacher_screen #header_title #class_title').text();
+	
+	socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray, classTitle: classTitle});	
 	
 	screen.lockOrientation("landscape-primary");
 	change_student_screen();
@@ -978,6 +980,44 @@ function credit(){
 	
 	credit_pop_up_element.style.display="";
 }
+
+function enter_title(){
+	
+	$('#enter_class_title_input_form').width(document.width * 0.9);
+	$('#enter_class_title_input').width(document.width * 0.9);
+	
+	var enter_class_title_popup_element = document.getElementById('enter_class_title_popup');
+	
+	var enter_class_title_popup = tau.widget.Popup(enter_class_title_popup_element);
+	
+	enter_class_title_popup.open();
+	
+	enter_class_title_popup_element.style.display="";
+}
+
+function define_title(){
+	
+	$('#teacher_screen #header_title #class_title').text($('#enter_class_title_input').val());
+	
+	classTitle = $('#enter_class_title_input').val();
+	
+	$('#enter_class_title_input').val('');
+}
+
+function close_enter_title(){
+	
+	var enter_class_title_popup_element = document.getElementById('enter_class_title_popup');
+	
+	var enter_class_title_popup = tau.widget.Popup(enter_class_title_popup_element);
+	
+	enter_class_title_popup.close();
+	
+	enter_class_title_popup_element.style.display="none";
+	
+	$('#enter_class_title_input').val('');
+}
+
+
 
 
 

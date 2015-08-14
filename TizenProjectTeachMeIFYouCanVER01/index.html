@@ -188,7 +188,7 @@
     	<div data-role="footer" style="height:70px; background-color:#000066; opacity:0.5;">
 			<div data-role="tabbar" data-auto-change="false">
                 <ul>
-                	<li><a data-role="button" href="#" id="start_class" onclick="clear_canvas();">Start</a></li>
+                	<li><a data-role="button" href="#" onclick="enter_title();">Start</a></li>
                 	<li><a data-role="button" href="#main" id="back" onclick="clear_selected();">Back</a></li>
                 </ul>
             </div> 	
@@ -308,7 +308,7 @@
     <div data-role="page" id="teacher_screen">
  
 		<div id="header_title" data-role="header" data-position="fixed" style="text-align:center;">			 
-			<div id="class_title" style="padding-top:10px;">Integrated Circuit</div>
+			<div id="class_title" style="padding-top:10px;"></div>
 			<div data-role="button" data-icon="naviframe-done" class="naviframe-button" style="display:none"></div>
 			<div id="edit_button" data-role="button" data-icon="naviframe-edit" class="naviframe-button" style="background-color: red;" id="editButton" onclick="edit_menu();"></div>					 
 		</div>
@@ -379,7 +379,7 @@
     <!--  teacher_screen==================================================================================================== -->
   	
 	<div id="invite_popup_1" data-role="popup" style="display:none;">
-   		<div id="invite_title" class="ui-popup-title"><h1>has invited you to the class</h1></div>
+   		<div id="invite_title" class="ui-popup-title"><h1 style='font-size:70%;'>has invited you to the class</h1></div>
    		<div class="ui-popup-text">
    			<h5 id="invite_class_title" style="padding:0px; margin:0px;">Title:</h5>
 		</div>
@@ -482,6 +482,20 @@
    			
 		</div>
 	</div>
+	
+	<div id="enter_class_title_popup" data-role="popup" style="display:none;">
+   		<div id="enter_class_title_popup_title" class="ui-popup-title"><h1 style='font-size:80%;'>Enter the title for the class</h1></div>
+   		<div class="ui-popup-text" style="text-align:center;">
+   			<form id="enter_class_title_input_form" onsubmit="return false;">
+   				<input type="text" id="enter_class_title_input"/>
+   			</form>
+   			<br>
+   			<button id="start_class" onclick="clear_canvas(); define_title();" style="margin-right:3px; font-size:65%;">Open Class</button>
+   			<button id="close_enter_title" onclick="close_enter_title();" style="margin-left:3px; font-size:65%;">Back</button>
+		</div>
+   		<br>
+	</div>
+	
 	
 	 <!--  Pop Ups ==================================================================================================== -->
   	

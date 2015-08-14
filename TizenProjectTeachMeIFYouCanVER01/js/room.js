@@ -21,7 +21,7 @@ function room_socket_init() {
 		for(var i = 0; i < data.length; i++){
 			console.log(data[i]);
 			
-			add_class_from_server(data[i].roomName, data[i].attendants, data[i].roomName);
+			add_class_from_server(data[i].classTitle, data[i].attendants, data[i].roomName);
 		}		
 		//html 방 정보 뿌려지 추가 해야함
 	});
@@ -257,10 +257,11 @@ function room_socket_init() {
 	//생성할 방 키값 받음 그 후 방 생성
 	socket.on('requestRoomNum', function(data) {
 		console.log("requestRoomNum = " + data);	
-		roomName = data;		
-		socket.emit( 'createRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});  /////////////////여기에 초대자들 정보도 같이 보내야함!!!!나중에 추가
+		roomName = data;
 		
-		add_class(roomName, select_list, roomName);
+		socket.emit( 'createRoom', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url, classTitle: classTitle});  /////////////////여기에 초대자들 정보도 같이 보내야함!!!!나중에 추가
+		
+		add_class(classTitle, select_list, roomName);
 	
 		master_name = nickName;
 		master_id = id;
@@ -281,7 +282,7 @@ function room_socket_init() {
 			console.log(inviteUserArray[i]);	
 		}
 		
-		socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray});	
+		socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray, classTitle: classTitle});	
 		
 		console.log("본인이 참여 nickName = " + nickName + " roomName : " + roomName + " pic_url = " + data.pic_url);
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + nickName +'이' + roomName + '번방에 입장 </li>');				
@@ -292,12 +293,16 @@ function room_socket_init() {
 		
 		change_student_screen();
 	});
-			
+	
 	//초대자들 목록 받아와서 자신의 name과, id받아와서 맞으면 참여할껀지 팝업 띄어줌
 	socket.on('inviteUserList', function(data) {	
 		console.log("초대자들 목록 받아옴");	
 		console.log("data.inviteUserArray = " + data.inviteUserArray);		
 		console.log("nickName = " + nickName + " id = " + id)
+		
+		//all_the_invites = data.inviteUserArray;
+		console.log(data);
+		
 		for(var i = 0; i < data.inviteUserArray.length; i++) {						
 			
 			console.log("data.inviteUserArray[i].text = " + data.inviteUserArray[i].text + " data.inviteUserArray[i].id = " + data.inviteUserArray[i].id)
@@ -307,32 +312,33 @@ function room_socket_init() {
 				console.log("아이디가 맞아서 팝업창 띄움");
 				open_invite_popup();
 				
-				var invite_title = document.getElementById("invite_title").text;
+				console.log("Inviter : " + data.nickName);
 				
-				document.getElementById("invite_title").text = data.nickName + " " + invite_title;
+				$('#invite_title h1').text(data.nickName + " " + $('#invite_title h1').text());
+				$('#invite_class_title').text($('#invite_class_title').text() + " " + data.classTitle);
 				
-				var title = document.getElementById("invite_class_title").text;
+				console.log('data.classTitle : ' + data.classTitle);
 				
-				document.getElementById("invite_class_title").text = title + " " + data.roomName;
-
 				navigator.vibrate(500);
 				
 				//초대 찬성
 				$('#invite_accept').off("click").on("click", (function() {	
-					enter_class(data.roomName);
+					enter_class(data.roomName, data.classTitle);
 				}));
 				//초대 거부
 				$('#invite_deny').off("click").on("click", (function() {	
 					reject_class(data.roomName);
 				}));			
 			}
-		}		
+		}
 	});
 	
 	//있던 방에 참여한 참가자 정보 받아옴
 	socket.on('joined', function(data) {	
 		console.log("<join> nickName = " + data.nickName + " roomName : " + data.roomName + " pic_url = " + data.pic_url);
-				
+		
+		$('#teacher_screen #header_title #class_title').text(data.classTitle);
+		
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +'이' + data.roomName + '번방에 입장 </li>');				
 		navigator.vibrate(500);
 		
@@ -745,7 +751,12 @@ function empty_class_list(){
 }
 
 //만들어진 방에 참가 || 초대팝업에 응답했을 경우
-function enter_class(room_num){
+function enter_class(room_num, classTitle){
+	
+	$('#invite_title h1').text('has invited you to the class');
+	
+	console.log(classTitle);
+	$('#teacher_screen #header_title #class_title').text(classTitle);
 	
 	console.log("만들어진 방 참가" );	
 	roomName = room_num;
@@ -773,6 +784,8 @@ function enter_class(room_num){
 
 //초대팝업에 거절 했을 경우
 function reject_class(room_num){
+	
+	$('#invite_title h1').text('has invited you to the class');
 	
 	console.log("초대에 거부" );	
 	socket.emit('rejectJoinRoom', {nickName: nickName, id: id, roomName: room_num, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송

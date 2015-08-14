@@ -5,7 +5,7 @@ var scope = "public_profile,email,user_friends,user_photos,user_hometown,user_lo
 var final_uri = oauthurl + 'client_id=' + client_id + '&redirect_uri=' + redirect_uri + "&scope=" + scope;
 var client_secret="1533043b6b2efd0abfe54b55a0cc9b6a";
 
-var name, id, nickName, roomName, pic_url;
+var name, id, nickName, roomName, pic_url, classTitle;
 
 var loading_flag;
 
