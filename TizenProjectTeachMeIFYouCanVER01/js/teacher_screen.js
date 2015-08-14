@@ -107,9 +107,10 @@ function canvas_init(){
 	background_image = new Image();
 	background_image.src = "test_js.jpg";	// This src path is based on the HTML file that loads this js file.
 
+	//cdy 이거 지워야 되는거 아님?
 	background_image.onload = function(){
 		context.drawImage(background_image, 0, 0, canvas.width, canvas.height);
-		sendBackgroundImage();	
+		//sendBackgroundImage();	
 	}
 	
 	join_button = document.getElementById("enter_button");
@@ -607,7 +608,7 @@ function changeStrokeWidth(width_change){ strokeWidth = width_change.value; }
 
 function show_classmates(){
 	
-	socket.emit('getRoomUserList', {roomName: roomName});
+	socket.emit('getRoomUserList', {roomName: roomName, nickName:nickName, id: id});
 }
 
 /*
