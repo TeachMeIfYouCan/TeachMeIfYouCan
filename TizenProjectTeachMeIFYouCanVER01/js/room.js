@@ -9,6 +9,7 @@ function room_socket_init() {
 	console.log("Start initializing the socket");
 	
 	socket = io('http://211.189.127.154:53597');	
+	streaming_socket = io('http://211.189.127.154:53598');
 	
 	//전체 room의 대한 정보를 가져옴
 	socket.emit('roomList');
