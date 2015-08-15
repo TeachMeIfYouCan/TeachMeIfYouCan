@@ -33,6 +33,8 @@ var voice_change_auth;
 var final_voice_change;
 var confirm_flag;
 
+var ref_width_for_tabbar;
+
 function canvas_init(){
 	
 	console.log("Canvas Init Function Called");
@@ -174,7 +176,7 @@ function touchStartHandler(e){
 }
 
 var strokeWidth = "5";
-var strokeColor = "#FF0000";
+var strokeColor = "#000000";
 var lineJoin = "round";
 
 function touchMoveHandler(e){
@@ -1023,36 +1025,31 @@ function fix_tabbar_width(){
 	
 	console.log('Fixing the width of tabbar elements');
 	
-	var width;
+	$('#main .ui-block-a').width(ref_width_for_tabbar/3);
+	$('#main .ui-block-b').width(ref_width_for_tabbar/3);
+	$('#main .ui-block-c').width(ref_width_for_tabbar/3);
 	
-	if(document.width <= document.height){ width = document.width; }
-	else if(document.width > document.height){ width = document.height; }
+	$('#main .ui-block-a a').width(ref_width_for_tabbar/3);
+	$('#main .ui-block-b a').width(ref_width_for_tabbar/3);
+	$('#main .ui-block-c a').width(ref_width_for_tabbar/3);
 	
-	$('#main .ui-block-a').width(width/3);
-	$('#main .ui-block-b').width(width/3);
-	$('#main .ui-block-c').width(width/3);
+	$('#page_class_list .ui-block-a').width(ref_width_for_tabbar/3);
+	$('#page_class_list .ui-block-b').width(ref_width_for_tabbar/3);
+	$('#page_class_list .ui-block-c').width(ref_width_for_tabbar/3);
 	
-	$('#main .ui-block-a a').width(width/3);
-	$('#main .ui-block-b a').width(width/3);
-	$('#main .ui-block-c a').width(width/3);
+	$('#page_class_list .ui-block-a a').width(ref_width_for_tabbar/3);
+	$('#page_class_list .ui-block-b a').width(ref_width_for_tabbar/3);
+	$('#page_class_list .ui-block-c a').width(ref_width_for_tabbar/3);
 	
-	$('#page_class_list .ui-block-a').width(width/3);
-	$('#page_class_list .ui-block-b').width(width/3);
-	$('#page_class_list .ui-block-c').width(width/3);
+	$('#page_option_list .ui-block-a').width(ref_width_for_tabbar/3);
+	$('#page_option_list .ui-block-b').width(ref_width_for_tabbar/3);
+	$('#page_option_list .ui-block-c').width(ref_width_for_tabbar/3);
 	
-	$('#page_class_list .ui-block-a a').width(width/3);
-	$('#page_class_list .ui-block-b a').width(width/3);
-	$('#page_class_list .ui-block-c a').width(width/3);
+	$('#page_option_list .ui-block-a a').width(ref_width_for_tabbar/3);
+	$('#page_option_list .ui-block-b a').width(ref_width_for_tabbar/3);
+	$('#page_option_list .ui-block-c a').width(ref_width_for_tabbar/3);
 	
-	$('#page_option_list .ui-block-a').width(width/3);
-	$('#page_option_list .ui-block-b').width(width/3);
-	$('#page_option_list .ui-block-c').width(width/3);
-	
-	$('#page_option_list .ui-block-a a').width(width/3);
-	$('#page_option_list .ui-block-b a').width(width/3);
-	$('#page_option_list .ui-block-c a').width(width/3);
-	
-	$('#find_friends').width(width* 0.96);
+	$('#find_friends').width(ref_width_for_tabbar* 0.96);
 }
 
 

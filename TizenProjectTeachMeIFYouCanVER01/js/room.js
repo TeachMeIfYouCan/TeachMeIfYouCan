@@ -274,6 +274,8 @@ function room_socket_init() {
 		stop_button.style.textAlign = "center";
 		
 		fix_tabbar_width();
+		
+		close_all_drawers();
 	}));
 	
 	//생성할 방 키값 받음 그 후 방 생성
@@ -578,7 +580,7 @@ function room_socket_init() {
 			$("#stop").unbind('click').click(function() {});
 		}
 		
-		screen.lockOrientation("landscape-primary");
+		//screen.lockOrientation("landscape-primary");
 	});
 	
 	//채팅방에서 나간 참가자 정보
@@ -590,7 +592,7 @@ function room_socket_init() {
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
 		navigator.vibrate(500);	
 		
-		screen.lockOrientation("landscape-primary");
+		//screen.lockOrientation("landscape-primary");
 		//final_voice_change = "";
 		//socket.emit('echo_voice_change', {voice_change : final_voice_change, roomName: roomName});
 	});
@@ -613,7 +615,6 @@ function room_socket_init() {
 		
 		change_page_class_list();
 		//나가기 버튼을 누른다면 방에 적어졌던 데이터는 모두 지우는 코드 필요함!!!!!!!!!!!
-		fix_tabbar_width();
 		
 		console.log("audio_stop pressed for leaving the room");
 		

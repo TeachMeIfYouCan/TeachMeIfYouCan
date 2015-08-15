@@ -9,11 +9,12 @@ $(document).ready(function() {
 	//로딩 이미지
 	//var loading = $('<img src="icon.png" id="load_test" alt="loading" style="border:0; position:absolute; left:50%; top:50%;" />').appendTo(document.body).hide();	
 	$("*").ajaxStart(function(){
+		
 		//loading.show();
-		console.log('ajaxStart');
 	});
 	
 	$(document).ajaxStop(function() {
+	
 		//loading.hide();
 		
 		if(main_flag == true){
@@ -46,26 +47,13 @@ $(document).ready(function() {
          if( pageid === "main" ) {
             try {
                tizen.application.getCurrentApplication().exit();
+               
             } catch (ignore) {
             }
          } 
          else if( pageid === "teacher_screen" ) {
         	console.log("room에서 back 버튼 누름" );
         	socket.emit('leave', {nickName: nickName,id: id, roomName: roomName, pic_url: pic_url});	
-        	
-        	/*
-        	console.log("audio_stop pressed for leaving the room");
-    		
-    		//To send a message 원격포트로 키와 값을 보냄
-    		remoteMessagePort.sendMessage([ {
-    			key : 'command',
-    			value : "audio_stop"
-    		} ], null);
-    		
-    		audio_flag = true;
-    		
-    		audio_stop_send();
-        	*/
         	
         	var editDrawerElement = document.getElementById("editDrawer");
         	
@@ -85,6 +73,8 @@ $(document).ready(function() {
         	
         	screen.lockOrientation("portrait-primary");
         	change_page_class_list();
+        	
+        	fix_tabbar_width();
          }  
          else if( pageid === "select_friends" ) {
         	 
@@ -122,6 +112,17 @@ $(document).ready(function() {
         	 screen.lockOrientation("landscape-primary");
          }
          
+         else if(pageid === "select_classmates"){
+        	 
+        	 back_to_class();
+         }
+         
+         else if(pageid === "page_option_list"){
+        	 
+        	 tizen.application.getCurrentApplication().exit();
+        	 
+         }
+         
          else if(pageid === "loginPage"){
         	 
         	 tizen.application.getCurrentApplication().exit();
@@ -131,7 +132,8 @@ $(document).ready(function() {
         	 
         	 close_all_drawers();
         	 
-        	 tizen.application.getCurrentApplication().exit();   
+        	 tizen.application.getCurrentApplication().exit();
+        	
          }
       }
    });
@@ -413,7 +415,6 @@ function clear_selected(){
 		select_list.pop();
 	}  
 }
-
 
 
 

@@ -10,6 +10,9 @@ var name, id, nickName, roomName, pic_url, classTitle;
 var loading_flag;
 
 function FBLogin_check() {
+	
+	//loading.hide();
+	
 	if(localStorage.getItem('accesstoken') !== null) {	
 		/// DEBUG
 		console.log("로그인 되어 있음");
@@ -27,8 +30,8 @@ function FBLogin_check() {
 }
 
 function localGetProfile() {
-	console.log("localGetProfile");
 	
+	console.log("localGetProfile");
 	
     var myProfile = JSON.parse(localStorage.getItem('myProfile'));
   
@@ -44,6 +47,9 @@ function localGetProfile() {
    	           
 }
 function localGetFriends() {
+	
+	//$('#LogInBtn-div-container').css('display', 'none');
+	
 	console.log("localGetFriends");
 
 	var friend_length = JSON.parse(localStorage.getItem('friend_length'));
@@ -69,6 +75,7 @@ function localGetFriends() {
 }
 
 function FBLogin(){
+	
 	console.log("inside login");
 	window.authWin = window.open(final_uri, "blank", true);
 	montiorURL();

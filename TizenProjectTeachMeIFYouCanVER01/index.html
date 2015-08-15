@@ -53,6 +53,11 @@
 
 				$.mobile.changePage('loginPage');
 			});
+
+			if(document.width <= document.height){ ref_width_for_tabbar = document.width; }
+			else if(document.width > document.height){ ref_width_for_tabbar = document.height; }
+
+			$('#load_test').hide();
 			
 		</script>
 	</div>
@@ -69,7 +74,7 @@
 			
 			<img src="./Teach me if you can - Log In Image 1.png" style="width:70%; display:block; margin: 0 auto;">
 			
-			<button id="LogInBtn" onClick="FBLogin();">Login</button>
+			<button id="LogInBtn" onClick="FBLogin();">Log In</button>
 			<ul id="loginFile">
 			</ul>
 		</div><!-- /content -->
