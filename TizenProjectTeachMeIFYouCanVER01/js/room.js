@@ -24,10 +24,14 @@ function room_socket_init() {
 			add_class_from_server(data[i].classTitle, data[i].attendants, data[i].roomName);
 		}		
 		//html 방 정보 뿌려지 추가 해야함
+		
+		fix_tabbar_width();
 	});
 	
 	//현재 room 참가자 정보를 받아옴
 	socket.on('getRoomUserList', function(data) {
+		
+		fix_tabbar_width();
 		
 		console.log("<getRoomUserList>");
 		
@@ -59,6 +63,8 @@ function room_socket_init() {
 	});
 	
 	socket.on('echo_voice_change', function(data){
+		
+		console.log('<echo_voice_change>');
 		
 		final_voice_change = data.voice_change;
 			
@@ -213,21 +219,35 @@ function room_socket_init() {
 			stop_button.style.textAlign = "center";
 			$("#stop").unbind('click').click(function() {});
 		}
+		
+		fix_tabbar_width();
 	});
 	
 	//전체 방 새로고침 버튼 
 	$('#roomListRefresh').off("click").on("click", (function() {
+		
+		console.log('<roomListRefresh>');
+		
 		console.log("roomListRefresh 버튼 누름" );
 		socket.emit('roomList');
+		
+		fix_tabbar_width();
 	}));
 	
 	//친구 찾기 및 선택
-	$('#find_friends').off("click").on("click", (function() {	
+	$('#find_friends').off("click").on("click", (function() {
+		
+		console.log('<find_friends>');
+		
 		change_select_friend();
+		
+		fix_tabbar_width();
 	}));
 	
 	//본인이 방 생성
 	$('#start_class').off("click").on("click", (function() {
+		
+		console.log('<start_class>');
 		
 		console.log("방 create 버튼 누름" );	
 		socket.emit('requestRoomNum'); //생성할 방 키 요청
@@ -252,10 +272,13 @@ function room_socket_init() {
 		$(stop_button).append(stop_button_image);
 		stop_button_image.style.height = "100%";
 		stop_button.style.textAlign = "center";
+		
+		fix_tabbar_width();
 	}));
 	
 	//생성할 방 키값 받음 그 후 방 생성
 	socket.on('requestRoomNum', function(data) {
+		
 		console.log("requestRoomNum = " + data);	
 		roomName = data;
 		
@@ -296,6 +319,7 @@ function room_socket_init() {
 	
 	//초대자들 목록 받아와서 자신의 name과, id받아와서 맞으면 참여할껀지 팝업 띄어줌
 	socket.on('inviteUserList', function(data) {	
+		
 		console.log("초대자들 목록 받아옴");	
 		console.log("data.inviteUserArray = " + data.inviteUserArray);		
 		console.log("nickName = " + nickName + " id = " + id)
@@ -322,11 +346,18 @@ function room_socket_init() {
 				navigator.vibrate(500);
 				
 				//초대 찬성
-				$('#invite_accept').off("click").on("click", (function() {	
+				$('#invite_accept').off("click").on("click", (function() {
+					
+					console.log('<invite_accept>');
+					
+					console.log('data.classTitle : ' + data.classTitle);
 					enter_class(data.roomName, data.classTitle);
 				}));
 				//초대 거부
 				$('#invite_deny').off("click").on("click", (function() {	
+					
+					console.log('<invite_deny>');
+					
 					reject_class(data.roomName);
 				}));			
 			}
@@ -335,6 +366,7 @@ function room_socket_init() {
 	
 	//있던 방에 참여한 참가자 정보 받아옴
 	socket.on('joined', function(data) {	
+		
 		console.log("<join> nickName = " + data.nickName + " roomName : " + data.roomName + " pic_url = " + data.pic_url);
 		
 		$('#teacher_screen #header_title #class_title').text(data.classTitle);
@@ -352,6 +384,7 @@ function room_socket_init() {
 	
 	//기존 방에 있는 사람 리스트 받아옴
 	socket.on('roomJoinUsers', function(data) {	
+		
 		//console.log("기존 방에 있는 사람 리스트 받아옴  data.attendants.length = " +  data.attendants.length);	
 		master_name = data.master_name;
 		
@@ -372,12 +405,20 @@ function room_socket_init() {
 	
 	//초대에 거부한 사용자 정보 받아옴
 	socket.on('rejectJoinRoom', function(data) {	
+		
+		console.log('<rejectJoinRoom>');
+		
 		console.log("<rejectJoinRoom> nickName = " + data.nickName + " roomName : " + data.roomName);				
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에 초대 거부</li>');				
-		navigator.vibrate(500);		
+		navigator.vibrate(500);	
+		
+		fix_tabbar_width();
 	});
 	
 	socket.on('changePrivilege', function(data) {	
+		
+		console.log('<changePrivilege>');
+		
 		console.log("<changePrivilege> nickName = " + data.nickName + " roomName : " + data.roomName + " master_name = " + master_name + " master_id = " + master_id);
 		
 		master_name = data.master_name;
@@ -542,6 +583,9 @@ function room_socket_init() {
 	
 	//채팅방에서 나간 참가자 정보
 	socket.on( 'leaved', function(data) {
+		
+		console.log('<leaved>');
+		
 		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
 		navigator.vibrate(500);	
@@ -553,6 +597,8 @@ function room_socket_init() {
 	
 	//나가기 버튼 
 	$('#roomExit').off("click").on("click", function() {
+		
+		console.log('<roomExit>');
 		
 		console.log("roomExit 버튼 누름" );
 		socket.emit('leave', {nickName: nickName, id: id, roomName: roomName, pic_url: pic_url});	
@@ -567,7 +613,7 @@ function room_socket_init() {
 		
 		change_page_class_list();
 		//나가기 버튼을 누른다면 방에 적어졌던 데이터는 모두 지우는 코드 필요함!!!!!!!!!!!
-		
+		fix_tabbar_width();
 		
 		console.log("audio_stop pressed for leaving the room");
 		
@@ -584,6 +630,9 @@ function room_socket_init() {
 	});
 	
 	socket.on('disconnect', function() {
+		
+		console.log('<disconnect>');
+		
 		console.log("서버가 다운");
 		
 		screen.lockOrientation("portrait-primary");
@@ -603,9 +652,13 @@ function room_socket_init() {
 		
 		audio_flag = true;
 		*/
+		
+		fix_tabbar_width();
 	});
 	
 	socket.on('connect', function(){
+		
+		console.log('<connect>');
 		
 		socket.emit('roomList');
 		
@@ -620,6 +673,9 @@ function room_socket_init() {
 		
 		audio_flag = true;
 		*/
+		
+		fix_tabbar_width();
+		
 	});
 }
 
@@ -796,6 +852,10 @@ function reject_class(room_num){
 
 function add_class(title, participant_list, room_number){
 	
+	var class_title = "'" + title + "'";
+	
+	console.log(class_title);
+	
 	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px; border-bottom: solid #99CCFF; border-bottom-width:1px;" class="ui-li ui-li-static ui-li-has-right-btn ui-li-last" tabindex="0">' +   	
 						'<div style="padding:0px; margin:0px;">' + 
 							'<h4 style="padding:5px; padding-top:15px; margin:0px;" class="ui-li-heading">' +
@@ -817,7 +877,7 @@ function add_class(title, participant_list, room_number){
 	new_class = new_class + 
 				'</ul>' +
 				'<br>' +
-				'<button onclick="enter_class(' + room_number + ');">Enter</button>' +
+				'<button onclick="enter_class(' + room_number + ',' + class_title + ');">Enter</button>' +
 				'</div>' +
 				'</li>';	
 									
@@ -825,6 +885,10 @@ function add_class(title, participant_list, room_number){
 }
 
 function add_class_from_server(title, participant_list, room_number){
+	
+	var class_title = "'" + title + "'";
+	
+	console.log(class_title);
 	
 	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px; border-bottom: solid #99CCFF; border-bottom-width:1px;" class="ui-li ui-li-static ui-li-has-right-btn ui-li-last" tabindex="0">' +   	
 						'<div style="padding:0px; margin:0px;">' + 
@@ -847,7 +911,7 @@ function add_class_from_server(title, participant_list, room_number){
 	new_class = new_class + 
 				'</ul>' +
 				'<br>' +
-				'<button id="enter_button" onclick="enter_class(' + room_number + ');">Enter</button>' +
+				'<button id="enter_button" onclick="enter_class(' + room_number+ ',' + class_title + ');">Enter</button>' +
 				'</div>' +
 				'</li>';	
 									

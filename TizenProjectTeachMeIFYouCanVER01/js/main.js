@@ -324,6 +324,8 @@ function change_page_class_list(){
 	screen.lockOrientation("portrait-primary");
 	$.mobile.changePage("page_class_list");
 	screen.lockOrientation("portrait-primary");
+	
+	fix_tabbar_width();
 }
 
 function change_select_friend(){

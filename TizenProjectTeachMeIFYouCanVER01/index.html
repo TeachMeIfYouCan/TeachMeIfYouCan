@@ -78,16 +78,18 @@
     <!--  loginPage==================================================================================================== -->
 	
 	<div id="main" data-role="page">
+		
+		
 		<div data-role="header" data-position="fixed" data-id="foo">
-        	<h1 style="font-size:80%;">Tizen Project - Friend List UI</h1>
+        	<!-- <h1 style="font-size:80%;">Tizen Project - Friend List UI</h1> -->
             <div data-role="tabbar" data-auto-change="false">
                 <ul>
-               		<li><a href="#main" class="ui-btn-active">Friends</a></li>
-                	<li><a href="#page_class_list">Classes</a></li>
-                	<li><a href="#page_option_list">Options</a></li>
+               		<li><a href="#main" class="ui-btn-active" onclick="fix_tabbar_width();">Friends</a></li>
+                	<li><a href="#page_class_list" onclick="fix_tabbar_width();">Classes</a></li>
+                	<li><a href="#page_option_list" onclick="fix_tabbar_width();">Options</a></li>
                 </ul>
             </div>
-        </div><!-- /header -->
+        </div>
 
         <div data-role="content">
             <ul data-role="listview" id="my_friend_list">
@@ -150,12 +152,12 @@
 	
 	<div id="select_friends" data-role="page">
 		<div data-role="header" data-position="fixed" data-id="foo">
-        	<h1 style="font-size:80%;">Tizen Project - Friend List UI</h1>
+        	<!-- <h1 style="font-size:80%;">Tizen Project - Friend List UI</h1> -->
             <div data-role="tabbar" data-auto-change="false">
                 <ul>
-               		<li><a href="#main" class="ui-btn-active" onclick="clear_selected();">Friends</a></li>
-                	<li><a href="#page_class_list" onclick="clear_selected();">Classes</a></li>
-                	<li><a href="#page_option_list" onclick="clear_selected();">Options</a></li>
+               		<li><a href="#main" class="ui-btn-active" onclick="clear_selected(); fix_tabbar_width();">Friends</a></li>
+                	<li><a href="#page_class_list" onclick="clear_selected(); fix_tabbar_width();">Classes</a></li>
+                	<li><a href="#page_option_list" onclick="clear_selected(); fix_tabbar_width();">Options</a></li>
                 </ul>
             </div>
         </div><!-- /header -->
@@ -189,7 +191,7 @@
 			<div data-role="tabbar" data-auto-change="false">
                 <ul>
                 	<li><a data-role="button" href="#" onclick="enter_title();">Start</a></li>
-                	<li><a data-role="button" href="#main" id="back" onclick="clear_selected();">Back</a></li>
+                	<li><a data-role="button" href="#main" id="back" onclick="clear_selected(); fix_tabbar_width();">Back</a></li>
                 </ul>
             </div> 	
         </div>   
@@ -218,7 +220,7 @@
 	<div id="invite_friends" data-role="page">
 	
 		<div data-role="header" data-position="fixed" data-id="foo">
-        	<h1 style="font-size:80%;">Tizen Project - Additional Invites UI</h1>
+        	<h1 style="font-size:80%;">Starting a class ???</h1>
         </div><!-- /header -->
 
         <div data-role="content">
@@ -250,7 +252,7 @@
 			<div data-role="tabbar" data-auto-change="false">
                 <ul>
                 	<li id="invite_button"><a id="invite_button_a" data-role="button" href="#" onclick="invite_more_friends();">Invite</a></li>
-                	<li id="invite_cancel_button"><a id="invite_cancel_button_a" data-role="button" href="#" onclick="cancel_invite();">Cancel</a></li>
+                	<li id="invite_cancel_button"><a id="invite_cancel_button_a" data-role="button" href="#" onclick="cancel_invite(); fix_tabbar_width();">Cancel</a></li>
                 </ul>
             </div> 	
         </div> 
@@ -261,12 +263,12 @@
 		
 	<div id="page_class_list" data-role="page">
         <div data-role="header" data-position="fixed" data-id="foo">
-            <h1 style="font-size:80%;">Tizen Project - Class List UI</h1>
+            <!-- <h1 style="font-size:80%;">Tizen Project - Class List UI</h1> -->
             <div data-role="tabbar" data-auto-change="false">
                 <ul>
-                	<li><a href="#main">Friends</a></li>
-                	<li><a href="#page_class_list" class="ui-btn-active">Classes</a></li>
-                	<li><a href="#page_option_list" >Options</a></li>
+                	<li><a href="#main" onclick="fix_tabbar_width();">Friends</a></li>
+                	<li><a href="#page_class_list" class="ui-btn-active" onclick="fix_tabbar_width();">Classes</a></li>
+                	<li><a href="#page_option_list" onclick="fix_tabbar_width();">Options</a></li>
                 </ul>
             </div>
         </div><!-- /header -->
@@ -282,12 +284,12 @@
 	  
     <div id="page_option_list" data-role="page">
         <div data-role="header" data-position="fixed" data-id="foo">
-            <h1 style="font-size:80%;">Tizen Project - Option List UI</h1>
+            <!-- <h1 style="font-size:80%;">Tizen Project - Option List UI</h1> -->
             <div data-role="tabbar" data-auto-change="false">
                 <ul>
-                    <li><a href="#main">Friends</a></li>
-                	<li><a href="#page_class_list">Classes</a></li>
-                	<li><a href="#page_option_list" class="ui-btn-active">Options</a></li>
+                    <li><a href="#main" onclick="fix_tabbar_width();">Friends</a></li>
+                	<li><a href="#page_class_list" onclick="fix_tabbar_width();">Classes</a></li>
+                	<li><a href="#page_option_list" class="ui-btn-active" onclick="fix_tabbar_width();">Options</a></li>
                 </ul>
             </div>
         </div><!-- /header -->
@@ -331,11 +333,11 @@
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="edit_canvas();"><a href="#">Canvas Setting</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="show_classmates();"><a href="#">Show Classmates</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="move_invite_more_friends();"><a href="#">Invite More ?</a></li>
-                	<li class="ui-drawer-main-list" style="text-align:center;" id="leave" onclick="check_leave();"><a href="#">Leave Class</a></li>
+                	<li class="ui-drawer-main-list" style="text-align:center;" id="leave" onclick="check_leave(); fix_tabbar_width();"><a href="#">Leave Class</a></li>
             	</ul>
         	</div>
         	
-        	<div data-role="drawer" data-position="right" id="classmates_list_drawer">
+        	<div data-role="drawer" data-position="right" id="classmates_list_drawer" style="display:none;">
             	<ul data-role="listview">
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="show_classmates();"><a href="#">Show Classmates</a></li>
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="move_invite_more_friends();"><a href="#">Invite More ?</a></li>
@@ -431,7 +433,7 @@
 	<div id="check_exit" data-role="popup" style="display:none;">
    		<div class="ui-popup-title"><h1>Do you really want to leave the class?</h1></div>
    		<div class="ui-popup-text" style="text-align:center;">
-   			<button id="roomExit">Leave the Class</button>
+   			<button id="roomExit" onclick="fix_tabbar_width();">Leave the Class</button>
 		</div>
 	</div>
 	

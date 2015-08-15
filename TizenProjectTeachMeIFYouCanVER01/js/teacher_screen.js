@@ -276,7 +276,7 @@ function open_classmate_list(){
 	
 	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
 	
-	classmate_list_drawer.open();
+	classmate_list_drawer.close();
 }
 
 
@@ -1019,6 +1019,41 @@ function close_enter_title(){
 }
 
 
+function fix_tabbar_width(){
+	
+	console.log('Fixing the width of tabbar elements');
+	
+	var width;
+	
+	if(document.width <= document.height){ width = document.width; }
+	else if(document.width > document.height){ width = document.height; }
+	
+	$('#main .ui-block-a').width(width/3);
+	$('#main .ui-block-b').width(width/3);
+	$('#main .ui-block-c').width(width/3);
+	
+	$('#main .ui-block-a a').width(width/3);
+	$('#main .ui-block-b a').width(width/3);
+	$('#main .ui-block-c a').width(width/3);
+	
+	$('#page_class_list .ui-block-a').width(width/3);
+	$('#page_class_list .ui-block-b').width(width/3);
+	$('#page_class_list .ui-block-c').width(width/3);
+	
+	$('#page_class_list .ui-block-a a').width(width/3);
+	$('#page_class_list .ui-block-b a').width(width/3);
+	$('#page_class_list .ui-block-c a').width(width/3);
+	
+	$('#page_option_list .ui-block-a').width(width/3);
+	$('#page_option_list .ui-block-b').width(width/3);
+	$('#page_option_list .ui-block-c').width(width/3);
+	
+	$('#page_option_list .ui-block-a a').width(width/3);
+	$('#page_option_list .ui-block-b a').width(width/3);
+	$('#page_option_list .ui-block-c a').width(width/3);
+	
+	$('#find_friends').width(width* 0.96);
+}
 
 
 
