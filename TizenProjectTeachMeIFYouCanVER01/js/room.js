@@ -94,6 +94,12 @@ function room_socket_init() {
 				if(audio_flag == true){
 					console.log("audio_start pressed");
 					
+					play_button_image.src = "./Play Button - Active.png";
+					$(play_button).empty();
+					$(play_button).append(play_button_image);
+					play_button_image.style.height = "100%";
+					play_button.style.textAlign = "center";
+					
 					//To send a message 원격포트로 키와 값을 보냄
 					remoteMessagePort.sendMessage([ {
 						key : 'command',
@@ -111,6 +117,12 @@ function room_socket_init() {
 			$("#pause").unbind('click').click(function() {
 				console.log("audio_pause pressed");
 				
+				play_button_image.src = "./Play Button - Inactive.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
+				
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
 					key : 'command',
@@ -126,6 +138,12 @@ function room_socket_init() {
 			stop_button.style.textAlign = "center";
 			$("#stop").unbind('click').click(function() {
 				console.log("audio_stop pressed");
+				
+				play_button_image.src = "./Play Button - Inactive.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
 				
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
@@ -158,6 +176,12 @@ function room_socket_init() {
 				if(audio_flag == true){
 					console.log("audio_start pressed");
 					
+					play_button_image.src = "./Mic_Yes.png";
+					$(play_button).empty();
+					$(play_button).append(play_button_image);
+					play_button_image.style.height = "100%";
+					play_button.style.textAlign = "center";
+					
 					//To send a message 원격포트로 키와 값을 보냄
 					remoteMessagePort.sendMessage([ {
 						key : 'command',
@@ -181,6 +205,12 @@ function room_socket_init() {
 			$("#stop").unbind('click').click(function() {
 				
 				console.log("audio_stop pressed");
+				
+				play_button_image.src = "./Mic_No.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
 				
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
@@ -463,6 +493,12 @@ function room_socket_init() {
 				if(audio_flag == true){
 					console.log("audio_start pressed");
 					
+					play_button_image.src = "./Play Button - Active.png";
+					$(play_button).empty();
+					$(play_button).append(play_button_image);
+					play_button_image.style.height = "100%";
+					play_button.style.textAlign = "center";
+					
 					//To send a message 원격포트로 키와 값을 보냄
 					remoteMessagePort.sendMessage([ {
 						key : 'command',
@@ -480,6 +516,12 @@ function room_socket_init() {
 			$("#pause").unbind('click').click(function() {
 				console.log("audio_pause pressed");
 				
+				play_button_image.src = "./Play Button - Inactive.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
+				
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
 					key : 'command',
@@ -495,7 +537,14 @@ function room_socket_init() {
 			stop_button.style.textAlign = "center";
 
 			$("#stop").unbind('click').click(function() {
-				console.log("audio_stop pressed");			
+				console.log("audio_stop pressed");	
+				
+				play_button_image.src = "./Play Button - Inactive.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
+				
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
 					key : 'command',
@@ -527,6 +576,12 @@ function room_socket_init() {
 				if(audio_flag == true){
 					console.log("audio_start pressed");
 					
+					play_button_image.src = "./Mic_Yes.png";
+					$(play_button).empty();
+					$(play_button).append(play_button_image);
+					play_button_image.style.height = "100%";
+					play_button.style.textAlign = "center";
+					
 					//To send a message 원격포트로 키와 값을 보냄
 					remoteMessagePort.sendMessage([ {
 						key : 'command',
@@ -549,7 +604,14 @@ function room_socket_init() {
 			stop_button.style.textAlign = "center";
 			$("#stop").unbind('click').click(function() {
 				
-				console.log("audio_stop pressed");			
+				console.log("audio_stop pressed");	
+				
+				play_button_image.src = "./Mic_No.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
+				
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
 					key : 'command',

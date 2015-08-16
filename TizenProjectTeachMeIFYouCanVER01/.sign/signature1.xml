@@ -64,7 +64,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>s2oGcp1funzcwVLuX9MOlIgGadVUz26vJBiFyUCaSc0=</DigestValue>
+<DigestValue>m160xR4P2dyXq90HfNcyP7ZmbjA/s8xZD9l26vYOodI=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -100,15 +100,15 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>vtVfNHjBBIZmD2jAytyHWSrrYSBnoMYFboiuszUOixY=</DigestValue>
+<DigestValue>mTTl19kdb+zWjgprlPZmXeySbC8K7Fhtb3/KLUNrLMs=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>J+bd7yntvg9folJPA/8L45+qhUzYcxcTjB4+KB0KyKc=</DigestValue>
+<DigestValue>wKwp2AK/O0fE0zYAism5MNiQq0J+xpWrNxTFdO/0pbQ=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>pjCeQ5A+ENyXEaAFFv/9igcSm+qXkgmkP67sETDckeg=</DigestValue>
+<DigestValue>Tp8UUoW66g20VmB930okmdkc4OVOA/5hXz8HGI+QIm4=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2263,11 +2263,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-tY+RDJiJXFbj8LTwi/i8s2dLB6G3yUNYm9maYur4jQssy+KZTngYSxRE7hvrIaeOkiSDzQBMMKfO
-vJTnUb2O1vLwZu9XZI4cGoEl/cvcPZokgSwCKqgs15HThvflsg5UqQig6uC7/EwgTRlRC4FfV8Iu
-94njA5DfbpGDlk+OGawGpN1AwJYrhaUEn8yu6giqbPSaSI6FHcD5mEQpwlGEs9cooxV9isC8zEp5
-U6x6O7o7h81ZohbgT9uXJE6UhWjnx1s/h9Z1sICNpilF/SnwxO5WYPrkSIWDJVqcuoxq6z5w9JpV
-5tIadPnwREHX/a7mEndlg9aP9Vbm+yYMI/rXSw==
+NMJn/hVGaFTwGj75xYj0fcjVdzGeu/qKKjjIWDEdhr8mvEVpEbuw8GZdtnfKT4cG5F4UcaJIVohq
+8RGdGcfdR7ubM0Buut1E9rBVhbdJjGsZkePFSdcdyJxiQmEX3O3v3RmQ7+8JaW7Yo3OaEfLzTnC8
+ZUPrJPzT3PVeVvjad1pzCrU6yjfx/QVZE/aL/ts/gOP1fvAf9crOj/pCb6y5sZjvQqpD5ubGbGnJ
+fJv651vnx9MNGj7iyYTdvtWLxDtW/beQZPNIvq+ReTNW5OwQatQhVLUvOLul0XFNqbREjSW1Lafa
+1v8unbI7T7UHBrUcu+3r3Db8x8vaCHolKvIpBg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

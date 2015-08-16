@@ -96,15 +96,15 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>vtVfNHjBBIZmD2jAytyHWSrrYSBnoMYFboiuszUOixY=</DigestValue>
+<DigestValue>mTTl19kdb+zWjgprlPZmXeySbC8K7Fhtb3/KLUNrLMs=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>J+bd7yntvg9folJPA/8L45+qhUzYcxcTjB4+KB0KyKc=</DigestValue>
+<DigestValue>wKwp2AK/O0fE0zYAism5MNiQq0J+xpWrNxTFdO/0pbQ=</DigestValue>
 </Reference>
 <Reference URI="js%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>pjCeQ5A+ENyXEaAFFv/9igcSm+qXkgmkP67sETDckeg=</DigestValue>
+<DigestValue>Tp8UUoW66g20VmB930okmdkc4OVOA/5hXz8HGI+QIm4=</DigestValue>
 </Reference>
 <Reference URI="js%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2259,11 +2259,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-FBZtZSNsJHWvjmyunzw6hZUNaLvs7ZnMbm3UvQJQ6bUJA1fUkaPdjyBwPOv7710+z9df7HMLjmpk
-foGTEFGNAlxfitMJxt3PVnyvCaSmYTEpuzgF9ox7DPitAlT9LejVzN53jYLelWYzBT69lPjVDBfg
-JBqZO6FsSLj+qsg/gaVvKnXJ5HyTiL/7zeX+N5h4LzVSkWU5o2GuLVTgFEPxcvc/XfkPxLIaol6K
-rBv1FGu2ZknLzEkr4SWvQXhU1uVCmQD8PM2S0D2sFuNSK3JIb6V/zEljq2iUPfGAkkzKvlMAOvWc
-1o0UdxqJBkYj1iqVEqz6Ii+iizNf7S1cCdu5Gw==
+t0+n6Ej5KpG8qXfyjveLYcvtMOkkZWAk62tIlbVEgyPxff69Mi2gX0cF3KmkSffuX8QAiCe9mAlS
+NNzhOn8sgzhpQmWC+vaNCma0z30/irGPI+SrayCucsny0ik2xzkxQpCVMsaNlVGLztbYZqNlRiFJ
+35ARbzzrJZet6f/17UHh84xirDJeVPxZxv/c/vgJD/s9DX/lHT8Z0gAKbSLjuAIu/JKKjNt8nO5X
+XdXO79ZZgSNRi5/J0whYZlpeUE8+n1fuqCh+4XKA/3s0BkGQP4LNlNXFak+aYBljebW5rvN9wxHv
+NAc/LxU+mvEr/0yAGgqB/Q6xcW/FihTbY/FmbQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
