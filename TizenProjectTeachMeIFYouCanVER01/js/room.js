@@ -4,6 +4,8 @@ var master_id;
 var active_classmates_list = new Array();
 var active_classmates_pic_list = new Array();
 
+var socket, streaming_socket;
+
 function room_socket_init() {
 	
 	console.log("Start initializing the socket");
@@ -86,6 +88,7 @@ function room_socket_init() {
 			$(play_button).append(play_button_image);
 			play_button_image.style.height = "100%";
 			play_button.style.textAlign = "center";
+			
 			$("#play").unbind('click').click(function() {
 				
 				if(audio_flag == true){
@@ -142,9 +145,9 @@ function room_socket_init() {
 			play_button_image = new Image();
 			play_button_image.src = "./Mic_Yes.png";
 			pause_button_image = new Image();
-			pause_button_image.src = "./No_Touch_Paint.png";
+			pause_button_image.src = "./Yes_Touch_Paint.png";
 			stop_button_image = new Image;
-			stop_button_image.src = "";
+			stop_button_image.src = "./Stop Button - Inactive.png";
 			
 			$(play_button).empty();
 			$(play_button).append(play_button_image);
@@ -172,24 +175,23 @@ function room_socket_init() {
 			$("#pause").unbind('click').click(function() {});
 			
 			$(stop_button).empty();
-			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
-			$("#stop").unbind('click').click(function() {});
-			
-			/*
-			if(audio_flag == true){
-				console.log("audio permit given ---> Native audio is working");
+			$("#stop").unbind('click').click(function() {
+				
+				console.log("audio_stop pressed");
 				
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
 					key : 'command',
-					value : "audio_start"
+					value : "audio_stop"
 				} ], null);
 				
-				audio_flag = false;
-			}
-			*/
+				audio_flag = true;
+				
+				audio_stop_send();
+			});
 		}
 		else{
 			
@@ -215,7 +217,7 @@ function room_socket_init() {
 			$("#pause").unbind('click').click(function() {});
 			
 			$(stop_button).empty();
-			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
 			$("#stop").unbind('click').click(function() {});
@@ -502,9 +504,9 @@ function room_socket_init() {
 			play_button_image = new Image();
 			play_button_image.src = "./Mic_Yes.png";
 			pause_button_image = new Image();
-			pause_button_image.src = "./No_Touch_Paint.png";
+			pause_button_image.src = "./Yes_Touch_Paint.png";
 			stop_button_image = new Image;
-			stop_button_image.src = "";
+			stop_button_image.src = "./Stop Button - Inactive.png";
 			
 			$(play_button).empty();
 			$(play_button).append(play_button_image);
@@ -532,24 +534,22 @@ function room_socket_init() {
 			$("#pause").unbind('click').click(function() {});
 			
 			$(stop_button).empty();
-			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
-			$("#stop").unbind('click').click(function() {});
-			
-			/*
-			if(audio_flag == true){
-				console.log("audio permit given ---> Native audio is working");
+			$("#stop").unbind('click').click(function() {
 				
+				console.log("audio_stop pressed");			
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
 					key : 'command',
-					value : "audio_start"
+					value : "audio_stop"
 				} ], null);
 				
-				audio_flag = false;
-			}
-			*/
+				audio_flag = true;
+				
+				audio_stop_send();
+			});
 		}
 		else{
 			
@@ -575,7 +575,7 @@ function room_socket_init() {
 			$("#pause").unbind('click').click(function() {});
 			
 			$(stop_button).empty();
-			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
 			stop_button_image.style.height = "100%";
 			stop_button.style.textAlign = "center";
 			$("#stop").unbind('click').click(function() {});
@@ -643,7 +643,7 @@ function room_socket_init() {
 		
 		$("all_active_class").empty();
 		
-		/*
+		
 		console.log("audio stopped for server disconnection");
 		
 		//To send a message 원격포트로 키와 값을 보냄
@@ -653,7 +653,7 @@ function room_socket_init() {
 		} ], null);
 		
 		audio_flag = true;
-		*/
+		
 		
 		fix_tabbar_width();
 	});

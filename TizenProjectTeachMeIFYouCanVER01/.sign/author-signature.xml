@@ -4,11 +4,11 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fzserviceapp">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>/kn8G/KpIHm6kOICpIvMW5XAEC0780wT+0mN+S6Eg1g=</DigestValue>
+<DigestValue>R+HBQswmY30/+zMJdT2SgrHfDGDd93M2ZuIjkErunac=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ELPMUJeyjCXPgJfBgVGcAtjrgKcMV/mIKOnNHz0ex8k=</DigestValue>
+<DigestValue>/AjcmGtHy0iSFkB7KfSKpIUBlvLPS1ZRl28gP/4CSpk=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2F.gitignore">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -24,7 +24,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2FNo_Touch_Paint.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+TUbOoB8RVUbIJhh4Ut+fcnNV7uXXlOR3AAJ/2lFWpo=</DigestValue>
+<DigestValue>UHOk+/WJBDX3vFXkJLZuiNWGm+U/yGLMpXkFe3PBjFc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2FPause%20Button%20-%20Active.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -66,9 +66,9 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>w5PzaZnCfEH5n5K8AoOb4cevnd3GgT0I9vEUqYM/kto=</DigestValue>
 </Reference>
-<Reference URI="res%2Fwgt%2FTizenProjectTeachMeIFYouCanVER02.wgt">
+<Reference URI="res%2Fwgt%2FYes_Touch_Paint.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>0HQGS6f155ICq+n1CoYz7/IUCyYUlPFknqTpy2rsLd8=</DigestValue>
+<DigestValue>6k9AttwC2psgJo6y68kn+t7Lqg0MIcDvRG089SKqTzY=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fblue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -100,7 +100,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ODnVN67aOnaEvJCvaL/eqbFO45LGp8XUpb4Pso+E3vU=</DigestValue>
+<DigestValue>1P11T1Maef3wfOOBEJzTYH3007aBRMoApBV46rGYs6o=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -108,11 +108,11 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>dEqnFSjayltPWSu1dimLv53sO+WcnnSLW+owH12m6O0=</DigestValue>
+<DigestValue>J+bd7yntvg9folJPA/8L45+qhUzYcxcTjB4+KB0KyKc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>6dEczzP4RKstSamwXkzIQmfmC+U/bpat0ei95/SDf2I=</DigestValue>
+<DigestValue>izLKhOT5i1PUOKxxf9a1yVxZyLoswd+rZZFCwXiDflA=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -124,7 +124,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>5v5QfCno2VUGQYnLRLNQM5BefaLlQ16nCsFeO/dosTA=</DigestValue>
+<DigestValue>JAQ48NVo1KGlptpspqrBrUHC8MIp7Fed0q/R5YcfqFQ=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Flib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2275,11 +2275,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-RdAX4MU5O2U93Tq5nAHYTJTEPGrCfn0+f9FdDRiH8/2Q+hWqYFoUpptb9ybb4cLkHlhJxmLuig+2
-V8h4A5ysrVMyBxjwNto5JIyl8fSuopB/1DuYeQA5GMrmnLtapd4avnWD1MimD7++M+LyzO6F6+F4
-7jpH7pzCEkXLlasZSfqYjnPUa9by5AV1h5cI00M6UyFctFvKvL6bZYZzOtDJVHaxfhRLmJbcCBkH
-IocU7fbQ91oFgzhkxwyQBLD8dQUJIIIV+15/vbyqfNo1cHgrGTw9WjOX1sCfJeArnQznG0SoKi0N
-U0JZRsLm0uz6hfMDABjmBEYdJd0HckdPiZQ3hA==
+RbmKG/KnZ2o+R3AqODs3XN5QdTdo1bqnA2DRNUPXc28KPklS1MTaI15cI1lGF4ahFb/XeLs8/6zu
+22rI7EFIyyiKL9C5auXRtgEWBh6Sq0TqEpqpKtHj48P9xc7lfiICoC5fBPrVpQRZP5+gEuq+NZva
+N6/oEQCVqewM0MmTORAT1kND/3BOnkucJ+5gz00r6HSp45Dyjo3uZ7NzHS485YO71PWjfQ00trDQ
+laJQljCPmH7aR1vvdi3pja+1w8cBYve2GQgh2HMLjv8OAE6/RKlr0ONmYToEKIYt7Lg+OOQuP8Qn
++KgCZbkI/wmoDLOYMlpG7xdWOprynlHotbpAnw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

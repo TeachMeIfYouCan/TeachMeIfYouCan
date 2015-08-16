@@ -32,12 +32,10 @@ function native_init() {
 
 	$("#play").click(function() {
 		
-		alert("Play");
+		//alert("Play");
 		
 		if(audio_flag == true){
 			console.log("audio_start pressed");
-			
-			streaming_socket.emit('audio_start', {nickName : nickName, roomName: roomName, id: id, audioData: audioData});
 
 			//To send a message 원격포트로 키와 값을 보냄
 			remoteMessagePort.sendMessage([ {
@@ -51,7 +49,7 @@ function native_init() {
 	
 	$("#pause").click(function() {
 		
-		alert("Pause");
+		//alert("Pause");
 		
 		console.log("audio_pause pressed");
 		
@@ -66,7 +64,7 @@ function native_init() {
 	
 	$("#stop").click(function() {
 		
-		alert("Stop");
+		//alert("Stop");
 		
 		console.log("audio_stop pressed");
 		
@@ -78,7 +76,7 @@ function native_init() {
 		
 		audio_flag = true;
 		
-		audio_stop_send();
+		
 	});
 	
 	/*
@@ -176,6 +174,13 @@ function sendBackgroundImage() {
 	
 }
 
+function recorderMsg_send() {
+	if(master_name == nickName) {
+		console.log("audio_data send to recorder server");	
+		streaming_socket.emit('audio_start', {nickName : nickName, roomName: roomName, id: id});
+	}
+}
+
 //오디오 데이터 전송
 function send_audio_data(audioData) {
 	console.log("audio_data send to server");
@@ -192,8 +197,24 @@ function audio_stop_send() {
 	var date = new Date();	
 	var filename = roomName + "room" + date.getFullYear() + (date.getMonth() + 1) + date.getDate() + date.getHours() + date.getMinutes() + date.getSeconds();
 	socket.emit('audio_stop', {nickName : nickName, roomName: roomName, id: id, filename: filename});
-	streaming_socket.emit('audio_stop', {nickName : nickName, roomName: roomName, id: id, filename: filename});
+	if(master_name == nickName) {
+		console.log("audio_stop message send to server");
+		streaming_socket.emit('audio_stop', {nickName : nickName, roomName: roomName, id: id, filename: filename});
+	}
 
+}
+
+//service app exit 요청
+function service_app_exit() {
+   	//To send a message 원격포트로 종료 메세지  보냄
+	remoteMessagePort.sendMessage([ {
+		key : 'command',
+		value : "app_exit"
+	} ], null);
+	
+	console.log("native app에 app_exit 보냄");
+	audio_flag = true;
+	//그냥 나가는거는 서버에게 stop 메세지 안보냄
 }
 
 //파일 목록 요청

@@ -4,15 +4,15 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>B35VcwFHfJZ9DD7CsubwAyWgt+jzlz4SbONSkDzWnm0=</DigestValue>
+<DigestValue>x68cO/H3dKSPk70SYCV0FDdmaPbsTX7As7CHhZDFfvc=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fzserviceapp">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>/kn8G/KpIHm6kOICpIvMW5XAEC0780wT+0mN+S6Eg1g=</DigestValue>
+<DigestValue>R+HBQswmY30/+zMJdT2SgrHfDGDd93M2ZuIjkErunac=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ELPMUJeyjCXPgJfBgVGcAtjrgKcMV/mIKOnNHz0ex8k=</DigestValue>
+<DigestValue>/AjcmGtHy0iSFkB7KfSKpIUBlvLPS1ZRl28gP/4CSpk=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2F.gitignore">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -28,7 +28,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2FNo_Touch_Paint.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+TUbOoB8RVUbIJhh4Ut+fcnNV7uXXlOR3AAJ/2lFWpo=</DigestValue>
+<DigestValue>UHOk+/WJBDX3vFXkJLZuiNWGm+U/yGLMpXkFe3PBjFc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2FPause%20Button%20-%20Active.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -70,9 +70,9 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>w5PzaZnCfEH5n5K8AoOb4cevnd3GgT0I9vEUqYM/kto=</DigestValue>
 </Reference>
-<Reference URI="res%2Fwgt%2FTizenProjectTeachMeIFYouCanVER02.wgt">
+<Reference URI="res%2Fwgt%2FYes_Touch_Paint.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>0HQGS6f155ICq+n1CoYz7/IUCyYUlPFknqTpy2rsLd8=</DigestValue>
+<DigestValue>6k9AttwC2psgJo6y68kn+t7Lqg0MIcDvRG089SKqTzY=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fblue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -104,7 +104,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ODnVN67aOnaEvJCvaL/eqbFO45LGp8XUpb4Pso+E3vU=</DigestValue>
+<DigestValue>1P11T1Maef3wfOOBEJzTYH3007aBRMoApBV46rGYs6o=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -112,11 +112,11 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>dEqnFSjayltPWSu1dimLv53sO+WcnnSLW+owH12m6O0=</DigestValue>
+<DigestValue>J+bd7yntvg9folJPA/8L45+qhUzYcxcTjB4+KB0KyKc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>6dEczzP4RKstSamwXkzIQmfmC+U/bpat0ei95/SDf2I=</DigestValue>
+<DigestValue>izLKhOT5i1PUOKxxf9a1yVxZyLoswd+rZZFCwXiDflA=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -128,7 +128,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>5v5QfCno2VUGQYnLRLNQM5BefaLlQ16nCsFeO/dosTA=</DigestValue>
+<DigestValue>JAQ48NVo1KGlptpspqrBrUHC8MIp7Fed0q/R5YcfqFQ=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Flib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2279,11 +2279,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-pcTlpUqcGNZYN0cBLtWEiFo+R+w1V/PUkl4q3LUHIVLRJnfdkwOuie4JnotM7TMYHeHEaP7qDYxI
-pz8jmmOcxb5gu5hSs134uqMs8eL5b6H37BRuLHu3PNkHS6mc6RZ7tNLr2XffFcF4PA4MfPfLh34p
-Z87nOJBHWe3XqAyng3aUpkZ3sGgH+vHM+iTDwViooQm+3VCimnHd0yx2hFiPMBOQc1A/sS0Am26V
-y+O2bvcwypg3BgUvY5rn/mg7UUDeMOUGNTE7oxx7PLV8NtATtuh6IRce9ILtE+xG3vD/+U6QR9KO
-wmSJpYX1ylj2fMQGs/k7qy+QpHJY8c401IFkIQ==
+tnTScg8JU9+Gi1cSLTsqdntnsXqMiBmA5f7fNEw0zunGN1OD5+A/171f3kL+0olRHlvtqxHIves/
+jiwbAM345CZwm2zmnV3s9aOaSKoniUK3cVNsUCnPWHnnK4II8e710mouxu3xnuEM0bctTUaPnAgd
+YuNTSRZwP6v812BVwS+NNkXi72LZc1iCfM5qEkfyyuUVL70VhY2PAAsNN9EYwPmPbszeAabWExSN
+sREWJ6bU/MX6eVi6NOS0fNhQtIRNVWfbPTlBny7PiaFLJcYgQQf1O9ZEirxU1hEiJ+6D2yr8F4Cj
+/8nY8+tGpsBxZWAZBcFDc7Ujk9KxfsLZX/hUNA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
