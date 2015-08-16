@@ -227,6 +227,9 @@ function FBLogout() {
 			localStorage.clear();
 			//$.mobile.changePage("loginPage");  
 			
+			//socket.disconnect();
+			//streaming_socket.disconnect();
+			
 			logout_flag = true;
 		},
 		error: function(){

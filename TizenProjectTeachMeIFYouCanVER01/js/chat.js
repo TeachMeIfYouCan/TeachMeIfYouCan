@@ -100,6 +100,9 @@ function chat_init() {
 	socket.on('message', function(data) {
 		console.log("<chat msg> nickName = " + data.nickName + " roomName = " + data.roomName + " msg = " + data.message);		
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">'+ data.nickName+ ': '+ data.message + '</li>');	
+		
+		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
+		
 		navigator.vibrate(500);
 	});
 	
@@ -154,6 +157,9 @@ function chat_init() {
 function submitMessage() {
     $('#chat ul').append('<li class="ui-li-bubble-sent ui-li ui-li-static">'+ nickName+ ': '+ $('#inputMsg').val() + '</li>');	
 	socket.emit('message', { nickName : nickName, roomName: roomName, message: $('#inputMsg').val() });		
+	
+	$('.ui-li-bubble-sent')[$('.ui-li-bubble-sent').length - 1].scrollIntoView(true);
+	
 	$('#inputMsg').val('');	
 }
 

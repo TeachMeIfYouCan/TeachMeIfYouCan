@@ -315,6 +315,8 @@ function room_socket_init() {
 		console.log("본인이 참여 nickName = " + nickName + " roomName : " + roomName + " pic_url = " + data.pic_url);
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + nickName +'이' + roomName + '번방에 입장 </li>');				
 		
+		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
+		
 		screen.lockOrientation("landscape-primary");
 		
 		select_list.pop();
@@ -377,6 +379,9 @@ function room_socket_init() {
 		$('#teacher_screen #header_title #class_title').text(data.classTitle);
 		
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +'이' + data.roomName + '번방에 입장 </li>');				
+		
+		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
+		
 		navigator.vibrate(500);
 		
 		console.log("joined my client master_name = " + master_name + "data.master_name = " + data.master_name);
@@ -402,6 +407,8 @@ function room_socket_init() {
 			}
 			$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + attendants_list + '님이 방에 있습니다.</li>');				
 			
+			$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
+			
 			console.log("attendants_list = " +  attendants_list);							
 		}
 		screen.lockOrientation("landscape-primary");
@@ -415,6 +422,9 @@ function room_socket_init() {
 		
 		console.log("<rejectJoinRoom> nickName = " + data.nickName + " roomName : " + data.roomName);				
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에 초대 거부</li>');				
+		
+		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
+		
 		navigator.vibrate(500);	
 		
 		fix_tabbar_width();
@@ -591,6 +601,9 @@ function room_socket_init() {
 		
 		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
 		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
+		
+		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
+		
 		navigator.vibrate(500);	
 		
 		//screen.lockOrientation("landscape-primary");
