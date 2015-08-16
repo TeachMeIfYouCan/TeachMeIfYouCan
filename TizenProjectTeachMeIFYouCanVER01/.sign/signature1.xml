@@ -64,7 +64,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>yo8K+17B0aIRYOqtnvBubDwY0m+BkPAyl5OjQ0Ahkno=</DigestValue>
+<DigestValue>s2oGcp1funzcwVLuX9MOlIgGadVUz26vJBiFyUCaSc0=</DigestValue>
 </Reference>
 <Reference URI="blue-vector-icons.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -100,7 +100,7 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gWfxijbNXp4CVm4KlOZe3vTYkXpVDrPJugYIGxbc+TE=</DigestValue>
+<DigestValue>vtVfNHjBBIZmD2jAytyHWSrrYSBnoMYFboiuszUOixY=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2263,11 +2263,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-zMAvbHvwL2eIGmo5JzKbcZ/BSgnhVFgwbsRoVCIGxORtP/gUg9ZMt/ss/Nunib0vxWnwvMxHfEZ8
-8952o58I1wtCeqYoSfT+GOp+VDWm7Fth9+D3ps3wAYL+ySfj2Mjr+k4YQ1TtdmTv+m9pxsXNt+Db
-yAaGIul/7yVHR9ZgXp2KWXTJN94+8grcVyfZ7viR2tBCj0RkW9Utt+wRBTo5UeKUApatL/MSV4Zs
-0/VWoD7VzWE9eFOhhV8msXxDFUMkXdasGSbnw/AN0+Yatp/+I0dGrZqJPPR2lqviBng60/kRq3oc
-d8m4e2xAk1AU5b1LoKCmltTuIH+x4FAyYtH5nA==
+tY+RDJiJXFbj8LTwi/i8s2dLB6G3yUNYm9maYur4jQssy+KZTngYSxRE7hvrIaeOkiSDzQBMMKfO
+vJTnUb2O1vLwZu9XZI4cGoEl/cvcPZokgSwCKqgs15HThvflsg5UqQig6uC7/EwgTRlRC4FfV8Iu
+94njA5DfbpGDlk+OGawGpN1AwJYrhaUEn8yu6giqbPSaSI6FHcD5mEQpwlGEs9cooxV9isC8zEp5
+U6x6O7o7h81ZohbgT9uXJE6UhWjnx1s/h9Z1sICNpilF/SnwxO5WYPrkSIWDJVqcuoxq6z5w9JpV
+5tIadPnwREHX/a7mEndlg9aP9Vbm+yYMI/rXSw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -96,7 +96,7 @@
 </Reference>
 <Reference URI="js%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gWfxijbNXp4CVm4KlOZe3vTYkXpVDrPJugYIGxbc+TE=</DigestValue>
+<DigestValue>vtVfNHjBBIZmD2jAytyHWSrrYSBnoMYFboiuszUOixY=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2259,11 +2259,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-oEToqlZz7sBmBnzkVVsBqdQrChEWluGHZ6gYZ8Og/CqN6hBsO7uh2rtrN+Ktvo5IRMUL+zN1IjwU
-FxUU7Qi5CrjM7HxWc7JGAvl23CEDAVAYeAsrj1A38miQtuc7y2NDRHhaWQCHFZUVOUpHYrCxMncz
-w2CcKnTOP+P7Cq2C9RN7FYQm9mNUL9GT97eugXAyOi9NWxOysoB7+2jdJVOYVEWFxPAglcEam05W
-3DVA9cfEzvCA/Ot2V+KbSmYcH9676cfRGaJbTsR7CmRZbuGp62JuEsZJl6XKGV8ACtjyFsXAnGDV
-ZKusMzXvnXuSgpZH9DVViBw+keyfKTgF+vXXOA==
+FBZtZSNsJHWvjmyunzw6hZUNaLvs7ZnMbm3UvQJQ6bUJA1fUkaPdjyBwPOv7710+z9df7HMLjmpk
+foGTEFGNAlxfitMJxt3PVnyvCaSmYTEpuzgF9ox7DPitAlT9LejVzN53jYLelWYzBT69lPjVDBfg
+JBqZO6FsSLj+qsg/gaVvKnXJ5HyTiL/7zeX+N5h4LzVSkWU5o2GuLVTgFEPxcvc/XfkPxLIaol6K
+rBv1FGu2ZknLzEkr4SWvQXhU1uVCmQD8PM2S0D2sFuNSK3JIb6V/zEljq2iUPfGAkkzKvlMAOvWc
+1o0UdxqJBkYj1iqVEqz6Ii+iizNf7S1cCdu5Gw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

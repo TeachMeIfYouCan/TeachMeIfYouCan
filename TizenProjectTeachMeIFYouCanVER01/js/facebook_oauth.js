@@ -227,8 +227,18 @@ function FBLogout() {
 			localStorage.clear();
 			//$.mobile.changePage("loginPage");  
 			
-			//socket.disconnect();
-			//streaming_socket.disconnect();
+			socket.removeAllListeners('roomList');
+			socket.removeAllListeners('getRoomUserList');
+			socket.removeAllListeners('echo_voice_change');
+			socket.removeAllListeners('requestRoomNum');
+			socket.removeAllListeners('inviteUserList');
+			socket.removeAllListeners('joined');
+			socket.removeAllListeners('roomJoinUsers');
+			socket.removeAllListeners('rejectJoinRoom');
+			socket.removeAllListeners('changePrivilege');
+			socket.removeAllListeners('leaved');
+			socket.removeAllListeners('disconnect');
+			socket.removeAllListeners('connect');
 			
 			logout_flag = true;
 		},
