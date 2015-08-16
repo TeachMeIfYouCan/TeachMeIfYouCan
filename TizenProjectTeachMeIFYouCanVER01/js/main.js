@@ -45,8 +45,9 @@ $(document).ready(function() {
          var page = document.getElementsByClassName( 'ui-page-active' )[0],
             pageid = page ? page.id : "";
          if( pageid === "main" ) {
-            try {
-               tizen.application.getCurrentApplication().exit();
+            try {      	
+            	service_app_exit();            	
+                tizen.application.getCurrentApplication().exit();
                
             } catch (ignore) {
             }
@@ -70,6 +71,14 @@ $(document).ready(function() {
         	
         	socket.emit('roomList');
         	
+        	//To send a message 원격포트로 키와 값을 보냄
+        	remoteMessagePort.sendMessage([ {
+        		key : 'command',
+        		value : "audio_stop"
+        	} ], null);
+        	
+        	audio_flag = true;
+        	audio_stop_send();
         	
         	screen.lockOrientation("portrait-primary");
         	change_page_class_list();
@@ -131,7 +140,7 @@ $(document).ready(function() {
          else {
         	 
         	 close_all_drawers();
-        	 
+        	 service_app_exit();
         	 tizen.application.getCurrentApplication().exit();
         	
          }
@@ -188,6 +197,7 @@ function change_student_screen(){
 			if(audio_flag == true){
 				console.log("audio_start pressed");
 				
+				recorderMsg_send();
 				//To send a message 원격포트로 키와 값을 보냄
 				remoteMessagePort.sendMessage([ {
 					key : 'command',
@@ -239,9 +249,9 @@ function change_student_screen(){
 		play_button_image = new Image();
 		play_button_image.src = "./Mic_Yes.png";
 		pause_button_image = new Image();
-		pause_button_image.src = "./No_Touch_Paint.png";
+		pause_button_image.src = "./Yes_Touch_Paint.png";
 		stop_button_image = new Image;
-		stop_button_image.src = "";
+		stop_button_image.src = "./Stop Button - Inactive.png";
 		
 		$(play_button).empty();
 		$(play_button).append(play_button_image);
@@ -269,24 +279,23 @@ function change_student_screen(){
 		$("#pause").unbind('click').click(function() {});
 		
 		$(stop_button).empty();
-		$(stop_button).empty();
+		$(stop_button).append(stop_button_image);
 		stop_button_image.style.height = "100%";
 		stop_button.style.textAlign = "center";
-		$("#stop").unbind('click').click(function() {});
-		
-		/*
-		if(audio_flag == true){
-			console.log("audio permit given ---> Native audio is working");
+		$("#stop").unbind('click').click(function() {
+			
+			console.log("audio_stop pressed");
 			
 			//To send a message 원격포트로 키와 값을 보냄
 			remoteMessagePort.sendMessage([ {
 				key : 'command',
-				value : "audio_start"
+				value : "audio_stop"
 			} ], null);
 			
-			audio_flag = false;
-		}
-		*/
+			audio_flag = true;
+			
+			audio_stop_send();
+		});
 	}
 	else{
 		
@@ -312,7 +321,7 @@ function change_student_screen(){
 		$("#pause").unbind('click').click(function() {});
 		
 		$(stop_button).empty();
-		$(stop_button).empty();
+		$(stop_button).append(stop_button_image);
 		stop_button_image.style.height = "100%";
 		stop_button.style.textAlign = "center";
 		$("#stop").unbind('click').click(function() {});

@@ -164,7 +164,7 @@ function drawPathSetting(idx)
 
 function touchStartHandler(e){
 	
-	if(am_i_master()){
+	if(am_i_master() || do_i_have_permit()){
 		
 		console.log("Touch paint is activated (Master)"); 
 		
@@ -181,7 +181,7 @@ var lineJoin = "round";
 
 function touchMoveHandler(e){
 	
-	if(am_i_master()){
+	if(am_i_master() || do_i_have_permit()){
 		
 		console.log("Touch paint is activated (Master)"); 
 		
@@ -218,7 +218,7 @@ function touchMoveHandler(e){
 
 function touchEndHandler(){
 	
-	if(am_i_master()){
+	if(am_i_master() || do_i_have_permit()){
 		
 		console.log("Touch paint is activated (Master)"); 
 		
