@@ -168,22 +168,22 @@ function sendCanvasData(command, oldX, oldY, newX, newY, strokeWidth, strokeColo
 	console.log("canvas command 보냄 = " + command);	
 	socket.emit('canvasData', { nickName : nickName, roomName: roomName, id: id, canvasCommand: command, oldX: oldX, oldY: oldY, newX: newX, newY: newY, 
 								strokeWidth: strokeWidth, strokeColor: strokeColor, lineJoin: lineJoin});			
-	streaming_socket.emit('canvasData', { nickName : nickName, roomName: roomName, id: id, canvasCommand: command, oldX: oldX, oldY: oldY, newX: newX, newY: newY, 
-		strokeWidth: strokeWidth, strokeColor: strokeColor, lineJoin: lineJoin});			
+	//streaming_socket.emit('canvasData', { nickName : nickName, roomName: roomName, id: id, canvasCommand: command, oldX: oldX, oldY: oldY, newX: newX, newY: newY, 
+	//	strokeWidth: strokeWidth, strokeColor: strokeColor, lineJoin: lineJoin});			
 }
 
 //나중에 들어온 사람의 동기화 위해 캔버스 그림 전송
 function sendBackgroundImage() {
 	console.log("backgroundImage 보냄");		
 	socket.emit('backgroundImage', { nickName : nickName, roomName: roomName, id: id, canvasData: canvas.toDataURL()});	
-	streaming_socket.emit('backgroundImage', { nickName : nickName, roomName: roomName, id: id, canvasData: canvas.toDataURL()});	
+	//streaming_socket.emit('backgroundImage', { nickName : nickName, roomName: roomName, id: id, canvasData: canvas.toDataURL()});	
 	
 }
 
 function recorderMsg_send() {
 	if(master_name == nickName) {
 		console.log("audio_data send to recorder server");	
-		streaming_socket.emit('audio_start', {nickName : nickName, roomName: roomName, id: id});
+		//streaming_socket.emit('audio_start', {nickName : nickName, roomName: roomName, id: id});
 	}
 }
 
@@ -192,7 +192,7 @@ function send_audio_data(audioData) {
 	console.log("audio_data send to server");
 	
 	socket.emit('audioData', {nickName : nickName, roomName: roomName, id: id, audioData: audioData});
-	streaming_socket.emit('audioData', {nickName : nickName, roomName: roomName, id: id, audioData: audioData});
+	//streaming_socket.emit('audioData', {nickName : nickName, roomName: roomName, id: id, audioData: audioData});
 }
 
 //오디오 정지 신호 전송
@@ -205,7 +205,7 @@ function audio_stop_send() {
 	socket.emit('audio_stop', {nickName : nickName, roomName: roomName, id: id, filename: filename});
 	if(master_name == nickName) {
 		console.log("audio_stop message send to server");
-		streaming_socket.emit('audio_stop', {nickName : nickName, roomName: roomName, id: id, filename: filename});
+		//streaming_socket.emit('audio_stop', {nickName : nickName, roomName: roomName, id: id, filename: filename});
 	}
 
 }
@@ -227,7 +227,7 @@ function service_app_exit() {
 function get_files() {
 	console.log("파일 목록 요청");
 	socket.emit('get_files', {nickName : nickName, id: id});
-	streaming_socket.emit('get_files', {nickName : nickName, id: id});
+	//streaming_socket.emit('get_files', {nickName : nickName, id: id});
 }
 
 //파일 다운로드 요청

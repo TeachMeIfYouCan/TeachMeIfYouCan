@@ -128,6 +128,14 @@ $(document).ready(function() {
          
          else if(pageid === "page_option_list"){
         	 
+        	 service_app_exit();
+        	 tizen.application.getCurrentApplication().exit();
+        	 
+         }
+         
+         else if(pageid === "page_class_list"){
+        	 
+        	 service_app_exit(); 
         	 tizen.application.getCurrentApplication().exit();
         	 
          }

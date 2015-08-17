@@ -10,8 +10,8 @@ function room_socket_init() {
 	
 	console.log("Start initializing the socket");
 	
-	socket = io('http://211.189.127.154:53597');	
-	streaming_socket = io('http://211.189.127.154:53598');
+	socket = io('http://211.189.127.154:4389');	
+	//streaming_socket = io('http://211.189.127.154:53598');
 	
 	//전체 room의 대한 정보를 가져옴
 	socket.emit('roomList');
@@ -888,6 +888,8 @@ function enter_class(room_num, classTitle){
 	
 	$('#invite_title h1').text('has invited you to the class');
 	
+	$('#invite_class_title').text('Title:');
+	
 	console.log(classTitle);
 	$('#teacher_screen #header_title #class_title').text(classTitle);
 	
@@ -919,6 +921,8 @@ function enter_class(room_num, classTitle){
 function reject_class(room_num){
 	
 	$('#invite_title h1').text('has invited you to the class');
+	
+	$('#invite_class_title').text('Title:');
 	
 	console.log("초대에 거부" );	
 	socket.emit('rejectJoinRoom', {nickName: nickName, id: id, roomName: room_num, pic_url: pic_url}); //참가하고 자 하는 방에 정보 전송
