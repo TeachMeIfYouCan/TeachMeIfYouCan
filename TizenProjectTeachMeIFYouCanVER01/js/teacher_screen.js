@@ -116,20 +116,20 @@ function canvas_init(){
 	}
 	
 	join_button = document.getElementById("enter_button");
-	join_button.onclick = function(){
+	join_button.off('click').click(function(){
 		
 		console.log("Clearing the canvas");
 		
 		context.clearRect(0, 0, canvas.width, canvas.height);
-	}
+	});
 	
 	create_button = document.getElementById("start_class");
-	create_button.onclick = function(){
+	create_button.off('click').click(function(){
 		
 		console.log("Clearing the canvas");
 		
 		context.clearRect(0, 0, canvas.width, canvas.height);
-	}
+	});
 }
 
 function clear_canvas(){
@@ -261,24 +261,26 @@ function edit_menu(){
 		
 		editDrawer.close();
 		edit_menu_open = false;
-		
+		/*
 		var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
      	
 		var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
     	
 		classmate_list_drawer.close();
+		*/
 	}
 }
 
 function open_classmate_list(){
 	
 	console.log("Open Classmate List");
-	
+	/*
 	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
 	
 	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
 	
 	classmate_list_drawer.close();
+	*/
 }
 
 
@@ -348,12 +350,13 @@ function invite_more_friends(){
 function close_classmate_list(){
 	
 	console.log("Close Classmate List");
-	
+	/*
 	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
 	
 	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
 	
 	classmate_list_drawer.close();
+	*/
 }
 
 
@@ -607,8 +610,11 @@ function changeStrokeColor(color_change){ strokeColor = color_change.value; }
 	
 function changeStrokeWidth(width_change){ strokeWidth = width_change.value; }
 
+var list_page_change;
 
 function show_classmates(){
+	
+	list_page_change = false;
 	
 	socket.emit('getRoomUserList', {roomName: roomName, nickName:nickName, id: id});
 }
@@ -863,12 +869,13 @@ function close_all_drawers(){
 	 
 	editDrawer.close();
 	edit_menu_open = false;
-	
+	/*
 	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
 	
 	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
 	
 	classmate_list_drawer.close();
+	*/
 }
 
 

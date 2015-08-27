@@ -1,11 +1,16 @@
 //var nativeServiceAppId = "S8vjRcPYft.zserviceapp";
-var nativeServiceAppId = "Y2QbwJHU6E.zserviceapp";
+/*
+var nativeServiceAppId = "jeITKUm4Mv.zserviceapp";
+
 var remoteMessagePort;
 var remoteAudioMessagePort;
 
 var audio_flag = true;
+*/
+var localMessagePort_ID;
 
 function native_init() {
+	/*
 	console.log("native_init() has been called");
 	
 	//Launch context transmitter service
@@ -14,24 +19,41 @@ function native_init() {
 	}, function(err){
 		console.log('tizen.application.launch err = ' + err.message);
 	});
-
+	*/
 	// Open message port //원격에서 로컬 포트로 "RECEIVE_HELLO_MESSAGE"라는 메세지이름을 data로 받음.
+	
+	
+	if(typeof localMessagePort !== "undefined") {
+		console.log("있네!!!!!!!!!!!!!!!!!!!!");
+		localMessagePort.removeMessagePortListener(localMessagePort_ID);
+	}
 	localMessagePort = tizen.messageport.requestLocalMessagePort("RECEIVE_HELLO_MESSAGE");
-	localMessagePort.addMessagePortListener(function(data, replyPort) {
-		console.log("native receive audio length = " + data[0].value.length);						
+	
+
+	console.log("localMessagePort");
+
+	localMessagePort_ID = localMessagePort.addMessagePortListener(function(data, replyPort) {
+		console.log("native receive audio length = " + data[0].value.length);		
+		//console.log("native receive audio = " + data[0].value);		
+		
 		send_audio_data(data[0]);
-	});
-		
-
-	//To open an message port to invoke message port 		
-	remoteMessagePort = tizen.messageport.requestRemoteMessagePort(
-			nativeServiceAppId, "COMMAND_VALUE"); //로컬 포트로 "COMMAND_VALUE"이라는 메세지 이름으로 command 받음	
-
-	remoteAudioMessagePort = tizen.messageport.requestRemoteMessagePort(
-			nativeServiceAppId, "RECEIVE_AUDIO"); //로컬 포트로 "RECEIVE_AUDIO"이라는 메세지 이름으로 audio data 받음	
-
-	$("#play").click(function() {
-		
+	});	
+	console.log("localMessagePort_ID");
+	
+	if(typeof remoteMessagePort === "undefined") {
+			//To open an message port to invoke message port 		
+		remoteMessagePort = tizen.messageport.requestRemoteMessagePort(
+				nativeServiceAppId, 'COMMAND_VALUE'); //로컬 포트로 "COMMAND_VALUE"이라는 메세지 이름으로 command 받음		
+		console.log("remoteMessagePort");
+	}
+	if(typeof remoteAudioMessagePort === "undefined") {
+			remoteAudioMessagePort = tizen.messageport.requestRemoteMessagePort(
+				nativeServiceAppId, 'RECEIVE_AUDIO'); //로컬 포트로 "RECEIVE_AUDIO"이라는 메세지 이름으로 audio data 받음	
+		console.log("remoteAudioMessagePort");		
+	}
+	
+	$("#play").unbind('click').click(function() {
+	
 		//alert("Play");
 		
 		if(audio_flag == true){
@@ -47,7 +69,7 @@ function native_init() {
 		}
 	});	
 	
-	$("#pause").click(function() {
+	$("#pause").unbind('click').click(function() {
 		
 		//alert("Pause");
 		
@@ -62,7 +84,7 @@ function native_init() {
 		audio_flag = true;
 	});
 	
-	$("#stop").click(function() {
+	$("#stop").unbind('click').click(function() {
 		
 		//alert("Stop");
 		
@@ -78,18 +100,6 @@ function native_init() {
 		
 		
 	});
-	
-	/*
-	console.log("audio stopped for initializing audio device");
-	
-	//To send a message 원격포트로 키와 값을 보냄
-	remoteMessagePort.sendMessage([ {
-		key : 'command',
-		value : "audio_stop"
-	} ], null);
-	
-	audio_flag = true;
-	*/
 }
 
 function chat_init() {
@@ -136,6 +146,8 @@ function chat_init() {
 	//audio 데이터 받음
 	socket.on('audioData', function(data) {
 	    console.log("recv server audio Data = " + data.audioData.value.length);
+	    console.log("recv server audio = " + data.audioData.value);
+	    
 		remoteAudioMessagePort.sendMessage([ {
 			key : data.audioData.key,
 			value : data.audioData.value
@@ -213,12 +225,14 @@ function audio_stop_send() {
 //service app exit 요청
 function service_app_exit() {
    	//To send a message 원격포트로 종료 메세지  보냄
+	
 	remoteMessagePort.sendMessage([ {
 		key : 'command',
 		value : "app_exit"
 	} ], null);
 	
 	console.log("native app에 app_exit 보냄");
+	
 	audio_flag = true;
 	//그냥 나가는거는 서버에게 stop 메세지 안보냄
 }

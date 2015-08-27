@@ -7,6 +7,27 @@
 	<link rel="stylesheet" href="./lib/tau/mobile/theme/default/tau.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	
+	<script>
+	//var nativeServiceAppId = "S8vjRcPYft.zserviceapp";
+	var nativeServiceAppId = "jeITKUm4Mv.zserviceapp";
+
+	var remoteMessagePort;
+	var remoteAudioMessagePort;
+
+	var localMessagePort;
+	
+	var audio_flag = true;
+	
+	console.log("native_init() has been called");
+	
+	//Launch context transmitter service
+	tizen.application.launch(nativeServiceAppId, function(){ 
+		console.log('tizen.application.launch success');
+	}, function(err){
+		console.log('tizen.application.launch err = ' + err.message);
+	});
+	</script>
+	
 	<script src="./js/main.js"></script>
 	<script type="text/javascript" src="./js/teacher_screen.js"></script>
 	
@@ -341,7 +362,7 @@
                 	<li class="ui-drawer-main-list" style="text-align:center;" id="leave" onclick="check_leave(); fix_tabbar_width();"><a href="#">Leave Class</a></li>
             	</ul>
         	</div>
-        	
+        	<!-- 
         	<div data-role="drawer" data-position="right" id="classmates_list_drawer" style="display:none;">
             	<ul data-role="listview">
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="show_classmates();"><a href="#">Show Classmates</a></li>
@@ -349,7 +370,7 @@
                 	<li class="ui-drawer-main-list" style="text-align:center;" onclick="close_classmate_list();"><a href="#">Back</a></li>
             	</ul>
         	</div>
-				  
+			--> 
 			<div id="canvas_area" style="float:left; z-index:1;">
 				<canvas id="canvas" style="border: 1px solid black; margin-left: 5px; margin-top: 10px;"></canvas>
 			</div>
@@ -438,7 +459,7 @@
 	<div id="check_exit" data-role="popup" style="display:none;">
    		<div class="ui-popup-title"><h1>Do you really want to leave the class?</h1></div>
    		<div class="ui-popup-text" style="text-align:center;">
-   			<button id="roomExit" onclick="fix_tabbar_width();">Leave the Class</button>
+   			<button id="roomExit">Leave the Class</button>
 		</div>
 	</div>
 	

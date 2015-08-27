@@ -239,6 +239,8 @@ function FBLogout() {
 			socket.removeAllListeners('leaved');
 			socket.removeAllListeners('disconnect');
 			socket.removeAllListeners('connect');
+			//service_app_exit();   	
+			localMessagePort.removeMessagePortListener(localMessagePort_ID);
 			
 			logout_flag = true;
 		},

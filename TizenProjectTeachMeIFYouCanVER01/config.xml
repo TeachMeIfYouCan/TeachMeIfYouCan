@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/TizenProjectTeachMeIFYouCanVER01" version="1.0.0" viewmodes="maximized">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/TizenProjectTeachMeIFYouCanVER01" version="1.0.0" viewmodes="maximized">
     <access origin="*" subdomains="true"></access>
-    <tizen:application id="Y2QbwJHU6E.TizenProjectTeachMeIFYouCanVER01" package="Y2QbwJHU6E" required_version="2.3"/>
+    <tizen:application id="jeITKUm4Mv.TeachMeIFYouCan" package="jeITKUm4Mv" required_version="2.3"/>
+    <author email="chudaeyoun@naver.com">Teach Me IF You Can</author>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
-    <feature name="http://tizen.org/feature/sensor.magnetometer"/>
-    <feature name="http://tizen.org/feature/shell.appwidget"/>
-    <icon src="icon.png"/>
+    <icon src="icon.png" height="117" width="117"/>
     <name>TeachMeIFYouCan</name>
     <tizen:privilege name="http://tizen.org/privilege/fullscreen"/>
     <tizen:privilege name="http://tizen.org/privilege/internet"/>
     <tizen:privilege name="http://tizen.org/privilege/application.info"/>
     <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:privilege name="http://tizen.org/privilege/package.info"/>
     <tizen:profile name="mobile"/>
     <tizen:setting screen-orientation="portrait" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
 </widget>

@@ -6,12 +6,33 @@ var active_classmates_pic_list = new Array();
 
 var socket, streaming_socket;
 
+var leaver;
+
 function room_socket_init() {
 	
 	console.log("Start initializing the socket");
 	
 	socket = io('http://211.189.127.154:4389');	
 	//streaming_socket = io('http://211.189.127.154:53598');
+	
+	socket.removeAllListeners('roomList');
+	socket.removeAllListeners('getRoomUserList');
+	socket.removeAllListeners('echo_voice_change');
+	socket.removeAllListeners('requestRoomNum');
+	socket.removeAllListeners('inviteUserList');
+	socket.removeAllListeners('joined');
+	socket.removeAllListeners('roomJoinUsers');
+	socket.removeAllListeners('rejectJoinRoom');
+	socket.removeAllListeners('changePrivilege');
+	socket.removeAllListeners('leaved');
+	socket.removeAllListeners('disconnect');
+	socket.removeAllListeners('connect');
+	
+	socket.removeAllListeners('message');
+	socket.removeAllListeners('canvasData');
+	socket.removeAllListeners('backgroundImage');
+	socket.removeAllListeners('audioData');
+	socket.removeAllListeners('get_files');
 	
 	//전체 room의 대한 정보를 가져옴
 	socket.emit('roomList');
@@ -72,7 +93,9 @@ function room_socket_init() {
 		final_voice_change = data.voice_change;
 			
 		current_classmate_list();
-				
+		
+		//$('#' + leaver[0]).remove();
+		
 		if(am_i_master()){
 			
 			console.log("Joining the room as the master");
@@ -343,7 +366,7 @@ function room_socket_init() {
 		socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray, classTitle: classTitle});	
 		
 		console.log("본인이 참여 nickName = " + nickName + " roomName : " + roomName + " pic_url = " + data.pic_url);
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + nickName +'이' + roomName + '번방에 입장 </li>');				
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + nickName +' has entered the Room : ' + roomName + '</li>');				
 		
 		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
 		
@@ -408,9 +431,46 @@ function room_socket_init() {
 		
 		$('#teacher_screen #header_title #class_title').text(data.classTitle);
 		
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +'이' + data.roomName + '번방에 입장 </li>');				
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +' has entered the Room : ' + data.roomName + '</li>');				
 		
 		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
+		
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		/*
+		var new_comer = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';
+		var new_role;
+		var new_voice_auth;
+		
+		if(data.nickName == master_name){ new_role = "Master"; }
+		else{ new_role = "Classmate"; }
+		
+		if(data.nickName == final_voice_change){ new_voice_auth = "Voice"; }
+		else if(data.nickName == master_name){ new_voice_auth = "Voice"; }
+		else{ new_voice_auth = ""; }
+		
+		console.log(data.nickName);
+		
+		temp_list_for_select.push(data.nickName);
+		
+		new_comer = new_comer +  
+					'<a href="#" onclick="select_voice_change(' + (temp_list_for_select.length - 1) + ');" class="select_item"' + ' id=' + data.nickName.toString() + '>';
+		new_comer = new_comer + '<img src=' + data.pic_url + ' class="ui-li-bigicon ui-li-thumb" />';
+		new_comer = new_comer + '&nbsp;' + data.nickName;
+		new_comer = new_comer + '<span class="ui-li-text-sub">' +
+							'<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">' +
+								new_role +
+							'</h5>' +
+							'<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:bold; color:red;">' +
+								new_voice_auth +
+							'</h5>'
+						'</span>'; 
+		new_comer = new_comer + '</a> </li>';
+		
+		$('#select_classmates_list').append(new_comer);
+		
+		new_comer = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';
+		*/	
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		navigator.vibrate(500);
 		
@@ -662,9 +722,15 @@ function room_socket_init() {
 		console.log('<leaved>');
 		
 		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에서 퇴장</li>');						
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +' has left the Room : ' + data.roomName + '</li>');						
 		
 		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
+		
+		//$('#' + data.nickName).remove();
+		
+		//leaver = data.nickName;
+		
+		//leaver = leaver.split(' ');
 		
 		navigator.vibrate(500);	
 		
@@ -703,7 +769,12 @@ function room_socket_init() {
 		audio_flag = true;
 		
 		audio_stop_send();
-
+		
+		fix_tabbar_width();
+		
+		///////////////////////////////////////////////////////////
+		
+		///////////////////////////////////////////////////////////
 	});
 	
 	socket.on('disconnect', function() {
@@ -909,12 +980,13 @@ function enter_class(room_num, classTitle){
 	
 	editDrawer.close();
 	edit_menu_open = false;
-	
+	/*
 	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
  	
 	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
 	
 	classmate_list_drawer.close();
+	*/
 }
 
 //초대팝업에 거절 했을 경우

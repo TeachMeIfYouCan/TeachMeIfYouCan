@@ -45,7 +45,12 @@ $(document).ready(function() {
          var page = document.getElementsByClassName( 'ui-page-active' )[0],
             pageid = page ? page.id : "";
          if( pageid === "main" ) {
-            try {      	
+            try { 
+            	
+            	//localMessagePort.removeMessagePortListener(localMessagePort_ID);
+            	
+            	
+            	localMessagePort.removeMessagePortListener(localMessagePort_ID);    			
             	service_app_exit();            	
                 tizen.application.getCurrentApplication().exit();
                
@@ -62,15 +67,20 @@ $(document).ready(function() {
         	
         	editDrawer.close();
         	edit_menu_open = false;
-        	
+        	/*
         	var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
         	
         	var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
         	
         	classmate_list_drawer.close();
-        	
+        	*/
         	socket.emit('roomList');
         	
+        	/////////////////////////////////////////////////////////////////////////////////////////////
+        	final_voice_change = "";
+    		socket.emit('echo_voice_change', {voice_change : final_voice_change, roomName: roomName});
+        	/////////////////////////////////////////////////////////////////////////////////////////////
+    		
         	//To send a message 원격포트로 키와 값을 보냄
         	remoteMessagePort.sendMessage([ {
         		key : 'command',
@@ -94,13 +104,13 @@ $(document).ready(function() {
          	
         	 editDrawer.close();
         	 edit_menu_open = false;
-         	
+         	 /*	
         	 var classmate_list_drawer_Element = document.getElementById("classmates_list_drawer");
          	
         	 var classmate_list_drawer = tau.widget.Drawer(classmate_list_drawer_Element);
          	
         	 classmate_list_drawer.close();
-        	 
+        	 */
         	 
         	 
         	 screen.lockOrientation("portrait-primary");
@@ -128,6 +138,9 @@ $(document).ready(function() {
          
          else if(pageid === "page_option_list"){
         	 
+         	 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
+        	 localMessagePort.removeMessagePortListener(localMessagePort_ID);
+ 			
         	 service_app_exit();
         	 tizen.application.getCurrentApplication().exit();
         	 
@@ -135,6 +148,9 @@ $(document).ready(function() {
          
          else if(pageid === "page_class_list"){
         	 
+			 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
+        	 localMessagePort.removeMessagePortListener(localMessagePort_ID);
+ 			
         	 service_app_exit(); 
         	 tizen.application.getCurrentApplication().exit();
         	 
@@ -142,11 +158,17 @@ $(document).ready(function() {
          
          else if(pageid === "loginPage"){
         	 
+			 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
+        	 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
+			 
         	 tizen.application.getCurrentApplication().exit();
          }
          
          else {
         	 
+			 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
+        	 localMessagePort.removeMessagePortListener(localMessagePort_ID);
+			 
         	 close_all_drawers();
         	 service_app_exit();
         	 tizen.application.getCurrentApplication().exit();
@@ -251,7 +273,7 @@ function change_student_screen(){
 		$("#stop").unbind('click').click(function() {
 			console.log("audio_stop pressed");
 			
-			play_button_image.src = "./Play Button - Active.png";
+			play_button_image.src = "./Play Button - Inactive.png";
 			$(play_button).empty();
 			$(play_button).append(play_button_image);
 			play_button_image.style.height = "100%";
