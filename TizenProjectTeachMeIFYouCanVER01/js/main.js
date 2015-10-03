@@ -49,6 +49,7 @@ $(document).ready(function() {
             	
             	//localMessagePort.removeMessagePortListener(localMessagePort_ID);
             	
+            	tizen.power.release("SCREEN");
             	
             	localMessagePort.removeMessagePortListener(localMessagePort_ID);    			
             	service_app_exit();            	
@@ -138,6 +139,8 @@ $(document).ready(function() {
          
          else if(pageid === "page_option_list"){
         	 
+        	 tizen.power.release("SCREEN");
+        	 
          	 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
         	 localMessagePort.removeMessagePortListener(localMessagePort_ID);
  			
@@ -147,6 +150,8 @@ $(document).ready(function() {
          }
          
          else if(pageid === "page_class_list"){
+        	 
+        	 tizen.power.release("SCREEN");
         	 
 			 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
         	 localMessagePort.removeMessagePortListener(localMessagePort_ID);
@@ -158,6 +163,8 @@ $(document).ready(function() {
          
          else if(pageid === "loginPage"){
         	 
+        	 tizen.power.release("SCREEN");
+        	 
 			 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
         	 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
 			 
@@ -165,6 +172,8 @@ $(document).ready(function() {
          }
          
          else {
+        	 
+        	 tizen.power.release("SCREEN");
         	 
 			 //localMessagePort.removeMessagePortListener(localMessagePort_ID);
         	 localMessagePort.removeMessagePortListener(localMessagePort_ID);

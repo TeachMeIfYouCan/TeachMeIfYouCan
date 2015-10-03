@@ -41,6 +41,8 @@ function canvas_init(){
 	
 	FBLogin_check();
 	
+	tizen.power.request("SCREEN", "SCREEN_NORMAL");
+	
 	canvas_area = document.getElementById("canvas_area");
 	
 	canvas = document.getElementById("canvas");
@@ -338,8 +340,8 @@ function invite_more_friends(){
 
 		console.log(inviteUserArray[i]);	
 	}
-	
-	var classTitle = $('#teacher_screen #header_title #class_title').text();
+	//cdy 방의 있는 title 제목을 가지고 와서 방번호까지 붙어있는거 같아서 주석처리하고 전역변수인 classTitle로 emit
+	//var classTitle = $('#teacher_screen #header_title #class_title').text();
 	
 	socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray, classTitle: classTitle});	
 	
@@ -616,7 +618,50 @@ function show_classmates(){
 	
 	list_page_change = false;
 	
-	socket.emit('getRoomUserList', {roomName: roomName, nickName:nickName, id: id});
+	//socket.emit('getRoomUserList', {roomName: roomName, nickName:nickName, id: id});
+	
+	
+	screen.lockOrientation("portrait-primary");	
+	
+	var width;
+	
+	if(am_i_master()){
+		
+		if(document.width >= document.height){width = document.height * 0.5;}
+		else if(document.width < document.height){width = document.width * 0.5;}	
+	}
+	else{
+		
+		if(document.width >= document.height){width = document.height;}
+		else if(document.width < document.height){width = document.width;}	
+	}
+	
+	console.log(width);
+	
+	change_classmate_list();
+	
+	if(am_i_master()){
+		$('#change_master').css('width', width);
+		$('#change_master a').css('width', width * 0.95);
+		$('#change_master').show();
+		$('#change_master a').show();
+		
+		$('#cancel_change_master').css('width', width);
+		$('#cancel_change_master a').css('width', width * 0.95);
+		$('#cancel_change_master').show();
+		$('#cancel_change_master a').show();
+	}
+	else{
+		$('#change_master').css('width', 0);
+		$('#change_master a').css('width', 0 * 0.95);
+		$('#change_master').hide();
+		$('#change_master a').hide();
+		
+		$('#cancel_change_master').css('width', width);
+		$('#cancel_change_master a').css('width', width * 0.97);
+		$('#cancel_change_master').show();
+		$('#cancel_change_master a').show();
+	}
 }
 
 /*
@@ -652,7 +697,7 @@ var temp_list_for_select = new Array();
 function show_classmates_open(){
 	
 	screen.lockOrientation("portrait-primary");	
-	
+	/*
 	$('#select_classmates_list').empty();
 	$('#select_classmates_list').append('<li data-role="list-divider" id="show_classmates_top">Current Classmates</li>');
 	
@@ -688,11 +733,6 @@ function show_classmates_open(){
 							'<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:bold; color:red;">' +
 								voice_auth +
 							'</h5>'
-							/*
-							<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
-								Free
-							</h5>
-							*/
 						'</span>'; 
 		friend = friend + '</a> </li>';
 		
@@ -713,7 +753,7 @@ function show_classmates_open(){
 		if(document.width >= document.height){width = document.height;}
 		else if(document.width < document.height){width = document.width;}	
 	}
-	
+	*/
 	console.log(width);
 	
 	change_classmate_list();
@@ -829,7 +869,8 @@ function current_classmate_list(){
 
 function back_to_class(){
 	
-	$('#select_classmates_list').empty();
+	//cdy 이게 show_classmates 두번 클릭하면 지우는 코드 같음 
+	//$('#select_classmates_list').empty();
 	
 	screen.lockOrientation("landscape-primary");
 	change_student_screen();
@@ -970,7 +1011,7 @@ function yes_voice_change(){
 	
 	confirm_voice_change_pop_up_element.style.display="none";
 	
-	current_classmate_list();
+	//current_classmate_list();
 	
 	socket.emit('echo_voice_change', {voice_change : final_voice_change, roomName: roomName});
 	

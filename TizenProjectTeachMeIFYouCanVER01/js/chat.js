@@ -24,7 +24,7 @@ function native_init() {
 	
 	
 	if(typeof localMessagePort !== "undefined") {
-		console.log("있네!!!!!!!!!!!!!!!!!!!!");
+		console.log("localMessagePort 선언 되어 있음");
 		localMessagePort.removeMessagePortListener(localMessagePort_ID);
 	}
 	localMessagePort = tizen.messageport.requestLocalMessagePort("RECEIVE_HELLO_MESSAGE");

@@ -8,13 +8,7 @@ var socket, streaming_socket;
 
 var leaver;
 
-function room_socket_init() {
-	
-	console.log("Start initializing the socket");
-	
-	socket = io('http://211.189.127.154:4389');	
-	//streaming_socket = io('http://211.189.127.154:53598');
-	
+function socket_listner_remove() {
 	socket.removeAllListeners('roomList');
 	socket.removeAllListeners('getRoomUserList');
 	socket.removeAllListeners('echo_voice_change');
@@ -33,6 +27,32 @@ function room_socket_init() {
 	socket.removeAllListeners('backgroundImage');
 	socket.removeAllListeners('audioData');
 	socket.removeAllListeners('get_files');
+}
+
+function room_socket_init() {
+	
+	console.log("Start initializing the socket");
+	
+	socket = io('http://211.189.127.154:4389');
+	//streaming_socket = io('http://211.189.127.154:53598');
+	
+	socket_listner_remove();
+	
+	setInterval(function() {
+		console.log("setTimeout");
+		console.log("socket.connected = " + socket.connected);
+		console.log("socket.status = " + socket.status);
+		console.log("socket.disconnected = " + socket.disconnected);
+	
+		if(!socket.connected) {
+			//socket.close();
+			socket.reconnect();
+			socket_listner_remove();
+			console.log("socket.connected = " + socket.connected);
+			console.log("reconnect call");
+		}		
+	}, 3000); // socket 연결 상태 확인.
+
 	
 	//전체 room의 대한 정보를 가져옴
 	socket.emit('roomList');
@@ -83,7 +103,280 @@ function room_socket_init() {
 			}
 		}
 		
-		show_classmates_open();
+
+		$('#select_classmates_list').empty();
+		$('#select_classmates_list').append('<li data-role="list-divider" id="show_classmates_top" class="ui-li ui-bar-s ui-li-divider"><span class="ui-divider-text">Current Classmates</span><span class="ui-divider-normal-line"></span></li>');
+		
+		console.log("Refresh the friend list");
+		
+		var friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';
+		
+		var role;
+		
+		var voice_auth;
+		
+		//cdy 수정
+		for(var i = 0; i < data.attendants.length; i++){
+		
+			if(data.attendants[i].nickName == master_name){ role = "Master"; }
+			else{ role = "Classmate"; }
+			
+			if(data.attendants[i].nickName == final_voice_change){ voice_auth = "Voice"; }
+			else if(data.attendants[i].nickName == master_name){ voice_auth = "Voice"; }
+			else{ voice_auth = ""; }
+			
+			console.log(data.attendants[i].nickName);
+			
+			temp_list_for_select.push(data.attendants[i].nickName);
+	
+			friend = friend +  
+						'<a href="#" onclick="select_voice_change(' + i + ');" class="select_item"' + ' id=' + data.attendants[i].nickName.toString() + '>';
+			friend = friend + '<img src=http://graph.facebook.com/' + data.attendants[i].id + '/picture class="ui-li-bigicon ui-li-thumb" />';
+			friend = friend + '&nbsp;' + data.attendants[i].nickName;
+			friend = friend + '<span class="ui-li-text-sub">' +
+								'<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">' +
+									role +
+								'</h5>' +
+								'<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:bold; color:red;">' +
+									voice_auth +
+								'</h5>'
+								
+								//<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+								//	Free
+								//</h5>
+								
+							'</span>'; 
+			friend = friend + '</a> </li>';
+			
+			
+			$('#select_classmates_list').append(friend);
+			
+			//cdy 이코드는 머하는 코드?
+			friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';		
+		}
+		
+		if(am_i_master()){
+			
+			console.log("Joining the room as the master");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Play Button - Inactive.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./Pause Button - Inactive.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "./Stop Button - Inactive.png";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			
+			$("#play").unbind('click').click(function() {
+				
+				if(audio_flag == true){
+					console.log("audio_start pressed");
+					
+					play_button_image.src = "./Play Button - Active.png";
+					$(play_button).empty();
+					$(play_button).append(play_button_image);
+					play_button_image.style.height = "100%";
+					play_button.style.textAlign = "center";
+					
+					//To send a message 원격포트로 키와 값을 보냄
+					remoteMessagePort.sendMessage([ {
+						key : 'command',
+						value : "audio_start"
+					} ], null);
+					
+					audio_flag = false;
+				}
+			});
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {
+				console.log("audio_pause pressed");
+				
+				play_button_image.src = "./Play Button - Inactive.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_pause"
+				} ], null);
+				
+				audio_flag = true;
+			});
+			
+			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+			$("#stop").unbind('click').click(function() {
+				console.log("audio_stop pressed");
+				
+				play_button_image.src = "./Play Button - Inactive.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_stop"
+				} ], null);
+				
+				audio_flag = true;
+				
+				audio_stop_send();
+			});
+		}
+		else if(do_i_have_permit()){
+			
+			console.log("The authorization for microhpone use has been granted");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Mic_Yes.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./Yes_Touch_Paint.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "./Stop Button - Inactive.png";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			$("#play").unbind('click').click(function() {
+				
+				if(audio_flag == true){
+					console.log("audio_start pressed");
+					
+					play_button_image.src = "./Mic_Yes.png";
+					$(play_button).empty();
+					$(play_button).append(play_button_image);
+					play_button_image.style.height = "100%";
+					play_button.style.textAlign = "center";
+					
+					//To send a message 원격포트로 키와 값을 보냄
+					remoteMessagePort.sendMessage([ {
+						key : 'command',
+						value : "audio_start"
+					} ], null);
+					
+					audio_flag = false;
+				}
+			});
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {});
+			
+			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+			$("#stop").unbind('click').click(function() {
+				
+				console.log("audio_stop pressed");
+				
+				play_button_image.src = "./Mic_No.png";
+				$(play_button).empty();
+				$(play_button).append(play_button_image);
+				play_button_image.style.height = "100%";
+				play_button.style.textAlign = "center";
+				
+				//To send a message 원격포트로 키와 값을 보냄
+				remoteMessagePort.sendMessage([ {
+					key : 'command',
+					value : "audio_stop"
+				} ], null);
+				
+				audio_flag = true;
+				
+				audio_stop_send();
+			});
+		}
+		else{
+			
+			console.log("Joining the room as the classmate");
+			
+			play_button_image = new Image();
+			play_button_image.src = "./Mic_No.png";
+			pause_button_image = new Image();
+			pause_button_image.src = "./No_Touch_Paint.png";
+			stop_button_image = new Image;
+			stop_button_image.src = "";
+			
+			$(play_button).empty();
+			$(play_button).append(play_button_image);
+			play_button_image.style.height = "100%";
+			play_button.style.textAlign = "center";
+			$("#play").unbind('click').click(function() {});
+			
+			$(pause_button).empty();
+			$(pause_button).append(pause_button_image);
+			pause_button_image.style.height = "100%";
+			pause_button.style.textAlign = "center";
+			$("#pause").unbind('click').click(function() {});
+			
+			$(stop_button).empty();
+			$(stop_button).append(stop_button_image);
+			stop_button_image.style.height = "100%";
+			stop_button.style.textAlign = "center";
+			$("#stop").unbind('click').click(function() {});
+		}
+		
+		fix_tabbar_width();
+		
+		/*for(var i = 0; i < active_classmates_list.length; i++){
+			
+			if(active_classmates_list[i] == master_name){ role = "Master"; }
+			else{ role = "Classmate"; }
+			
+			if(active_classmates_list[i] == final_voice_change){ voice_auth = "Voice"; }
+			else if(active_classmates_list[i] == master_name){ voice_auth = "Voice"; }
+			else{ voice_auth = ""; }
+			
+			console.log(active_classmates_list[i]);
+			
+			temp_list_for_select.push(active_classmates_list[i]);
+	
+			friend = friend +  
+						'<a href="#" onclick="select_voice_change(' + i + ');" class="select_item"' + ' id=' + active_classmates_list[i].toString() + '>';
+			friend = friend + '<img src=' + active_classmates_pic_list[i] + ' class="ui-li-bigicon ui-li-thumb" />';
+			friend = friend + '&nbsp;' + active_classmates_list[i];
+			friend = friend + '<span class="ui-li-text-sub">' +
+								'<h5 class="speciality" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:normal;">' +
+									role +
+								'</h5>' +
+								'<h5 class="organization" style="margin:0; padding-bottom:3px; font-size:70%; font-weight:bold; color:red;">' +
+									voice_auth +
+								'</h5>'
+								
+								//<h5 class="status" style="margin:0; padding-bottom:3px; font-size:70%; color:green;">
+								//	Free
+								//</h5>
+								
+							'</span>'; 
+			friend = friend + '</a> </li>';
+			
+			
+			$('#select_classmates_list').append(friend);
+			
+			//cdy 이코드는 머하는 코드?
+			friend = '<li class="ui-li-has-thumb ui-li-anchor ui-li">';		
+		}*/
+		
+		//show_classmates_open();
 	});
 	
 	socket.on('echo_voice_change', function(data){
@@ -92,7 +385,7 @@ function room_socket_init() {
 		
 		final_voice_change = data.voice_change;
 			
-		current_classmate_list();
+		//current_classmate_list();
 		
 		//$('#' + leaver[0]).remove();
 		
@@ -366,13 +659,17 @@ function room_socket_init() {
 		socket.emit('inviteUserList', { roomName: roomName, nickName: nickName, id: id, inviteUserArray: inviteUserArray, classTitle: classTitle});	
 		
 		console.log("본인이 참여 nickName = " + nickName + " roomName : " + roomName + " pic_url = " + data.pic_url);
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + nickName +' has entered the Room : ' + roomName + '</li>');				
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + nickName +' has entered the room' + '</li>');				
 		
 		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
 		
 		screen.lockOrientation("landscape-primary");
 		
 		select_list.pop();
+		
+		if(classTitle === ''){classTitle = 'Untitled';}
+		
+		$('#teacher_screen #header_title #class_title').text(roomName + '. ' + classTitle);
 		
 		change_student_screen();
 	});
@@ -398,8 +695,10 @@ function room_socket_init() {
 				
 				console.log("Inviter : " + data.nickName);
 				
+				if(data.classTitle === ''){data.classTitle = 'Untitled';}
+				
 				$('#invite_title h1').text(data.nickName + " " + $('#invite_title h1').text());
-				$('#invite_class_title').text($('#invite_class_title').text() + " " + data.classTitle);
+				$('#invite_class_title').text(data.roomName + '. ' +$('#invite_class_title').text() + " " + data.classTitle);
 				
 				console.log('data.classTitle : ' + data.classTitle);
 				
@@ -429,9 +728,13 @@ function room_socket_init() {
 		
 		console.log("<join> nickName = " + data.nickName + " roomName : " + data.roomName + " pic_url = " + data.pic_url);
 		
-		$('#teacher_screen #header_title #class_title').text(data.classTitle);
+		var temp_title = data.classTitle;
 		
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +' has entered the Room : ' + data.roomName + '</li>');				
+		if(temp_title === ''){temp_title = 'Untitled';}
+		
+		$('#teacher_screen #header_title #class_title').text(data.roomName + '. ' + temp_title);
+		
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static"<img src = ' + pic_url + '>' + data.nickName +' has entered the room' + '</li>');				
 		
 		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
 		
@@ -495,7 +798,7 @@ function room_socket_init() {
 				if(i != data.attendants.length - 1)
 					attendants_list += ", ";	
 			}
-			$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + attendants_list + '님이 방에 있습니다.</li>');				
+			$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + attendants_list + ' is in the room</li>');				
 			
 			$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
 			
@@ -511,7 +814,7 @@ function room_socket_init() {
 		console.log('<rejectJoinRoom>');
 		
 		console.log("<rejectJoinRoom> nickName = " + data.nickName + " roomName : " + data.roomName);				
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +'이' + data.roomName + '번방에 초대 거부</li>');				
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +' has denied the request' + '</li>');				
 		
 		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
 		
@@ -722,7 +1025,7 @@ function room_socket_init() {
 		console.log('<leaved>');
 		
 		console.log("<leaved> nickName = " + data.nickName + " roomName = " + data.roomName);		
-		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +' has left the Room : ' + data.roomName + '</li>');						
+		$('#chat ul').append('<li class="ui-li-bubble-receive ui-li ui-li-static">' + data.nickName +' has left the room' + '</li>');						
 		
 		$('.ui-li-bubble-receive')[$('.ui-li-bubble-receive').length - 1].scrollIntoView(true);
 		
@@ -800,8 +1103,14 @@ function room_socket_init() {
 		
 		audio_flag = true;
 		
+		master_name = '';
+		master_id = '';
+		final_voice_change = '';
 		
 		fix_tabbar_width();
+		
+		$.mobile.changePage("main");
+		
 	});
 	
 	socket.on('connect', function(){
@@ -962,7 +1271,10 @@ function enter_class(room_num, classTitle){
 	$('#invite_class_title').text('Title:');
 	
 	console.log(classTitle);
-	$('#teacher_screen #header_title #class_title').text(classTitle);
+	
+	if(classTitle === ''){classTitle = 'Untitled';}
+	
+	$('#teacher_screen #header_title #class_title').text(room_num + '. ' + classTitle);
 	
 	console.log("만들어진 방 참가" );	
 	roomName = room_num;
@@ -1005,13 +1317,15 @@ function reject_class(room_num){
 
 function add_class(title, participant_list, room_number){
 	
+	if(title === ''){title = "Untitled";}
+	
 	var class_title = "'" + title + "'";
 	
 	console.log(class_title);
 	
 	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px; border-bottom: solid #99CCFF; border-bottom-width:1px;" class="ui-li ui-li-static ui-li-has-right-btn ui-li-last" tabindex="0">' +   	
 						'<div style="padding:0px; margin:0px;">' + 
-							'<h4 style="padding:5px; padding-top:15px; margin:0px;" class="ui-li-heading">' +
+							'<h4 style="padding:5px; padding-top:15px; margin:0px;" class="ui-li-heading">' + room_number + '. ' +
 								'Title: ';
 	
 	new_class = new_class + title + 	
@@ -1039,13 +1353,15 @@ function add_class(title, participant_list, room_number){
 
 function add_class_from_server(title, participant_list, room_number){
 	
+	if(title === ''){title = 'Untitled';}
+	
 	var class_title = "'" + title + "'";
 	
 	console.log(class_title);
 	
 	var new_class = '<li id=' + 'room' + room_number + ' onclick="expand_class_list(this);" style="height:30px; overflow:hidden; padding-top:0px; border-bottom: solid #99CCFF; border-bottom-width:1px;" class="ui-li ui-li-static ui-li-has-right-btn ui-li-last" tabindex="0">' +   	
 						'<div style="padding:0px; margin:0px;">' + 
-							'<h4 style="padding:5px; padding-top:15px; margin:0px;" class="ui-li-heading">' +
+							'<h4 style="padding:5px; padding-top:15px; margin:0px;" class="ui-li-heading">' + room_number + '. ' +
 								'Title: ';
 	
 	new_class = new_class + title + 	

@@ -8,7 +8,7 @@
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>hvQZC6wXvQGRp6xRasiolAIQffy9Sp8LvhcovUDVifw=</DigestValue>
+<DigestValue>sm8ywaHByhehk6NYxY2IP39QY8KfNwgWbNgSvCpfBxA=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2F.gitignore">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -56,7 +56,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2FTeach%20me%20if%20you%20can%20-%20Log%20In%20Image%201.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>y4g4JA1vMeMVE645MDF+FDTTCBVS5TsPkbJwgz8pQGE=</DigestValue>
+<DigestValue>Q9lHED6dBHZxsatlZkEhKGL1fCeFgHosJLfbRp8snms=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2FTeach%20me%20if%20you%20can%20-%20Log%20In%20Image.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -64,7 +64,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2FTeach%20me%20if%20you%20can%20-%20Powered%20by%20TIZEN.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>w5PzaZnCfEH5n5K8AoOb4cevnd3GgT0I9vEUqYM/kto=</DigestValue>
+<DigestValue>ISWgDoHHMzaNcAhLcm4GfOfIdfNFdUqE2XSfCutuny0=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2FYes_Touch_Paint.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -76,7 +76,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fconfig.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>M2+OMwRpWE2qdJp+091Nm5YQkUrsIecokgqDrmAmmAQ=</DigestValue>
+<DigestValue>feRCRSiIRJ9bzE+IQLdphrN3/5JvI2ts5pvpvsstxyI=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fcss%2Fstudent_screen_style.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -88,11 +88,11 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Ficon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>onMiUqvp+UBBQMcfWR5M6Y84G1BRiWSyB1mqtzgr+j8=</DigestValue>
+<DigestValue>VHf0nDj88OP6V3ucvoz2VAEuA20ebuFqMWqP/VJ2yB4=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Findex.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>p3qTbMeUBB42m7BGW2jzAklM79TI1d64ooptKl8nIj4=</DigestValue>
+<DigestValue>cKKEu7YlBHLNcAQ1Jr0qeW1cdK+I78NeZ0ErzaSamz0=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2F.gitignore">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -100,7 +100,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fchat.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>l8qFx9IR+NNX9bhuOe8b9qCfEG7MjY/PVFEYjdXmR+Y=</DigestValue>
+<DigestValue>cxOemqf9UfJRg76eOpdXeeY6sW495xvNhvIOqZz3zA0=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Ffacebook_oauth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -108,11 +108,11 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>YKEGQGEOllaN+OWTM48PZzhklQV6McF0a2PRJ0M/AEY=</DigestValue>
+<DigestValue>b3gt9LJUDteG/uAkregRtqCdyX64KMrDtlOqF2cni/w=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Froom.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>splvAyYPa0wYuPWEFlbL8/y8QxMxmjkPby/0kO/GLdo=</DigestValue>
+<DigestValue>grQROibI+MjXp7tHVxhdBkd7fMsqcFhO7IrBdConC84=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fsocket.io-1.3.4.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -124,7 +124,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fteacher_screen.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>WnqZj/uG9IAdpya9N2aH+nPq5WkklWVB/JT3+wBuizM=</DigestValue>
+<DigestValue>X6QmnOwiTMwQBp7wFmM4V8UWQJCODHHsengW8MAffhQ=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Flib%2Fjquery.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -2264,7 +2264,7 @@
 </Reference>
 <Reference URI="tizen-manifest.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>vkeme00lRWtzLbfUS/gdIUsSK49PSLvga6robysn5Mw=</DigestValue>
+<DigestValue>29Qb8kY4KbLrc9WpTO2vV0mmw2iSPlRk5EVv/mmrin0=</DigestValue>
 </Reference>
 <Reference URI="#prop">
 <Transforms>
@@ -2275,11 +2275,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-DiR5HZsx4PWRkKSMifkyyokpTGo2/FaxnZuoHxWBNTPMQB7W6k9DRNYN7W2ZpPgNSl4/GjDfi2T8
-HBxs3ecaGE/9vKWH7U+yjbf1Q0TtYYsbtuarkxmE+qkC6rjJLQ2xp4k0vF4Y401kUwwxOWLM52Tk
-hWVKAJO41QBlNBcCsJ9ZhiZ59qcqqqE7DINzlpPR/JcqnWMY9kegx0UTQpZJC0rOgse2w2qNbV+M
-+l2755F21a0QCYTTn8MC7OpFlJ5OmqAbPADUHt8OsoSlpkZUogZCVFk8B/QFGgBhN+SF67BRmLRc
-DTitOMjBUHzOADO6ZeLLnu4ebAYoVluDoslJKQ==
+KjNf+4c8MAwl2srxrfCauEd2aqsKGoc/5UrZFx33Okd29uQUaRPXYIGJeSMFYJT3ObgGtH640ay7
+6HtyueJTJRbG/B7X+29Uk19ubwFed8xjT/3AVziQGrRKRQwiI+4AZPxD4VBDyNyhb4P1LMFSNH+Y
+Un4KZ5aW8JNAzm/atlq6WdDHmfyTiJ8eu70rjI9VaW5eBpHOuQUtjMorn45iGA3ljUHyDOqjXt41
+aTTSYH9Y4II5n5Q2VonsKp7f79oaCfjCCYjdZrDb5BZToo+mem9Y7h9P9ziojzyIlxePa4HXwRsk
+UpaAI8xehM9b7I01IvfT7UJ1Wa8S3GJfkNfn9Q==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
